@@ -7,7 +7,7 @@
     <title>Scholar's Opus</title>
     
     <!-- PWA & iOS Tags -->
-    <link rel="manifest" href="manifest.json">
+    <link rel="manifest" href="./manifest.json">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="Opus">
@@ -42,14 +42,18 @@
 <script type="importmap">
 {
   "imports": {
-    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
     "react/": "https://esm.sh/react@^19.2.3/",
-    "react": "https://esm.sh/react@^19.2.3"
+    "react-dom": "https://esm.sh/react-dom@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react-dom/client": "https://esm.sh/react-dom@^19.2.3/client"
   }
 }
 </script>
 </head>
 <body>
     <div id="root"></div>
+    <!-- Explicitly import the entry point for environments that don't do it automatically -->
+    <script type="module" src="./index.tsx"></script>
 </body>
 </html>
