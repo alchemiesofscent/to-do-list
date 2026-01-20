@@ -31,7 +31,11 @@ export interface AcademicTask {
   description: string;
   coAuthors?: string;
   deadline?: string;
+  deadlineNote?: string;
   isFavorite?: boolean;
+  section?: string;
+  subsection?: string;
+  source?: string;
 }
 
 export interface Stats {

@@ -72,6 +72,12 @@ export const AcademicTaskList: React.FC<AcademicTaskListProps> = ({
                     <span>{new Date(task.deadline).toLocaleDateString()}</span>
                   </div>
                 )}
+                {!task.deadline && task.deadlineNote && (
+                  <div className="flex items-center gap-1.5 text-[10px] font-bold text-rose-500 dark:text-rose-400 uppercase tracking-widest">
+                    <ClockIcon className="w-3 h-3" />
+                    <span>{task.deadlineNote}</span>
+                  </div>
+                )}
               </div>
               
               <div>

@@ -1,8 +1,10 @@
 
 import { AcademicTask } from './types.ts';
 
+const isValidDateString = (value: string) => !Number.isNaN(new Date(value).getTime());
+
 export const generateGoogleCalendarUrl = (task: AcademicTask) => {
-  if (!task.deadline) return null;
+  if (!task.deadline || !isValidDateString(task.deadline)) return null;
   const date = new Date(task.deadline).toISOString().replace(/-|:|\.\d\d\d/g, "");
   const details = encodeURIComponent(`${task.description}\n\nStatus: ${task.status}\nType: ${task.type}`);
   const title = encodeURIComponent(`DEADLINE: ${task.title}`);
@@ -10,7 +12,7 @@ export const generateGoogleCalendarUrl = (task: AcademicTask) => {
 };
 
 export const downloadIcsFile = (task: AcademicTask) => {
-  if (!task.deadline) return;
+  if (!task.deadline || !isValidDateString(task.deadline)) return;
   
   const dateStr = new Date(task.deadline).toISOString().replace(/-|:|\.\d\d\d/g, "");
   const icsContent = [

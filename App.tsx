@@ -1,6 +1,7 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import { AcademicTask, TaskType, Status, Priority } from './types.ts';
-import { INITIAL_TASKS } from './initialData.ts';
+import { INITIAL_TASKS, PROJECTS_MD_REVISION } from './initialData.ts';
+import { loadTasksFromDb, saveTasksToDb } from './db.ts';
 import { StatsOverview } from './components/StatsOverview.tsx';
 import { AcademicTaskList } from './components/AcademicTaskList.tsx';
 import { TaskForm } from './components/TaskForm.tsx';
@@ -9,10 +10,9 @@ import { SearchIcon, FilterIcon, PlusIcon, BookIcon, SunIcon, MoonIcon, MonitorI
 type Theme = 'light' | 'dark' | 'system';
 
 const App: React.FC = () => {
-  const [tasks, setTasks] = useState<AcademicTask[]>(() => {
-    const saved = localStorage.getItem('scholar_opus_tasks');
-    return saved ? JSON.parse(saved) : INITIAL_TASKS;
-  });
+  const [tasks, setTasks] = useState<AcademicTask[]>(() =>
+    loadTasksFromDb({ seedTasks: INITIAL_TASKS, seedRevision: PROJECTS_MD_REVISION })
+  );
   
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [isEditingMode, setIsEditingMode] = useState(true);
@@ -25,7 +25,7 @@ const App: React.FC = () => {
   const [sortBy, setSortBy] = useState<'priority' | 'type' | 'title'>('priority');
 
   useEffect(() => {
-    localStorage.setItem('scholar_opus_tasks', JSON.stringify(tasks));
+    saveTasksToDb({ tasks, seedRevision: PROJECTS_MD_REVISION });
   }, [tasks]);
 
   useEffect(() => {
@@ -43,11 +43,19 @@ const App: React.FC = () => {
   }, [theme]);
 
   const handleSaveTask = (taskData: Omit<AcademicTask, 'id'>) => {
+    const normalizedTaskData: Omit<AcademicTask, 'id'> = {
+      ...taskData,
+      coAuthors: taskData.coAuthors?.trim() ? taskData.coAuthors.trim() : undefined,
+      deadline: taskData.deadline?.trim() ? taskData.deadline.trim() : undefined,
+      deadlineNote: taskData.deadlineNote?.trim() ? taskData.deadlineNote.trim() : undefined,
+      description: taskData.description ?? '',
+    };
+
     if (taskToEdit) {
-      setTasks(tasks.map(t => t.id === taskToEdit.id ? { ...taskData, id: taskToEdit.id } : t));
+      setTasks(tasks.map(t => t.id === taskToEdit.id ? { ...normalizedTaskData, id: taskToEdit.id } : t));
     } else {
       const newTask: AcademicTask = {
-        ...taskData,
+        ...normalizedTaskData,
         id: Math.random().toString(36).substr(2, 9),
       };
       setTasks([newTask, ...tasks]);

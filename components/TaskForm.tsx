@@ -18,6 +18,7 @@ export const TaskForm: React.FC<TaskFormProps> = ({ onSave, onClose, initialData
     description: '',
     coAuthors: '',
     deadline: '',
+    deadlineNote: '',
     isFavorite: false
   });
 
@@ -31,6 +32,7 @@ export const TaskForm: React.FC<TaskFormProps> = ({ onSave, onClose, initialData
         description: initialData.description,
         coAuthors: initialData.coAuthors || '',
         deadline: initialData.deadline || '',
+        deadlineNote: initialData.deadlineNote || '',
         isFavorite: initialData.isFavorite || false
       });
     }
@@ -152,6 +154,17 @@ export const TaskForm: React.FC<TaskFormProps> = ({ onSave, onClose, initialData
                 onChange={e => setFormData({...formData, deadline: e.target.value})}
               />
             </div>
+          </div>
+
+          <div>
+            <label className="block text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1">Deadline Note (Optional)</label>
+            <input
+              type="text"
+              placeholder="e.g. End of November"
+              className="w-full px-4 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white outline-none"
+              value={formData.deadlineNote}
+              onChange={e => setFormData({ ...formData, deadlineNote: e.target.value })}
+            />
           </div>
 
           <div className="pt-4 flex gap-3">
