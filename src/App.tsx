@@ -2,10 +2,10 @@ import React, { useState, useMemo, useEffect } from 'react';
 import { AcademicTask, TaskType } from './types.ts';
 import { INITIAL_TASKS, PROJECTS_MD_REVISION } from './initialData.ts';
 import { loadTasksFromDb, saveTasksToDb } from './db.ts';
-import { StatsOverview } from './components/StatsOverview.tsx';
+import { StatsFilterKey, StatsOverview } from './components/StatsOverview.tsx';
 import { AcademicTaskList } from './components/AcademicTaskList.tsx';
 import { TaskForm } from './components/TaskForm.tsx';
-import { SearchIcon, FilterIcon, PlusIcon, BookIcon, SunIcon, MoonIcon, MonitorIcon } from './components/Icons.tsx';
+import { SearchIcon, FilterIcon, PlusIcon, BookIcon, SunIcon, MoonIcon, MonitorIcon, MenuIcon, XIcon } from './components/Icons.tsx';
 
 type Theme = 'light' | 'dark' | 'system';
 type DomainTab = 'Writing' | 'Experiments' | 'DH' | 'Grants' | 'Admin';
@@ -42,6 +42,46 @@ const classifyTaskDomain = (task: AcademicTask): DomainTab => {
   return 'Writing';
 };
 
+const applyStatsFilter = (tasks: AcademicTask[], filter: StatsFilterKey): AcademicTask[] => {
+  if (filter === 'total') return tasks;
+  if (filter === 'published') return tasks.filter((t) => t.status === 'Published');
+  if (filter === 'highPriority') return tasks.filter((t) => t.priority === 'High');
+  return tasks.filter((t) => ['Draft', 'Revision', 'Experimental'].includes(t.status));
+};
+
+const MobileDrawer: React.FC<{
+  open: boolean;
+  title: string;
+  onClose: () => void;
+  children: React.ReactNode;
+}> = ({ open, title, onClose, children }) => {
+  if (!open) return null;
+  return (
+    <div className="fixed inset-0 z-50 sm:hidden">
+      <button
+        type="button"
+        className="absolute inset-0 bg-black/40 dark:bg-black/60"
+        onClick={onClose}
+        aria-label="Close"
+      />
+      <div className="absolute inset-x-0 bottom-0 max-h-[85vh] overflow-y-auto bg-white dark:bg-slate-800 rounded-t-2xl border border-slate-200 dark:border-slate-700 shadow-2xl">
+        <div className="sticky top-0 bg-white/90 dark:bg-slate-800/90 backdrop-blur border-b border-slate-100 dark:border-slate-700 p-4 flex items-center justify-between">
+          <h3 className="text-xs font-black uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">{title}</h3>
+          <button
+            type="button"
+            onClick={onClose}
+            className="p-2 rounded-lg text-slate-400 hover:text-slate-600 dark:hover:text-slate-200"
+            aria-label="Close drawer"
+          >
+            <XIcon className="w-5 h-5" />
+          </button>
+        </div>
+        <div className="p-4">{children}</div>
+      </div>
+    </div>
+  );
+};
+
 const App: React.FC = () => {
   const [tasks, setTasks] = useState<AcademicTask[]>(() =>
     loadTasksFromDb({ seedTasks: INITIAL_TASKS, seedRevision: PROJECTS_MD_REVISION })
@@ -56,16 +96,28 @@ const App: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [activeTypeFilter, setActiveTypeFilter] = useState<TaskType | 'All'>('All');
   const [sortBy, setSortBy] = useState<'priority' | 'type' | 'title'>('priority');
+  const [activeStatsFilter, setActiveStatsFilter] = useState<StatsFilterKey>('total');
   const [activeDomainTab, setActiveDomainTab] = useState<DomainTab>(() => {
     const saved = localStorage.getItem('scholar_opus_domain_tab');
     const validTabs = new Set(DOMAIN_TABS.map((t) => t.key));
     if (saved && validTabs.has(saved as DomainTab)) return saved as DomainTab;
     return 'Writing';
   });
+  const [isTabsDrawerOpen, setIsTabsDrawerOpen] = useState(false);
+  const [isFiltersDrawerOpen, setIsFiltersDrawerOpen] = useState(false);
+  const [isActionsDrawerOpen, setIsActionsDrawerOpen] = useState(false);
 
   useEffect(() => {
     saveTasksToDb({ tasks, seedRevision: PROJECTS_MD_REVISION });
   }, [tasks]);
+
+  useEffect(() => {
+    const anyOpen = isTabsDrawerOpen || isFiltersDrawerOpen || isActionsDrawerOpen;
+    document.body.style.overflow = anyOpen ? 'hidden' : '';
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isTabsDrawerOpen, isFiltersDrawerOpen, isActionsDrawerOpen]);
 
   useEffect(() => {
     localStorage.setItem('scholar_opus_domain_tab', activeDomainTab);
@@ -136,7 +188,7 @@ const App: React.FC = () => {
     return counts;
   }, [tasks]);
 
-  const filteredTasks = useMemo(() => {
+  const tasksAfterPrimaryFilters = useMemo(() => {
     const result = tasks.filter(t => classifyTaskDomain(t) === activeDomainTab).filter(t => {
       const matchesSearch = t.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
                            t.description.toLowerCase().includes(searchQuery.toLowerCase());
@@ -154,9 +206,30 @@ const App: React.FC = () => {
     });
   }, [tasks, activeDomainTab, searchQuery, activeTypeFilter, sortBy]);
 
+  const displayedTasks = useMemo(
+    () => applyStatsFilter(tasksAfterPrimaryFilters, activeStatsFilter),
+    [tasksAfterPrimaryFilters, activeStatsFilter]
+  );
+
   const taskTypes: (TaskType | 'All')[] = [
     'All', 'Article', 'Book', 'Translation', 'Edited Volume', 'Book Review', 'Digital Humanities', 'Grant', 'Book Proposal'
   ];
+
+  const activeFilterCount = useMemo(() => {
+    let count = 0;
+    if (activeTypeFilter !== 'All') count++;
+    if (searchQuery.trim()) count++;
+    if (sortBy !== 'priority') count++;
+    if (activeStatsFilter !== 'total') count++;
+    return count;
+  }, [activeTypeFilter, searchQuery, sortBy, activeStatsFilter]);
+
+  const resetFilters = () => {
+    setActiveTypeFilter('All');
+    setSearchQuery('');
+    setSortBy('priority');
+    setActiveStatsFilter('total');
+  };
 
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-slate-900 transition-colors duration-200">
@@ -171,7 +244,7 @@ const App: React.FC = () => {
           
           <div className="flex items-center gap-2 sm:gap-4">
             {/* Control Center */}
-            <div className="flex items-center bg-slate-100 dark:bg-slate-900/50 p-1 rounded-xl border border-slate-200 dark:border-slate-700">
+            <div className="hidden sm:flex items-center bg-slate-100 dark:bg-slate-900/50 p-1 rounded-xl border border-slate-200 dark:border-slate-700">
               {/* Theme Selector */}
               <div className="flex items-center border-r border-slate-200 dark:border-slate-700 pr-1 mr-1">
                  <button 
@@ -208,9 +281,19 @@ const App: React.FC = () => {
               </button>
             </div>
 
-            <button 
+            <button
+              type="button"
+              onClick={() => setIsActionsDrawerOpen(true)}
+              className="sm:hidden bg-slate-100 dark:bg-slate-900/50 text-slate-600 dark:text-slate-300 p-2 rounded-xl border border-slate-200 dark:border-slate-700"
+              aria-label="Open actions"
+            >
+              <MenuIcon className="w-5 h-5" />
+            </button>
+
+            <button
+              type="button"
               onClick={() => setIsFormOpen(true)}
-              className="bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 p-2 sm:px-4 sm:py-2 rounded-full sm:rounded-lg font-bold text-sm flex items-center gap-2 hover:opacity-90 transition-all shadow active:scale-95"
+              className="hidden sm:flex bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 p-2 sm:px-4 sm:py-2 rounded-full sm:rounded-lg font-bold text-sm items-center gap-2 hover:opacity-90 transition-all shadow active:scale-95"
             >
               <PlusIcon className="w-5 h-5" />
               <span className="hidden sm:inline">New Project</span>
@@ -228,7 +311,7 @@ const App: React.FC = () => {
         </div>
 
         <div className="mb-6 flex justify-center sm:justify-start">
-          <div className="inline-flex items-center gap-1 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-1 shadow-sm">
+          <div className="hidden sm:inline-flex items-center gap-1 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-1 shadow-sm">
             {DOMAIN_TABS.map((tab) => {
               const isActive = tab.key === activeDomainTab;
               return (
@@ -256,12 +339,46 @@ const App: React.FC = () => {
               );
             })}
           </div>
+
+          <button
+            type="button"
+            onClick={() => setIsTabsDrawerOpen(true)}
+            className="sm:hidden w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl px-4 py-3 shadow-sm flex items-center justify-between"
+          >
+            <span className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 dark:text-slate-500">View</span>
+            <span className="text-xs font-black uppercase tracking-widest text-slate-900 dark:text-white">
+              {activeDomainTab}
+              <span className="ml-2 text-[10px] px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-900/50 text-slate-500 dark:text-slate-400">
+                {domainCounts[activeDomainTab]}
+              </span>
+            </span>
+          </button>
         </div>
 
-        <StatsOverview tasks={filteredTasks} />
+        <StatsOverview
+          tasks={tasksAfterPrimaryFilters}
+          activeFilter={activeStatsFilter}
+          onSelectFilter={(next) => setActiveStatsFilter((current) => (current === next ? 'total' : next))}
+        />
 
         {/* Filters Sticky Bar */}
-        <div className="flex flex-col sm:flex-row items-center gap-4 mb-8 sticky top-16 bg-slate-50 dark:bg-slate-900 py-4 z-30">
+        <div className="sm:hidden mb-6 sticky top-16 bg-slate-50 dark:bg-slate-900 py-3 z-30">
+          <button
+            type="button"
+            onClick={() => setIsFiltersDrawerOpen(true)}
+            className="w-full flex items-center justify-between bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl px-4 py-3 shadow-sm"
+          >
+            <span className="flex items-center gap-2 text-slate-600 dark:text-slate-300 font-bold text-sm">
+              <FilterIcon className="w-4 h-4 text-slate-400" />
+              Filters
+            </span>
+            <span className="text-[10px] font-black uppercase tracking-widest text-slate-500 dark:text-slate-400">
+              {activeFilterCount === 0 ? 'None' : `${activeFilterCount} Active`}
+            </span>
+          </button>
+        </div>
+
+        <div className="hidden sm:flex flex-col sm:flex-row items-center gap-4 mb-8 sticky top-16 bg-slate-50 dark:bg-slate-900 py-4 z-30">
           <div className="flex items-center gap-2 overflow-x-auto w-full no-scrollbar pb-2 sm:pb-0">
             <FilterIcon className="w-4 h-4 text-slate-400 shrink-0" />
             {taskTypes.map(type => (
@@ -308,7 +425,7 @@ const App: React.FC = () => {
         </div>
 
         <AcademicTaskList 
-          tasks={filteredTasks}
+          tasks={displayedTasks}
           onToggleFavorite={toggleFavorite}
           onDelete={deleteTask}
           onUpdateTask={updateTaskField}
@@ -316,6 +433,202 @@ const App: React.FC = () => {
           isEditingMode={isEditingMode}
         />
       </main>
+
+      <MobileDrawer
+        open={isTabsDrawerOpen}
+        title="Views"
+        onClose={() => setIsTabsDrawerOpen(false)}
+      >
+        <div className="grid grid-cols-1 gap-2">
+          {DOMAIN_TABS.map((tab) => {
+            const isActive = tab.key === activeDomainTab;
+            return (
+              <button
+                key={tab.key}
+                type="button"
+                onClick={() => {
+                  setActiveDomainTab(tab.key);
+                  setIsTabsDrawerOpen(false);
+                }}
+                className={`w-full flex items-center justify-between px-4 py-3 rounded-xl border transition-all ${
+                  isActive
+                    ? 'bg-slate-900 dark:bg-white text-white dark:text-slate-900 border-slate-900 dark:border-white shadow'
+                    : 'bg-white dark:bg-slate-900/30 text-slate-700 dark:text-slate-200 border-slate-200 dark:border-slate-700'
+                }`}
+                aria-pressed={isActive}
+              >
+                <span className="text-xs font-black uppercase tracking-widest">{tab.label}</span>
+                <span className={`text-[10px] px-2 py-0.5 rounded-full ${isActive ? 'bg-white/20 dark:bg-slate-900/10' : 'bg-slate-100 dark:bg-slate-900/50'}`}>
+                  {domainCounts[tab.key]}
+                </span>
+              </button>
+            );
+          })}
+        </div>
+      </MobileDrawer>
+
+      <MobileDrawer
+        open={isFiltersDrawerOpen}
+        title="Filters"
+        onClose={() => setIsFiltersDrawerOpen(false)}
+      >
+        <div className="space-y-4">
+          <div className="flex items-center gap-2 bg-slate-50 dark:bg-slate-900/50 px-4 py-2 rounded-xl border border-slate-200 dark:border-slate-700">
+            <SearchIcon className="w-4 h-4 text-slate-400 shrink-0" />
+            <input
+              type="search"
+              placeholder="Search…"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="bg-transparent text-sm font-semibold text-slate-700 dark:text-slate-200 outline-none w-full placeholder:text-slate-400"
+            />
+          </div>
+
+          <div>
+            <div className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 dark:text-slate-500 mb-2">Type</div>
+            <div className="flex flex-wrap gap-2">
+              {taskTypes.map((type) => {
+                const isActive = activeTypeFilter === type;
+                return (
+                  <button
+                    key={type}
+                    type="button"
+                    onClick={() => setActiveTypeFilter(type)}
+                    className={`px-4 py-2 rounded-full text-xs font-bold transition-all border ${
+                      isActive
+                        ? 'bg-slate-900 dark:bg-white text-white dark:text-slate-900 border-slate-900 dark:border-white shadow-md'
+                        : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-400 border-slate-200 dark:border-slate-700'
+                    }`}
+                    aria-pressed={isActive}
+                  >
+                    {type}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
+          <div className="flex items-center justify-between gap-3 bg-white dark:bg-slate-900/30 px-4 py-2 rounded-xl border border-slate-200 dark:border-slate-700">
+            <label className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest">Sort</label>
+            <select
+              className="bg-transparent text-xs font-bold text-slate-700 dark:text-slate-200 outline-none cursor-pointer"
+              value={sortBy}
+              onChange={(e) => {
+                const next = e.target.value;
+                if (next === 'priority' || next === 'type' || next === 'title') setSortBy(next);
+              }}
+            >
+              <option value="priority">Priority</option>
+              <option value="type">Type</option>
+              <option value="title">Title</option>
+            </select>
+          </div>
+
+          <div className="flex gap-2">
+            <button
+              type="button"
+              onClick={() => {
+                resetFilters();
+                setIsFiltersDrawerOpen(false);
+              }}
+              className="flex-1 px-4 py-2 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-200 font-bold rounded-xl hover:bg-slate-200 dark:hover:bg-slate-600 transition-colors"
+            >
+              Reset
+            </button>
+            <button
+              type="button"
+              onClick={() => setIsFiltersDrawerOpen(false)}
+              className="flex-1 px-4 py-2 bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-bold rounded-xl hover:opacity-90 transition-colors"
+            >
+              Done
+            </button>
+          </div>
+        </div>
+      </MobileDrawer>
+
+      <MobileDrawer
+        open={isActionsDrawerOpen}
+        title="Actions"
+        onClose={() => setIsActionsDrawerOpen(false)}
+      >
+        <div className="space-y-4">
+          <button
+            type="button"
+            onClick={() => {
+              setIsActionsDrawerOpen(false);
+              setIsFormOpen(true);
+            }}
+            className="w-full bg-slate-900 dark:bg-white text-white dark:text-slate-900 px-4 py-3 rounded-xl font-black uppercase tracking-widest flex items-center justify-center gap-2 hover:opacity-90 transition-all shadow"
+          >
+            <PlusIcon className="w-5 h-5" />
+            New Project
+          </button>
+
+          <div className="bg-white dark:bg-slate-900/30 border border-slate-200 dark:border-slate-700 rounded-xl p-3">
+            <div className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 dark:text-slate-500 mb-2">Theme</div>
+            <div className="flex items-center gap-2">
+              <button
+                type="button"
+                onClick={() => setTheme('light')}
+                className={`flex-1 py-2 rounded-lg transition-all font-bold text-xs flex items-center justify-center gap-2 ${
+                  theme === 'light'
+                    ? 'bg-slate-900 text-white dark:bg-white dark:text-slate-900'
+                    : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300'
+                }`}
+              >
+                <SunIcon className="w-4 h-4" />
+                Light
+              </button>
+              <button
+                type="button"
+                onClick={() => setTheme('dark')}
+                className={`flex-1 py-2 rounded-lg transition-all font-bold text-xs flex items-center justify-center gap-2 ${
+                  theme === 'dark'
+                    ? 'bg-slate-900 text-white dark:bg-white dark:text-slate-900'
+                    : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300'
+                }`}
+              >
+                <MoonIcon className="w-4 h-4" />
+                Dark
+              </button>
+              <button
+                type="button"
+                onClick={() => setTheme('system')}
+                className={`flex-1 py-2 rounded-lg transition-all font-bold text-xs flex items-center justify-center gap-2 ${
+                  theme === 'system'
+                    ? 'bg-slate-900 text-white dark:bg-white dark:text-slate-900'
+                    : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300'
+                }`}
+              >
+                <MonitorIcon className="w-4 h-4" />
+                System
+              </button>
+            </div>
+          </div>
+
+          <button
+            type="button"
+            onClick={() => setIsEditingMode(!isEditingMode)}
+            className={`w-full px-4 py-3 rounded-xl font-black uppercase tracking-widest flex items-center justify-between transition-all border ${
+              isEditingMode
+                ? 'bg-rose-500 text-white border-rose-500'
+                : 'bg-white dark:bg-slate-900/30 text-slate-600 dark:text-slate-300 border-slate-200 dark:border-slate-700'
+            }`}
+            aria-pressed={isEditingMode}
+          >
+            <span>{isEditingMode ? 'Editing' : 'Locked'}</span>
+            <span className={`w-2 h-2 rounded-full ${isEditingMode ? 'bg-white animate-pulse' : 'bg-slate-300 dark:bg-slate-600'}`} />
+          </button>
+
+          <button
+            type="button"
+            onClick={() => setIsActionsDrawerOpen(false)}
+            className="w-full px-4 py-3 rounded-xl font-bold bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-200"
+          >
+            Close
+          </button>
+        </div>
+      </MobileDrawer>
 
       {isFormOpen && (
         <TaskForm 
