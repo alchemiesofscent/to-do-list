@@ -1,11 +1,11 @@
 import React, { useState, useMemo, useEffect } from 'react';
-import { AcademicTask, TaskType, Status, Priority } from './types.ts';
+import { AcademicTask, TaskType } from './types.ts';
 import { INITIAL_TASKS, PROJECTS_MD_REVISION } from './initialData.ts';
 import { loadTasksFromDb, saveTasksToDb } from './db.ts';
 import { StatsOverview } from './components/StatsOverview.tsx';
 import { AcademicTaskList } from './components/AcademicTaskList.tsx';
 import { TaskForm } from './components/TaskForm.tsx';
-import { FilterIcon, PlusIcon, BookIcon, SunIcon, MoonIcon, MonitorIcon } from './components/Icons.tsx';
+import { SearchIcon, FilterIcon, PlusIcon, BookIcon, SunIcon, MoonIcon, MonitorIcon } from './components/Icons.tsx';
 
 type Theme = 'light' | 'dark' | 'system';
 type DomainTab = 'Writing' | 'Experiments' | 'DH' | 'Grants' | 'Admin';
@@ -137,7 +137,7 @@ const App: React.FC = () => {
   }, [tasks]);
 
   const filteredTasks = useMemo(() => {
-    let result = tasks.filter(t => classifyTaskDomain(t) === activeDomainTab).filter(t => {
+    const result = tasks.filter(t => classifyTaskDomain(t) === activeDomainTab).filter(t => {
       const matchesSearch = t.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
                            t.description.toLowerCase().includes(searchQuery.toLowerCase());
       const matchesType = activeTypeFilter === 'All' || t.type === activeTypeFilter;
@@ -279,12 +279,26 @@ const App: React.FC = () => {
             ))}
           </div>
           
+          <div className="flex items-center gap-2 w-full sm:w-auto bg-white dark:bg-slate-800 px-4 py-2 rounded-full border border-slate-200 dark:border-slate-700">
+            <SearchIcon className="w-4 h-4 text-slate-400 shrink-0" />
+            <input
+              type="search"
+              placeholder="Search…"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="bg-transparent text-sm font-semibold text-slate-700 dark:text-slate-300 outline-none w-full sm:w-56 placeholder:text-slate-400"
+            />
+          </div>
+
           <div className="flex items-center gap-3 shrink-0 self-end sm:self-auto bg-white dark:bg-slate-800 px-4 py-1.5 rounded-full border border-slate-200 dark:border-slate-700">
             <label className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest">Sort:</label>
             <select 
               className="bg-transparent text-xs font-bold text-slate-700 dark:text-slate-300 outline-none cursor-pointer"
               value={sortBy}
-              onChange={e => setSortBy(e.target.value as any)}
+              onChange={(e) => {
+                const next = e.target.value;
+                if (next === 'priority' || next === 'type' || next === 'title') setSortBy(next);
+              }}
             >
               <option value="priority">Priority</option>
               <option value="type">Type</option>

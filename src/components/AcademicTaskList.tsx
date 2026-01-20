@@ -1,5 +1,5 @@
 import React from 'react';
-import { AcademicTask, Priority, Status, TaskType } from '../types.ts';
+import { AcademicTask, Priority, Status } from '../types.ts';
 import { ClockIcon, TrashIcon, StarIcon, BookIcon } from './Icons.tsx';
 import { downloadIcsFile } from '../calendarUtils.ts';
 
@@ -31,13 +31,12 @@ const STATUS_COLORS: Record<Status, string> = {
   Upcoming: 'bg-cyan-50 text-cyan-700 dark:bg-cyan-900/20 dark:text-cyan-400',
 };
 
-export const AcademicTaskList: React.FC<AcademicTaskListProps> = ({ 
-  tasks, 
-  onToggleFavorite, 
+export const AcademicTaskList: React.FC<AcademicTaskListProps> = ({
+  tasks,
+  onToggleFavorite,
   onDelete,
-  onUpdateTask,
   onEdit,
-  isEditingMode
+  isEditingMode,
 }) => {
   if (tasks.length === 0) {
     return (

@@ -57,7 +57,7 @@ function loadDb(): ScholarOpusDbV1 | null {
   if (!isRecord(raw)) return null;
   if (raw.version !== 1) return null;
   if (!isRecord(raw.tasksById)) return null;
-  return raw as ScholarOpusDbV1;
+  return raw as unknown as ScholarOpusDbV1;
 }
 
 function saveDb(db: ScholarOpusDbV1) {
