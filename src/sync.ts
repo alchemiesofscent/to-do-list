@@ -132,27 +132,28 @@ export function mergeTasks(
 ): AcademicTask[] {
   const merged = new Map<string, AcademicTask>();
 
-  // Add all local tasks
-  for (const task of localTasks) {
+  // Add all cloud tasks first (they are the source of truth)
+  for (const task of cloudTasks) {
     merged.set(task.id, task);
   }
 
-  // Merge cloud tasks (last-write-wins based on updatedAt)
-  for (const cloudTask of cloudTasks) {
-    const localTask = merged.get(cloudTask.id);
+  // Merge local tasks - only override if local is definitively newer
+  for (const localTask of localTasks) {
+    const cloudTask = merged.get(localTask.id);
 
-    if (!localTask) {
-      // Task only exists in cloud
-      merged.set(cloudTask.id, cloudTask);
+    if (!cloudTask) {
+      // Task only exists locally - add it
+      merged.set(localTask.id, localTask);
     } else {
       // Both exist - compare timestamps
-      const localTime = new Date(localTask.updatedAt ?? 0).getTime();
-      const cloudTime = new Date(cloudTask.updatedAt ?? 0).getTime();
+      // Cloud wins unless local has a newer updatedAt
+      const localTime = localTask.updatedAt ? new Date(localTask.updatedAt).getTime() : 0;
+      const cloudTime = cloudTask.updatedAt ? new Date(cloudTask.updatedAt).getTime() : 0;
 
-      if (cloudTime > localTime) {
-        merged.set(cloudTask.id, cloudTask);
+      if (localTime > cloudTime) {
+        merged.set(localTask.id, localTask);
       }
-      // If local is newer or equal, keep local (already in map)
+      // Otherwise keep cloud version (already in map)
     }
   }
 
