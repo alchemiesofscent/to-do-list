@@ -1,0 +1,10 @@
+{
+  "name": "Scholar's Opus",
+  "description": "Academic research and publication tracker with calendar synchronization.",
+  "requestFramePermissions": [],
+  "short_name": "Opus",
+  "theme_color": "#0f172a",
+  "background_color": "#f8fafc",
+  "display": "standalone",
+  "start_url": "/"
+}
