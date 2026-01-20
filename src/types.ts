@@ -38,6 +38,7 @@ export interface AcademicTask {
   section?: string;
   subsection?: string;
   source?: string;
+  updatedAt?: string; // ISO timestamp for sync conflict resolution
 }
 
 export interface Stats {

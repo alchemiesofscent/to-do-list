@@ -1,11 +1,14 @@
-import React, { useState, useMemo, useEffect } from 'react';
+import React, { useState, useMemo, useEffect, useCallback } from 'react';
 import { AcademicTask, Domain, TaskType } from './types.ts';
 import { INITIAL_TASKS, PROJECTS_MD_REVISION } from './initialData.ts';
-import { loadTasksFromDb, saveTasksToDb } from './db.ts';
+import { loadTasksFromDb, saveTasksToDb, getUserId, setUserId } from './db.ts';
 import { StatsFilterKey, StatsOverview } from './components/StatsOverview.tsx';
 import { AcademicTaskList } from './components/AcademicTaskList.tsx';
 import { TaskForm } from './components/TaskForm.tsx';
 import { SearchIcon, FilterIcon, PlusIcon, BookIcon, SunIcon, MoonIcon, MonitorIcon, MenuIcon, XIcon } from './components/Icons.tsx';
+import { syncTasks, deleteFromCloud, type SyncStatus } from './sync.ts';
+import { isSupabaseConfigured } from './supabase.ts';
+import { SyncStatus as SyncStatusIndicator } from './components/SyncStatus.tsx';
 
 type Theme = 'light' | 'dark' | 'system';
 
@@ -107,18 +110,67 @@ const App: React.FC = () => {
   const [isTabsDrawerOpen, setIsTabsDrawerOpen] = useState(false);
   const [isFiltersDrawerOpen, setIsFiltersDrawerOpen] = useState(false);
   const [isActionsDrawerOpen, setIsActionsDrawerOpen] = useState(false);
+  const [syncStatus, setSyncStatus] = useState<SyncStatus>('idle');
+  const [isSyncSettingsOpen, setIsSyncSettingsOpen] = useState(false);
+  const [linkDeviceInput, setLinkDeviceInput] = useState('');
 
+  // Save to localStorage whenever tasks change
   useEffect(() => {
     saveTasksToDb({ tasks, seedRevision: PROJECTS_MD_REVISION });
   }, [tasks]);
 
+  // Sync with cloud on app load
   useEffect(() => {
-    const anyOpen = isTabsDrawerOpen || isFiltersDrawerOpen || isActionsDrawerOpen;
+    if (!isSupabaseConfigured) return;
+
+    const doInitialSync = async () => {
+      const mergedTasks = await syncTasks(tasks, setSyncStatus);
+      // Only update if we got different tasks from cloud
+      if (mergedTasks !== tasks && mergedTasks.length > 0) {
+        setTasks(mergedTasks);
+      }
+    };
+
+    doInitialSync();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []); // Only run on mount
+
+  // Listen for online/offline events
+  useEffect(() => {
+    const handleOnline = () => {
+      if (isSupabaseConfigured) {
+        syncTasks(tasks, setSyncStatus).then((merged) => {
+          if (merged !== tasks) setTasks(merged);
+        });
+      }
+    };
+    const handleOffline = () => setSyncStatus('offline');
+
+    window.addEventListener('online', handleOnline);
+    window.addEventListener('offline', handleOffline);
+
+    // Set initial offline status
+    if (!navigator.onLine) setSyncStatus('offline');
+
+    return () => {
+      window.removeEventListener('online', handleOnline);
+      window.removeEventListener('offline', handleOffline);
+    };
+  }, [tasks]);
+
+  // Sync after task changes (debounced)
+  const syncAfterChange = useCallback(async (updatedTasks: AcademicTask[]) => {
+    if (!isSupabaseConfigured || !navigator.onLine) return;
+    await syncTasks(updatedTasks, setSyncStatus);
+  }, []);
+
+  useEffect(() => {
+    const anyOpen = isTabsDrawerOpen || isFiltersDrawerOpen || isActionsDrawerOpen || isSyncSettingsOpen;
     document.body.style.overflow = anyOpen ? 'hidden' : '';
     return () => {
       document.body.style.overflow = '';
     };
-  }, [isTabsDrawerOpen, isFiltersDrawerOpen, isActionsDrawerOpen]);
+  }, [isTabsDrawerOpen, isFiltersDrawerOpen, isActionsDrawerOpen, isSyncSettingsOpen]);
 
   useEffect(() => {
     localStorage.setItem('scholar_opus_domain_tab', activeDomainTab);
@@ -139,6 +191,7 @@ const App: React.FC = () => {
   }, [theme]);
 
   const handleSaveTask = (taskData: Omit<AcademicTask, 'id'>) => {
+    const now = new Date().toISOString();
     const normalizedTaskData: Omit<AcademicTask, 'id'> = {
       ...taskData,
       domain: taskToEdit?.domain ?? taskData.domain ?? activeDomainTab,
@@ -146,17 +199,21 @@ const App: React.FC = () => {
       deadline: taskData.deadline?.trim() ? taskData.deadline.trim() : undefined,
       deadlineNote: taskData.deadlineNote?.trim() ? taskData.deadlineNote.trim() : undefined,
       description: taskData.description ?? '',
+      updatedAt: now,
     };
 
+    let updatedTasks: AcademicTask[];
     if (taskToEdit) {
-      setTasks(tasks.map(t => t.id === taskToEdit.id ? { ...normalizedTaskData, id: taskToEdit.id } : t));
+      updatedTasks = tasks.map(t => t.id === taskToEdit.id ? { ...normalizedTaskData, id: taskToEdit.id } : t);
     } else {
       const newTask: AcademicTask = {
         ...normalizedTaskData,
         id: Math.random().toString(36).substr(2, 9),
       };
-      setTasks([newTask, ...tasks]);
+      updatedTasks = [newTask, ...tasks];
     }
+    setTasks(updatedTasks);
+    syncAfterChange(updatedTasks);
     closeForm();
   };
 
@@ -171,17 +228,27 @@ const App: React.FC = () => {
   };
 
   const toggleFavorite = (id: string) => {
-    setTasks(tasks.map(t => t.id === id ? { ...t, isFavorite: !t.isFavorite } : t));
+    const now = new Date().toISOString();
+    const updatedTasks = tasks.map(t => t.id === id ? { ...t, isFavorite: !t.isFavorite, updatedAt: now } : t);
+    setTasks(updatedTasks);
+    syncAfterChange(updatedTasks);
   };
 
-  const deleteTask = (id: string) => {
+  const deleteTask = async (id: string) => {
     if (confirm('Are you sure you want to remove this project?')) {
-      setTasks(tasks.filter(t => t.id !== id));
+      const updatedTasks = tasks.filter(t => t.id !== id);
+      setTasks(updatedTasks);
+      // Delete from cloud as well
+      await deleteFromCloud(id);
+      syncAfterChange(updatedTasks);
     }
   };
 
   const updateTaskField = (id: string, updates: Partial<AcademicTask>) => {
-    setTasks(tasks.map(t => t.id === id ? { ...t, ...updates } : t));
+    const now = new Date().toISOString();
+    const updatedTasks = tasks.map(t => t.id === id ? { ...t, ...updates, updatedAt: now } : t);
+    setTasks(updatedTasks);
+    syncAfterChange(updatedTasks);
   };
 
   const domainCounts = useMemo(() => {
@@ -233,6 +300,47 @@ const App: React.FC = () => {
     setActiveStatsFilter('total');
   };
 
+  const handleManualSync = useCallback(async () => {
+    if (!isSupabaseConfigured || !navigator.onLine) return;
+    const merged = await syncTasks(tasks, setSyncStatus);
+    if (merged !== tasks) setTasks(merged);
+  }, [tasks]);
+
+  const handleLinkDevice = useCallback(async () => {
+    const newUserId = linkDeviceInput.trim();
+    if (!newUserId) return;
+
+    // Validate UUID format (basic check)
+    const uuidRegex = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+    if (!uuidRegex.test(newUserId)) {
+      alert('Invalid User ID format. Please enter a valid UUID.');
+      return;
+    }
+
+    if (confirm('This will replace your local data with the linked device data. Continue?')) {
+      setUserId(newUserId);
+      setLinkDeviceInput('');
+      setIsSyncSettingsOpen(false);
+      // Trigger sync to pull from new user's data
+      if (isSupabaseConfigured) {
+        const merged = await syncTasks(tasks, setSyncStatus);
+        if (merged !== tasks) setTasks(merged);
+      }
+      // Reload to get fresh state
+      window.location.reload();
+    }
+  }, [linkDeviceInput, tasks]);
+
+  const copyUserId = useCallback(() => {
+    const userId = getUserId();
+    navigator.clipboard.writeText(userId).then(() => {
+      alert('User ID copied to clipboard!');
+    }).catch(() => {
+      // Fallback for older browsers
+      prompt('Copy this User ID:', userId);
+    });
+  }, []);
+
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-slate-900 transition-colors duration-200">
       <header className="bg-white dark:bg-slate-800 border-b border-slate-200 dark:border-slate-700 sticky top-0 z-40">
@@ -242,8 +350,11 @@ const App: React.FC = () => {
               <BookIcon className="w-5 h-5 text-white dark:text-slate-900" />
             </div>
             <h1 className="font-serif text-xl font-bold text-slate-900 dark:text-white tracking-tight">Scholar's Opus</h1>
+            {isSupabaseConfigured && (
+              <SyncStatusIndicator status={syncStatus} onManualSync={handleManualSync} />
+            )}
           </div>
-          
+
           <div className="flex items-center gap-2 sm:gap-4">
             {/* Control Center */}
             <div className="hidden sm:flex items-center bg-slate-100 dark:bg-slate-900/50 p-1 rounded-xl border border-slate-200 dark:border-slate-700">
@@ -622,9 +733,93 @@ const App: React.FC = () => {
             <span className={`w-2 h-2 rounded-full ${isEditingMode ? 'bg-white animate-pulse' : 'bg-slate-300 dark:bg-slate-600'}`} />
           </button>
 
+          {isSupabaseConfigured && (
+            <button
+              type="button"
+              onClick={() => {
+                setIsActionsDrawerOpen(false);
+                setIsSyncSettingsOpen(true);
+              }}
+              className="w-full px-4 py-3 rounded-xl font-bold bg-white dark:bg-slate-900/30 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 flex items-center justify-between"
+            >
+              <span>Sync Settings</span>
+              <SyncStatusIndicator status={syncStatus} />
+            </button>
+          )}
+
           <button
             type="button"
             onClick={() => setIsActionsDrawerOpen(false)}
+            className="w-full px-4 py-3 rounded-xl font-bold bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-200"
+          >
+            Close
+          </button>
+        </div>
+      </MobileDrawer>
+
+      {/* Sync Settings Drawer */}
+      <MobileDrawer
+        open={isSyncSettingsOpen}
+        title="Sync Settings"
+        onClose={() => setIsSyncSettingsOpen(false)}
+      >
+        <div className="space-y-4">
+          <div className="bg-white dark:bg-slate-900/30 border border-slate-200 dark:border-slate-700 rounded-xl p-4">
+            <div className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 dark:text-slate-500 mb-2">Your Device ID</div>
+            <p className="text-xs text-slate-500 dark:text-slate-400 mb-3">
+              Share this ID to sync with another device.
+            </p>
+            <div className="flex gap-2">
+              <code className="flex-1 bg-slate-100 dark:bg-slate-800 px-3 py-2 rounded-lg text-xs font-mono text-slate-700 dark:text-slate-300 overflow-x-auto">
+                {getUserId()}
+              </code>
+              <button
+                type="button"
+                onClick={copyUserId}
+                className="px-3 py-2 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-lg text-xs font-bold shrink-0"
+              >
+                Copy
+              </button>
+            </div>
+          </div>
+
+          <div className="bg-white dark:bg-slate-900/30 border border-slate-200 dark:border-slate-700 rounded-xl p-4">
+            <div className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 dark:text-slate-500 mb-2">Link Another Device</div>
+            <p className="text-xs text-slate-500 dark:text-slate-400 mb-3">
+              Paste a Device ID from another device to sync with it.
+            </p>
+            <div className="flex gap-2">
+              <input
+                type="text"
+                value={linkDeviceInput}
+                onChange={(e) => setLinkDeviceInput(e.target.value)}
+                placeholder="Paste Device ID here..."
+                className="flex-1 bg-slate-100 dark:bg-slate-800 px-3 py-2 rounded-lg text-xs font-mono text-slate-700 dark:text-slate-300 outline-none border border-transparent focus:border-slate-300 dark:focus:border-slate-600"
+              />
+              <button
+                type="button"
+                onClick={handleLinkDevice}
+                disabled={!linkDeviceInput.trim()}
+                className="px-3 py-2 bg-emerald-500 text-white rounded-lg text-xs font-bold shrink-0 disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                Link
+              </button>
+            </div>
+          </div>
+
+          <button
+            type="button"
+            onClick={handleManualSync}
+            disabled={syncStatus === 'syncing'}
+            className="w-full px-4 py-3 rounded-xl font-bold bg-blue-500 text-white flex items-center justify-center gap-2 disabled:opacity-50"
+          >
+            <SyncStatusIndicator status={syncStatus} />
+            {syncStatus === 'syncing' ? 'Syncing...' : 'Sync Now'}
+          </button>
+
+          <button
+            type="button"
+            onClick={() => setIsSyncSettingsOpen(false)}
             className="w-full px-4 py-3 rounded-xl font-bold bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-200"
           >
             Close

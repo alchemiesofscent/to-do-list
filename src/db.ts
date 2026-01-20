@@ -15,6 +15,24 @@ interface ScholarOpusDbV1 {
 
 const DB_KEY = 'scholar_opus_db';
 const LEGACY_TASKS_KEY = 'scholar_opus_tasks';
+const USER_ID_KEY = 'scholar_opus_user_id';
+
+function generateUUID(): string {
+  return crypto.randomUUID();
+}
+
+export function getUserId(): string {
+  let userId = localStorage.getItem(USER_ID_KEY);
+  if (!userId) {
+    userId = generateUUID();
+    localStorage.setItem(USER_ID_KEY, userId);
+  }
+  return userId;
+}
+
+export function setUserId(userId: string): void {
+  localStorage.setItem(USER_ID_KEY, userId);
+}
 
 function isRecord(value: unknown): value is Record<string, unknown> {
   return typeof value === 'object' && value !== null;
