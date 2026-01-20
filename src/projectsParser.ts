@@ -1,4 +1,4 @@
-import type { AcademicTask, Priority, Status, TaskType } from './types.ts';
+import type { AcademicTask, Domain, Priority, Status, TaskType } from './types.ts';
 
 export function hashStringFNV1a(input: string): string {
   let hash = 0x811c9dc5;
@@ -19,6 +19,17 @@ function stripMarkdownInline(input: string): string {
 
 function stableTaskId(type: TaskType, title: string): string {
   return `${type}_${hashStringFNV1a(`${type}|${title}`)}`;
+}
+
+function normalizeDomain(raw: string | undefined): Domain | undefined {
+  const cleaned = (raw ?? '').trim().toLowerCase();
+  if (!cleaned) return undefined;
+  if (cleaned === 'writing') return 'Writing';
+  if (cleaned === 'experiments' || cleaned === 'experiment') return 'Experiments';
+  if (cleaned === 'dh' || cleaned === 'digital humanities') return 'DH';
+  if (cleaned === 'grants' || cleaned === 'grant') return 'Grants';
+  if (cleaned === 'admin' || cleaned === 'administration') return 'Admin';
+  return undefined;
 }
 
 function isKnownTaskTypeLabel(label: string): boolean {
@@ -59,6 +70,31 @@ function normalizeType(rawType: string | undefined, section: string, title: stri
     return 'Article';
   }
   return 'Article';
+}
+
+function normalizeStatus(raw: string | undefined): Status | undefined {
+  const cleaned = (raw ?? '').trim().toLowerCase();
+  if (!cleaned) return undefined;
+  if (cleaned === 'published') return 'Published';
+  if (cleaned === 'complete') return 'Complete';
+  if (cleaned === 'revision' || cleaned === 'in revision') return 'Revision';
+  if (cleaned === 'draft' || cleaned === 'drafting') return 'Draft';
+  if (cleaned === 'early stage' || cleaned === 'early') return 'Early Stage';
+  if (cleaned === 'experimental' || cleaned === 'experiments') return 'Experimental';
+  if (cleaned === 'needs update' || cleaned === 'needs updating' || cleaned === 'update') return 'Needs Update';
+  if (cleaned === 'rejected') return 'Rejected';
+  if (cleaned === 'upcoming' || cleaned === 'planned') return 'Upcoming';
+  return undefined;
+}
+
+function normalizePriority(raw: string | undefined): Priority | undefined {
+  const cleaned = (raw ?? '').trim().toLowerCase();
+  if (!cleaned) return undefined;
+  if (cleaned === 'high') return 'High';
+  if (cleaned === 'medium') return 'Medium';
+  if (cleaned === 'low') return 'Low';
+  if (cleaned === 'aspirational') return 'Aspirational';
+  return undefined;
 }
 
 function deriveStatus(text: string, isChecked: boolean, section: string): Status {
@@ -109,6 +145,91 @@ function splitTitleAndNotes(line: string): { title: string; notes: string } {
   return { title, notes };
 }
 
+function parseBool(raw: string | undefined): boolean | undefined {
+  if (!raw) return undefined;
+  const cleaned = raw.trim().toLowerCase();
+  if (cleaned === 'true' || cleaned === 'yes' || cleaned === 'y' || cleaned === '1') return true;
+  if (cleaned === 'false' || cleaned === 'no' || cleaned === 'n' || cleaned === '0') return false;
+  return undefined;
+}
+
+function parseIndentedMetadataAndNotes(lines: string[], startIndex: number): {
+  meta: Record<string, string>;
+  notes: string[];
+  endIndex: number;
+} {
+  const meta: Record<string, string> = {};
+  const notes: string[] = [];
+
+  const recognizedKeys = new Set([
+    'id',
+    'domain',
+    'type',
+    'status',
+    'priority',
+    'deadline',
+    'deadlinenote',
+    'coauthors',
+    'favorite',
+    'isfavorite',
+    'description',
+  ]);
+
+  let i = startIndex;
+  for (; i < lines.length; i++) {
+    const rawLine = lines[i];
+    if (rawLine === undefined) break;
+    if (/^##\s+/.test(rawLine) || /^###\s+/.test(rawLine) || /^- \[/.test(rawLine) || /^- /.test(rawLine)) break;
+    if (!rawLine.trim()) continue;
+
+    const nestedBulletMatch = rawLine.match(/^\s+-\s+(.*)$/);
+    if (nestedBulletMatch) {
+      const content = nestedBulletMatch[1].trim();
+      const kvMatch = content.match(/^([A-Za-z][A-Za-z0-9_-]*)\s*:\s*(.*)$/);
+      if (kvMatch) {
+        const keyRaw = kvMatch[1];
+        const key = keyRaw.replace(/[_-]/g, '').toLowerCase();
+        const valueRaw = kvMatch[2] ?? '';
+        if (recognizedKeys.has(key)) {
+          const value = valueRaw.trim();
+          if (key === 'description' && value === '|') {
+            const block: string[] = [];
+            for (let j = i + 1; j < lines.length; j++) {
+              const next = lines[j];
+              if (!next.trim()) {
+                block.push('');
+                i = j;
+                continue;
+              }
+              if (/^##\s+/.test(next) || /^###\s+/.test(next) || /^- \[/.test(next) || /^- /.test(next) || /^\s+-\s+/.test(next)) break;
+              if (/^\s{4,}\S/.test(next) || /^\s{4,}$/.test(next)) {
+                block.push(next.replace(/^\s{4}/, '').trimEnd());
+                i = j;
+                continue;
+              }
+              break;
+            }
+            meta[key] = block.join('\n').trim();
+            continue;
+          }
+
+          meta[key] = stripMarkdownInline(value);
+          continue;
+        }
+      }
+
+      notes.push(stripMarkdownInline(content));
+      continue;
+    }
+
+    if (/^\s+/.test(rawLine)) {
+      notes.push(stripMarkdownInline(rawLine.trim()));
+    }
+  }
+
+  return { meta, notes, endIndex: i - 1 };
+}
+
 export function parseProjectsMarkdownToTasks(markdown: string): {
   tasks: AcademicTask[];
   revision: string;
@@ -118,11 +239,18 @@ export function parseProjectsMarkdownToTasks(markdown: string): {
   let currentSection = '';
   let currentSubsection = '';
   const tasks: AcademicTask[] = [];
+  let inCodeFence = false;
 
   const lines = markdown.split(/\r?\n/);
   for (let i = 0; i < lines.length; i++) {
     const rawLine = lines[i];
     const line = rawLine.trimEnd();
+
+    if (line.trimStart().startsWith('```')) {
+      inCodeFence = !inCodeFence;
+      continue;
+    }
+    if (inCodeFence) continue;
 
     const sectionMatch = line.match(/^##\s+(.+)\s*$/);
     if (sectionMatch) {
@@ -169,47 +297,38 @@ export function parseProjectsMarkdownToTasks(markdown: string): {
     const title = stripMarkdownInline(rawTitle);
     if (!title) continue;
 
-    const extraLines: string[] = [];
-    for (let j = i + 1; j < lines.length; j++) {
-      const next = lines[j];
-      if (!next) break;
-      if (/^##\s+/.test(next) || /^###\s+/.test(next) || /^- /.test(next)) break;
-      if (/^\s+-\s+/.test(next)) {
-        extraLines.push(stripMarkdownInline(next.replace(/^\s+-\s+/, '')));
-        i = j;
-        continue;
-      }
-      if (/^\s{2,}\S/.test(next)) {
-        extraLines.push(stripMarkdownInline(next.trim()));
-        i = j;
-        continue;
-      }
-      break;
-    }
+    const { meta, notes: indentedNotes, endIndex } = parseIndentedMetadataAndNotes(lines, i + 1);
+    if (endIndex > i) i = endIndex;
 
-    const type = normalizeType(explicitType, currentSection, title);
-    const combinedTextForDerivation = [notes, ...extraLines].filter(Boolean).join(' • ');
-    const status = deriveStatus(combinedTextForDerivation, isChecked, currentSection);
-    const priority = derivePriority(combinedTextForDerivation, currentSection, status);
-    const deadlineNote = extractDeadlineNote(combinedTextForDerivation);
-    const coAuthors = extractCoAuthors(combinedTextForDerivation);
+    const domain = normalizeDomain(meta.domain);
+    const type = normalizeType(meta.type || explicitType, currentSection, title);
 
-    const descriptionParts = [
-      notes ? stripMarkdownInline(notes) : '',
-      ...extraLines,
-    ].filter(Boolean);
+    const combinedTextForDerivation = [notes, ...indentedNotes].filter(Boolean).join(' • ');
+    const derivedStatus = deriveStatus(combinedTextForDerivation, isChecked, currentSection);
+    const status = normalizeStatus(meta.status) ?? derivedStatus;
+    const priority = normalizePriority(meta.priority) ?? derivePriority(combinedTextForDerivation, currentSection, status);
 
-    const description = descriptionParts.join('\n');
+    const deadline = meta.deadline || undefined;
+    const deadlineNote = meta.deadlinenote || extractDeadlineNote(combinedTextForDerivation);
+    const coAuthors = meta.coauthors || extractCoAuthors(combinedTextForDerivation);
+    const isFavorite = parseBool(meta.isfavorite ?? meta.favorite);
+
+    const description =
+      meta.description ||
+      [notes ? stripMarkdownInline(notes) : '', ...indentedNotes].filter(Boolean).join('\n');
 
     tasks.push({
-      id: stableTaskId(type, title),
+      id: meta.id || stableTaskId(type, title),
       title,
+      domain,
       type,
       priority,
       status,
       description,
       coAuthors,
+      deadline,
       deadlineNote,
+      isFavorite,
       section: currentSection || undefined,
       subsection: currentSubsection || undefined,
       source: 'data/projects.md',

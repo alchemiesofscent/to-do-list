@@ -1,5 +1,5 @@
 import React, { useState, useMemo, useEffect } from 'react';
-import { AcademicTask, TaskType } from './types.ts';
+import { AcademicTask, Domain, TaskType } from './types.ts';
 import { INITIAL_TASKS, PROJECTS_MD_REVISION } from './initialData.ts';
 import { loadTasksFromDb, saveTasksToDb } from './db.ts';
 import { StatsFilterKey, StatsOverview } from './components/StatsOverview.tsx';
@@ -8,9 +8,8 @@ import { TaskForm } from './components/TaskForm.tsx';
 import { SearchIcon, FilterIcon, PlusIcon, BookIcon, SunIcon, MoonIcon, MonitorIcon, MenuIcon, XIcon } from './components/Icons.tsx';
 
 type Theme = 'light' | 'dark' | 'system';
-type DomainTab = 'Writing' | 'Experiments' | 'DH' | 'Grants' | 'Admin';
 
-const DOMAIN_TABS: { key: DomainTab; label: string }[] = [
+const DOMAIN_TABS: { key: Domain; label: string }[] = [
   { key: 'Writing', label: 'Writing' },
   { key: 'Experiments', label: 'Experiments' },
   { key: 'DH', label: 'DH' },
@@ -18,7 +17,9 @@ const DOMAIN_TABS: { key: DomainTab; label: string }[] = [
   { key: 'Admin', label: 'Admin' },
 ];
 
-const classifyTaskDomain = (task: AcademicTask): DomainTab => {
+const classifyTaskDomain = (task: AcademicTask): Domain => {
+  if (task.domain) return task.domain;
+
   const section = (task.section ?? '').toLowerCase();
   const subsection = (task.subsection ?? '').toLowerCase();
   const title = task.title.toLowerCase();
@@ -97,10 +98,10 @@ const App: React.FC = () => {
   const [activeTypeFilter, setActiveTypeFilter] = useState<TaskType | 'All'>('All');
   const [sortBy, setSortBy] = useState<'priority' | 'type' | 'title'>('priority');
   const [activeStatsFilter, setActiveStatsFilter] = useState<StatsFilterKey>('total');
-  const [activeDomainTab, setActiveDomainTab] = useState<DomainTab>(() => {
+  const [activeDomainTab, setActiveDomainTab] = useState<Domain>(() => {
     const saved = localStorage.getItem('scholar_opus_domain_tab');
     const validTabs = new Set(DOMAIN_TABS.map((t) => t.key));
-    if (saved && validTabs.has(saved as DomainTab)) return saved as DomainTab;
+    if (saved && validTabs.has(saved as Domain)) return saved as Domain;
     return 'Writing';
   });
   const [isTabsDrawerOpen, setIsTabsDrawerOpen] = useState(false);
@@ -140,6 +141,7 @@ const App: React.FC = () => {
   const handleSaveTask = (taskData: Omit<AcademicTask, 'id'>) => {
     const normalizedTaskData: Omit<AcademicTask, 'id'> = {
       ...taskData,
+      domain: taskToEdit?.domain ?? taskData.domain ?? activeDomainTab,
       coAuthors: taskData.coAuthors?.trim() ? taskData.coAuthors.trim() : undefined,
       deadline: taskData.deadline?.trim() ? taskData.deadline.trim() : undefined,
       deadlineNote: taskData.deadlineNote?.trim() ? taskData.deadlineNote.trim() : undefined,
@@ -183,7 +185,7 @@ const App: React.FC = () => {
   };
 
   const domainCounts = useMemo(() => {
-    const counts: Record<DomainTab, number> = { Writing: 0, Experiments: 0, DH: 0, Grants: 0, Admin: 0 };
+    const counts: Record<Domain, number> = { Writing: 0, Experiments: 0, DH: 0, Grants: 0, Admin: 0 };
     for (const task of tasks) counts[classifyTaskDomain(task)]++;
     return counts;
   }, [tasks]);

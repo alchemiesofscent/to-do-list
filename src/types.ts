@@ -1,5 +1,7 @@
 export type Priority = 'High' | 'Medium' | 'Low' | 'Aspirational';
 
+export type Domain = 'Writing' | 'Experiments' | 'DH' | 'Grants' | 'Admin';
+
 export type TaskType = 
   | 'Article' 
   | 'Book' 
@@ -24,6 +26,7 @@ export type Status =
 export interface AcademicTask {
   id: string;
   title: string;
+  domain?: Domain;
   type: TaskType;
   priority: Priority;
   status: Status;

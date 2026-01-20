@@ -14,15 +14,17 @@ describe('projects parser', () => {
 
     const ids = new Set(tasks.map((t) => t.id));
     expect(ids.size).toBe(tasks.length);
+
+    expect(tasks.every((t) => t.domain)).toBe(true);
   });
 
-  it('classifies grants into type Grant', () => {
+  it('parses grant items with domain Grants', () => {
     const markdown = fs.readFileSync(path.resolve('data/projects.md'), 'utf8');
     const { tasks } = parseProjectsMarkdownToTasks(markdown);
 
     const grants = tasks.filter((t) => t.section?.toLowerCase().includes('grants'));
     expect(grants.length).toBeGreaterThan(0);
     expect(grants.every((t) => t.type === 'Grant')).toBe(true);
+    expect(grants.every((t) => t.domain === 'Grants')).toBe(true);
   });
 });
-
