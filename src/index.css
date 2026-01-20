@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-light: #f8fafc;
+  --bg-dark: #0f172a;
+}
+
+html,
+body,
+#root {
+  background-color: var(--bg-light);
+  background-image: none;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.dark html,
+.dark body,
+.dark #root {
+  background-color: var(--bg-dark);
+}
+
+body {
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.preload * {
+  transition: none !important;
+}
+
+* {
+  background-image: none !important;
+}
+
