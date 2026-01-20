@@ -8,6 +8,38 @@ import { TaskForm } from './components/TaskForm.tsx';
 import { SearchIcon, FilterIcon, PlusIcon, BookIcon, SunIcon, MoonIcon, MonitorIcon } from './components/Icons.tsx';
 
 type Theme = 'light' | 'dark' | 'system';
+type DomainTab = 'Writing' | 'Experiments' | 'DH' | 'Admin';
+
+const DOMAIN_TABS: { key: DomainTab; label: string }[] = [
+  { key: 'Writing', label: 'Writing' },
+  { key: 'Experiments', label: 'Experiments' },
+  { key: 'DH', label: 'DH' },
+  { key: 'Admin', label: 'Admin' },
+];
+
+const classifyTaskDomain = (task: AcademicTask): DomainTab => {
+  const section = (task.section ?? '').toLowerCase();
+  const subsection = (task.subsection ?? '').toLowerCase();
+  const title = task.title.toLowerCase();
+  const description = task.description.toLowerCase();
+  const combined = `${title}\n${description}`;
+
+  if (task.type === 'Grant' || section.includes('grants & admin') || section.includes('grants')) return 'Admin';
+
+  const looksDh =
+    task.type === 'Digital Humanities' ||
+    section.includes('digital humanities') ||
+    /\b(tei|teitok|portal|database|data model|model|dioscorides|disambiguat|github)\b/i.test(combined);
+  if (looksDh) return 'DH';
+
+  const looksExperiment =
+    task.status === 'Experimental' ||
+    subsection.includes('experimental philology') ||
+    /\b(experimental|replicat|residue|volatile|fraction|susinum|stacte|stypsis|mendesian|kyphi)\b/i.test(combined);
+  if (looksExperiment) return 'Experiments';
+
+  return 'Writing';
+};
 
 const App: React.FC = () => {
   const [tasks, setTasks] = useState<AcademicTask[]>(() =>
@@ -23,10 +55,18 @@ const App: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [activeTypeFilter, setActiveTypeFilter] = useState<TaskType | 'All'>('All');
   const [sortBy, setSortBy] = useState<'priority' | 'type' | 'title'>('priority');
+  const [activeDomainTab, setActiveDomainTab] = useState<DomainTab>(() => {
+    const saved = localStorage.getItem('scholar_opus_domain_tab');
+    return (saved as DomainTab) || 'Writing';
+  });
 
   useEffect(() => {
     saveTasksToDb({ tasks, seedRevision: PROJECTS_MD_REVISION });
   }, [tasks]);
+
+  useEffect(() => {
+    localStorage.setItem('scholar_opus_domain_tab', activeDomainTab);
+  }, [activeDomainTab]);
 
   useEffect(() => {
     localStorage.setItem('scholar_opus_theme', theme);
@@ -87,8 +127,14 @@ const App: React.FC = () => {
     setTasks(tasks.map(t => t.id === id ? { ...t, ...updates } : t));
   };
 
+  const domainCounts = useMemo(() => {
+    const counts: Record<DomainTab, number> = { Writing: 0, Experiments: 0, DH: 0, Admin: 0 };
+    for (const task of tasks) counts[classifyTaskDomain(task)]++;
+    return counts;
+  }, [tasks]);
+
   const filteredTasks = useMemo(() => {
-    let result = tasks.filter(t => {
+    let result = tasks.filter(t => classifyTaskDomain(t) === activeDomainTab).filter(t => {
       const matchesSearch = t.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
                            t.description.toLowerCase().includes(searchQuery.toLowerCase());
       const matchesType = activeTypeFilter === 'All' || t.type === activeTypeFilter;
@@ -103,7 +149,7 @@ const App: React.FC = () => {
       if (sortBy === 'type') return a.type.localeCompare(b.type);
       return a.title.localeCompare(b.title);
     });
-  }, [tasks, searchQuery, activeTypeFilter, sortBy]);
+  }, [tasks, activeDomainTab, searchQuery, activeTypeFilter, sortBy]);
 
   const taskTypes: (TaskType | 'All')[] = [
     'All', 'Article', 'Book', 'Translation', 'Edited Volume', 'Book Review', 'Digital Humanities', 'Grant', 'Book Proposal'
@@ -178,7 +224,38 @@ const App: React.FC = () => {
           </p>
         </div>
 
-        <StatsOverview tasks={tasks} />
+        <div className="mb-6 flex justify-center sm:justify-start">
+          <div className="inline-flex items-center gap-1 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-1 shadow-sm">
+            {DOMAIN_TABS.map((tab) => {
+              const isActive = tab.key === activeDomainTab;
+              return (
+                <button
+                  key={tab.key}
+                  onClick={() => setActiveDomainTab(tab.key)}
+                  className={`px-4 py-2 rounded-xl text-xs font-black uppercase tracking-widest transition-all flex items-center gap-2 ${
+                    isActive
+                      ? 'bg-slate-900 dark:bg-white text-white dark:text-slate-900 shadow'
+                      : 'text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200'
+                  }`}
+                  aria-pressed={isActive}
+                >
+                  {tab.label}
+                  <span
+                    className={`text-[10px] px-2 py-0.5 rounded-full ${
+                      isActive
+                        ? 'bg-white/20 dark:bg-slate-900/10'
+                        : 'bg-slate-100 dark:bg-slate-900/50'
+                    }`}
+                  >
+                    {domainCounts[tab.key]}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        <StatsOverview tasks={filteredTasks} />
 
         {/* Filters Sticky Bar */}
         <div className="flex flex-col sm:flex-row items-center gap-4 mb-8 sticky top-16 bg-slate-50 dark:bg-slate-900 py-4 z-30">
