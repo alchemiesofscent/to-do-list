@@ -1,5 +1,5 @@
 
-import { AcademicTask } from './types';
+import { AcademicTask } from './types.ts';
 
 export const generateGoogleCalendarUrl = (task: AcademicTask) => {
   if (!task.deadline) return null;

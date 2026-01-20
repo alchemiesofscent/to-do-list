@@ -1,11 +1,11 @@
 
 import React, { useState, useMemo, useEffect } from 'react';
-import { AcademicTask, TaskType, Status, Priority } from './types';
-import { INITIAL_TASKS } from './initialData';
-import { StatsOverview } from './components/StatsOverview';
-import { AcademicTaskList } from './components/AcademicTaskList';
-import { TaskForm } from './components/TaskForm';
-import { SearchIcon, FilterIcon, PlusIcon, BookIcon } from './components/Icons';
+import { AcademicTask, TaskType, Status, Priority } from './types.ts';
+import { INITIAL_TASKS } from './initialData.ts';
+import { StatsOverview } from './components/StatsOverview.tsx';
+import { AcademicTaskList } from './components/AcademicTaskList.tsx';
+import { TaskForm } from './components/TaskForm.tsx';
+import { SearchIcon, FilterIcon, PlusIcon, BookIcon } from './components/Icons.tsx';
 
 const App: React.FC = () => {
   const [tasks, setTasks] = useState<AcademicTask[]>(() => {

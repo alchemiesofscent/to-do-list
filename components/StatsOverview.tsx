@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { AcademicTask } from '../types';
+import { AcademicTask } from '../types.ts';
 
 interface StatsOverviewProps {
   tasks: AcademicTask[];

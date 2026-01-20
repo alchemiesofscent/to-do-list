@@ -1,8 +1,8 @@
 
 import React from 'react';
-import { AcademicTask, Priority, Status, TaskType } from '../types';
-import { ClockIcon, TrashIcon, StarIcon, BookIcon } from './Icons';
-import { downloadIcsFile, generateGoogleCalendarUrl } from '../calendarUtils';
+import { AcademicTask, Priority, Status, TaskType } from '../types.ts';
+import { ClockIcon, TrashIcon, StarIcon, BookIcon } from './Icons.tsx';
+import { downloadIcsFile, generateGoogleCalendarUrl } from '../calendarUtils.ts';
 
 interface AcademicTaskListProps {
   tasks: AcademicTask[];
@@ -149,7 +149,6 @@ export const AcademicTaskList: React.FC<AcademicTaskListProps> = ({
                 </svg>
               </button>
               <button 
-                // Fix: Change 'id' to 'task.id' to fix the error "Cannot find name 'id'"
                 onClick={() => onToggleFavorite(task.id)}
                 className={`p-2 rounded-full hover:bg-slate-50 ${task.isFavorite ? 'text-amber-400' : 'text-slate-300'}`}
               >

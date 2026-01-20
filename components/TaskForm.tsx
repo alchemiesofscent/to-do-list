@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
-import { AcademicTask, Priority, Status, TaskType } from '../types';
-import { PlusIcon, CheckIcon } from './Icons';
+import { AcademicTask, Priority, Status, TaskType } from '../types.ts';
+import { PlusIcon, CheckIcon } from './Icons.tsx';
 
 interface TaskFormProps {
   onSave: (task: Omit<AcademicTask, 'id'>) => void;
