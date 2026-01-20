@@ -18,3 +18,10 @@ View your app in AI Studio: https://ai.studio/apps/drive/1HKCblpVkc_lUdD0WfRmNmF
 2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
 3. Run the app:
    `npm run dev`
+
+## Deploy to GitHub Pages
+
+This repo is configured to deploy to `https://alchemiesofscent.github.io/To-Do-List/` via GitHub Actions.
+
+1. In GitHub: **Settings → Pages → Source**: select **GitHub Actions**
+2. Push to the `main` branch (or run the workflow manually via **Actions**)
