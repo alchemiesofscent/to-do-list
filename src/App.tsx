@@ -6,7 +6,7 @@ import { StatsFilterKey, StatsOverview } from './components/StatsOverview.tsx';
 import { AcademicTaskList } from './components/AcademicTaskList.tsx';
 import { TaskForm } from './components/TaskForm.tsx';
 import { SearchIcon, FilterIcon, PlusIcon, BookIcon, SunIcon, MoonIcon, MonitorIcon, MenuIcon, XIcon } from './components/Icons.tsx';
-import { syncTasks, deleteFromCloud, type SyncStatus } from './sync.ts';
+import { syncTasks, deleteFromCloud, pullFromCloud, pushToCloud, type SyncStatus } from './sync.ts';
 import { isSupabaseConfigured } from './supabase.ts';
 import { SyncStatus as SyncStatusIndicator } from './components/SyncStatus.tsx';
 
@@ -138,15 +138,25 @@ const App: React.FC = () => {
     saveTasksToDb({ tasks, seedRevision: PROJECTS_MD_REVISION });
   }, [tasks]);
 
-  // Sync with cloud on app load
+  // Sync with cloud on app load - pull only, don't push seed data
   useEffect(() => {
     if (!isSupabaseConfigured) return;
 
     const doInitialSync = async () => {
-      const mergedTasks = await syncTasks(tasks, setSyncStatus);
-      // Only update if we got different tasks from cloud
-      if (mergedTasks !== tasks && mergedTasks.length > 0) {
-        setTasks(mergedTasks);
+      setSyncStatus('syncing');
+      const cloudTasks = await pullFromCloud();
+
+      if (cloudTasks && cloudTasks.length > 0) {
+        // Cloud has data - use it as source of truth
+        setTasks(cloudTasks);
+        setSyncStatus('synced');
+      } else if (cloudTasks !== null) {
+        // Cloud is empty but reachable - push local data
+        await pushToCloud(tasks);
+        setSyncStatus('synced');
+      } else {
+        // Cloud unreachable
+        setSyncStatus('error');
       }
     };
 
