@@ -112,7 +112,6 @@ const App: React.FC = () => {
   const [isActionsDrawerOpen, setIsActionsDrawerOpen] = useState(false);
   const [syncStatus, setSyncStatus] = useState<SyncStatus>('idle');
   const [isSyncSettingsOpen, setIsSyncSettingsOpen] = useState(false);
-  const [linkDeviceInput, setLinkDeviceInput] = useState('');
 
   // Check URL for sync parameter on load (for easy device linking via URL)
   useEffect(() => {
@@ -325,31 +324,6 @@ const App: React.FC = () => {
     const merged = await syncTasks(tasks, setSyncStatus);
     if (merged !== tasks) setTasks(merged);
   }, [tasks]);
-
-  const handleLinkDevice = useCallback(async () => {
-    const newUserId = linkDeviceInput.trim();
-    if (!newUserId) return;
-
-    // Validate UUID format (basic check)
-    const uuidRegex = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
-    if (!uuidRegex.test(newUserId)) {
-      alert('Invalid User ID format. Please enter a valid UUID.');
-      return;
-    }
-
-    if (confirm('This will replace your local data with the linked device data. Continue?')) {
-      setUserId(newUserId);
-      setLinkDeviceInput('');
-      setIsSyncSettingsOpen(false);
-      // Trigger sync to pull from new user's data
-      if (isSupabaseConfigured) {
-        const merged = await syncTasks(tasks, setSyncStatus);
-        if (merged !== tasks) setTasks(merged);
-      }
-      // Reload to get fresh state
-      window.location.reload();
-    }
-  }, [linkDeviceInput, tasks]);
 
   const copyUserId = useCallback(() => {
     const userId = getUserId();
