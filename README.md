@@ -37,8 +37,19 @@ No required environment variables.
 
 ## Data
 
-- Seed list: `data/projects.md`
+- Seed list: `data/projects.md` (each entry is a checklist item with an indented metadata block)
 - Saved state: browser `localStorage` (`scholar_opus_db`)
+
+Example entry:
+
+```md
+- [ ] Project title
+  - domain: Writing
+  - type: Article
+  - status: Draft
+  - priority: Medium
+  - description: Short notes…
+```
 
 ## Deployment (GitHub Pages)
 

@@ -20,6 +20,11 @@
 - `scripts/`: developer utilities
 - `tests/`: unit tests
 
+## Updating the seed list (`data/projects.md`)
+- Add items as `- [ ] Title` with an indented metadata block.
+- Required fields per entry: `domain`, `type`, `status`, `priority`.
+- Validate before committing: `npm run validate:data`
+
 ## Build
 - Production build: `npm run build`
 - Preview production build: `npm run preview`

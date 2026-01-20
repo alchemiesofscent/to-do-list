@@ -11,7 +11,7 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:watch": "vitest",
-    "validate:data": "node --loader ts-node/esm scripts/validate-projects.ts"
+    "validate:data": "node --import ./scripts/register-ts-node.mjs ./scripts/validate-projects.ts"
   },
   "dependencies": {
     "react": "19.0.0",
