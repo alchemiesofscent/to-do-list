@@ -266,11 +266,10 @@ export function parseProjectsMarkdownToTasks(markdown: string): {
     }
 
     const checkboxMatch = line.match(/^- \[( |x|X)\]\s+(.*)$/);
-    const bulletMatch = !checkboxMatch ? line.match(/^- (.*)$/) : null;
-    if (!checkboxMatch && !bulletMatch) continue;
+    if (!checkboxMatch) continue;
 
-    const isChecked = checkboxMatch ? checkboxMatch[1].toLowerCase() === 'x' : false;
-    let body = checkboxMatch ? checkboxMatch[2] : (bulletMatch ? bulletMatch[1] : '');
+    const isChecked = checkboxMatch[1].toLowerCase() === 'x';
+    let body = checkboxMatch[2];
     body = body.trim();
 
     if (!body) continue;
