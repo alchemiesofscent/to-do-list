@@ -1,6 +1,6 @@
 
 import { parseProjectsMarkdownToTasks } from './projectsParser.ts';
-import projectsMarkdown from '../projects.md?raw';
+import projectsMarkdown from '../data/projects.md?raw';
 
 const parsed = parseProjectsMarkdownToTasks(projectsMarkdown);
 

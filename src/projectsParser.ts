@@ -212,7 +212,7 @@ export function parseProjectsMarkdownToTasks(markdown: string): {
       deadlineNote,
       section: currentSection || undefined,
       subsection: currentSubsection || undefined,
-      source: 'projects.md',
+      source: 'data/projects.md',
     });
   }
 
