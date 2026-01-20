@@ -114,6 +114,26 @@ const App: React.FC = () => {
   const [isSyncSettingsOpen, setIsSyncSettingsOpen] = useState(false);
   const [linkDeviceInput, setLinkDeviceInput] = useState('');
 
+  // Check URL for sync parameter on load (for easy device linking via URL)
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const syncId = params.get('sync');
+    if (syncId && syncId !== getUserId()) {
+      const uuidRegex = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+      if (uuidRegex.test(syncId)) {
+        if (confirm('Link this device to sync with another? This will replace your local data.')) {
+          setUserId(syncId);
+          // Remove sync param from URL
+          window.history.replaceState({}, '', window.location.pathname);
+          window.location.reload();
+        } else {
+          // Remove sync param from URL
+          window.history.replaceState({}, '', window.location.pathname);
+        }
+      }
+    }
+  }, []);
+
   // Save to localStorage whenever tasks change
   useEffect(() => {
     saveTasksToDb({ tasks, seedRevision: PROJECTS_MD_REVISION });
@@ -333,11 +353,12 @@ const App: React.FC = () => {
 
   const copyUserId = useCallback(() => {
     const userId = getUserId();
-    navigator.clipboard.writeText(userId).then(() => {
-      alert('User ID copied to clipboard!');
+    const syncUrl = `${window.location.origin}${window.location.pathname}?sync=${userId}`;
+    navigator.clipboard.writeText(syncUrl).then(() => {
+      alert('Sync link copied! Open this link on another device to sync.');
     }).catch(() => {
       // Fallback for older browsers
-      prompt('Copy this User ID:', userId);
+      prompt('Copy this sync link:', syncUrl);
     });
   }, []);
 
@@ -351,7 +372,7 @@ const App: React.FC = () => {
             </div>
             <h1 className="font-serif text-xl font-bold text-slate-900 dark:text-white tracking-tight">Scholar's Opus</h1>
             {isSupabaseConfigured && (
-              <SyncStatusIndicator status={syncStatus} onManualSync={handleManualSync} />
+              <SyncStatusIndicator status={syncStatus} onManualSync={() => setIsSyncSettingsOpen(true)} />
             )}
           </div>
 
@@ -757,75 +778,58 @@ const App: React.FC = () => {
         </div>
       </MobileDrawer>
 
-      {/* Sync Settings Drawer */}
-      <MobileDrawer
-        open={isSyncSettingsOpen}
-        title="Sync Settings"
-        onClose={() => setIsSyncSettingsOpen(false)}
-      >
-        <div className="space-y-4">
-          <div className="bg-white dark:bg-slate-900/30 border border-slate-200 dark:border-slate-700 rounded-xl p-4">
-            <div className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 dark:text-slate-500 mb-2">Your Device ID</div>
-            <p className="text-xs text-slate-500 dark:text-slate-400 mb-3">
-              Share this ID to sync with another device.
-            </p>
-            <div className="flex gap-2">
-              <code className="flex-1 bg-slate-100 dark:bg-slate-800 px-3 py-2 rounded-lg text-xs font-mono text-slate-700 dark:text-slate-300 overflow-x-auto">
-                {getUserId()}
-              </code>
-              <button
-                type="button"
-                onClick={copyUserId}
-                className="px-3 py-2 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-lg text-xs font-bold shrink-0"
-              >
-                Copy
-              </button>
-            </div>
-          </div>
-
-          <div className="bg-white dark:bg-slate-900/30 border border-slate-200 dark:border-slate-700 rounded-xl p-4">
-            <div className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 dark:text-slate-500 mb-2">Link Another Device</div>
-            <p className="text-xs text-slate-500 dark:text-slate-400 mb-3">
-              Paste a Device ID from another device to sync with it.
-            </p>
-            <div className="flex gap-2">
-              <input
-                type="text"
-                value={linkDeviceInput}
-                onChange={(e) => setLinkDeviceInput(e.target.value)}
-                placeholder="Paste Device ID here..."
-                className="flex-1 bg-slate-100 dark:bg-slate-800 px-3 py-2 rounded-lg text-xs font-mono text-slate-700 dark:text-slate-300 outline-none border border-transparent focus:border-slate-300 dark:focus:border-slate-600"
-              />
-              <button
-                type="button"
-                onClick={handleLinkDevice}
-                disabled={!linkDeviceInput.trim()}
-                className="px-3 py-2 bg-emerald-500 text-white rounded-lg text-xs font-bold shrink-0 disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                Link
-              </button>
-            </div>
-          </div>
-
+      {/* Sync Settings Modal (works on all screen sizes) */}
+      {isSyncSettingsOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
           <button
             type="button"
-            onClick={handleManualSync}
-            disabled={syncStatus === 'syncing'}
-            className="w-full px-4 py-3 rounded-xl font-bold bg-blue-500 text-white flex items-center justify-center gap-2 disabled:opacity-50"
-          >
-            <SyncStatusIndicator status={syncStatus} />
-            {syncStatus === 'syncing' ? 'Syncing...' : 'Sync Now'}
-          </button>
-
-          <button
-            type="button"
+            className="absolute inset-0 bg-black/40 dark:bg-black/60"
             onClick={() => setIsSyncSettingsOpen(false)}
-            className="w-full px-4 py-3 rounded-xl font-bold bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-200"
-          >
-            Close
-          </button>
+            aria-label="Close"
+          />
+          <div className="relative bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-2xl w-full max-w-md max-h-[85vh] overflow-y-auto">
+            <div className="sticky top-0 bg-white/90 dark:bg-slate-800/90 backdrop-blur border-b border-slate-100 dark:border-slate-700 p-4 flex items-center justify-between">
+              <h3 className="text-xs font-black uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">Sync Settings</h3>
+              <button
+                type="button"
+                onClick={() => setIsSyncSettingsOpen(false)}
+                className="p-2 rounded-lg text-slate-400 hover:text-slate-600 dark:hover:text-slate-200"
+                aria-label="Close"
+              >
+                <XIcon className="w-5 h-5" />
+              </button>
+            </div>
+            <div className="p-4 space-y-4">
+              <div className="bg-slate-50 dark:bg-slate-900/30 border border-slate-200 dark:border-slate-700 rounded-xl p-4">
+                <div className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 dark:text-slate-500 mb-2">Sync Link</div>
+                <p className="text-xs text-slate-500 dark:text-slate-400 mb-3">
+                  Copy this link and open it on another device to sync.
+                </p>
+                <button
+                  type="button"
+                  onClick={copyUserId}
+                  className="w-full px-4 py-3 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-xl text-sm font-bold hover:opacity-90 transition-all"
+                >
+                  Copy Sync Link
+                </button>
+              </div>
+
+              <button
+                type="button"
+                onClick={handleManualSync}
+                disabled={syncStatus === 'syncing'}
+                className="w-full px-4 py-3 rounded-xl font-bold bg-blue-500 text-white flex items-center justify-center gap-2 disabled:opacity-50"
+              >
+                {syncStatus === 'syncing' ? 'Syncing...' : 'Sync Now'}
+              </button>
+
+              <p className="text-xs text-center text-slate-400 dark:text-slate-500">
+                Status: {syncStatus === 'synced' ? 'Synced' : syncStatus === 'syncing' ? 'Syncing...' : syncStatus === 'offline' ? 'Offline' : syncStatus === 'error' ? 'Error' : 'Ready'}
+              </p>
+            </div>
+          </div>
         </div>
-      </MobileDrawer>
+      )}
 
       {isFormOpen && (
         <TaskForm 
