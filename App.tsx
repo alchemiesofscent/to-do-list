@@ -1,11 +1,12 @@
-
 import React, { useState, useMemo, useEffect } from 'react';
 import { AcademicTask, TaskType, Status, Priority } from './types.ts';
 import { INITIAL_TASKS } from './initialData.ts';
 import { StatsOverview } from './components/StatsOverview.tsx';
 import { AcademicTaskList } from './components/AcademicTaskList.tsx';
 import { TaskForm } from './components/TaskForm.tsx';
-import { SearchIcon, FilterIcon, PlusIcon, BookIcon } from './components/Icons.tsx';
+import { SearchIcon, FilterIcon, PlusIcon, BookIcon, SunIcon, MoonIcon, MonitorIcon } from './components/Icons.tsx';
+
+type Theme = 'light' | 'dark' | 'system';
 
 const App: React.FC = () => {
   const [tasks, setTasks] = useState<AcademicTask[]>(() => {
@@ -14,6 +15,10 @@ const App: React.FC = () => {
   });
   
   const [isFormOpen, setIsFormOpen] = useState(false);
+  const [isEditingMode, setIsEditingMode] = useState(true);
+  const [theme, setTheme] = useState<Theme>(() => {
+    return (localStorage.getItem('scholar_opus_theme') as Theme) || 'system';
+  });
   const [taskToEdit, setTaskToEdit] = useState<AcademicTask | undefined>(undefined);
   const [searchQuery, setSearchQuery] = useState('');
   const [activeTypeFilter, setActiveTypeFilter] = useState<TaskType | 'All'>('All');
@@ -22,6 +27,20 @@ const App: React.FC = () => {
   useEffect(() => {
     localStorage.setItem('scholar_opus_tasks', JSON.stringify(tasks));
   }, [tasks]);
+
+  useEffect(() => {
+    localStorage.setItem('scholar_opus_theme', theme);
+    const root = window.document.documentElement;
+    
+    const applyTheme = (isDark: boolean) => {
+      if (isDark) root.classList.add('dark');
+      else root.classList.remove('dark');
+    };
+
+    if (theme === 'dark') applyTheme(true);
+    else if (theme === 'light') applyTheme(false);
+    else applyTheme(window.matchMedia('(prefers-color-scheme: dark)').matches);
+  }, [theme]);
 
   const handleSaveTask = (taskData: Omit<AcademicTask, 'id'>) => {
     if (taskToEdit) {
@@ -51,7 +70,7 @@ const App: React.FC = () => {
   };
 
   const deleteTask = (id: string) => {
-    if (confirm('Are you sure you want to remove this project from your opus?')) {
+    if (confirm('Are you sure you want to remove this project?')) {
       setTasks(tasks.filter(t => t.id !== id));
     }
   };
@@ -83,60 +102,88 @@ const App: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen pb-20">
-      <header className="bg-white border-b border-slate-200 sticky top-0 z-30">
-        <div className="max-w-5xl mx-auto px-4 h-16 flex items-center justify-between">
+    <div className="min-h-screen bg-slate-50 dark:bg-slate-900 transition-colors duration-200">
+      <header className="bg-white dark:bg-slate-800 border-b border-slate-200 dark:border-slate-700 sticky top-0 z-40">
+        <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <div className="bg-slate-900 p-1.5 rounded-lg">
-              <BookIcon className="w-5 h-5 text-white" />
+            <div className="bg-slate-900 dark:bg-slate-100 p-1.5 rounded-lg shadow-sm">
+              <BookIcon className="w-5 h-5 text-white dark:text-slate-900" />
             </div>
-            <h1 className="serif text-xl font-bold text-slate-900 tracking-tight">Scholar's Opus</h1>
+            <h1 className="font-serif text-xl font-bold text-slate-900 dark:text-white tracking-tight">Scholar's Opus</h1>
           </div>
           
-          <div className="flex items-center gap-4">
-            <div className="hidden md:flex items-center bg-slate-100 px-3 py-1.5 rounded-full border border-slate-200">
-              <SearchIcon className="w-4 h-4 text-slate-400 mr-2" />
-              <input 
-                type="text" 
-                placeholder="Search corpus..."
-                className="bg-transparent text-sm outline-none w-48 text-slate-700 placeholder-slate-400"
-                value={searchQuery}
-                onChange={e => setSearchQuery(e.target.value)}
-              />
+          <div className="flex items-center gap-2 sm:gap-4">
+            {/* Control Center */}
+            <div className="flex items-center bg-slate-100 dark:bg-slate-900/50 p-1 rounded-xl border border-slate-200 dark:border-slate-700">
+              {/* Theme Selector */}
+              <div className="flex items-center border-r border-slate-200 dark:border-slate-700 pr-1 mr-1">
+                 <button 
+                  onClick={() => setTheme('light')}
+                  className={`p-1.5 rounded-lg transition-all ${theme === 'light' ? 'bg-white dark:bg-slate-700 text-amber-500 shadow-sm' : 'text-slate-400 hover:text-slate-600'}`}
+                >
+                  <SunIcon className="w-4 h-4" />
+                </button>
+                <button 
+                  onClick={() => setTheme('dark')}
+                  className={`p-1.5 rounded-lg transition-all ${theme === 'dark' ? 'bg-white dark:bg-slate-700 text-indigo-400 shadow-sm' : 'text-slate-400 hover:text-slate-600'}`}
+                >
+                  <MoonIcon className="w-4 h-4" />
+                </button>
+                <button 
+                  onClick={() => setTheme('system')}
+                  className={`p-1.5 rounded-lg transition-all ${theme === 'system' ? 'bg-white dark:bg-slate-700 text-emerald-500 shadow-sm' : 'text-slate-400 hover:text-slate-600'}`}
+                >
+                  <MonitorIcon className="w-4 h-4" />
+                </button>
+              </div>
+
+              {/* Editing Mode */}
+              <button 
+                onClick={() => setIsEditingMode(!isEditingMode)}
+                className={`flex items-center gap-2 px-3 py-1.5 rounded-lg transition-all text-[10px] font-black uppercase tracking-widest ${
+                  isEditingMode 
+                  ? 'bg-rose-500 text-white shadow-lg shadow-rose-200 dark:shadow-none' 
+                  : 'bg-white dark:bg-slate-800 text-slate-400 dark:text-slate-500 border border-slate-200 dark:border-slate-700'
+                }`}
+              >
+                {isEditingMode ? 'Editing' : 'Locked'}
+                <div className={`w-1.5 h-1.5 rounded-full ${isEditingMode ? 'bg-white animate-pulse' : 'bg-slate-300 dark:bg-slate-600'}`} />
+              </button>
             </div>
+
             <button 
               onClick={() => setIsFormOpen(true)}
-              className="bg-slate-900 text-white p-2 md:px-4 md:py-2 rounded-full md:rounded-lg font-bold text-sm flex items-center gap-2 hover:bg-slate-800 transition-all shadow-lg shadow-slate-200 active:scale-95"
+              className="bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 p-2 sm:px-4 sm:py-2 rounded-full sm:rounded-lg font-bold text-sm flex items-center gap-2 hover:opacity-90 transition-all shadow active:scale-95"
             >
               <PlusIcon className="w-5 h-5" />
-              <span className="hidden md:inline">New Project</span>
+              <span className="hidden sm:inline">New Project</span>
             </button>
           </div>
         </div>
       </header>
 
-      <main className="max-w-5xl mx-auto px-4 py-8">
-        <div className="mb-10 text-center md:text-left">
-          <h2 className="serif text-3xl font-bold text-slate-900 mb-2">Research Catalog</h2>
-          <p className="text-slate-500 max-w-2xl leading-relaxed">
-            Managing a career of classical research, experimental replications, and technical translations.
-            Track your movement from ancient fragments to final manuscripts.
+      <main className="max-w-5xl mx-auto px-4 py-12">
+        <div className="mb-10 text-center sm:text-left">
+          <h2 className="font-serif text-4xl font-bold text-slate-900 dark:text-white mb-3">Research Corpus</h2>
+          <p className="text-slate-500 dark:text-slate-400 max-w-2xl text-lg leading-relaxed">
+            A comprehensive catalog of academic output, technical replications, and ongoing philological studies.
           </p>
         </div>
 
         <StatsOverview tasks={tasks} />
 
-        <div className="flex flex-col md:flex-row items-center gap-4 mb-6 sticky top-20 bg-slate-50/80 backdrop-blur py-4 z-20">
-          <div className="flex items-center gap-2 overflow-x-auto w-full no-scrollbar pb-2 md:pb-0">
+        {/* Filters Sticky Bar */}
+        <div className="flex flex-col sm:flex-row items-center gap-4 mb-8 sticky top-16 bg-slate-50 dark:bg-slate-900 py-4 z-30">
+          <div className="flex items-center gap-2 overflow-x-auto w-full no-scrollbar pb-2 sm:pb-0">
             <FilterIcon className="w-4 h-4 text-slate-400 shrink-0" />
             {taskTypes.map(type => (
               <button
                 key={type}
                 onClick={() => setActiveTypeFilter(type)}
-                className={`whitespace-nowrap px-3 py-1 rounded-full text-xs font-bold transition-all border ${
+                className={`whitespace-nowrap px-4 py-1.5 rounded-full text-xs font-bold transition-all border ${
                   activeTypeFilter === type 
-                    ? 'bg-slate-900 text-white border-slate-900' 
-                    : 'bg-white text-slate-600 border-slate-200 hover:border-slate-300'
+                    ? 'bg-slate-900 dark:bg-white text-white dark:text-slate-900 border-slate-900 dark:border-white shadow-md' 
+                    : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-400 border-slate-200 dark:border-slate-700 hover:border-slate-300'
                 }`}
               >
                 {type}
@@ -144,10 +191,10 @@ const App: React.FC = () => {
             ))}
           </div>
           
-          <div className="flex items-center gap-2 shrink-0 self-end md:self-auto">
-            <label className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Sort by:</label>
+          <div className="flex items-center gap-3 shrink-0 self-end sm:self-auto bg-white dark:bg-slate-800 px-4 py-1.5 rounded-full border border-slate-200 dark:border-slate-700">
+            <label className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest">Sort:</label>
             <select 
-              className="bg-transparent text-xs font-bold text-slate-700 outline-none cursor-pointer"
+              className="bg-transparent text-xs font-bold text-slate-700 dark:text-slate-300 outline-none cursor-pointer"
               value={sortBy}
               onChange={e => setSortBy(e.target.value as any)}
             >
@@ -164,20 +211,9 @@ const App: React.FC = () => {
           onDelete={deleteTask}
           onUpdateTask={updateTaskField}
           onEdit={openEditForm}
+          isEditingMode={isEditingMode}
         />
       </main>
-
-      <footer className="max-w-5xl mx-auto px-4 mt-12 pt-8 border-t border-slate-200">
-        <div className="flex flex-col md:flex-row justify-between items-center text-slate-400 text-[10px] font-bold uppercase tracking-widest gap-4">
-          <div className="flex gap-4">
-            <span>PhD since 2013</span>
-            <span>ERC Consolidator Eligible: 2027</span>
-          </div>
-          <div>
-            Sean Coughlin • Alchemies of Scent
-          </div>
-        </div>
-      </footer>
 
       {isFormOpen && (
         <TaskForm 

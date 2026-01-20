@@ -13,17 +13,17 @@ export const StatsOverview: React.FC<StatsOverviewProps> = ({ tasks }) => {
   const inProgress = tasks.filter(t => ['Draft', 'Revision', 'Experimental'].includes(t.status)).length;
 
   const stats = [
-    { label: 'Total Projects', value: total, color: 'text-slate-900', bg: 'bg-slate-100' },
-    { label: 'Active Drafts', value: inProgress, color: 'text-amber-700', bg: 'bg-amber-50' },
-    { label: 'High Priority', value: highPriority, color: 'text-rose-700', bg: 'bg-rose-50' },
-    { label: 'Published', value: published, color: 'text-emerald-700', bg: 'bg-emerald-50' },
+    { label: 'Total Projects', value: total, color: 'text-slate-900 dark:text-white', bg: 'bg-slate-100 dark:bg-slate-800' },
+    { label: 'Active Drafts', value: inProgress, color: 'text-amber-700 dark:text-amber-400', bg: 'bg-amber-50 dark:bg-amber-900/20' },
+    { label: 'High Priority', value: highPriority, color: 'text-rose-700 dark:text-rose-400', bg: 'bg-rose-50 dark:bg-rose-900/20' },
+    { label: 'Published', value: published, color: 'text-emerald-700 dark:text-emerald-400', bg: 'bg-emerald-50 dark:bg-emerald-900/20' },
   ];
 
   return (
     <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
       {stats.map((stat) => (
-        <div key={stat.label} className={`${stat.bg} p-4 rounded-xl shadow-sm border border-black/5`}>
-          <p className="text-xs font-medium uppercase tracking-wider text-slate-500 mb-1">{stat.label}</p>
+        <div key={stat.label} className={`${stat.bg} p-4 rounded-xl shadow-sm border border-black/5 dark:border-white/5`}>
+          <p className="text-xs font-medium uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1">{stat.label}</p>
           <p className={`text-2xl font-bold ${stat.color}`}>{stat.value}</p>
         </div>
       ))}

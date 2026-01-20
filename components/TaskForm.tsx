@@ -43,13 +43,13 @@ export const TaskForm: React.FC<TaskFormProps> = ({ onSave, onClose, initialData
   };
 
   return (
-    <div className="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-      <div className="bg-white rounded-2xl shadow-2xl w-full max-w-xl overflow-hidden animate-in fade-in zoom-in duration-200">
-        <div className="p-6 border-b border-slate-100 flex items-center justify-between bg-slate-50">
-          <h2 className="serif text-xl font-bold text-slate-900">
+    <div className="fixed inset-0 bg-slate-900/40 dark:bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+      <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-2xl w-full max-w-xl overflow-hidden animate-in fade-in zoom-in duration-200 border dark:border-slate-700">
+        <div className="p-6 border-b border-slate-100 dark:border-slate-700 flex items-center justify-between bg-slate-50 dark:bg-slate-800/50">
+          <h2 className="serif text-xl font-bold text-slate-900 dark:text-white">
             {initialData ? 'Update Research Entry' : 'Catalogue New Research'}
           </h2>
-          <button onClick={onClose} className="text-slate-400 hover:text-slate-600 transition-colors">
+          <button onClick={onClose} className="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition-colors">
             <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
             </svg>
@@ -58,12 +58,12 @@ export const TaskForm: React.FC<TaskFormProps> = ({ onSave, onClose, initialData
 
         <form onSubmit={handleSubmit} className="p-6 space-y-4 max-h-[80vh] overflow-y-auto">
           <div>
-            <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">Project Title</label>
+            <label className="block text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1">Project Title</label>
             <input 
               type="text" 
               required
               placeholder="e.g. A New Method for Identifying Ancient Stacte"
-              className="w-full px-4 py-2 rounded-lg border border-slate-200 focus:ring-2 focus:ring-slate-900 focus:border-transparent outline-none transition-all"
+              className="w-full px-4 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white focus:ring-2 focus:ring-slate-900 dark:focus:ring-white focus:border-transparent outline-none transition-all"
               value={formData.title}
               onChange={e => setFormData({...formData, title: e.target.value})}
             />
@@ -71,9 +71,9 @@ export const TaskForm: React.FC<TaskFormProps> = ({ onSave, onClose, initialData
 
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">Type</label>
+              <label className="block text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1">Type</label>
               <select 
-                className="w-full px-4 py-2 rounded-lg border border-slate-200 outline-none"
+                className="w-full px-4 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white outline-none"
                 value={formData.type}
                 onChange={e => setFormData({...formData, type: e.target.value as TaskType})}
               >
@@ -88,9 +88,9 @@ export const TaskForm: React.FC<TaskFormProps> = ({ onSave, onClose, initialData
               </select>
             </div>
             <div>
-              <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">Priority</label>
+              <label className="block text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1">Priority</label>
               <select 
-                className="w-full px-4 py-2 rounded-lg border border-slate-200 outline-none"
+                className="w-full px-4 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white outline-none"
                 value={formData.priority}
                 onChange={e => setFormData({...formData, priority: e.target.value as Priority})}
               >
@@ -103,9 +103,9 @@ export const TaskForm: React.FC<TaskFormProps> = ({ onSave, onClose, initialData
           </div>
 
           <div>
-            <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">Current Status</label>
+            <label className="block text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1">Current Status</label>
             <select 
-              className="w-full px-4 py-2 rounded-lg border border-slate-200 outline-none"
+              className="w-full px-4 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white outline-none"
               value={formData.status}
               onChange={e => setFormData({...formData, status: e.target.value as Status})}
             >
@@ -122,11 +122,11 @@ export const TaskForm: React.FC<TaskFormProps> = ({ onSave, onClose, initialData
           </div>
 
           <div>
-            <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">Description & Notes</label>
+            <label className="block text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1">Description & Notes</label>
             <textarea 
               rows={5}
-              placeholder="Summary of findings, collaborators, target journal, tasks remaining..."
-              className="w-full px-4 py-2 rounded-lg border border-slate-200 outline-none focus:ring-2 focus:ring-slate-900"
+              placeholder="Summary of findings..."
+              className="w-full px-4 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white outline-none focus:ring-2 focus:ring-slate-900 dark:focus:ring-white"
               value={formData.description}
               onChange={e => setFormData({...formData, description: e.target.value})}
             />
@@ -134,20 +134,20 @@ export const TaskForm: React.FC<TaskFormProps> = ({ onSave, onClose, initialData
 
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">Co-Authors</label>
+              <label className="block text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1">Co-Authors</label>
               <input 
                 type="text" 
                 placeholder="e.g. Laurence Totelin"
-                className="w-full px-4 py-2 rounded-lg border border-slate-200 outline-none"
+                className="w-full px-4 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white outline-none"
                 value={formData.coAuthors}
                 onChange={e => setFormData({...formData, coAuthors: e.target.value})}
               />
             </div>
             <div>
-              <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">Target Deadline</label>
+              <label className="block text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1">Target Deadline</label>
               <input 
                 type="date" 
-                className="w-full px-4 py-2 rounded-lg border border-slate-200 outline-none"
+                className="w-full px-4 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white outline-none"
                 value={formData.deadline}
                 onChange={e => setFormData({...formData, deadline: e.target.value})}
               />
@@ -158,13 +158,13 @@ export const TaskForm: React.FC<TaskFormProps> = ({ onSave, onClose, initialData
             <button 
               type="button"
               onClick={onClose}
-              className="flex-1 px-4 py-2 bg-slate-100 text-slate-600 font-bold rounded-lg hover:bg-slate-200 transition-colors"
+              className="flex-1 px-4 py-2 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 font-bold rounded-lg hover:bg-slate-200 dark:hover:bg-slate-600 transition-colors"
             >
               Cancel
             </button>
             <button 
               type="submit"
-              className="flex-1 px-4 py-2 bg-slate-900 text-white font-bold rounded-lg hover:bg-slate-800 transition-colors flex items-center justify-center gap-2"
+              className="flex-1 px-4 py-2 bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-bold rounded-lg hover:opacity-90 transition-colors flex items-center justify-center gap-2"
             >
               {initialData ? <CheckIcon className="w-5 h-5" /> : <PlusIcon className="w-5 h-5" />}
               {initialData ? 'Save Changes' : 'Add Project'}
