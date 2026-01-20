@@ -4,29 +4,42 @@
 
 # Scholar's Opus
 
-Academic research and publication tracker (Vite + React).
+Academic research and publication tracker (Vite + React). It seeds from a Markdown project list and stores edits in the browser.
 
-AI Studio app: https://ai.studio/apps/drive/1HKCblpVkc_lUdD0WfRmNmF4iWv-JECQg
+## Quickstart
 
-## Run Locally
+**Requirements:** Node.js 20+
 
-**Prerequisites:**  Node.js
+```bash
+npm ci && npm run dev
+```
 
+## Scripts
 
-1. Install dependencies:
-   `npm ci` (or `npm install`)
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+- `npm run dev`: run the dev server
+- `npm run build`: build a production bundle into `dist/`
+- `npm run preview`: preview the production build locally
+- `npm run typecheck`: TypeScript typecheck
+- `npm test`: run unit tests
+- `npm run validate:data`: validate `data/projects.md` parses cleanly
+
+## Configuration
+
+No required environment variables.
+
+## Architecture
+
+- `src/main.tsx`: app entrypoint
+- `src/App.tsx`: UI + filtering (Writing/Experiments/DH/Grants/Admin tabs)
+- `src/projectsParser.ts`: parses `data/projects.md` into tasks at build time
+- `src/db.ts`: localStorage persistence + migrations
+- `src/components/*`: UI components
 
 ## Data
 
-- Seed list: `projects.md` (parsed at build time)
-- Persisted edits: browser `localStorage`
+- Seed list: `data/projects.md`
+- Saved state: browser `localStorage` (`scholar_opus_db`)
 
-## Deploy to GitHub Pages
+## Deployment (GitHub Pages)
 
-This repo is configured to deploy to `https://alchemiesofscent.github.io/To-Do-List/` via GitHub Actions.
-
-1. In GitHub: **Settings → Pages → Source**: select **GitHub Actions**
-2. Push to the `main` branch (or run the workflow manually via **Actions**)
+This repo deploys to `https://alchemiesofscent.github.io/To-Do-List/` via `.github/workflows/pages.yml`.
