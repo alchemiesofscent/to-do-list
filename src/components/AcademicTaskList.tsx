@@ -1,7 +1,7 @@
 import React from 'react';
 import { AcademicTask, Priority, Status, TaskType } from '../types.ts';
 import { ClockIcon, TrashIcon, StarIcon, BookIcon } from './Icons.tsx';
-import { downloadIcsFile, generateGoogleCalendarUrl } from '../calendarUtils.ts';
+import { downloadIcsFile } from '../calendarUtils.ts';
 
 interface AcademicTaskListProps {
   tasks: AcademicTask[];

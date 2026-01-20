@@ -1,4 +1,3 @@
-
 export type Priority = 'High' | 'Medium' | 'Low' | 'Aspirational';
 
 export type TaskType = 

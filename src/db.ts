@@ -147,4 +147,3 @@ export function saveTasksToDb(params: { tasks: AcademicTask[]; seedRevision: str
     // Ignore persistence failures (e.g. storage disabled).
   }
 }
-

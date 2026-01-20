@@ -1,4 +1,3 @@
-
 import { AcademicTask } from './types.ts';
 
 const isValidDateString = (value: string) => !Number.isNaN(new Date(value).getTime());

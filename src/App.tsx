@@ -5,15 +5,16 @@ import { loadTasksFromDb, saveTasksToDb } from './db.ts';
 import { StatsOverview } from './components/StatsOverview.tsx';
 import { AcademicTaskList } from './components/AcademicTaskList.tsx';
 import { TaskForm } from './components/TaskForm.tsx';
-import { SearchIcon, FilterIcon, PlusIcon, BookIcon, SunIcon, MoonIcon, MonitorIcon } from './components/Icons.tsx';
+import { FilterIcon, PlusIcon, BookIcon, SunIcon, MoonIcon, MonitorIcon } from './components/Icons.tsx';
 
 type Theme = 'light' | 'dark' | 'system';
-type DomainTab = 'Writing' | 'Experiments' | 'DH' | 'Admin';
+type DomainTab = 'Writing' | 'Experiments' | 'DH' | 'Grants' | 'Admin';
 
 const DOMAIN_TABS: { key: DomainTab; label: string }[] = [
   { key: 'Writing', label: 'Writing' },
   { key: 'Experiments', label: 'Experiments' },
   { key: 'DH', label: 'DH' },
+  { key: 'Grants', label: 'Grants' },
   { key: 'Admin', label: 'Admin' },
 ];
 
@@ -24,7 +25,7 @@ const classifyTaskDomain = (task: AcademicTask): DomainTab => {
   const description = task.description.toLowerCase();
   const combined = `${title}\n${description}`;
 
-  if (task.type === 'Grant' || section.includes('grants & admin') || section.includes('grants')) return 'Admin';
+  if (task.type === 'Grant' || section.includes('grants & admin') || section.includes('grants')) return 'Grants';
 
   const looksDh =
     task.type === 'Digital Humanities' ||
@@ -57,7 +58,9 @@ const App: React.FC = () => {
   const [sortBy, setSortBy] = useState<'priority' | 'type' | 'title'>('priority');
   const [activeDomainTab, setActiveDomainTab] = useState<DomainTab>(() => {
     const saved = localStorage.getItem('scholar_opus_domain_tab');
-    return (saved as DomainTab) || 'Writing';
+    const validTabs = new Set(DOMAIN_TABS.map((t) => t.key));
+    if (saved && validTabs.has(saved as DomainTab)) return saved as DomainTab;
+    return 'Writing';
   });
 
   useEffect(() => {
@@ -128,7 +131,7 @@ const App: React.FC = () => {
   };
 
   const domainCounts = useMemo(() => {
-    const counts: Record<DomainTab, number> = { Writing: 0, Experiments: 0, DH: 0, Admin: 0 };
+    const counts: Record<DomainTab, number> = { Writing: 0, Experiments: 0, DH: 0, Grants: 0, Admin: 0 };
     for (const task of tasks) counts[classifyTaskDomain(task)]++;
     return counts;
   }, [tasks]);
