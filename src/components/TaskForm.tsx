@@ -86,6 +86,8 @@ export const TaskForm: React.FC<TaskFormProps> = ({ onSave, onClose, initialData
                 <option value="Digital Humanities">Digital Humanities</option>
                 <option value="Grant">Grant</option>
                 <option value="Book Proposal">Book Proposal</option>
+                <option value="Experiment">Experiment</option>
+                <option value="Admin Task">Admin Task</option>
               </select>
             </div>
             <div>

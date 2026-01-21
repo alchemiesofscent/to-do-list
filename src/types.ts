@@ -2,15 +2,17 @@ export type Priority = 'High' | 'Medium' | 'Low' | 'Aspirational';
 
 export type Domain = 'Writing' | 'Experiments' | 'DH' | 'Grants' | 'Admin';
 
-export type TaskType = 
-  | 'Article' 
-  | 'Book' 
-  | 'Translation' 
-  | 'Edited Volume' 
-  | 'Book Review' 
-  | 'Digital Humanities' 
-  | 'Grant' 
-  | 'Book Proposal';
+export type TaskType =
+  | 'Article'
+  | 'Book'
+  | 'Translation'
+  | 'Edited Volume'
+  | 'Book Review'
+  | 'Digital Humanities'
+  | 'Grant'
+  | 'Book Proposal'
+  | 'Experiment'
+  | 'Admin Task';
 
 export type Status = 
   | 'Published' 

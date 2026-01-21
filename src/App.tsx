@@ -20,19 +20,32 @@ const DOMAIN_TABS: { key: Domain; label: string }[] = [
   { key: 'Admin', label: 'Admin' },
 ];
 
+// Map task types directly to domains
+const TYPE_TO_DOMAIN: Partial<Record<TaskType, Domain>> = {
+  'Experiment': 'Experiments',
+  'Admin Task': 'Admin',
+  'Digital Humanities': 'DH',
+  'Grant': 'Grants',
+  // All others default to 'Writing'
+};
+
 const classifyTaskDomain = (task: AcademicTask): Domain => {
   if (task.domain) return task.domain;
 
+  // Check type-based mapping first
+  const domainFromType = TYPE_TO_DOMAIN[task.type];
+  if (domainFromType) return domainFromType;
+
+  // Fallback heuristics for legacy data without explicit type
   const section = (task.section ?? '').toLowerCase();
   const subsection = (task.subsection ?? '').toLowerCase();
   const title = task.title.toLowerCase();
   const description = task.description.toLowerCase();
   const combined = `${title}\n${description}`;
 
-  if (task.type === 'Grant' || section.includes('grants & admin') || section.includes('grants')) return 'Grants';
+  if (section.includes('grants & admin') || section.includes('grants')) return 'Grants';
 
   const looksDh =
-    task.type === 'Digital Humanities' ||
     section.includes('digital humanities') ||
     /\b(tei|teitok|portal|database|data model|model|dioscorides|disambiguat|github)\b/i.test(combined);
   if (looksDh) return 'DH';
@@ -289,7 +302,7 @@ const App: React.FC = () => {
   );
 
   const taskTypes: (TaskType | 'All')[] = [
-    'All', 'Article', 'Book', 'Translation', 'Edited Volume', 'Book Review', 'Digital Humanities', 'Grant', 'Book Proposal'
+    'All', 'Article', 'Book', 'Translation', 'Edited Volume', 'Book Review', 'Digital Humanities', 'Grant', 'Book Proposal', 'Experiment', 'Admin Task'
   ];
 
   const activeFilterCount = useMemo(() => {
@@ -464,38 +477,35 @@ const App: React.FC = () => {
           </button>
         </div>
 
-        <div className="hidden sm:flex flex-col sm:flex-row items-center gap-4 mb-8 sticky top-16 bg-slate-50 dark:bg-slate-900 py-4 z-30">
-          <div className="flex items-center gap-2 overflow-x-auto w-full no-scrollbar pb-2 sm:pb-0">
+        <div className="hidden sm:flex flex-row items-center gap-4 mb-8 sticky top-16 bg-slate-50 dark:bg-slate-900 py-4 z-30">
+          <div className="flex items-center gap-3 shrink-0 bg-white dark:bg-slate-800 px-4 py-1.5 rounded-full border border-slate-200 dark:border-slate-700">
             <FilterIcon className="w-4 h-4 text-slate-400 shrink-0" />
-            {taskTypes.map(type => (
-              <button
-                key={type}
-                onClick={() => setActiveTypeFilter(type)}
-                className={`whitespace-nowrap px-4 py-1.5 rounded-full text-xs font-bold transition-all border ${
-                  activeTypeFilter === type 
-                    ? 'bg-slate-900 dark:bg-white text-white dark:text-slate-900 border-slate-900 dark:border-white shadow-md' 
-                    : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-400 border-slate-200 dark:border-slate-700 hover:border-slate-300'
-                }`}
-              >
-                {type}
-              </button>
-            ))}
+            <label className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest">Type:</label>
+            <select
+              className="bg-transparent text-xs font-bold text-slate-700 dark:text-slate-300 outline-none cursor-pointer"
+              value={activeTypeFilter}
+              onChange={(e) => setActiveTypeFilter(e.target.value as TaskType | 'All')}
+            >
+              {taskTypes.map(type => (
+                <option key={type} value={type}>{type}</option>
+              ))}
+            </select>
           </div>
-          
-          <div className="flex items-center gap-2 w-full sm:w-auto bg-white dark:bg-slate-800 px-4 py-2 rounded-full border border-slate-200 dark:border-slate-700">
+
+          <div className="flex items-center gap-2 flex-1 bg-white dark:bg-slate-800 px-4 py-2 rounded-full border border-slate-200 dark:border-slate-700">
             <SearchIcon className="w-4 h-4 text-slate-400 shrink-0" />
             <input
               type="search"
               placeholder="Search…"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="bg-transparent text-sm font-semibold text-slate-700 dark:text-slate-300 outline-none w-full sm:w-56 placeholder:text-slate-400"
+              className="bg-transparent text-sm font-semibold text-slate-700 dark:text-slate-300 outline-none w-full placeholder:text-slate-400"
             />
           </div>
 
-          <div className="flex items-center gap-3 shrink-0 self-end sm:self-auto bg-white dark:bg-slate-800 px-4 py-1.5 rounded-full border border-slate-200 dark:border-slate-700">
+          <div className="flex items-center gap-3 shrink-0 bg-white dark:bg-slate-800 px-4 py-1.5 rounded-full border border-slate-200 dark:border-slate-700">
             <label className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest">Sort:</label>
-            <select 
+            <select
               className="bg-transparent text-xs font-bold text-slate-700 dark:text-slate-300 outline-none cursor-pointer"
               value={sortBy}
               onChange={(e) => {
