@@ -1,17 +1,36 @@
 import React, { useState, useEffect } from 'react';
-import { AcademicTask, Priority, Status, TaskType } from '../types.ts';
+import { AcademicTask, Domain, Priority, Status, TaskType } from '../types.ts';
 import { PlusIcon, CheckIcon } from './Icons.tsx';
+
+// Types available for each domain
+const DOMAIN_TYPES: Record<Domain, TaskType[]> = {
+  'Writing': ['Article', 'Book', 'Translation', 'Edited Volume', 'Book Review', 'Book Proposal'],
+  'Experiments': ['Perfume', 'Other Experiment'],
+  'DH': ['Website', 'Database', 'Other DH'],
+  'Grants': ['Grant'],
+  'Admin': ['GACR', 'FLU', 'IOCB', 'Internal', 'Other Admin'],
+};
+
+// Default type for each domain
+const DEFAULT_TYPE: Record<Domain, TaskType> = {
+  'Writing': 'Article',
+  'Experiments': 'Perfume',
+  'DH': 'Website',
+  'Grants': 'Grant',
+  'Admin': 'Internal',
+};
 
 interface TaskFormProps {
   onSave: (task: Omit<AcademicTask, 'id'>) => void;
   onClose: () => void;
   initialData?: AcademicTask;
+  currentDomain: Domain;
 }
 
-export const TaskForm: React.FC<TaskFormProps> = ({ onSave, onClose, initialData }) => {
+export const TaskForm: React.FC<TaskFormProps> = ({ onSave, onClose, initialData, currentDomain }) => {
   const [formData, setFormData] = useState({
     title: '',
-    type: 'Article' as TaskType,
+    type: DEFAULT_TYPE[currentDomain] as TaskType,
     priority: 'Medium' as Priority,
     status: 'Draft' as Status,
     description: '',
@@ -20,6 +39,8 @@ export const TaskForm: React.FC<TaskFormProps> = ({ onSave, onClose, initialData
     deadlineNote: '',
     isFavorite: false
   });
+
+  const availableTypes = DOMAIN_TYPES[currentDomain];
 
   useEffect(() => {
     if (initialData) {
@@ -78,16 +99,9 @@ export const TaskForm: React.FC<TaskFormProps> = ({ onSave, onClose, initialData
                 value={formData.type}
                 onChange={e => setFormData({...formData, type: e.target.value as TaskType})}
               >
-                <option value="Article">Article</option>
-                <option value="Book">Book</option>
-                <option value="Translation">Translation</option>
-                <option value="Edited Volume">Edited Volume</option>
-                <option value="Book Review">Book Review</option>
-                <option value="Digital Humanities">Digital Humanities</option>
-                <option value="Grant">Grant</option>
-                <option value="Book Proposal">Book Proposal</option>
-                <option value="Experiment">Experiment</option>
-                <option value="Admin Task">Admin Task</option>
+                {availableTypes.map(type => (
+                  <option key={type} value={type}>{type}</option>
+                ))}
               </select>
             </div>
             <div>

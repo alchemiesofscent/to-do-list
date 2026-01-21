@@ -48,21 +48,35 @@ function isKnownTaskTypeLabel(label: string): boolean {
 
 function normalizeType(rawType: string | undefined, section: string, title: string): TaskType {
   const cleaned = (rawType ?? '').trim().toLowerCase();
+  // Writing types
   if (cleaned === 'article') return 'Article';
   if (cleaned === 'book') return 'Book';
   if (cleaned === 'translation' || cleaned === 'translations') return 'Translation';
   if (cleaned === 'edited volume' || cleaned === 'edited volumes') return 'Edited Volume';
   if (cleaned === 'book review' || cleaned === 'book reviews') return 'Book Review';
-  if (cleaned === 'digital humanities') return 'Digital Humanities';
-  if (cleaned === 'grant' || cleaned === 'grants') return 'Grant';
   if (cleaned === 'book proposal') return 'Book Proposal';
+  // DH types
+  if (cleaned === 'digital humanities' || cleaned === 'website') return 'Website';
+  if (cleaned === 'database' || cleaned === 'db') return 'Database';
+  if (cleaned === 'other dh') return 'Other DH';
+  // Experiment types
+  if (cleaned === 'perfume' || cleaned === 'experiment') return 'Perfume';
+  if (cleaned === 'other experiment') return 'Other Experiment';
+  // Grant type
+  if (cleaned === 'grant' || cleaned === 'grants') return 'Grant';
+  // Admin types
+  if (cleaned === 'gacr') return 'GACR';
+  if (cleaned === 'flu') return 'FLU';
+  if (cleaned === 'iocb') return 'IOCB';
+  if (cleaned === 'internal') return 'Internal';
+  if (cleaned === 'admin' || cleaned === 'admin task' || cleaned === 'other admin') return 'Other Admin';
 
   const sectionLc = section.toLowerCase();
   if (sectionLc.includes('immediate priorities')) return 'Article';
   if (sectionLc.includes('book projects')) return 'Book';
   if (sectionLc.includes('articles & papers')) return 'Article';
   if (sectionLc.includes('translations')) return 'Translation';
-  if (sectionLc.includes('digital humanities')) return 'Digital Humanities';
+  if (sectionLc.includes('digital humanities')) return 'Website';
   if (sectionLc.includes('grants')) return 'Grant';
   if (sectionLc.includes('completed')) {
     const titleLc = title.toLowerCase();

@@ -20,43 +20,46 @@ const DOMAIN_TABS: { key: Domain; label: string }[] = [
   { key: 'Admin', label: 'Admin' },
 ];
 
-// Map task types directly to domains
-const TYPE_TO_DOMAIN: Partial<Record<TaskType, Domain>> = {
-  'Experiment': 'Experiments',
-  'Admin Task': 'Admin',
-  'Digital Humanities': 'DH',
+// Map task types to their domains
+const TYPE_TO_DOMAIN: Record<TaskType, Domain> = {
+  // Writing
+  'Article': 'Writing',
+  'Book': 'Writing',
+  'Translation': 'Writing',
+  'Edited Volume': 'Writing',
+  'Book Review': 'Writing',
+  'Book Proposal': 'Writing',
+  // Experiments
+  'Perfume': 'Experiments',
+  'Other Experiment': 'Experiments',
+  // DH
+  'Website': 'DH',
+  'Database': 'DH',
+  'Other DH': 'DH',
+  // Grants
   'Grant': 'Grants',
-  // All others default to 'Writing'
+  // Admin
+  'GACR': 'Admin',
+  'FLU': 'Admin',
+  'IOCB': 'Admin',
+  'Internal': 'Admin',
+  'Other Admin': 'Admin',
+};
+
+// Types available for each domain
+const DOMAIN_TYPES: Record<Domain, TaskType[]> = {
+  'Writing': ['Article', 'Book', 'Translation', 'Edited Volume', 'Book Review', 'Book Proposal'],
+  'Experiments': ['Perfume', 'Other Experiment'],
+  'DH': ['Website', 'Database', 'Other DH'],
+  'Grants': ['Grant'],
+  'Admin': ['GACR', 'FLU', 'IOCB', 'Internal', 'Other Admin'],
 };
 
 const classifyTaskDomain = (task: AcademicTask): Domain => {
   if (task.domain) return task.domain;
 
-  // Check type-based mapping first
-  const domainFromType = TYPE_TO_DOMAIN[task.type];
-  if (domainFromType) return domainFromType;
-
-  // Fallback heuristics for legacy data without explicit type
-  const section = (task.section ?? '').toLowerCase();
-  const subsection = (task.subsection ?? '').toLowerCase();
-  const title = task.title.toLowerCase();
-  const description = task.description.toLowerCase();
-  const combined = `${title}\n${description}`;
-
-  if (section.includes('grants & admin') || section.includes('grants')) return 'Grants';
-
-  const looksDh =
-    section.includes('digital humanities') ||
-    /\b(tei|teitok|portal|database|data model|model|dioscorides|disambiguat|github)\b/i.test(combined);
-  if (looksDh) return 'DH';
-
-  const looksExperiment =
-    task.status === 'Experimental' ||
-    subsection.includes('experimental philology') ||
-    /\b(experimental|replicat|residue|volatile|fraction|susinum|stacte|stypsis|mendesian|kyphi)\b/i.test(combined);
-  if (looksExperiment) return 'Experiments';
-
-  return 'Writing';
+  // Check type-based mapping
+  return TYPE_TO_DOMAIN[task.type] ?? 'Writing';
 };
 
 const applyStatsFilter = (tasks: AcademicTask[], filter: StatsFilterKey): AcademicTask[] => {
@@ -195,6 +198,8 @@ const App: React.FC = () => {
 
   useEffect(() => {
     localStorage.setItem('scholar_opus_domain_tab', activeDomainTab);
+    // Reset type filter when domain changes (since types are domain-specific)
+    setActiveTypeFilter('All');
   }, [activeDomainTab]);
 
   useEffect(() => {
@@ -301,9 +306,11 @@ const App: React.FC = () => {
     [tasksAfterPrimaryFilters, activeStatsFilter]
   );
 
-  const taskTypes: (TaskType | 'All')[] = [
-    'All', 'Article', 'Book', 'Translation', 'Edited Volume', 'Book Review', 'Digital Humanities', 'Grant', 'Book Proposal', 'Experiment', 'Admin Task'
-  ];
+  // Get types for the current domain tab
+  const taskTypes: (TaskType | 'All')[] = useMemo(
+    () => ['All', ...DOMAIN_TYPES[activeDomainTab]],
+    [activeDomainTab]
+  );
 
   const activeFilterCount = useMemo(() => {
     let count = 0;
@@ -727,10 +734,11 @@ const App: React.FC = () => {
       </MobileDrawer>
 
       {isFormOpen && (
-        <TaskForm 
-          onSave={handleSaveTask} 
+        <TaskForm
+          onSave={handleSaveTask}
           onClose={closeForm}
           initialData={taskToEdit}
+          currentDomain={activeDomainTab}
         />
       )}
     </div>

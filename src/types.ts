@@ -2,17 +2,44 @@ export type Priority = 'High' | 'Medium' | 'Low' | 'Aspirational';
 
 export type Domain = 'Writing' | 'Experiments' | 'DH' | 'Grants' | 'Admin';
 
-export type TaskType =
+// Writing subtypes
+export type WritingType =
   | 'Article'
   | 'Book'
   | 'Translation'
   | 'Edited Volume'
   | 'Book Review'
-  | 'Digital Humanities'
-  | 'Grant'
-  | 'Book Proposal'
-  | 'Experiment'
-  | 'Admin Task';
+  | 'Book Proposal';
+
+// Experiments subtypes
+export type ExperimentType =
+  | 'Perfume'
+  | 'Other Experiment';
+
+// DH subtypes
+export type DHType =
+  | 'Website'
+  | 'Database'
+  | 'Other DH';
+
+// Grants subtypes
+export type GrantType =
+  | 'Grant';
+
+// Admin subtypes
+export type AdminType =
+  | 'GACR'
+  | 'FLU'
+  | 'IOCB'
+  | 'Internal'
+  | 'Other Admin';
+
+export type TaskType =
+  | WritingType
+  | ExperimentType
+  | DHType
+  | GrantType
+  | AdminType;
 
 export type Status = 
   | 'Published' 
