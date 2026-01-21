@@ -1,7 +1,7 @@
 import React, { useState, useMemo, useEffect, useCallback } from 'react';
 import { AcademicTask, Domain, TaskType } from './types.ts';
 import { INITIAL_TASKS, PROJECTS_MD_REVISION } from './initialData.ts';
-import { loadTasksFromDb, saveTasksToDb, getUserId, setUserId } from './db.ts';
+import { loadTasksFromDb, saveTasksToDb } from './db.ts';
 import { StatsFilterKey, StatsOverview } from './components/StatsOverview.tsx';
 import { AcademicTaskList } from './components/AcademicTaskList.tsx';
 import { TaskForm } from './components/TaskForm.tsx';
@@ -111,27 +111,6 @@ const App: React.FC = () => {
   const [isFiltersDrawerOpen, setIsFiltersDrawerOpen] = useState(false);
   const [isActionsDrawerOpen, setIsActionsDrawerOpen] = useState(false);
   const [syncStatus, setSyncStatus] = useState<SyncStatus>('idle');
-  const [isSyncSettingsOpen, setIsSyncSettingsOpen] = useState(false);
-
-  // Check URL for sync parameter on load (for easy device linking via URL)
-  useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    const syncId = params.get('sync');
-    if (syncId && syncId !== getUserId()) {
-      const uuidRegex = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
-      if (uuidRegex.test(syncId)) {
-        if (confirm('Link this device to sync with another? This will replace your local data.')) {
-          setUserId(syncId);
-          // Remove sync param from URL
-          window.history.replaceState({}, '', window.location.pathname);
-          window.location.reload();
-        } else {
-          // Remove sync param from URL
-          window.history.replaceState({}, '', window.location.pathname);
-        }
-      }
-    }
-  }, []);
 
   // Save to localStorage whenever tasks change
   useEffect(() => {
@@ -194,12 +173,12 @@ const App: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    const anyOpen = isTabsDrawerOpen || isFiltersDrawerOpen || isActionsDrawerOpen || isSyncSettingsOpen;
+    const anyOpen = isTabsDrawerOpen || isFiltersDrawerOpen || isActionsDrawerOpen;
     document.body.style.overflow = anyOpen ? 'hidden' : '';
     return () => {
       document.body.style.overflow = '';
     };
-  }, [isTabsDrawerOpen, isFiltersDrawerOpen, isActionsDrawerOpen, isSyncSettingsOpen]);
+  }, [isTabsDrawerOpen, isFiltersDrawerOpen, isActionsDrawerOpen]);
 
   useEffect(() => {
     localStorage.setItem('scholar_opus_domain_tab', activeDomainTab);
@@ -335,17 +314,6 @@ const App: React.FC = () => {
     if (merged !== tasks) setTasks(merged);
   }, [tasks]);
 
-  const copyUserId = useCallback(() => {
-    const userId = getUserId();
-    const syncUrl = `${window.location.origin}${window.location.pathname}?sync=${userId}`;
-    navigator.clipboard.writeText(syncUrl).then(() => {
-      alert('Sync link copied! Open this link on another device to sync.');
-    }).catch(() => {
-      // Fallback for older browsers
-      prompt('Copy this sync link:', syncUrl);
-    });
-  }, []);
-
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-slate-900 transition-colors duration-200">
       <header className="bg-white dark:bg-slate-800 border-b border-slate-200 dark:border-slate-700 sticky top-0 z-40">
@@ -356,7 +324,7 @@ const App: React.FC = () => {
             </div>
             <h1 className="font-serif text-xl font-bold text-slate-900 dark:text-white tracking-tight">Scholar's Opus</h1>
             {isSupabaseConfigured && (
-              <SyncStatusIndicator status={syncStatus} onManualSync={() => setIsSyncSettingsOpen(true)} />
+              <SyncStatusIndicator status={syncStatus} onManualSync={handleManualSync} />
             )}
           </div>
 
@@ -738,20 +706,6 @@ const App: React.FC = () => {
             <span className={`w-2 h-2 rounded-full ${isEditingMode ? 'bg-white animate-pulse' : 'bg-slate-300 dark:bg-slate-600'}`} />
           </button>
 
-          {isSupabaseConfigured && (
-            <button
-              type="button"
-              onClick={() => {
-                setIsActionsDrawerOpen(false);
-                setIsSyncSettingsOpen(true);
-              }}
-              className="w-full px-4 py-3 rounded-xl font-bold bg-white dark:bg-slate-900/30 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 flex items-center justify-between"
-            >
-              <span>Sync Settings</span>
-              <SyncStatusIndicator status={syncStatus} />
-            </button>
-          )}
-
           <button
             type="button"
             onClick={() => setIsActionsDrawerOpen(false)}
@@ -761,59 +715,6 @@ const App: React.FC = () => {
           </button>
         </div>
       </MobileDrawer>
-
-      {/* Sync Settings Modal (works on all screen sizes) */}
-      {isSyncSettingsOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-          <button
-            type="button"
-            className="absolute inset-0 bg-black/40 dark:bg-black/60"
-            onClick={() => setIsSyncSettingsOpen(false)}
-            aria-label="Close"
-          />
-          <div className="relative bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-2xl w-full max-w-md max-h-[85vh] overflow-y-auto">
-            <div className="sticky top-0 bg-white/90 dark:bg-slate-800/90 backdrop-blur border-b border-slate-100 dark:border-slate-700 p-4 flex items-center justify-between">
-              <h3 className="text-xs font-black uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">Sync Settings</h3>
-              <button
-                type="button"
-                onClick={() => setIsSyncSettingsOpen(false)}
-                className="p-2 rounded-lg text-slate-400 hover:text-slate-600 dark:hover:text-slate-200"
-                aria-label="Close"
-              >
-                <XIcon className="w-5 h-5" />
-              </button>
-            </div>
-            <div className="p-4 space-y-4">
-              <div className="bg-slate-50 dark:bg-slate-900/30 border border-slate-200 dark:border-slate-700 rounded-xl p-4">
-                <div className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 dark:text-slate-500 mb-2">Sync Link</div>
-                <p className="text-xs text-slate-500 dark:text-slate-400 mb-3">
-                  Copy this link and open it on another device to sync.
-                </p>
-                <button
-                  type="button"
-                  onClick={copyUserId}
-                  className="w-full px-4 py-3 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-xl text-sm font-bold hover:opacity-90 transition-all"
-                >
-                  Copy Sync Link
-                </button>
-              </div>
-
-              <button
-                type="button"
-                onClick={handleManualSync}
-                disabled={syncStatus === 'syncing'}
-                className="w-full px-4 py-3 rounded-xl font-bold bg-blue-500 text-white flex items-center justify-center gap-2 disabled:opacity-50"
-              >
-                {syncStatus === 'syncing' ? 'Syncing...' : 'Sync Now'}
-              </button>
-
-              <p className="text-xs text-center text-slate-400 dark:text-slate-500">
-                Status: {syncStatus === 'synced' ? 'Synced' : syncStatus === 'syncing' ? 'Syncing...' : syncStatus === 'offline' ? 'Offline' : syncStatus === 'error' ? 'Error' : 'Ready'}
-              </p>
-            </div>
-          </div>
-        </div>
-      )}
 
       {isFormOpen && (
         <TaskForm 

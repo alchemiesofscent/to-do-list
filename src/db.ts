@@ -15,23 +15,16 @@ interface ScholarOpusDbV1 {
 
 const DB_KEY = 'scholar_opus_db';
 const LEGACY_TASKS_KEY = 'scholar_opus_tasks';
-const USER_ID_KEY = 'scholar_opus_user_id';
-
-function generateUUID(): string {
-  return crypto.randomUUID();
-}
+// Fixed user ID - all devices share the same data automatically
+// Change this if you want a different sync namespace
+const FIXED_USER_ID = 'scholar-opus-default-user';
 
 export function getUserId(): string {
-  let userId = localStorage.getItem(USER_ID_KEY);
-  if (!userId) {
-    userId = generateUUID();
-    localStorage.setItem(USER_ID_KEY, userId);
-  }
-  return userId;
+  return FIXED_USER_ID;
 }
 
-export function setUserId(userId: string): void {
-  localStorage.setItem(USER_ID_KEY, userId);
+export function setUserId(): void {
+  // No-op: using fixed user ID
 }
 
 function isRecord(value: unknown): value is Record<string, unknown> {
