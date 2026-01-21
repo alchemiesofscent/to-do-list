@@ -9,7 +9,7 @@ const DOMAIN_TYPES: Record<Domain, TaskType[]> = {
   'Writing': ['Article', 'Book', 'Translation', 'Edited Volume', 'Book Review', 'Book Proposal'],
   'Experiments': ['Perfume', 'Other Experiment'],
   'DH': ['Website', 'Database', 'Other DH'],
-  'Grants': ['Grant'],
+  'Grants': ['Management', 'Application', 'Sourcing'],
   'Admin': ['GACR', 'FLU', 'IOCB', 'Internal', 'Other Admin'],
 };
 
@@ -18,7 +18,7 @@ const DEFAULT_TYPE: Record<Domain, TaskType> = {
   'Writing': 'Article',
   'Experiments': 'Perfume',
   'DH': 'Website',
-  'Grants': 'Grant',
+  'Grants': 'Management',
   'Admin': 'Internal',
 };
 

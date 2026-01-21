@@ -37,7 +37,9 @@ const TYPE_TO_DOMAIN: Record<TaskType, Domain> = {
   'Database': 'DH',
   'Other DH': 'DH',
   // Grants
-  'Grant': 'Grants',
+  'Management': 'Grants',
+  'Application': 'Grants',
+  'Sourcing': 'Grants',
   // Admin
   'GACR': 'Admin',
   'FLU': 'Admin',
@@ -51,7 +53,7 @@ const DOMAIN_TYPES: Record<Domain, TaskType[]> = {
   'Writing': ['Article', 'Book', 'Translation', 'Edited Volume', 'Book Review', 'Book Proposal'],
   'Experiments': ['Perfume', 'Other Experiment'],
   'DH': ['Website', 'Database', 'Other DH'],
-  'Grants': ['Grant'],
+  'Grants': ['Management', 'Application', 'Sourcing'],
   'Admin': ['GACR', 'FLU', 'IOCB', 'Internal', 'Other Admin'],
 };
 

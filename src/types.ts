@@ -24,7 +24,9 @@ export type DHType =
 
 // Grants subtypes
 export type GrantType =
-  | 'Grant';
+  | 'Management'
+  | 'Application'
+  | 'Sourcing';
 
 // Admin subtypes
 export type AdminType =

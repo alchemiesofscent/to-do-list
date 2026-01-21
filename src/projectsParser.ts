@@ -62,8 +62,10 @@ function normalizeType(rawType: string | undefined, section: string, title: stri
   // Experiment types
   if (cleaned === 'perfume' || cleaned === 'experiment') return 'Perfume';
   if (cleaned === 'other experiment') return 'Other Experiment';
-  // Grant type
-  if (cleaned === 'grant' || cleaned === 'grants') return 'Grant';
+  // Grant types
+  if (cleaned === 'management' || cleaned === 'grant management') return 'Management';
+  if (cleaned === 'application' || cleaned === 'grant application') return 'Application';
+  if (cleaned === 'sourcing' || cleaned === 'grant sourcing' || cleaned === 'grant' || cleaned === 'grants') return 'Sourcing';
   // Admin types
   if (cleaned === 'gacr') return 'GACR';
   if (cleaned === 'flu') return 'FLU';
@@ -77,10 +79,10 @@ function normalizeType(rawType: string | undefined, section: string, title: stri
   if (sectionLc.includes('articles & papers')) return 'Article';
   if (sectionLc.includes('translations')) return 'Translation';
   if (sectionLc.includes('digital humanities')) return 'Website';
-  if (sectionLc.includes('grants')) return 'Grant';
+  if (sectionLc.includes('grants')) return 'Sourcing';
   if (sectionLc.includes('completed')) {
     const titleLc = title.toLowerCase();
-    if (titleLc.includes('award')) return 'Grant';
+    if (titleLc.includes('award')) return 'Sourcing';
     return 'Article';
   }
   return 'Article';
