@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { AcademicTask, Domain, Priority, Status, TaskType } from '../types.ts';
 import { PlusIcon, CheckIcon } from './Icons.tsx';
 
+const DOMAINS: Domain[] = ['Writing', 'Experiments', 'DH', 'Grants', 'Admin'];
+
 // Types available for each domain
 const DOMAIN_TYPES: Record<Domain, TaskType[]> = {
   'Writing': ['Article', 'Book', 'Translation', 'Edited Volume', 'Book Review', 'Book Proposal'],
@@ -28,9 +30,10 @@ interface TaskFormProps {
 }
 
 export const TaskForm: React.FC<TaskFormProps> = ({ onSave, onClose, initialData, currentDomain }) => {
+  const [selectedDomain, setSelectedDomain] = useState<Domain>(initialData?.domain ?? currentDomain);
   const [formData, setFormData] = useState({
     title: '',
-    type: DEFAULT_TYPE[currentDomain] as TaskType,
+    type: DEFAULT_TYPE[selectedDomain] as TaskType,
     priority: 'Medium' as Priority,
     status: 'Draft' as Status,
     description: '',
@@ -40,10 +43,11 @@ export const TaskForm: React.FC<TaskFormProps> = ({ onSave, onClose, initialData
     isFavorite: false
   });
 
-  const availableTypes = DOMAIN_TYPES[currentDomain];
+  const availableTypes = DOMAIN_TYPES[selectedDomain];
 
   useEffect(() => {
     if (initialData) {
+      setSelectedDomain(initialData.domain ?? currentDomain);
       setFormData({
         title: initialData.title,
         type: initialData.type,
@@ -56,12 +60,21 @@ export const TaskForm: React.FC<TaskFormProps> = ({ onSave, onClose, initialData
         isFavorite: initialData.isFavorite || false
       });
     }
-  }, [initialData]);
+  }, [initialData, currentDomain]);
+
+  // When domain changes, reset type to default for that domain (unless it's already valid)
+  const handleDomainChange = (newDomain: Domain) => {
+    setSelectedDomain(newDomain);
+    const typesForDomain = DOMAIN_TYPES[newDomain];
+    if (!typesForDomain.includes(formData.type)) {
+      setFormData({ ...formData, type: DEFAULT_TYPE[newDomain] });
+    }
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.title) return;
-    onSave(formData);
+    onSave({ ...formData, domain: selectedDomain });
   };
 
   return (
@@ -93,8 +106,20 @@ export const TaskForm: React.FC<TaskFormProps> = ({ onSave, onClose, initialData
 
           <div className="grid grid-cols-2 gap-4">
             <div>
+              <label className="block text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1">Domain</label>
+              <select
+                className="w-full px-4 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white outline-none"
+                value={selectedDomain}
+                onChange={e => handleDomainChange(e.target.value as Domain)}
+              >
+                {DOMAINS.map(domain => (
+                  <option key={domain} value={domain}>{domain}</option>
+                ))}
+              </select>
+            </div>
+            <div>
               <label className="block text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1">Type</label>
-              <select 
+              <select
                 className="w-full px-4 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white outline-none"
                 value={formData.type}
                 onChange={e => setFormData({...formData, type: e.target.value as TaskType})}
@@ -104,9 +129,12 @@ export const TaskForm: React.FC<TaskFormProps> = ({ onSave, onClose, initialData
                 ))}
               </select>
             </div>
+          </div>
+
+          <div className="grid grid-cols-2 gap-4">
             <div>
               <label className="block text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1">Priority</label>
-              <select 
+              <select
                 className="w-full px-4 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white outline-none"
                 value={formData.priority}
                 onChange={e => setFormData({...formData, priority: e.target.value as Priority})}
@@ -117,25 +145,24 @@ export const TaskForm: React.FC<TaskFormProps> = ({ onSave, onClose, initialData
                 <option value="Aspirational">Aspirational</option>
               </select>
             </div>
-          </div>
-
-          <div>
-            <label className="block text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1">Current Status</label>
-            <select 
-              className="w-full px-4 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white outline-none"
-              value={formData.status}
-              onChange={e => setFormData({...formData, status: e.target.value as Status})}
-            >
-              <option value="Upcoming">Upcoming / Planned</option>
-              <option value="Early Stage">Early Stage</option>
-              <option value="Draft">Drafting</option>
-              <option value="Experimental">Experimental Work</option>
-              <option value="Revision">In Revision</option>
-              <option value="Complete">Complete (Unpublished)</option>
-              <option value="Needs Update">Needs Update</option>
-              <option value="Published">Published</option>
-              <option value="Rejected">Rejected</option>
-            </select>
+            <div>
+              <label className="block text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1">Current Status</label>
+              <select
+                className="w-full px-4 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white outline-none"
+                value={formData.status}
+                onChange={e => setFormData({...formData, status: e.target.value as Status})}
+              >
+                <option value="Upcoming">Upcoming / Planned</option>
+                <option value="Early Stage">Early Stage</option>
+                <option value="Draft">Drafting</option>
+                <option value="Experimental">Experimental Work</option>
+                <option value="Revision">In Revision</option>
+                <option value="Complete">Complete (Unpublished)</option>
+                <option value="Needs Update">Needs Update</option>
+                <option value="Published">Published</option>
+                <option value="Rejected">Rejected</option>
+              </select>
+            </div>
           </div>
 
           <div>
