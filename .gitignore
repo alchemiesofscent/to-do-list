@@ -9,6 +9,11 @@ lerna-debug.log*
 
 node_modules
 dist
+.DS_Store
+
+# Build-packaged PMO assets (generated from /pmo and /projects)
+public/pmo
+public/projects
 dist-ssr
 *.local
 .venv

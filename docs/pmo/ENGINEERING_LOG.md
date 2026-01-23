@@ -16,15 +16,18 @@
   6) `pmo:validate` script + docs
 
 ## Progress
-- [ ] Add `/pmo/` and `/projects/` templates
-- [ ] Add asset packaging and manifests
+- [x] Add `/pmo/` and `/projects/` templates
+- [x] Add asset packaging and manifests
 - [ ] Add SPA loader and rendering
 - [ ] Add PMO UI routes
 - [ ] Add daily localStorage + export + Agent Pack
 - [ ] Add `pmo:validate`
 - [ ] Run full checks and commit slices
 
+## Milestone — assets packaged
+- Implemented `npm run build:pmo-assets` to copy `/pmo` and `/projects` into `public/pmo` and `public/projects` and generate deterministic `index.json` manifests.
+- Verified locally: `npm run build:pmo-assets` created `public/pmo/index.json` and `public/projects/index.json`.
+
 ## Notes
 - Timestamps are stored in UTC (ISO8601 `Z`); UI displays dates/times in Europe/Prague.
 - PMO is read-only for project plans; only daily execution is stored locally.
-
