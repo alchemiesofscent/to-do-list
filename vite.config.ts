@@ -5,7 +5,7 @@ import react from '@vitejs/plugin-react';
 export default defineConfig(({ mode }) => {
   return {
     // GitHub Pages serves this repo under `/<repo-name>/` (case-sensitive).
-    base: mode === 'production' ? '/to-do-list/' : '/',
+    base: mode === 'production' ? '/To-Do-List/' : '/',
     server: {
       port: 3000,
       host: '0.0.0.0',

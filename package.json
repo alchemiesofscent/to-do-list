@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "npm run build:pmo-assets && vite",
     "build:pmo-assets": "node --import ./scripts/register-ts-node.mjs ./scripts/build-pmo-assets.ts",
     "build": "npm run build:pmo-assets && vite build",
     "preview": "vite preview",
@@ -12,7 +12,8 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:watch": "vitest",
-    "validate:data": "node --import ./scripts/register-ts-node.mjs ./scripts/validate-projects.ts"
+    "validate:data": "node --import ./scripts/register-ts-node.mjs ./scripts/validate-projects.ts",
+    "pmo:validate": "node --import ./scripts/register-ts-node.mjs ./scripts/validate-pmo.ts"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.91.0",
