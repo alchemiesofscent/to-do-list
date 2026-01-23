@@ -44,4 +44,4 @@
 - Add/extend tests under `tests/` for non-trivial logic (parsing, migrations, classifiers).
 
 ## GitHub Pages
-This repo deploys to `https://alchemiesofscent.github.io/To-Do-List/` via `.github/workflows/pages.yml`.
+This repo deploys to `https://alchemiesofscent.github.io/to-do-list/` via `.github/workflows/pages.yml`.

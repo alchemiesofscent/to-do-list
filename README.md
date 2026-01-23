@@ -63,6 +63,6 @@ Example entry:
 
 ## Deployment (GitHub Pages)
 
-This repo deploys to `https://alchemiesofscent.github.io/To-Do-List/` via `.github/workflows/pages.yml`.
+This repo deploys to `https://alchemiesofscent.github.io/to-do-list/` via `.github/workflows/pages.yml`.
 
-Note: the GitHub Pages build is configured for the `/To-Do-List/` base path. If you fork or rename the repo, update the Vite `base` setting in `vite.config.ts`.
+Note: the GitHub Pages build is configured for the `/to-do-list/` base path. If you fork or rename the repo, set `VITE_BASE_PATH` for production builds or update the Vite `base` setting in `vite.config.ts`.

@@ -61,6 +61,13 @@
   - Extend Daily page with a simple “history picker” for past UTC dates (read-only).
   - Consider adding `npm run pmo:validate` to CI once PMO content expands.
 
+## Incident — GitHub Pages base path case mismatch (2026-01-23)
+- Symptom: production site exists at `/to-do-list/`, but app was built for `/To-Do-List/`, causing 404s and JS blocked due to MIME `text/html`.
+- Fix: set Vite production `base` to `/to-do-list/` and ensure runtime uses `import.meta.env.BASE_URL` (router/content loader already do).
+- Verification:
+  - `npm run build`
+  - Confirmed `dist/index.html` references `/to-do-list/assets/...` and files exist under `dist/assets/`.
+
 ## Notes
 - Timestamps are stored in UTC (ISO8601 `Z`); UI displays dates/times in Europe/Prague.
 - PMO is read-only for project plans; only daily execution is stored locally.
