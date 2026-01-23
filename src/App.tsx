@@ -6,9 +6,11 @@ import { StatsFilterKey, StatsOverview } from './components/StatsOverview.tsx';
 import { AcademicTaskList } from './components/AcademicTaskList.tsx';
 import { TaskForm } from './components/TaskForm.tsx';
 import { SearchIcon, FilterIcon, PlusIcon, BookIcon, SunIcon, MoonIcon, MonitorIcon, MenuIcon, XIcon } from './components/Icons.tsx';
-import { syncTasks, deleteFromCloud, pullFromCloud, pushToCloud, type SyncStatus } from './sync.ts';
+import { syncTasks, deleteFromCloud, pullFromCloud, mergeTasks, type SyncStatus } from './sync.ts';
 import { isSupabaseConfigured } from './supabase.ts';
 import { SyncStatus as SyncStatusIndicator } from './components/SyncStatus.tsx';
+import { markPulledOnce } from './syncState.ts';
+import { runInitialPullMerge } from './initialSync.ts';
 
 type Theme = 'light' | 'dark' | 'system';
 
@@ -141,20 +143,16 @@ const App: React.FC = () => {
 
     const doInitialSync = async () => {
       setSyncStatus('syncing');
-      const cloudTasks = await pullFromCloud();
 
-      if (cloudTasks && cloudTasks.length > 0) {
-        // Cloud has data - use it as source of truth
-        setTasks(cloudTasks);
-        setSyncStatus('synced');
-      } else if (cloudTasks !== null) {
-        // Cloud is empty but reachable - push local data
-        await pushToCloud(tasks);
-        setSyncStatus('synced');
-      } else {
-        // Cloud unreachable
-        setSyncStatus('error');
-      }
+      const { status, mergedTasks } = await runInitialPullMerge({
+        localTasks: tasks,
+        pullFromCloud,
+        mergeTasks,
+        markPulledOnce: () => markPulledOnce(),
+      });
+
+      setTasks(mergedTasks);
+      setSyncStatus(status);
     };
 
     doInitialSync();
@@ -165,9 +163,7 @@ const App: React.FC = () => {
   useEffect(() => {
     const handleOnline = () => {
       if (isSupabaseConfigured) {
-        syncTasks(tasks, setSyncStatus).then((merged) => {
-          if (merged !== tasks) setTasks(merged);
-        });
+        syncTasks(tasks, setSyncStatus).then((merged) => setTasks(merged));
       }
     };
     const handleOffline = () => setSyncStatus('offline');
@@ -187,7 +183,8 @@ const App: React.FC = () => {
   // Sync after task changes (debounced)
   const syncAfterChange = useCallback(async (updatedTasks: AcademicTask[]) => {
     if (!isSupabaseConfigured || !navigator.onLine) return;
-    await syncTasks(updatedTasks, setSyncStatus);
+    const merged = await syncTasks(updatedTasks, setSyncStatus);
+    setTasks(merged);
   }, []);
 
   useEffect(() => {
@@ -332,8 +329,8 @@ const App: React.FC = () => {
 
   const handleManualSync = useCallback(async () => {
     if (!isSupabaseConfigured || !navigator.onLine) return;
-    const merged = await syncTasks(tasks, setSyncStatus);
-    if (merged !== tasks) setTasks(merged);
+    const merged = await syncTasks(tasks, setSyncStatus, { allowBootstrapPush: true });
+    setTasks(merged);
   }, [tasks]);
 
   return (

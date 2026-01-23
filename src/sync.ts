@@ -1,6 +1,7 @@
 import { supabase, isSupabaseConfigured, type TaskRow } from './supabase';
 import { getUserId } from './db';
 import type { AcademicTask } from './types';
+import { getSyncState, markPulledOnce } from './syncState.ts';
 
 export type SyncStatus = 'idle' | 'syncing' | 'synced' | 'offline' | 'error';
 
@@ -79,6 +80,7 @@ export async function pushToCloud(tasks: AcademicTask[]): Promise<boolean> {
   }
 
   try {
+    if (tasks.length === 0) return true;
     const userId = getUserId();
     const rows = tasks.map((task) => taskToRow(task, userId));
 
@@ -160,10 +162,60 @@ export function mergeTasks(
   return Array.from(merged.values());
 }
 
+function getTimeMs(iso: string | undefined): number {
+  if (!iso) return 0;
+  const t = new Date(iso).getTime();
+  return Number.isFinite(t) ? t : 0;
+}
+
+// Record-level upserts: only push tasks that are new or definitively newer locally.
+// Seed-only tasks (no updatedAt) are intentionally not pushed.
+export function computeUpserts(localTasks: AcademicTask[], cloudTasks: AcademicTask[]): AcademicTask[] {
+  const cloudById = new Map<string, AcademicTask>(cloudTasks.map((t) => [t.id, t]));
+  const toUpsert: AcademicTask[] = [];
+
+  for (const localTask of localTasks) {
+    if (!localTask.updatedAt) continue;
+
+    const cloudTask = cloudById.get(localTask.id);
+    if (!cloudTask) {
+      toUpsert.push(localTask);
+      continue;
+    }
+
+    const localTime = getTimeMs(localTask.updatedAt);
+    const cloudTime = getTimeMs(cloudTask.updatedAt);
+    if (localTime > cloudTime) toUpsert.push(localTask);
+  }
+
+  return toUpsert;
+}
+
+export function shouldBlockPush(params: {
+  wasPulledOnce: boolean;
+  localCount: number;
+  remoteCount: number;
+  allowBootstrapPush: boolean;
+}): boolean {
+  const { wasPulledOnce, localCount, remoteCount, allowBootstrapPush } = params;
+
+  // Fresh client rule: pull-only until we've successfully pulled at least once.
+  if (!wasPulledOnce) return true;
+
+  // Prevent accidental creation of a new empty namespace unless explicitly intended.
+  if (remoteCount === 0 && !allowBootstrapPush) return true;
+
+  // Anti-clobber guardrail: suspiciously small local dataset should never push.
+  if (remoteCount > 0 && localCount < 0.8 * remoteCount) return true;
+
+  return false;
+}
+
 // Full sync: pull, merge, push
 export async function syncTasks(
   localTasks: AcademicTask[],
-  onStatusChange?: (status: SyncStatus) => void
+  onStatusChange?: (status: SyncStatus) => void,
+  options?: { allowBootstrapPush?: boolean }
 ): Promise<AcademicTask[]> {
   if (!isSupabaseConfigured) {
     onStatusChange?.('offline');
@@ -178,6 +230,9 @@ export async function syncTasks(
   onStatusChange?.('syncing');
 
   try {
+    const wasPulledOnce = getSyncState().hasPulledOnce;
+    const allowBootstrapPush = Boolean(options?.allowBootstrapPush);
+
     // Pull from cloud
     const cloudTasks = await pullFromCloud();
 
@@ -186,11 +241,27 @@ export async function syncTasks(
       return localTasks;
     }
 
+    // Mark successful pull (even if empty) so future syncs can push when allowed.
+    markPulledOnce();
+
     // Merge local and cloud
     const mergedTasks = mergeTasks(localTasks, cloudTasks);
 
-    // Push merged result back to cloud
-    const pushSuccess = await pushToCloud(mergedTasks);
+    const blockPush = shouldBlockPush({
+      wasPulledOnce,
+      localCount: localTasks.length,
+      remoteCount: cloudTasks.length,
+      allowBootstrapPush,
+    });
+
+    if (blockPush) {
+      onStatusChange?.('synced');
+      return mergedTasks;
+    }
+
+    // Record-level push: only upsert tasks that are new or newer locally.
+    const upsertsOnly = computeUpserts(localTasks, cloudTasks);
+    const pushSuccess = await pushToCloud(upsertsOnly);
 
     if (!pushSuccess) {
       onStatusChange?.('error');

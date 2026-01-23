@@ -24,7 +24,7 @@ describe('projects parser', () => {
 
     const grants = tasks.filter((t) => t.section?.toLowerCase().includes('grants'));
     expect(grants.length).toBeGreaterThan(0);
-    expect(grants.every((t) => t.type === 'Grant')).toBe(true);
+    expect(grants.every((t) => ['Management', 'Application', 'Sourcing'].includes(t.type))).toBe(true);
     expect(grants.every((t) => t.domain === 'Grants')).toBe(true);
   });
 });

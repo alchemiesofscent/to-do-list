@@ -1,4 +1,5 @@
 import type { AcademicTask } from './types.ts';
+import { getOrCreateUserId } from './userNamespace.ts';
 
 type DbVersion = 1;
 
@@ -15,16 +16,13 @@ interface ScholarOpusDbV1 {
 
 const DB_KEY = 'scholar_opus_db';
 const LEGACY_TASKS_KEY = 'scholar_opus_tasks';
-// Fixed user ID - all devices share the same data automatically
-// Change this if you want a different sync namespace
-const FIXED_USER_ID = 'scholar-opus-default-user';
 
 export function getUserId(): string {
-  return FIXED_USER_ID;
+  return getOrCreateUserId();
 }
 
 export function setUserId(): void {
-  // No-op: using fixed user ID
+  // No-op: namespace is managed via localStorage and should not be regenerated.
 }
 
 function isRecord(value: unknown): value is Record<string, unknown> {
