@@ -6,11 +6,13 @@ import { StatsFilterKey, StatsOverview } from './components/StatsOverview.tsx';
 import { AcademicTaskList } from './components/AcademicTaskList.tsx';
 import { TaskForm } from './components/TaskForm.tsx';
 import { SearchIcon, FilterIcon, PlusIcon, BookIcon, SunIcon, MoonIcon, MonitorIcon, MenuIcon, XIcon } from './components/Icons.tsx';
-import { syncTasks, deleteFromCloud, pullFromCloud, mergeTasks, type SyncStatus } from './sync.ts';
+import { syncTasks, deleteFromCloud, pullFromCloud, mergeTasks, getCloudTaskCountForUserId, type SyncStatus } from './sync.ts';
 import { isSupabaseConfigured } from './supabase.ts';
 import { SyncStatus as SyncStatusIndicator } from './components/SyncStatus.tsx';
-import { markPulledOnce } from './syncState.ts';
+import { getOrCreateUserId, logActiveUserIdDevOnly, setUserIdExplicit } from './userNamespace.ts';
+import { markPulledOnce, resetSyncState } from './syncState.ts';
 import { runInitialPullMerge } from './initialSync.ts';
+import { switchNamespaceAndPullMerge } from './namespaceRecovery.ts';
 
 type Theme = 'light' | 'dark' | 'system';
 
@@ -131,6 +133,13 @@ const App: React.FC = () => {
   const [isFiltersDrawerOpen, setIsFiltersDrawerOpen] = useState(false);
   const [isActionsDrawerOpen, setIsActionsDrawerOpen] = useState(false);
   const [syncStatus, setSyncStatus] = useState<SyncStatus>('idle');
+  const [isSyncSettingsOpen, setIsSyncSettingsOpen] = useState(false);
+  const [activeUserId, setActiveUserId] = useState(() => getOrCreateUserId());
+  const [namespaceDraft, setNamespaceDraft] = useState(() => getOrCreateUserId());
+  const [namespaceVerifyStatus, setNamespaceVerifyStatus] = useState<'idle' | 'verifying' | 'ok' | 'error'>('idle');
+  const [namespaceVerifiedFor, setNamespaceVerifiedFor] = useState<string | null>(null);
+  const [namespaceVerifiedCount, setNamespaceVerifiedCount] = useState<number | null>(null);
+  const [namespaceVerifyError, setNamespaceVerifyError] = useState<string | null>(null);
 
   // Save to localStorage whenever tasks change
   useEffect(() => {
@@ -143,6 +152,7 @@ const App: React.FC = () => {
 
     const doInitialSync = async () => {
       setSyncStatus('syncing');
+      logActiveUserIdDevOnly();
 
       const { status, mergedTasks } = await runInitialPullMerge({
         localTasks: tasks,
@@ -158,6 +168,17 @@ const App: React.FC = () => {
     doInitialSync();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []); // Only run on mount
+
+  const openSyncSettings = () => {
+    const current = getOrCreateUserId();
+    setActiveUserId(current);
+    setNamespaceDraft(current);
+    setNamespaceVerifyStatus('idle');
+    setNamespaceVerifiedFor(null);
+    setNamespaceVerifiedCount(null);
+    setNamespaceVerifyError(null);
+    setIsSyncSettingsOpen(true);
+  };
 
   // Listen for online/offline events
   useEffect(() => {
@@ -343,7 +364,17 @@ const App: React.FC = () => {
             </div>
             <h1 className="font-serif text-xl font-bold text-slate-900 dark:text-white tracking-tight">Scholar's Opus</h1>
             {isSupabaseConfigured && (
-              <SyncStatusIndicator status={syncStatus} onManualSync={handleManualSync} />
+              <div className="flex items-center gap-2">
+                <SyncStatusIndicator status={syncStatus} onManualSync={handleManualSync} />
+                <button
+                  type="button"
+                  onClick={openSyncSettings}
+                  className="hidden sm:inline-flex items-center px-2 py-1 rounded-lg text-xs font-bold text-slate-500 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700"
+                  title="Synchronisation settings"
+                >
+                  Settings
+                </button>
+              </div>
             )}
           </div>
 
@@ -722,6 +753,20 @@ const App: React.FC = () => {
             <span className={`w-2 h-2 rounded-full ${isEditingMode ? 'bg-white animate-pulse' : 'bg-slate-300 dark:bg-slate-600'}`} />
           </button>
 
+          {isSupabaseConfigured && (
+            <button
+              type="button"
+              onClick={() => {
+                setIsActionsDrawerOpen(false);
+                openSyncSettings();
+              }}
+              className="w-full px-4 py-3 rounded-xl font-black uppercase tracking-widest flex items-center justify-between transition-all border bg-white dark:bg-slate-900/30 text-slate-600 dark:text-slate-300 border-slate-200 dark:border-slate-700"
+            >
+              <span>Synchronisation settings</span>
+              <span className="text-xs font-bold normal-case tracking-normal text-slate-400 dark:text-slate-500">Namespace</span>
+            </button>
+          )}
+
           <button
             type="button"
             onClick={() => setIsActionsDrawerOpen(false)}
@@ -731,6 +776,146 @@ const App: React.FC = () => {
           </button>
         </div>
       </MobileDrawer>
+
+      {isSyncSettingsOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+          <button
+            type="button"
+            className="absolute inset-0 bg-black/40 dark:bg-black/60"
+            onClick={() => setIsSyncSettingsOpen(false)}
+            aria-label="Close synchronisation settings"
+          />
+          <div className="relative w-full max-w-lg bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-2xl">
+            <div className="flex items-center justify-between p-4 border-b border-slate-100 dark:border-slate-700">
+              <h3 className="text-xs font-black uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">Synchronisation settings</h3>
+              <button
+                type="button"
+                onClick={() => setIsSyncSettingsOpen(false)}
+                className="p-2 rounded-lg text-slate-400 hover:text-slate-600 dark:hover:text-slate-200"
+                aria-label="Close"
+              >
+                <XIcon className="w-5 h-5" />
+              </button>
+            </div>
+
+            <div className="p-4 space-y-4">
+              <div className="bg-slate-50 dark:bg-slate-900/40 border border-slate-200 dark:border-slate-700 rounded-xl p-3">
+                <div className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 dark:text-slate-500 mb-1">Current namespace</div>
+                <div className="font-mono text-xs text-slate-700 dark:text-slate-200 break-all">{activeUserId}</div>
+              </div>
+
+              <div className="space-y-2">
+                <label className="block text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 dark:text-slate-500">
+                  Switch namespace (explicit)
+                </label>
+                <input
+                  value={namespaceDraft}
+                  onChange={(e) => {
+                    setNamespaceDraft(e.target.value);
+                    setNamespaceVerifyStatus('idle');
+                    setNamespaceVerifiedFor(null);
+                    setNamespaceVerifiedCount(null);
+                    setNamespaceVerifyError(null);
+                  }}
+                  placeholder="Enter a Supabase user_id"
+                  className="w-full px-3 py-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-100 text-sm"
+                />
+
+                <div className="flex gap-2">
+                  <button
+                    type="button"
+                    disabled={!isSupabaseConfigured || !navigator.onLine || !namespaceDraft.trim() || namespaceVerifyStatus === 'verifying'}
+                    onClick={async () => {
+                      setNamespaceVerifyStatus('verifying');
+                      setNamespaceVerifyError(null);
+                      const count = await getCloudTaskCountForUserId(namespaceDraft.trim());
+                      if (count === null) {
+                        setNamespaceVerifyStatus('error');
+                        setNamespaceVerifyError('Could not verify (offline or Supabase error).');
+                        return;
+                      }
+                      setNamespaceVerifiedFor(namespaceDraft.trim());
+                      setNamespaceVerifiedCount(count);
+                      setNamespaceVerifyStatus('ok');
+                    }}
+                    className="flex-1 px-4 py-2 rounded-xl font-bold text-sm bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-100 disabled:opacity-50"
+                  >
+                    {namespaceVerifyStatus === 'verifying' ? 'Verifying…' : 'Verify namespace'}
+                  </button>
+                  <button
+                    type="button"
+                    disabled={
+                      !namespaceDraft.trim() ||
+                      namespaceVerifyStatus !== 'ok' ||
+                      namespaceVerifiedFor !== namespaceDraft.trim() ||
+                      !isSupabaseConfigured ||
+                      !navigator.onLine
+                    }
+                    onClick={async () => {
+                      const next = namespaceDraft.trim();
+                      const remoteCount = namespaceVerifiedCount ?? 0;
+                      const ok = confirm(
+                        `Switch synchronisation namespace to:\n\n${next}\n\nRemote tasks visible in this namespace: ${remoteCount}\n\nThis will not delete anything in Supabase.`
+                      );
+                      if (!ok) return;
+
+                      setSyncStatus('syncing');
+                      const { status, mergedTasks } = await switchNamespaceAndPullMerge({
+                        nextUserId: next,
+                        localTasks: tasks,
+                        setUserIdExplicit,
+                        resetSyncState,
+                        runInitialPullMerge,
+                        pullFromCloud,
+                        mergeTasks,
+                        markPulledOnce: () => markPulledOnce(),
+                      });
+
+                      setActiveUserId(getOrCreateUserId());
+                      setTasks(mergedTasks);
+                      setSyncStatus(status);
+                      setIsSyncSettingsOpen(false);
+                    }}
+                    className="flex-1 px-4 py-2 rounded-xl font-bold text-sm bg-slate-900 dark:bg-white text-white dark:text-slate-900 disabled:opacity-50"
+                  >
+                    Switch
+                  </button>
+                </div>
+
+                {namespaceVerifyStatus === 'ok' && namespaceVerifiedFor === namespaceDraft.trim() && (
+                  <div className="text-xs text-slate-500 dark:text-slate-400">
+                    Verified: {namespaceVerifiedCount} remote task{namespaceVerifiedCount === 1 ? '' : 's'}.
+                  </div>
+                )}
+                {namespaceVerifyStatus === 'ok' &&
+                  namespaceVerifiedFor === namespaceDraft.trim() &&
+                  namespaceVerifiedCount === 0 && (
+                    <div className="text-xs text-amber-600 dark:text-amber-400">
+                      This namespace is empty. Automatic pushes are disabled; use manual sync only if you intentionally want to bootstrap it.
+                    </div>
+                  )}
+                {namespaceVerifyStatus === 'error' && namespaceVerifyError && (
+                  <div className="text-xs text-rose-500">{namespaceVerifyError}</div>
+                )}
+
+                <div className="text-xs text-slate-500 dark:text-slate-400">
+                  Tip: use Verify first to find the namespace with the full dataset, then Switch.
+                </div>
+              </div>
+
+              <div className="flex gap-2">
+                <button
+                  type="button"
+                  onClick={() => setIsSyncSettingsOpen(false)}
+                  className="flex-1 px-4 py-2 rounded-xl font-bold bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-200"
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
 
       {isFormOpen && (
         <TaskForm

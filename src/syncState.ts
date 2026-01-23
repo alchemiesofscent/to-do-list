@@ -48,6 +48,11 @@ export function markPulledOnce(pulledAtIso: string = new Date().toISOString()): 
   safeSetItem(SYNC_STATE_KEY, JSON.stringify(next));
 }
 
+export function resetSyncState(): void {
+  const next: SyncStateV1 = { version: 1, hasPulledOnce: false };
+  safeSetItem(SYNC_STATE_KEY, JSON.stringify(next));
+}
+
 export function resetSyncStateForTestsOnly(): void {
-  safeSetItem(SYNC_STATE_KEY, JSON.stringify({ version: 1, hasPulledOnce: false } satisfies SyncStateV1));
+  resetSyncState();
 }

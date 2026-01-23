@@ -31,6 +31,17 @@ No required environment variables.
 - `src/projectsParser.ts`: parses `data/projects.md` into tasks at build time
 - `src/db.ts`: localStorage persistence + migrations
 - `src/components/*`: UI components
+- `src/sync.ts`: optional Supabase sync (guarded, record-level)
+
+## Optional Supabase sync: namespace recovery
+
+If Supabase sync is enabled and you accidentally wrote into the wrong `user_id` namespace, use the in-app **Synchronisation settings** panel:
+
+- Open **Synchronisation settings** (desktop: next to the sync indicator; mobile: Actions → Synchronisation settings).
+- Paste the intended `user_id` and click **Verify namespace** to check the remote task count.
+- Click **Switch** to set `localStorage.scholar_opus_user_id`, reset the sync state, and do a pull-first merge.
+
+This flow never auto-pushes on load, and it will not delete anything in Supabase.
 
 ## Data
 
@@ -52,6 +63,6 @@ Example entry:
 
 ## Deployment (GitHub Pages)
 
-This repo deploys to `https://alchemiesofscent.github.io/To-Do-List/` via `.github/workflows/pages.yml`.
+This repo deploys to `https://alchemiesofscent.github.io/to-do-list/` via `.github/workflows/pages.yml`.
 
-Note: the GitHub Pages build is configured for the `/To-Do-List/` base path. If you fork or rename the repo, update the Vite `base` setting in `vite.config.ts`.
+Note: the GitHub Pages build is configured for the `/to-do-list/` base path. If you fork or rename the repo, update the Vite `base` setting in `vite.config.ts`.

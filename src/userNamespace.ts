@@ -32,6 +32,17 @@ export function getOrCreateUserId(): string {
   return DEFAULT_USER_ID;
 }
 
+export function setUserIdExplicit(nextUserId: string): void {
+  const trimmed = nextUserId.trim();
+  if (!trimmed) return;
+  safeSetLocalStorageItem(USER_ID_KEY, trimmed);
+}
+
+export function getUserIdFromStorage(): string | null {
+  const existing = safeGetLocalStorageItem(USER_ID_KEY);
+  return existing && existing.trim() ? existing : null;
+}
+
 export function logActiveUserIdDevOnly(): void {
   // Avoid depending on URL/base path; log only in dev builds.
   const isDev = typeof import.meta !== 'undefined' && Boolean((import.meta as any).env?.DEV);

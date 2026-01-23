@@ -4,6 +4,7 @@ import type { AcademicTask } from './types';
 import { getSyncState, markPulledOnce } from './syncState.ts';
 
 export type SyncStatus = 'idle' | 'syncing' | 'synced' | 'offline' | 'error';
+export type PushBlockReason = 'fresh-client' | 'anti-clobber' | 'empty-namespace' | null;
 
 // Convert AcademicTask to database row format
 function taskToRow(task: AcademicTask, userId: string): Omit<TaskRow, 'created_at'> {
@@ -69,6 +70,28 @@ export async function pullFromCloud(): Promise<AcademicTask[] | null> {
     return (data as TaskRow[]).map(rowToTask);
   } catch (err) {
     console.error('Pull from cloud failed:', err);
+    return null;
+  }
+}
+
+export async function getCloudTaskCountForUserId(userId: string): Promise<number | null> {
+  if (!isSupabaseConfigured || !supabase) return null;
+  if (!userId.trim()) return null;
+
+  try {
+    const { count, error } = await supabase
+      .from('tasks')
+      .select('id', { count: 'exact', head: true })
+      .eq('user_id', userId.trim());
+
+    if (error) {
+      console.error('Failed to count cloud tasks:', error);
+      return null;
+    }
+
+    return typeof count === 'number' ? count : 0;
+  } catch (err) {
+    console.error('Count cloud tasks failed:', err);
     return null;
   }
 }
@@ -197,18 +220,65 @@ export function shouldBlockPush(params: {
   remoteCount: number;
   allowBootstrapPush: boolean;
 }): boolean {
+  return getPushBlockReason(params) !== null;
+}
+
+export function getPushBlockReason(params: {
+  wasPulledOnce: boolean;
+  localCount: number;
+  remoteCount: number;
+  allowBootstrapPush: boolean;
+}): PushBlockReason {
   const { wasPulledOnce, localCount, remoteCount, allowBootstrapPush } = params;
 
   // Fresh client rule: pull-only until we've successfully pulled at least once.
-  if (!wasPulledOnce) return true;
+  if (!wasPulledOnce) return 'fresh-client';
 
   // Prevent accidental creation of a new empty namespace unless explicitly intended.
-  if (remoteCount === 0 && !allowBootstrapPush) return true;
+  if (remoteCount === 0 && !allowBootstrapPush) return 'empty-namespace';
 
   // Anti-clobber guardrail: suspiciously small local dataset should never push.
-  if (remoteCount > 0 && localCount < 0.8 * remoteCount) return true;
+  if (remoteCount > 0 && localCount < 0.8 * remoteCount) return 'anti-clobber';
 
-  return false;
+  return null;
+}
+
+function isDevBuild(): boolean {
+  return typeof import.meta !== 'undefined' && Boolean((import.meta as any).env?.DEV);
+}
+
+function warnBlockedPushDevOnly(reason: PushBlockReason, details: { localCount: number; remoteCount: number }) {
+  if (!isDevBuild() || reason === null) return;
+  const { localCount, remoteCount } = details;
+  if (reason === 'fresh-client') {
+    // eslint-disable-next-line no-console
+    console.warn(`[Scholar's Opus] Push blocked: fresh client pull-only (local=${localCount}, remote=${remoteCount})`);
+    return;
+  }
+  if (reason === 'anti-clobber') {
+    // eslint-disable-next-line no-console
+    console.warn(`[Scholar's Opus] Push blocked: anti-clobber guard (local=${localCount}, remote=${remoteCount})`);
+    return;
+  }
+  if (reason === 'empty-namespace') {
+    // eslint-disable-next-line no-console
+    console.warn(`[Scholar's Opus] Push blocked: empty namespace bootstrap requires manual sync (local=${localCount}, remote=${remoteCount})`);
+  }
+}
+
+function logSyncSummaryDevOnly(summary: {
+  userId: string;
+  localCount: number;
+  remoteCount: number;
+  upsertsCount: number;
+  pushAllowed: boolean;
+  reason: PushBlockReason;
+}) {
+  if (!isDevBuild()) return;
+  // eslint-disable-next-line no-console
+  console.info(
+    `[Scholar's Opus] Sync: user_id=${summary.userId} local=${summary.localCount} remote=${summary.remoteCount} upserts=${summary.upsertsCount} push=${summary.pushAllowed ? 'yes' : 'no'}${summary.reason ? ` reason=${summary.reason}` : ''}`
+  );
 }
 
 // Full sync: pull, merge, push
@@ -232,6 +302,7 @@ export async function syncTasks(
   try {
     const wasPulledOnce = getSyncState().hasPulledOnce;
     const allowBootstrapPush = Boolean(options?.allowBootstrapPush);
+    const userId = getUserId();
 
     // Pull from cloud
     const cloudTasks = await pullFromCloud();
@@ -247,14 +318,24 @@ export async function syncTasks(
     // Merge local and cloud
     const mergedTasks = mergeTasks(localTasks, cloudTasks);
 
-    const blockPush = shouldBlockPush({
+    const reason = getPushBlockReason({
       wasPulledOnce,
       localCount: localTasks.length,
       remoteCount: cloudTasks.length,
       allowBootstrapPush,
     });
+    const blockPush = reason !== null;
 
     if (blockPush) {
+      warnBlockedPushDevOnly(reason, { localCount: localTasks.length, remoteCount: cloudTasks.length });
+      logSyncSummaryDevOnly({
+        userId,
+        localCount: localTasks.length,
+        remoteCount: cloudTasks.length,
+        upsertsCount: 0,
+        pushAllowed: false,
+        reason,
+      });
       onStatusChange?.('synced');
       return mergedTasks;
     }
@@ -267,6 +348,15 @@ export async function syncTasks(
       onStatusChange?.('error');
       return mergedTasks; // Still return merged even if push failed
     }
+
+    logSyncSummaryDevOnly({
+      userId,
+      localCount: localTasks.length,
+      remoteCount: cloudTasks.length,
+      upsertsCount: upsertsOnly.length,
+      pushAllowed: true,
+      reason: null,
+    });
 
     onStatusChange?.('synced');
     return mergedTasks;
