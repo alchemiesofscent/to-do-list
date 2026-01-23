@@ -18,7 +18,7 @@
 ## Progress
 - [x] Add `/pmo/` and `/projects/` templates
 - [x] Add asset packaging and manifests
-- [ ] Add SPA loader and rendering
+- [x] Add SPA loader and parsing (frontmatter, tables, config)
 - [ ] Add PMO UI routes
 - [ ] Add daily localStorage + export + Agent Pack
 - [ ] Add `pmo:validate`
