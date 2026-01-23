@@ -244,24 +244,22 @@ export function getPushBlockReason(params: {
 }
 
 function isDevBuild(): boolean {
-  return typeof import.meta !== 'undefined' && Boolean((import.meta as any).env?.DEV);
+  const meta = import.meta as unknown as { env?: { DEV?: boolean } };
+  return Boolean(meta.env?.DEV);
 }
 
 function warnBlockedPushDevOnly(reason: PushBlockReason, details: { localCount: number; remoteCount: number }) {
   if (!isDevBuild() || reason === null) return;
   const { localCount, remoteCount } = details;
   if (reason === 'fresh-client') {
-    // eslint-disable-next-line no-console
     console.warn(`[Scholar's Opus] Push blocked: fresh client pull-only (local=${localCount}, remote=${remoteCount})`);
     return;
   }
   if (reason === 'anti-clobber') {
-    // eslint-disable-next-line no-console
     console.warn(`[Scholar's Opus] Push blocked: anti-clobber guard (local=${localCount}, remote=${remoteCount})`);
     return;
   }
   if (reason === 'empty-namespace') {
-    // eslint-disable-next-line no-console
     console.warn(`[Scholar's Opus] Push blocked: empty namespace bootstrap requires manual sync (local=${localCount}, remote=${remoteCount})`);
   }
 }
@@ -275,7 +273,6 @@ function logSyncSummaryDevOnly(summary: {
   reason: PushBlockReason;
 }) {
   if (!isDevBuild()) return;
-  // eslint-disable-next-line no-console
   console.info(
     `[Scholar's Opus] Sync: user_id=${summary.userId} local=${summary.localCount} remote=${summary.remoteCount} upserts=${summary.upsertsCount} push=${summary.pushAllowed ? 'yes' : 'no'}${summary.reason ? ` reason=${summary.reason}` : ''}`
   );

@@ -1,11 +1,16 @@
 import { describe, expect, it } from 'vitest';
+import type { ConfigEnv, UserConfig, UserConfigExport } from 'vite';
 
 import viteConfig from '../vite.config.ts';
 
 describe('GitHub Pages base path', () => {
   it('uses /to-do-list/ in production mode', async () => {
-    const config =
-      typeof viteConfig === 'function' ? await (viteConfig as any)({ mode: 'production', command: 'build' }) : viteConfig;
+    const exported = viteConfig as unknown as UserConfigExport;
+    const env: ConfigEnv = { mode: 'production', command: 'build' };
+
+    const config: UserConfig =
+      typeof exported === 'function' ? await exported(env) : await Promise.resolve(exported);
+
     expect(config.base).toBe('/to-do-list/');
   });
 });

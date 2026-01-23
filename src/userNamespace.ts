@@ -45,9 +45,9 @@ export function getUserIdFromStorage(): string | null {
 
 export function logActiveUserIdDevOnly(): void {
   // Avoid depending on URL/base path; log only in dev builds.
-  const isDev = typeof import.meta !== 'undefined' && Boolean((import.meta as any).env?.DEV);
+  const meta = import.meta as unknown as { env?: { DEV?: boolean } };
+  const isDev = Boolean(meta.env?.DEV);
   if (!isDev || didLog) return;
   didLog = true;
-  // eslint-disable-next-line no-console
   console.info(`[Scholar's Opus] Supabase namespace user_id=${getOrCreateUserId()}`);
 }
