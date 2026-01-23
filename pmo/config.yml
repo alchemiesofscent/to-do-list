@@ -1,0 +1,47 @@
+timezone: Europe/Prague
+day_template_id: standard-v1
+
+defaults:
+  max_tasks_per_day: 8
+  max_deep_work_projects_per_day: 2
+  max_active_actions_per_project: 10
+  stale_days: 14
+
+chunks:
+  - id: chunk_1
+    label: Deep work 1
+    start: "08:30"
+    end: "10:00"
+    kind: deep
+  - id: chunk_2
+    label: Deep work 2
+    start: "10:15"
+    end: "11:45"
+    kind: deep
+  - id: chunk_3
+    label: Admin & email
+    start: "12:00"
+    end: "12:30"
+    kind: admin
+  - id: chunk_4
+    label: Light work 1
+    start: "13:30"
+    end: "15:00"
+    kind: light
+  - id: chunk_5
+    label: Light work 2
+    start: "15:15"
+    end: "16:45"
+    kind: light
+  - id: chunk_6
+    label: Buffer & wrap-up
+    start: "17:00"
+    end: "17:30"
+    kind: light
+
+weekly_constraints:
+  monday_meeting_block:
+    start: "14:00"
+    end: "16:00"
+    label: Seminars/meetings
+
