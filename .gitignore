@@ -35,3 +35,6 @@ coverage
 
 # local env
 .env.local
+
+# Local UI reference artifact
+ms-to-do-clone.zip
