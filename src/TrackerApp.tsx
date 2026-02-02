@@ -135,6 +135,7 @@ const TrackerApp: React.FC<{
     return (localStorage.getItem('scholar_opus_theme') as Theme) || 'system';
   });
   const [taskToEdit, setTaskToEdit] = useState<AcademicTask | undefined>(undefined);
+  const [expandedTaskId, setExpandedTaskId] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
   const [activeTypeFilter, setActiveTypeFilter] = useState<TaskType | 'All'>('All');
   const [sortBy, setSortBy] = useState<'priority' | 'type' | 'title'>('priority');
@@ -337,6 +338,16 @@ const TrackerApp: React.FC<{
     () => applyStatsFilter(tasksAfterPrimaryFilters, activeStatsFilter),
     [tasksAfterPrimaryFilters, activeStatsFilter]
   );
+
+  useEffect(() => {
+    if (expandedTaskId && !displayedTasks.some((t) => t.id === expandedTaskId)) {
+      setExpandedTaskId(null);
+    }
+  }, [displayedTasks, expandedTaskId]);
+
+  const toggleExpandedTask = useCallback((taskId: string) => {
+    setExpandedTaskId((prev) => (prev === taskId ? null : taskId));
+  }, []);
 
   // Get types for the current domain tab
   const taskTypes: (TaskType | 'All')[] = useMemo(
@@ -579,14 +590,16 @@ const TrackerApp: React.FC<{
           </div>
         </div>
 
-        <AcademicTaskList 
-          tasks={displayedTasks}
-          onToggleFavorite={toggleFavorite}
-          onDelete={deleteTask}
-          onUpdateTask={updateTaskField}
-          onEdit={openEditForm}
-          isEditingMode={isEditingMode}
-        />
+	        <AcademicTaskList 
+	          tasks={displayedTasks}
+	          onToggleFavorite={toggleFavorite}
+	          onDelete={deleteTask}
+	          onUpdateTask={updateTaskField}
+	          onEdit={openEditForm}
+	          expandedTaskId={expandedTaskId}
+	          onToggleExpand={toggleExpandedTask}
+	          isEditingMode={isEditingMode}
+	        />
       </main>
 
       <MobileDrawer
