@@ -44,6 +44,7 @@ export const TodoPage: React.FC<{
   const [showCompleted, setShowCompleted] = useState(false);
   const [pmoConfig, setPmoConfig] = useState<PmoConfig | null>(null);
   const [pinKind, setPinKind] = useState<'light' | 'admin'>('light');
+  const [pinChunkId, setPinChunkId] = useState<string>('');
   const [pinError, setPinError] = useState<string | null>(null);
 
   const visibleTasks = useMemo(() => tasks.filter((t) => !t.deletedAt), [tasks]);
@@ -64,6 +65,13 @@ export const TodoPage: React.FC<{
   useEffect(() => {
     loadPmoConfig().then(setPmoConfig).catch(() => {});
   }, []);
+
+  useEffect(() => {
+    if (!pmoConfig) return;
+    if (pinChunkId) return;
+    const initial = pmoConfig.chunks.find((c) => c.kind === pinKind)?.id ?? pmoConfig.chunks[0]?.id ?? 'chunk_1';
+    setPinChunkId(initial);
+  }, [pinChunkId, pinKind, pmoConfig]);
 
   useEffect(() => {
     if (selectedId && !tasks.some((t) => t.id === selectedId && !t.deletedAt)) {
@@ -230,14 +238,14 @@ export const TodoPage: React.FC<{
       return;
     }
 
-    const chunkId = pmoConfig.chunks.find((c) => c.kind === pinKind)?.id ?? pmoConfig.chunks[0]?.id ?? 'chunk_1';
+    const chunkId = pinChunkId || pmoConfig.chunks[0]?.id || 'chunk_1';
     pinTodoTask(
       { dateUtc: today, chunkId, todoId: selected.id, titleSnapshot: selected.title, kind: pinKind },
       storageScopeUserId
     );
 
     onNavigate('/pmo/daily');
-  }, [onNavigate, pinKind, pmoConfig, selected, storageScopeUserId]);
+  }, [onNavigate, pinChunkId, pinKind, pmoConfig, selected, storageScopeUserId]);
 
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-slate-900">
@@ -422,17 +430,34 @@ export const TodoPage: React.FC<{
                     <div className="mt-3 text-sm text-emerald-700 dark:text-emerald-300">Pinned to today.</div>
                   ) : (
                     <div className="mt-3 flex flex-col sm:flex-row gap-2 sm:items-end sm:justify-between">
-                      <label className="text-xs text-slate-500 dark:text-slate-400">
-                        Kind
-                        <select
-                          value={pinKind}
-                          onChange={(e) => setPinKind(e.target.value as 'light' | 'admin')}
-                          className="mt-1 w-full sm:w-48 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white px-2 py-2 text-sm"
-                        >
-                          <option value="light">Light</option>
-                          <option value="admin">Admin</option>
-                        </select>
-                      </label>
+                      <div className="flex flex-col sm:flex-row gap-2 sm:items-end">
+                        <label className="text-xs text-slate-500 dark:text-slate-400">
+                          Kind
+                          <select
+                            value={pinKind}
+                            onChange={(e) => setPinKind(e.target.value as 'light' | 'admin')}
+                            className="mt-1 w-full sm:w-40 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white px-2 py-2 text-sm"
+                          >
+                            <option value="light">Light</option>
+                            <option value="admin">Admin</option>
+                          </select>
+                        </label>
+                        <label className="text-xs text-slate-500 dark:text-slate-400">
+                          Slot
+                          <select
+                            value={pinChunkId}
+                            onChange={(e) => setPinChunkId(e.target.value)}
+                            className="mt-1 w-full sm:w-72 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white px-2 py-2 text-sm"
+                            disabled={!pmoConfig}
+                          >
+                            {pmoConfig?.chunks.map((c) => (
+                              <option key={c.id} value={c.id}>
+                                {c.label} ({c.start}–{c.end})
+                              </option>
+                            ))}
+                          </select>
+                        </label>
+                      </div>
                       <button
                         type="button"
                         onClick={pinToToday}

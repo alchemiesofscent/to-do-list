@@ -94,3 +94,9 @@
   - `npm test`
   - `npm run lint`
   - `npm run build`
+
+## Milestone — PMO Today UI polish + QA checklist (2026-02-02)
+- PMO “Today” renders `todo_task` pins as a compact row that expands on click (single expanded at a time; auto-expands one missing-reason item once).
+- Added Slot selectors to move pinned items between today’s chunks (PMO actions and To Do pins).
+- Added a manual QA checklist: `docs/QA_CHECKLIST.md`.
+- Added unit tests for To Do storage/sync, My Day merge/window logic, and router parsing.

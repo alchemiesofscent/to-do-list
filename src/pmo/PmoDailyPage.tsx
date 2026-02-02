@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import type { Session } from '@supabase/supabase-js';
 import type { PmoConfig } from './config.ts';
 import { loadPmoConfig, loadProjectBundle } from './content.ts';
@@ -51,6 +51,7 @@ export const PmoDailyPage: React.FC<{
   const [dateUtc] = useState(() => utcDateKey());
   const [pinned, setPinned] = useState<PinnedItem[]>(() => getDayPinnedItems(dateUtc, storageScopeUserId));
   const [syncStatus, setSyncStatus] = useState<SyncStatus>('idle');
+  const [expandedTodoPinnedId, setExpandedTodoPinnedId] = useState<string | null>(null);
   const [exportError, setExportError] = useState<string | null>(null);
   const [isExporting, setIsExporting] = useState(false);
   const [exportPayload, setExportPayload] = useState<{
@@ -124,6 +125,25 @@ export const PmoDailyPage: React.FC<{
     upsertPinnedItems(merged, storageScopeUserId);
     setPinned(getDayPinnedItems(dateUtc, storageScopeUserId));
   }, [dateUtc, openCloudSync, session, storageScopeUserId]);
+
+  const lastAutoExpandedTodoRef = useRef<string | null>(null);
+  const todoPinsNeedingReason = useMemo(() => {
+    return pinned
+      .filter((p): p is Extract<PinnedItem, { item_type: 'todo_task' }> => p.item_type === 'todo_task')
+      .filter((p) => (p.status === 'blocked' || p.status === 'not_done') && (!p.reason_code || (p.reason_text ?? '').trim().length < 10));
+  }, [pinned]);
+
+  useEffect(() => {
+    const first = todoPinsNeedingReason[0]?.pinned_id ?? null;
+    if (!first) {
+      lastAutoExpandedTodoRef.current = null;
+      return;
+    }
+    if (lastAutoExpandedTodoRef.current === first) return;
+    if (expandedTodoPinnedId !== null) return;
+    lastAutoExpandedTodoRef.current = first;
+    setExpandedTodoPinnedId(first);
+  }, [expandedTodoPinnedId, todoPinsNeedingReason]);
 
   const byChunk = useMemo(() => {
     const map = new Map<string, PinnedItem[]>();
@@ -293,10 +313,10 @@ export const PmoDailyPage: React.FC<{
           </div>
         )}
 
-        {config && config.chunks.map((chunk) => {
-          const items = byChunk.get(chunk.id) ?? [];
-          return (
-            <section key={chunk.id} className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-4">
+	        {config && config.chunks.map((chunk) => {
+	          const items = byChunk.get(chunk.id) ?? [];
+	          return (
+	            <section key={chunk.id} className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-4">
               <div className="flex items-start justify-between gap-4">
                 <div>
                   <div className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 dark:text-slate-500">{chunk.kind}</div>
@@ -308,71 +328,229 @@ export const PmoDailyPage: React.FC<{
 
               {items.length === 0 ? (
                 <div className="mt-4 text-sm text-slate-500 dark:text-slate-400">No tasks pinned.</div>
-              ) : (
-                <div className="mt-4 space-y-3">
-                  {items.map((item) => {
-                    const needsReason = item.status === 'blocked' || item.status === 'not_done';
-                    const reasonOk = !needsReason || (item.reason_code && (item.reason_text ?? '').trim().length >= 10);
-                    return (
-                      <div key={item.pinned_id} className="border border-slate-200 dark:border-slate-700 rounded-xl p-3">
-                        <div className="flex items-start justify-between gap-4">
-                          <div>
-                            {item.item_type === 'pmo_action' ? (
-                              <>
-                                <button
-                                  type="button"
-                                  onClick={() => onNavigate(`/pmo/project/${encodeURIComponent(item.project_slug)}`)}
-                                  className="text-xs font-black uppercase tracking-widest text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200"
-                                  title="Open project"
-                                >
-                                  {item.project_title}
-                                </button>
-                                <div className="text-sm font-medium text-slate-900 dark:text-white">{item.action_text}</div>
-                                <div className="text-xs text-slate-500 dark:text-slate-400">Action: {item.action_id} · Kind: {item.kind}</div>
-                              </>
-                            ) : (
-                              <>
-                                <button
-                                  type="button"
-                                  onClick={() => onNavigate('/todo')}
-                                  className="text-xs font-black uppercase tracking-widest text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200"
-                                  title="Open To Do"
-                                >
-                                  To Do
-                                </button>
-                                <div className="text-sm font-medium text-slate-900 dark:text-white">{item.title_snapshot}</div>
-                                <div className="text-xs text-slate-500 dark:text-slate-400">To Do: {item.todo_id} · Kind: {item.kind}</div>
-                              </>
-                            )}
-                          </div>
-                          <button
-                            type="button"
-                            onClick={() => handleRemove(item)}
+	              ) : (
+	                <div className="mt-4 space-y-3">
+	                  {items.map((item) => {
+	                    const needsReason = item.status === 'blocked' || item.status === 'not_done';
+	                    const reasonOk = !needsReason || (item.reason_code && (item.reason_text ?? '').trim().length >= 10);
+	                    const slotLabel = chunk.label;
+
+	                    if (item.item_type === 'todo_task') {
+	                      const isExpanded = expandedTodoPinnedId === item.pinned_id;
+	                      return (
+	                        <div key={item.pinned_id} className="border border-slate-200 dark:border-slate-700 rounded-xl overflow-hidden">
+	                          <div
+	                            role="button"
+	                            tabIndex={0}
+	                            onClick={() => setExpandedTodoPinnedId(isExpanded ? null : item.pinned_id)}
+	                            onKeyDown={(e) => {
+	                              if (e.key === 'Enter' || e.key === ' ') {
+	                                e.preventDefault();
+	                                setExpandedTodoPinnedId(isExpanded ? null : item.pinned_id);
+	                              }
+	                            }}
+	                            className={`w-full flex items-center justify-between gap-3 px-3 py-3 cursor-pointer ${
+	                              isExpanded ? 'bg-slate-50 dark:bg-slate-900/40' : 'hover:bg-slate-50 dark:hover:bg-slate-900/30'
+	                            }`}
+	                          >
+	                            <div className="min-w-0 flex-1">
+	                              <div className="flex items-center gap-2 min-w-0">
+	                                <span className="text-[10px] font-black uppercase tracking-widest text-slate-500 dark:text-slate-400 bg-slate-100 dark:bg-slate-900/50 px-2 py-0.5 rounded-full">
+	                                  To Do
+	                                </span>
+	                                <span
+	                                  className={`text-[10px] font-black uppercase tracking-widest px-2 py-0.5 rounded-full ${
+	                                    item.kind === 'admin'
+	                                      ? 'bg-slate-200 text-slate-700 dark:bg-slate-700 dark:text-slate-100'
+	                                      : 'bg-slate-100 text-slate-600 dark:bg-slate-900/50 dark:text-slate-300'
+	                                  }`}
+	                                >
+	                                  {item.kind}
+	                                </span>
+	                                {!reasonOk && needsReason && (
+	                                  <span className="text-[10px] font-black uppercase tracking-widest bg-rose-100 text-rose-700 dark:bg-rose-900/30 dark:text-rose-200 px-2 py-0.5 rounded-full">
+	                                    Needs reason
+	                                  </span>
+	                                )}
+	                              </div>
+	                              <div className="mt-1 text-sm font-medium text-slate-900 dark:text-white truncate">{item.title_snapshot}</div>
+	                              <div className="mt-1 text-xs text-slate-500 dark:text-slate-400">Slot: {slotLabel}</div>
+	                            </div>
+
+	                            <div className="flex items-center gap-2 flex-shrink-0">
+	                              <span
+	                                className={`text-[10px] font-black uppercase tracking-widest px-2 py-1 rounded-full ${
+	                                  item.status === 'done'
+	                                    ? 'bg-emerald-50 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-200'
+	                                    : item.status === 'ready_to_send'
+	                                      ? 'bg-blue-50 text-blue-700 dark:bg-blue-900/30 dark:text-blue-200'
+	                                      : item.status === 'blocked'
+	                                        ? 'bg-rose-50 text-rose-700 dark:bg-rose-900/30 dark:text-rose-200'
+	                                        : 'bg-slate-100 text-slate-600 dark:bg-slate-900/50 dark:text-slate-300'
+	                                }`}
+	                              >
+	                                {item.status.replace(/_/g, ' ')}
+	                              </span>
+	                              <button
+	                                type="button"
+	                                onClick={(e) => {
+	                                  e.stopPropagation();
+	                                  handleRemove(item);
+	                                }}
+	                                className="text-xs font-bold text-slate-400 hover:text-rose-500 px-2 py-1 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700"
+	                                title="Remove from today"
+	                              >
+	                                Remove
+	                              </button>
+	                              <span className="text-slate-400 dark:text-slate-500 text-sm">{isExpanded ? '▾' : '▸'}</span>
+	                            </div>
+	                          </div>
+
+	                          {isExpanded && (
+	                            <div className="px-3 py-3 border-t border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800">
+	                              <div className="flex items-center justify-between gap-3">
+	                                <button
+	                                  type="button"
+	                                  onClick={() => onNavigate('/todo')}
+	                                  className="text-xs font-black uppercase tracking-widest text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200"
+	                                  title="Open To Do"
+	                                >
+	                                  Open in To Do
+	                                </button>
+	                                <div className="text-xs text-slate-400 dark:text-slate-500 font-mono">{item.todo_id}</div>
+	                              </div>
+
+	                              <div className="mt-3 grid grid-cols-1 sm:grid-cols-4 gap-2">
+	                                <label className="text-xs text-slate-500 dark:text-slate-400">
+	                                  Slot
+	                                  <select
+	                                    value={item.chunk_id}
+	                                    onChange={(e) => handleUpdate(item, { chunk_id: e.target.value })}
+	                                    className="mt-1 w-full rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white px-2 py-2 text-sm"
+	                                  >
+	                                    {config.chunks.map((c) => (
+	                                      <option key={c.id} value={c.id}>
+	                                        {c.label} ({c.start}–{c.end})
+	                                      </option>
+	                                    ))}
+	                                  </select>
+	                                </label>
+
+	                                <label className="text-xs text-slate-500 dark:text-slate-400">
+	                                  Kind
+	                                  <select
+	                                    value={item.kind}
+	                                    onChange={(e) => handleUpdate(item, { kind: e.target.value as PinnedItem['kind'] })}
+	                                    className="mt-1 w-full rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white px-2 py-2 text-sm"
+	                                  >
+	                                    <option value="light">Light</option>
+	                                    <option value="admin">Admin</option>
+	                                  </select>
+	                                </label>
+
+	                                <label className="text-xs text-slate-500 dark:text-slate-400">
+	                                  Status
+	                                  <select
+	                                    value={item.status}
+	                                    onChange={(e) => {
+	                                      const status = e.target.value as DailyStatus;
+	                                      handleUpdate(item, {
+	                                        status,
+	                                        reason_code: status === 'blocked' || status === 'not_done' ? item.reason_code : null,
+	                                        reason_text: status === 'blocked' || status === 'not_done' ? item.reason_text : null,
+	                                      });
+	                                    }}
+	                                    className="mt-1 w-full rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white px-2 py-2 text-sm"
+	                                  >
+	                                    <option value="done">Done</option>
+	                                    <option value="ready_to_send">Ready to send</option>
+	                                    <option value="blocked">Blocked</option>
+	                                    <option value="not_done">Not done</option>
+	                                  </select>
+	                                </label>
+
+	                                <label className="text-xs text-slate-500 dark:text-slate-400">
+	                                  Reason code
+	                                  <select
+	                                    value={item.reason_code ?? ''}
+	                                    disabled={!needsReason}
+	                                    onChange={(e) => handleUpdate(item, { reason_code: (e.target.value || null) as ReasonCode | null })}
+	                                    className="mt-1 w-full rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white px-2 py-2 text-sm disabled:opacity-50"
+	                                  >
+	                                    <option value="">Select…</option>
+	                                    {REASONS.map((r) => (
+	                                      <option key={r.code} value={r.code}>
+	                                        {r.label}
+	                                      </option>
+	                                    ))}
+	                                  </select>
+	                                </label>
+	                              </div>
+
+	                              <label className="mt-3 block text-xs text-slate-500 dark:text-slate-400">
+	                                Reason text (min 10 chars)
+	                                <input
+	                                  value={item.reason_text ?? ''}
+	                                  disabled={!needsReason}
+	                                  onChange={(e) => handleUpdate(item, { reason_text: e.target.value || null })}
+	                                  className="mt-1 w-full rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white px-2 py-2 text-sm disabled:opacity-50"
+	                                  placeholder={needsReason ? 'Briefly explain…' : ''}
+	                                />
+	                              </label>
+
+	                              {needsReason && !reasonOk && (
+	                                <div className="mt-2 text-xs text-rose-600">Reason code and a brief explanation are required.</div>
+	                              )}
+	                            </div>
+	                          )}
+	                        </div>
+	                      );
+	                    }
+
+	                    return (
+	                      <div key={item.pinned_id} className="border border-slate-200 dark:border-slate-700 rounded-xl p-3">
+	                        <div className="flex items-start justify-between gap-4">
+	                          <div>
+	                            <button
+	                              type="button"
+	                              onClick={() => onNavigate(`/pmo/project/${encodeURIComponent(item.project_slug)}`)}
+	                              className="text-xs font-black uppercase tracking-widest text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200"
+	                              title="Open project"
+	                            >
+	                              {item.project_title}
+	                            </button>
+	                            <div className="text-sm font-medium text-slate-900 dark:text-white">{item.action_text}</div>
+	                            <div className="text-xs text-slate-500 dark:text-slate-400">Action: {item.action_id} · Kind: {item.kind}</div>
+	                          </div>
+	                          <button
+	                            type="button"
+	                            onClick={() => handleRemove(item)}
                             className="text-xs font-bold text-slate-400 hover:text-rose-500"
                             title="Remove from today"
                           >
                             Remove
-                          </button>
-                        </div>
+	                          </button>
+	                        </div>
 
-                        <div className="mt-3 grid grid-cols-1 sm:grid-cols-3 gap-2">
-                          {item.item_type === 'todo_task' && (
-                            <label className="text-xs text-slate-500 dark:text-slate-400">
-                              Kind
-                              <select
-                                value={item.kind}
-                                onChange={(e) => handleUpdate(item, { kind: e.target.value as PinnedItem['kind'] })}
-                                className="mt-1 w-full rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white px-2 py-2 text-sm"
-                              >
-                                <option value="light">Light</option>
-                                <option value="admin">Admin</option>
-                              </select>
-                            </label>
-                          )}
-                          <label className="text-xs text-slate-500 dark:text-slate-400">
-                            Status
-                            <select
-                              value={item.status}
+	                        <div className="mt-3 grid grid-cols-1 sm:grid-cols-4 gap-2">
+	                          <label className="text-xs text-slate-500 dark:text-slate-400">
+	                            Slot
+	                            <select
+	                              value={item.chunk_id}
+	                              onChange={(e) => handleUpdate(item, { chunk_id: e.target.value })}
+	                              className="mt-1 w-full rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white px-2 py-2 text-sm"
+	                            >
+	                              {config.chunks.map((c) => (
+	                                <option key={c.id} value={c.id}>
+	                                  {c.label} ({c.start}–{c.end})
+	                                </option>
+	                              ))}
+	                            </select>
+	                          </label>
+	                          <label className="text-xs text-slate-500 dark:text-slate-400">
+	                            Status
+	                            <select
+	                              value={item.status}
                               onChange={(e) => {
                                 const status = e.target.value as DailyStatus;
                                 handleUpdate(item, {
@@ -399,11 +577,11 @@ export const PmoDailyPage: React.FC<{
                               className="mt-1 w-full rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white px-2 py-2 text-sm disabled:opacity-50"
                             >
                               <option value="">Select…</option>
-                              {REASONS.map((r) => (
-                                <option key={r.code} value={r.code}>{r.label}</option>
-                              ))}
-                            </select>
-                          </label>
+	                              {REASONS.map((r) => (
+	                                <option key={r.code} value={r.code}>{r.label}</option>
+	                              ))}
+	                            </select>
+	                          </label>
 
                           <label className="text-xs text-slate-500 dark:text-slate-400 sm:col-span-1">
                             Reason text (min 10 chars)

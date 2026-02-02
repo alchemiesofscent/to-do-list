@@ -1,13 +1,5 @@
 import { useEffect, useState } from 'react';
 
-type Route =
-  | { kind: 'tracker' }
-  | { kind: 'pmo-daily' }
-  | { kind: 'pmo-project'; projectSlug: string }
-  | { kind: 'todo' }
-  | { kind: 'auth' }
-  | { kind: 'auth-callback' };
-
 export function baseUrl(): string {
   const base = import.meta.env.BASE_URL || '/';
   return base.endsWith('/') ? base : `${base}/`;
@@ -23,7 +15,15 @@ export function stripBase(pathname: string): string {
   return normalised;
 }
 
-function parseRoute(pathname: string): Route {
+export type Route =
+  | { kind: 'tracker' }
+  | { kind: 'pmo-daily' }
+  | { kind: 'pmo-project'; projectSlug: string }
+  | { kind: 'todo' }
+  | { kind: 'auth' }
+  | { kind: 'auth-callback' };
+
+export function parseRoute(pathname: string): Route {
   const rel = stripBase(pathname);
   if (rel === '/auth' || rel === '/auth/') return { kind: 'auth' };
   if (rel === '/auth/callback' || rel === '/auth/callback/') return { kind: 'auth-callback' };

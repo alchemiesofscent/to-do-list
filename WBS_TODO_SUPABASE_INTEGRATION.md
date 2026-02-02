@@ -199,6 +199,7 @@ In the To Do UI:
 - Implementation:
   - Create a `my_day_items` row with `item_type='todo_task'`, payload `{ todo_id, title_snapshot }`, `status='not_done'`
   - PMO daily page loads *both* `pmo_action` and `todo_task` items for today and renders them in the same chunk sections.
+  - For a less noisy Today view, render `todo_task` pins as a single collapsed row that expands on click (status/reason/kind/slot in the expanded area).
 
 ### 5.3 PMO → To Do (optional, MVP+)
 Optional reciprocal behavior:
@@ -213,7 +214,7 @@ Deliverables:
 - No change to PMO yet (My Day pinning can still be local-only if needed)
 
 Acceptance criteria:
-- A To Do task created on device A appears on device B after sync (same `user_id` namespace).
+- A To Do task created on device A appears on device B after sync (same `owner_id` / auth account).
 
 ### 6.2 Phase B: add My Day table + dual-write for PMO pins
 Deliverables:
@@ -222,7 +223,7 @@ Deliverables:
 - On pin/update/remove, write locally and enqueue cloud upsert/delete (or represent delete as tombstone; see below)
 
 Deletion strategy (choose one):
-- Hard delete: on remove, call `.delete()` with `id` + `user_id` (simpler, but offline conflicts are harder).
+- Hard delete: on remove, call `.delete()` with `id` + `owner_id` (simpler, but offline conflicts are harder).
 - Tombstones: keep `deleted_at` and filter client-side (best for offline-first).
 
 Recommendation:
@@ -290,7 +291,7 @@ Deliverables:
 
 When ready, introduce a generalized “work item link” concept rather than hard-wiring To Do to Corpus:
 - Table: `work_item_links`
-  - `id, user_id, from_type, from_id, to_type, to_id, created_at`
+  - `id, owner_id, from_type, from_id, to_type, to_id, created_at`
 - This allows:
   - Corpus project/task → To Do task
   - To Do task → PMO day item
