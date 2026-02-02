@@ -14,7 +14,6 @@ import {
   type ReasonCode,
 } from './dailyStorage.ts';
 import { buildAgentPackMarkdown, buildDailyReportJson, buildDailyReportMarkdown, buildSubprojectAgentPrompt } from './export.ts';
-import { applyTodoCompletionFromMyDayStatusChange } from './todoBridge.ts';
 import { PrimaryNav } from '../components/PrimaryNav.tsx';
 import { SyncStatus as SyncStatusIndicator } from '../components/SyncStatus.tsx';
 import { isSupabaseConfigured } from '../supabase.ts';
@@ -23,8 +22,9 @@ import { markPulledOnce } from '../syncState.ts';
 import { setAuthReturnTo } from '../auth/returnTo.ts';
 import { stripBase } from './router.ts';
 import { filterItemsToWindow, mergeMyDay, pullMyDayFromCloud, syncMyDayItems } from './syncMyDay.ts';
-import { loadTodoTasks, saveTodoTasks, todoStorageKeys } from '../todo/storage.ts';
+import { loadTodoTasks, saveTodoTasks, setTodoTaskCompleted, todoStorageKeys } from '../todo/storage.ts';
 import { syncTodoTasks } from '../todo/syncTodo.ts';
+import { reconcileTodoMyDayCompletionToday, todoCompletedFromDailyStatus } from '../integration/todoMyDayCompletion.ts';
 
 const REASONS: Array<{ code: ReasonCode; label: string }> = [
   { code: 'waiting_on_colleague', label: 'Waiting on colleague' },
@@ -74,6 +74,18 @@ export const PmoDailyPage: React.FC<{
     const loaded = getDayPinnedItems(dateUtc, storageScopeUserId);
     setPinned(loaded);
 
+    // Keep PMO pinned To Do items and the underlying To Do tasks consistent (local-only).
+    const { storageKey, fallbackStorageKey } = todoStorageKeys(storageScopeUserId);
+    const localTodos = loadTodoTasks({ storageKey, fallbackStorageKey });
+    const reconciledLocal = reconcileTodoMyDayCompletionToday({ todoTasks: localTodos, pinnedToday: loaded });
+    if (reconciledLocal.changedTodoIds.length > 0) {
+      saveTodoTasks({ storageKey, tasks: reconciledLocal.nextTodoTasks });
+    }
+    if (reconciledLocal.changedPinnedIds.length > 0) {
+      upsertPinnedItems(reconciledLocal.nextPinnedToday, storageScopeUserId);
+      setPinned(getDayPinnedItems(dateUtc, storageScopeUserId));
+    }
+
     if (!isSupabaseConfigured || !session) return;
     if (!navigator.onLine) {
       setSyncStatus('offline');
@@ -93,6 +105,15 @@ export const PmoDailyPage: React.FC<{
       const localForSync = filterItemsToWindow(getAllPinnedItemsForSync(storageScopeUserId), { daysBack: MY_DAY_DAYS_BACK });
       const merged = mergeMyDay(localForSync, cloud);
       upsertPinnedItems(merged, storageScopeUserId);
+
+      // Re-run reconciliation after incorporating cloud My Day changes (still local-only).
+      const afterPullPinned = getDayPinnedItems(dateUtc, storageScopeUserId);
+      const { storageKey, fallbackStorageKey } = todoStorageKeys(storageScopeUserId);
+      const todos = loadTodoTasks({ storageKey, fallbackStorageKey });
+      const reconciled = reconcileTodoMyDayCompletionToday({ todoTasks: todos, pinnedToday: afterPullPinned });
+      if (reconciled.changedTodoIds.length > 0) saveTodoTasks({ storageKey, tasks: reconciled.nextTodoTasks });
+      if (reconciled.changedPinnedIds.length > 0) upsertPinnedItems(reconciled.nextPinnedToday, storageScopeUserId);
+
       setPinned(getDayPinnedItems(dateUtc, storageScopeUserId));
       setSyncStatus('synced');
     };
@@ -114,12 +135,16 @@ export const PmoDailyPage: React.FC<{
     setPinned(getDayPinnedItems(dateUtc, storageScopeUserId));
   }, [dateUtc, session, storageScopeUserId]);
 
-  const syncTodoAfterCompletionChange = useCallback(async () => {
+  const syncTodoAfterExternalWrite = useCallback(async () => {
     if (!isSupabaseConfigured || !session || !navigator.onLine) return;
     const { storageKey, fallbackStorageKey } = todoStorageKeys(storageScopeUserId);
-    const local = loadTodoTasks({ storageKey, fallbackStorageKey });
-    const merged = await syncTodoTasks(local, undefined, { allowBootstrapPush: true });
-    saveTodoTasks({ storageKey, tasks: merged });
+    const local1 = loadTodoTasks({ storageKey, fallbackStorageKey });
+    const merged1 = await syncTodoTasks(local1, undefined, { allowBootstrapPush: true });
+    saveTodoTasks({ storageKey, tasks: merged1 });
+
+    // Second pass: now that we've pulled once, allow record-level upserts to push.
+    const merged2 = await syncTodoTasks(merged1, undefined, { allowBootstrapPush: true });
+    saveTodoTasks({ storageKey, tasks: merged2 });
   }, [session, storageScopeUserId]);
 
   const handleManualSync = useCallback(async () => {
@@ -179,14 +204,14 @@ export const PmoDailyPage: React.FC<{
     const updated = { ...item, ...next, updated_at_utc: nowIso } as PinnedItem;
 
     if (item.item_type === 'todo_task' && next.status) {
-      const didUpdateTodo = applyTodoCompletionFromMyDayStatusChange({
+      const nextCompleted = todoCompletedFromDailyStatus(updated.status);
+      const didUpdateTodo = setTodoTaskCompleted({
         scopeUserId: storageScopeUserId,
         todoId: item.todo_id,
-        prevStatus: item.status,
-        nextStatus: updated.status,
+        completed: nextCompleted,
         nowIso,
       });
-      if (didUpdateTodo) void syncTodoAfterCompletionChange();
+      if (didUpdateTodo) void syncTodoAfterExternalWrite();
     }
 
     upsertPinnedItem(updated, storageScopeUserId);
