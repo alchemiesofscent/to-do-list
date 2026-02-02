@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import type { Session } from '@supabase/supabase-js';
 
 import { PrimaryNav } from '../components/PrimaryNav.tsx';
@@ -17,6 +17,7 @@ import { loadTodoTasks, saveTodoTasks } from './storage.ts';
 import { mergeTodo, pullTodoFromCloud, syncTodoTasks } from './syncTodo.ts';
 
 const TODO_DB_KEY = 'scholar_opus_todo_db';
+const SYNC_DEBOUNCE_MS = 800;
 
 function newId(): string {
   return Math.random().toString(36).slice(2, 10);
@@ -38,7 +39,7 @@ export const TodoPage: React.FC<{
   const [tasks, setTasks] = useState<TodoTask[]>(() =>
     loadTodoTasks({ storageKey: todoStorageKey, fallbackStorageKey: todoFallbackStorageKey })
   );
-  const [selectedId, setSelectedId] = useState<string | null>(null);
+  const [expandedId, setExpandedId] = useState<string | null>(null);
   const [draftTitle, setDraftTitle] = useState('');
   const [syncStatus, setSyncStatus] = useState<SyncStatus>('idle');
   const [showCompleted, setShowCompleted] = useState(false);
@@ -57,10 +58,8 @@ export const TodoPage: React.FC<{
     });
   }, [showCompleted, visibleTasks]);
 
-  const selected = useMemo(
-    () => (selectedId ? tasks.find((t) => t.id === selectedId) ?? null : null),
-    [selectedId, tasks]
-  );
+  const syncSeqRef = useRef(0);
+  const syncTimerRef = useRef<number | null>(null);
 
   useEffect(() => {
     loadPmoConfig().then(setPmoConfig).catch(() => {});
@@ -73,15 +72,46 @@ export const TodoPage: React.FC<{
     setPinChunkId(initial);
   }, [pinChunkId, pinKind, pmoConfig]);
 
+  const cancelPendingSync = useCallback(() => {
+    if (syncTimerRef.current === null) return;
+    window.clearTimeout(syncTimerRef.current);
+    syncTimerRef.current = null;
+  }, []);
+
+  useEffect(() => cancelPendingSync, [cancelPendingSync]);
+
+  const applyRemoteTasks = useCallback((next: TodoTask[]) => {
+    cancelPendingSync();
+    syncSeqRef.current += 1;
+    setTasks(next);
+  }, [cancelPendingSync]);
+
+  const queueSync = useCallback(
+    (nextTasks: TodoTask[], options?: { immediate?: boolean; allowBootstrapPush?: boolean }) => {
+      if (!isSupabaseConfigured || !session || !navigator.onLine) return;
+
+      cancelPendingSync();
+      const seq = ++syncSeqRef.current;
+      const delay = options?.immediate ? 0 : SYNC_DEBOUNCE_MS;
+
+      syncTimerRef.current = window.setTimeout(async () => {
+        const merged = await syncTodoTasks(nextTasks, setSyncStatus, { allowBootstrapPush: options?.allowBootstrapPush });
+        if (seq !== syncSeqRef.current) return;
+        applyRemoteTasks(merged);
+      }, delay);
+    },
+    [applyRemoteTasks, cancelPendingSync, session]
+  );
+
   useEffect(() => {
-    if (selectedId && !tasks.some((t) => t.id === selectedId && !t.deletedAt)) {
-      setSelectedId(displayedTasks[0]?.id ?? null);
+    if (expandedId && !tasks.some((t) => t.id === expandedId && !t.deletedAt)) {
+      setExpandedId(null);
     }
-  }, [displayedTasks, selectedId, tasks]);
+  }, [expandedId, tasks]);
 
   useEffect(() => {
     const loaded = loadTodoTasks({ storageKey: todoStorageKey, fallbackStorageKey: todoFallbackStorageKey });
-    setTasks(loaded);
+    applyRemoteTasks(loaded);
 
     if (!isSupabaseConfigured || !session) return;
     if (!navigator.onLine) {
@@ -98,7 +128,7 @@ export const TodoPage: React.FC<{
       }
       markPulledOnce(new Date().toISOString(), { entity: 'todo', scopeUserId: session.user.id });
       const merged = mergeTodo(loaded, cloud);
-      setTasks(merged);
+      applyRemoteTasks(merged);
       setSyncStatus('synced');
     };
 
@@ -113,7 +143,7 @@ export const TodoPage: React.FC<{
   useEffect(() => {
     const handleOnline = () => {
       if (!isSupabaseConfigured || !session) return;
-      syncTodoTasks(tasks, setSyncStatus).then((merged) => setTasks(merged));
+      queueSync(tasks, { immediate: true });
     };
     const handleOffline = () => setSyncStatus('offline');
 
@@ -125,21 +155,12 @@ export const TodoPage: React.FC<{
       window.removeEventListener('online', handleOnline);
       window.removeEventListener('offline', handleOffline);
     };
-  }, [session, tasks]);
+  }, [queueSync, session, tasks]);
 
   const openCloudSync = useCallback(() => {
     setAuthReturnTo(stripBase(window.location.pathname));
     onNavigate('/auth');
   }, [onNavigate]);
-
-  const syncAfterChange = useCallback(
-    async (nextTasks: TodoTask[]) => {
-      if (!isSupabaseConfigured || !session || !navigator.onLine) return;
-      const merged = await syncTodoTasks(nextTasks, setSyncStatus);
-      setTasks(merged);
-    },
-    [session]
-  );
 
   const handleManualSync = useCallback(async () => {
     if (!session) {
@@ -147,15 +168,21 @@ export const TodoPage: React.FC<{
       return;
     }
     if (!isSupabaseConfigured || !navigator.onLine) return;
+
+    cancelPendingSync();
+    const seq = ++syncSeqRef.current;
     const merged = await syncTodoTasks(tasks, setSyncStatus, { allowBootstrapPush: true });
-    setTasks(merged);
-  }, [openCloudSync, session, tasks]);
+    if (seq !== syncSeqRef.current) return;
+    applyRemoteTasks(merged);
+  }, [applyRemoteTasks, cancelPendingSync, openCloudSync, session, tasks]);
 
   const upsertTask = (id: string, patch: Partial<TodoTask>) => {
     const now = new Date().toISOString();
-    const nextTasks = tasks.map((t) => (t.id === id ? { ...t, ...patch, updatedAt: now } : t));
-    setTasks(nextTasks);
-    syncAfterChange(nextTasks);
+    setTasks((prev) => {
+      const nextTasks = prev.map((t) => (t.id === id ? { ...t, ...patch, updatedAt: now } : t));
+      queueSync(nextTasks);
+      return nextTasks;
+    });
   };
 
   const addTask = () => {
@@ -177,19 +204,23 @@ export const TodoPage: React.FC<{
       deletedAt: null,
     };
 
-    const nextTasks = [task, ...tasks];
-    setTasks(nextTasks);
-    setSelectedId(id);
+    setTasks((prev) => {
+      const nextTasks = [task, ...prev];
+      queueSync(nextTasks);
+      return nextTasks;
+    });
+    setExpandedId(id);
     setDraftTitle('');
-    syncAfterChange(nextTasks);
   };
 
   const deleteTask = (id: string) => {
     if (!confirm('Delete this To Do task?')) return;
     const now = new Date().toISOString();
-    const nextTasks = tasks.map((t) => (t.id === id ? { ...t, deletedAt: now, updatedAt: now } : t));
-    setTasks(nextTasks);
-    syncAfterChange(nextTasks);
+    setTasks((prev) => {
+      const nextTasks = prev.map((t) => (t.id === id ? { ...t, deletedAt: now, updatedAt: now } : t));
+      queueSync(nextTasks);
+      return nextTasks;
+    });
   };
 
   const addStep = (taskId: string, title: string) => {
@@ -215,15 +246,13 @@ export const TodoPage: React.FC<{
     upsertTask(taskId, { steps: (task.steps ?? []).filter((s) => s.id !== stepId) });
   };
 
-  const isPinnedToday = useMemo(() => {
-    if (!selected) return false;
-    const today = utcDateKey();
+  const today = utcDateKey();
+  const pinnedTodoIdsToday = useMemo(() => {
     const items = getDayPinnedItems(today, storageScopeUserId);
-    return items.some((i) => i.item_type === 'todo_task' && i.todo_id === selected.id);
-  }, [selected, storageScopeUserId]);
+    return new Set(items.filter((i) => i.item_type === 'todo_task').map((i) => i.todo_id));
+  }, [storageScopeUserId, today]);
 
-  const pinToToday = useCallback(() => {
-    if (!selected) return;
+  const pinToToday = useCallback((task: TodoTask) => {
     setPinError(null);
 
     if (!pmoConfig) {
@@ -231,8 +260,8 @@ export const TodoPage: React.FC<{
       return;
     }
 
-    const today = utcDateKey();
-    const pinnedCount = getDayPinnedItems(today, storageScopeUserId).length;
+    const dateUtc = utcDateKey();
+    const pinnedCount = getDayPinnedItems(dateUtc, storageScopeUserId).length;
     if (pinnedCount >= pmoConfig.defaults.max_tasks_per_day) {
       setPinError(`Guardrail: max ${pmoConfig.defaults.max_tasks_per_day} tasks per day.`);
       return;
@@ -240,12 +269,16 @@ export const TodoPage: React.FC<{
 
     const chunkId = pinChunkId || pmoConfig.chunks[0]?.id || 'chunk_1';
     pinTodoTask(
-      { dateUtc: today, chunkId, todoId: selected.id, titleSnapshot: selected.title, kind: pinKind },
+      { dateUtc, chunkId, todoId: task.id, titleSnapshot: task.title, kind: pinKind },
       storageScopeUserId
     );
 
     onNavigate('/pmo/daily');
-  }, [onNavigate, pinChunkId, pinKind, pmoConfig, selected, storageScopeUserId]);
+  }, [onNavigate, pinChunkId, pinKind, pmoConfig, storageScopeUserId]);
+
+  const toggleExpanded = useCallback((taskId: string) => {
+    setExpandedId((prev) => (prev === taskId ? null : taskId));
+  }, []);
 
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-slate-900">
@@ -310,247 +343,271 @@ export const TodoPage: React.FC<{
           </div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
-          <section className="lg:col-span-1 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-3">
-            {displayedTasks.length === 0 ? (
-              <div className="text-sm text-slate-500 dark:text-slate-400 p-3">No tasks yet.</div>
-            ) : (
-              <ul className="space-y-2">
-                {displayedTasks.map((t) => {
-                  const isSelected = selectedId === t.id;
-                  return (
-                    <li key={t.id}>
-                      <button
-                        type="button"
-                        onClick={() => setSelectedId(t.id)}
-                        className={`w-full text-left rounded-xl border px-3 py-2 transition-colors ${
-                          isSelected
-                            ? 'border-slate-900 dark:border-white bg-slate-50 dark:bg-slate-900/40'
-                            : 'border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-900/30'
-                        }`}
-                      >
-                        <div className="flex items-start gap-3">
-                          <input
-                            type="checkbox"
-                            checked={t.completed}
-                            onChange={() => upsertTask(t.id, { completed: !t.completed })}
-                            onClick={(e) => e.stopPropagation()}
-                            className="mt-1 rounded border-slate-300 dark:border-slate-600"
-                          />
-                          <div className="flex-1">
-                            <div className={`text-sm font-semibold ${t.completed ? 'line-through text-slate-400 dark:text-slate-500' : 'text-slate-900 dark:text-white'}`}>
-                              {t.title}
-                            </div>
-                            <div className="text-xs text-slate-500 dark:text-slate-400 flex flex-wrap gap-2 mt-1">
-                              {t.isImportant && <span className="px-2 py-0.5 rounded-full bg-amber-50 text-amber-700 dark:bg-amber-900/30 dark:text-amber-300">Important</span>}
-                              {t.dueDate && <span className="font-mono">{formatLocalDueDate(t.dueDate)}</span>}
-                              {(t.steps?.length ?? 0) > 0 && (
-                                <span>
-                                  {(t.steps ?? []).filter((s) => s.completed).length}/{t.steps.length} steps
-                                </span>
-                              )}
-                            </div>
-                          </div>
-                          <button
-                            type="button"
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              upsertTask(t.id, { isImportant: !t.isImportant });
-                            }}
-                            className={`text-xs font-bold px-2 py-1 rounded-lg ${
-                              t.isImportant
-                                ? 'bg-amber-100 text-amber-800 dark:bg-amber-900/40 dark:text-amber-200'
-                                : 'bg-slate-100 text-slate-500 dark:bg-slate-900/40 dark:text-slate-400'
-                            }`}
-                            title="Toggle important"
-                          >
-                            {t.isImportant ? '★' : '☆'}
-                          </button>
-                        </div>
-                      </button>
-                    </li>
-                  );
-                })}
-              </ul>
-            )}
-          </section>
-
-          <section className="lg:col-span-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-4">
-            {!selected ? (
-              <div className="text-sm text-slate-500 dark:text-slate-400">Select a task to view details.</div>
-            ) : (
-              <div className="space-y-4">
-                <div className="flex items-start justify-between gap-3">
-                  <div className="flex-1">
-                    <div className="text-xs font-black uppercase tracking-[0.2em] text-slate-400 dark:text-slate-500">Task</div>
-                    <input
-                      value={selected.title}
-                      onChange={(e) => upsertTask(selected.id, { title: e.target.value })}
-                      className="mt-1 w-full px-3 py-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white font-semibold"
-                    />
-                  </div>
-                  <div className="flex flex-col gap-2">
-                    <button
-                      type="button"
-                      onClick={() => upsertTask(selected.id, { completed: !selected.completed })}
-                      className={`px-4 py-2 rounded-xl font-bold text-sm ${
-                        selected.completed
-                          ? 'bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-100'
-                          : 'bg-emerald-600 text-white'
+        <section className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-3">
+          {displayedTasks.length === 0 ? (
+            <div className="text-sm text-slate-500 dark:text-slate-400 p-3">No tasks yet.</div>
+          ) : (
+            <ul className="space-y-3">
+              {displayedTasks.map((t) => {
+                const isExpanded = expandedId === t.id;
+                const isPinnedToday = pinnedTodoIdsToday.has(t.id);
+                return (
+                  <li key={t.id} className="border border-slate-200 dark:border-slate-700 rounded-xl overflow-hidden">
+                    <div
+                      role="button"
+                      tabIndex={0}
+                      onClick={() => toggleExpanded(t.id)}
+                      onKeyDown={(e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                          e.preventDefault();
+                          toggleExpanded(t.id);
+                        }
+                      }}
+                      className={`w-full flex items-start justify-between gap-3 px-3 py-3 cursor-pointer ${
+                        isExpanded ? 'bg-slate-50 dark:bg-slate-900/40' : 'hover:bg-slate-50 dark:hover:bg-slate-900/30'
                       }`}
                     >
-                      {selected.completed ? 'Mark open' : 'Mark done'}
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => deleteTask(selected.id)}
-                      className="px-4 py-2 rounded-xl font-bold text-sm bg-rose-50 text-rose-700 dark:bg-rose-900/30 dark:text-rose-300"
-                    >
-                      Delete
-                    </button>
-                  </div>
-                </div>
-
-                <div className="bg-slate-50 dark:bg-slate-900/40 border border-slate-200 dark:border-slate-700 rounded-2xl p-4">
-                  <div className="flex items-start justify-between gap-4">
-                    <div>
-                      <div className="text-xs font-black uppercase tracking-[0.2em] text-slate-400 dark:text-slate-500">My Day (PMO)</div>
-                      <div className="text-sm text-slate-600 dark:text-slate-300">Pin this task into today’s plan.</div>
-                    </div>
-                    <button
-                      type="button"
-                      onClick={() => onNavigate('/pmo/daily')}
-                      className="px-3 py-2 rounded-xl text-xs font-black uppercase tracking-widest bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-100"
-                    >
-                      Open today
-                    </button>
-                  </div>
-
-                  {isPinnedToday ? (
-                    <div className="mt-3 text-sm text-emerald-700 dark:text-emerald-300">Pinned to today.</div>
-                  ) : (
-                    <div className="mt-3 flex flex-col sm:flex-row gap-2 sm:items-end sm:justify-between">
-                      <div className="flex flex-col sm:flex-row gap-2 sm:items-end">
-                        <label className="text-xs text-slate-500 dark:text-slate-400">
-                          Kind
-                          <select
-                            value={pinKind}
-                            onChange={(e) => setPinKind(e.target.value as 'light' | 'admin')}
-                            className="mt-1 w-full sm:w-40 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white px-2 py-2 text-sm"
+                      <div className="flex items-start gap-3 min-w-0 flex-1">
+                        <input
+                          type="checkbox"
+                          checked={t.completed}
+                          onChange={() => upsertTask(t.id, { completed: !t.completed })}
+                          onClick={(e) => e.stopPropagation()}
+                          className="mt-1 rounded border-slate-300 dark:border-slate-600"
+                        />
+                        <div className="min-w-0 flex-1">
+                          <div
+                            className={`text-sm font-semibold truncate ${
+                              t.completed ? 'line-through text-slate-400 dark:text-slate-500' : 'text-slate-900 dark:text-white'
+                            }`}
                           >
-                            <option value="light">Light</option>
-                            <option value="admin">Admin</option>
-                          </select>
-                        </label>
-                        <label className="text-xs text-slate-500 dark:text-slate-400">
-                          Slot
-                          <select
-                            value={pinChunkId}
-                            onChange={(e) => setPinChunkId(e.target.value)}
-                            className="mt-1 w-full sm:w-72 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white px-2 py-2 text-sm"
-                            disabled={!pmoConfig}
-                          >
-                            {pmoConfig?.chunks.map((c) => (
-                              <option key={c.id} value={c.id}>
-                                {c.label} ({c.start}–{c.end})
-                              </option>
-                            ))}
-                          </select>
-                        </label>
-                      </div>
-                      <button
-                        type="button"
-                        onClick={pinToToday}
-                        className="px-4 py-2 rounded-xl font-bold text-sm bg-slate-900 dark:bg-white text-white dark:text-slate-900"
-                      >
-                        Pin to today
-                      </button>
-                    </div>
-                  )}
-
-                  {pinError && <div className="mt-2 text-xs text-rose-600">{pinError}</div>}
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  <label className="text-xs text-slate-500 dark:text-slate-400">
-                    Due date (UTC)
-                    <input
-                      type="date"
-                      value={selected.dueDate ?? ''}
-                      onChange={(e) => upsertTask(selected.id, { dueDate: e.target.value || null })}
-                      className="mt-1 w-full rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white px-3 py-2 text-sm"
-                    />
-                  </label>
-                  <label className="text-xs text-slate-500 dark:text-slate-400">
-                    Important
-                    <div className="mt-1 flex items-center gap-2">
-                      <input
-                        type="checkbox"
-                        checked={selected.isImportant}
-                        onChange={(e) => upsertTask(selected.id, { isImportant: e.target.checked })}
-                        className="rounded border-slate-300 dark:border-slate-600"
-                      />
-                      <span className="text-sm text-slate-700 dark:text-slate-200">
-                        {selected.isImportant ? 'Yes' : 'No'}
-                      </span>
-                    </div>
-                  </label>
-                </div>
-
-                <label className="block text-xs text-slate-500 dark:text-slate-400">
-                  Note
-                  <textarea
-                    value={selected.note}
-                    onChange={(e) => upsertTask(selected.id, { note: e.target.value })}
-                    rows={4}
-                    className="mt-1 w-full rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white px-3 py-2 text-sm"
-                  />
-                </label>
-
-                <div className="space-y-2">
-                  <div className="flex items-center justify-between gap-3">
-                    <div>
-                      <div className="text-xs font-black uppercase tracking-[0.2em] text-slate-400 dark:text-slate-500">Steps</div>
-                      <div className="text-xs text-slate-500 dark:text-slate-400">
-                        {(selected.steps ?? []).filter((s) => s.completed).length}/{selected.steps.length} completed
-                      </div>
-                    </div>
-                    <StepComposer
-                      onAdd={(title) => addStep(selected.id, title)}
-                    />
-                  </div>
-
-                  {(selected.steps?.length ?? 0) === 0 ? (
-                    <div className="text-sm text-slate-500 dark:text-slate-400">No steps.</div>
-                  ) : (
-                    <ul className="space-y-2">
-                      {selected.steps.map((s) => (
-                        <li key={s.id} className="flex items-start gap-3 border border-slate-200 dark:border-slate-700 rounded-xl p-3">
-                          <input
-                            type="checkbox"
-                            checked={s.completed}
-                            onChange={() => toggleStep(selected.id, s.id)}
-                            className="mt-1 rounded border-slate-300 dark:border-slate-600"
-                          />
-                          <div className={`flex-1 text-sm ${s.completed ? 'line-through text-slate-400 dark:text-slate-500' : 'text-slate-800 dark:text-slate-100'}`}>
-                            {s.title}
+                            {t.title}
                           </div>
-                          <button
-                            type="button"
-                            onClick={() => removeStep(selected.id, s.id)}
-                            className="text-xs font-bold text-slate-400 hover:text-rose-500"
-                          >
-                            Remove
-                          </button>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </div>
-              </div>
-            )}
-          </section>
-        </div>
+                          <div className="mt-1 flex flex-wrap gap-2 text-xs text-slate-500 dark:text-slate-400">
+                            {isPinnedToday && (
+                              <span className="text-[10px] font-black uppercase tracking-widest bg-emerald-50 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-200 px-2 py-0.5 rounded-full">
+                                Pinned today
+                              </span>
+                            )}
+                            {t.isImportant && (
+                              <span className="text-[10px] font-black uppercase tracking-widest bg-amber-50 text-amber-700 dark:bg-amber-900/30 dark:text-amber-200 px-2 py-0.5 rounded-full">
+                                Important
+                              </span>
+                            )}
+                            {t.dueDate && <span className="font-mono">{formatLocalDueDate(t.dueDate)}</span>}
+                            {(t.steps?.length ?? 0) > 0 && (
+                              <span>
+                                {(t.steps ?? []).filter((s) => s.completed).length}/{t.steps.length} steps
+                              </span>
+                            )}
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="flex items-center gap-2 flex-shrink-0">
+                        <button
+                          type="button"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            upsertTask(t.id, { isImportant: !t.isImportant });
+                          }}
+                          className={`text-xs font-bold px-2 py-1 rounded-lg ${
+                            t.isImportant
+                              ? 'bg-amber-100 text-amber-800 dark:bg-amber-900/40 dark:text-amber-200'
+                              : 'bg-slate-100 text-slate-500 dark:bg-slate-900/40 dark:text-slate-400'
+                          }`}
+                          title="Toggle important"
+                        >
+                          {t.isImportant ? '★' : '☆'}
+                        </button>
+                        <span className="text-slate-400 dark:text-slate-500 text-sm">{isExpanded ? '▾' : '▸'}</span>
+                      </div>
+                    </div>
+
+                    {isExpanded && (
+                      <div className="px-3 py-4 border-t border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 space-y-4">
+                        <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3">
+                          <div className="flex-1">
+                            <div className="text-xs font-black uppercase tracking-[0.2em] text-slate-400 dark:text-slate-500">Task</div>
+                            <input
+                              value={t.title}
+                              onChange={(e) => upsertTask(t.id, { title: e.target.value })}
+                              className="mt-1 w-full px-3 py-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white font-semibold"
+                            />
+                          </div>
+                          <div className="flex gap-2">
+                            <button
+                              type="button"
+                              onClick={() => upsertTask(t.id, { completed: !t.completed })}
+                              className={`px-4 py-2 rounded-xl font-bold text-sm ${
+                                t.completed
+                                  ? 'bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-100'
+                                  : 'bg-emerald-600 text-white'
+                              }`}
+                            >
+                              {t.completed ? 'Mark open' : 'Mark done'}
+                            </button>
+                            <button
+                              type="button"
+                              onClick={() => deleteTask(t.id)}
+                              className="px-4 py-2 rounded-xl font-bold text-sm bg-rose-50 text-rose-700 dark:bg-rose-900/30 dark:text-rose-300"
+                            >
+                              Delete
+                            </button>
+                          </div>
+                        </div>
+
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                          <label className="text-xs text-slate-500 dark:text-slate-400">
+                            Due date (UTC)
+                            <input
+                              type="date"
+                              value={t.dueDate ?? ''}
+                              onChange={(e) => upsertTask(t.id, { dueDate: e.target.value || null })}
+                              className="mt-1 w-full rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white px-3 py-2 text-sm"
+                            />
+                          </label>
+                          <label className="text-xs text-slate-500 dark:text-slate-400">
+                            Important
+                            <div className="mt-1 flex items-center gap-2">
+                              <input
+                                type="checkbox"
+                                checked={t.isImportant}
+                                onChange={(e) => upsertTask(t.id, { isImportant: e.target.checked })}
+                                className="rounded border-slate-300 dark:border-slate-600"
+                              />
+                              <span className="text-sm text-slate-700 dark:text-slate-200">{t.isImportant ? 'Yes' : 'No'}</span>
+                            </div>
+                          </label>
+                        </div>
+
+                        <div className="bg-slate-50 dark:bg-slate-900/40 border border-slate-200 dark:border-slate-700 rounded-2xl p-4">
+                          <div className="flex items-start justify-between gap-4">
+                            <div>
+                              <div className="text-xs font-black uppercase tracking-[0.2em] text-slate-400 dark:text-slate-500">
+                                My Day (PMO)
+                              </div>
+                              <div className="text-sm text-slate-600 dark:text-slate-300">
+                                Pin this task into today’s plan.
+                              </div>
+                            </div>
+                            <button
+                              type="button"
+                              onClick={() => onNavigate('/pmo/daily')}
+                              className="px-3 py-2 rounded-xl text-xs font-black uppercase tracking-widest bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-100"
+                            >
+                              Open today
+                            </button>
+                          </div>
+
+                          {isPinnedToday ? (
+                            <div className="mt-3 text-sm text-emerald-700 dark:text-emerald-300">Pinned to today.</div>
+                          ) : (
+                            <div className="mt-3 flex flex-col sm:flex-row gap-2 sm:items-end sm:justify-between">
+                              <div className="flex flex-col sm:flex-row gap-2 sm:items-end">
+                                <label className="text-xs text-slate-500 dark:text-slate-400">
+                                  Kind
+                                  <select
+                                    value={pinKind}
+                                    onChange={(e) => setPinKind(e.target.value as 'light' | 'admin')}
+                                    className="mt-1 w-full sm:w-40 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white px-2 py-2 text-sm"
+                                  >
+                                    <option value="light">Light</option>
+                                    <option value="admin">Admin</option>
+                                  </select>
+                                </label>
+                                <label className="text-xs text-slate-500 dark:text-slate-400">
+                                  Slot
+                                  <select
+                                    value={pinChunkId}
+                                    onChange={(e) => setPinChunkId(e.target.value)}
+                                    className="mt-1 w-full sm:w-72 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white px-2 py-2 text-sm"
+                                    disabled={!pmoConfig}
+                                  >
+                                    {pmoConfig?.chunks.map((c) => (
+                                      <option key={c.id} value={c.id}>
+                                        {c.label} ({c.start}–{c.end})
+                                      </option>
+                                    ))}
+                                  </select>
+                                </label>
+                              </div>
+                              <button
+                                type="button"
+                                onClick={() => pinToToday(t)}
+                                className="px-4 py-2 rounded-xl font-bold text-sm bg-slate-900 dark:bg-white text-white dark:text-slate-900"
+                              >
+                                Pin to today
+                              </button>
+                            </div>
+                          )}
+
+                          {pinError && <div className="mt-2 text-xs text-rose-600">{pinError}</div>}
+                        </div>
+
+                        <label className="block text-xs text-slate-500 dark:text-slate-400">
+                          Note
+                          <textarea
+                            value={t.note}
+                            onChange={(e) => upsertTask(t.id, { note: e.target.value })}
+                            rows={4}
+                            className="mt-1 w-full rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white px-3 py-2 text-sm"
+                          />
+                        </label>
+
+                        <div className="space-y-2">
+                          <div className="flex items-center justify-between gap-3">
+                            <div>
+                              <div className="text-xs font-black uppercase tracking-[0.2em] text-slate-400 dark:text-slate-500">Steps</div>
+                              <div className="text-xs text-slate-500 dark:text-slate-400">
+                                {(t.steps ?? []).filter((s) => s.completed).length}/{t.steps.length} completed
+                              </div>
+                            </div>
+                            <StepComposer onAdd={(title) => addStep(t.id, title)} />
+                          </div>
+
+                          {(t.steps?.length ?? 0) === 0 ? (
+                            <div className="text-sm text-slate-500 dark:text-slate-400">No steps.</div>
+                          ) : (
+                            <ul className="space-y-2">
+                              {t.steps.map((s) => (
+                                <li
+                                  key={s.id}
+                                  className="flex items-start gap-3 border border-slate-200 dark:border-slate-700 rounded-xl p-3"
+                                >
+                                  <input
+                                    type="checkbox"
+                                    checked={s.completed}
+                                    onChange={() => toggleStep(t.id, s.id)}
+                                    className="mt-1 rounded border-slate-300 dark:border-slate-600"
+                                  />
+                                  <div
+                                    className={`flex-1 text-sm ${
+                                      s.completed ? 'line-through text-slate-400 dark:text-slate-500' : 'text-slate-800 dark:text-slate-100'
+                                    }`}
+                                  >
+                                    {s.title}
+                                  </div>
+                                  <button
+                                    type="button"
+                                    onClick={() => removeStep(t.id, s.id)}
+                                    className="text-xs font-bold text-slate-400 hover:text-rose-500"
+                                  >
+                                    Remove
+                                  </button>
+                                </li>
+                              ))}
+                            </ul>
+                          )}
+                        </div>
+                      </div>
+                    )}
+                  </li>
+                );
+              })}
+            </ul>
+          )}
+        </section>
       </main>
     </div>
   );

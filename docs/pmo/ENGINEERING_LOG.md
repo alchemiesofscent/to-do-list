@@ -100,3 +100,7 @@
 - Added Slot selectors to move pinned items between today’s chunks (PMO actions and To Do pins).
 - Added a manual QA checklist: `docs/QA_CHECKLIST.md`.
 - Added unit tests for To Do storage/sync, My Day merge/window logic, and router parsing.
+
+## Milestone — To Do full-width accordion + stable note typing (2026-02-02)
+- Refactored `/todo` UI to a full-width accordion list (whole row expands; one open at a time; new tasks auto-expand).
+- Debounced cloud sync and ignored stale async results so typing in the Note field doesn’t get overwritten by overlapping sync merges.
