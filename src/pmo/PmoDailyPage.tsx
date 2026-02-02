@@ -14,6 +14,7 @@ import {
   type ReasonCode,
 } from './dailyStorage.ts';
 import { buildAgentPackMarkdown, buildDailyReportJson, buildDailyReportMarkdown, buildSubprojectAgentPrompt } from './export.ts';
+import { applyTodoCompletionFromMyDayStatusChange } from './todoBridge.ts';
 import { PrimaryNav } from '../components/PrimaryNav.tsx';
 import { SyncStatus as SyncStatusIndicator } from '../components/SyncStatus.tsx';
 import { isSupabaseConfigured } from '../supabase.ts';
@@ -22,6 +23,8 @@ import { markPulledOnce } from '../syncState.ts';
 import { setAuthReturnTo } from '../auth/returnTo.ts';
 import { stripBase } from './router.ts';
 import { filterItemsToWindow, mergeMyDay, pullMyDayFromCloud, syncMyDayItems } from './syncMyDay.ts';
+import { loadTodoTasks, saveTodoTasks, todoStorageKeys } from '../todo/storage.ts';
+import { syncTodoTasks } from '../todo/syncTodo.ts';
 
 const REASONS: Array<{ code: ReasonCode; label: string }> = [
   { code: 'waiting_on_colleague', label: 'Waiting on colleague' },
@@ -111,6 +114,14 @@ export const PmoDailyPage: React.FC<{
     setPinned(getDayPinnedItems(dateUtc, storageScopeUserId));
   }, [dateUtc, session, storageScopeUserId]);
 
+  const syncTodoAfterCompletionChange = useCallback(async () => {
+    if (!isSupabaseConfigured || !session || !navigator.onLine) return;
+    const { storageKey, fallbackStorageKey } = todoStorageKeys(storageScopeUserId);
+    const local = loadTodoTasks({ storageKey, fallbackStorageKey });
+    const merged = await syncTodoTasks(local, undefined, { allowBootstrapPush: true });
+    saveTodoTasks({ storageKey, tasks: merged });
+  }, [session, storageScopeUserId]);
+
   const handleManualSync = useCallback(async () => {
     if (!session) {
       openCloudSync();
@@ -164,7 +175,20 @@ export const PmoDailyPage: React.FC<{
   }, [pinned]);
 
   const handleUpdate = (item: PinnedItem, next: Partial<PinnedItem>) => {
-    const updated = { ...item, ...next, updated_at_utc: new Date().toISOString() } as PinnedItem;
+    const nowIso = new Date().toISOString();
+    const updated = { ...item, ...next, updated_at_utc: nowIso } as PinnedItem;
+
+    if (item.item_type === 'todo_task' && next.status) {
+      const didUpdateTodo = applyTodoCompletionFromMyDayStatusChange({
+        scopeUserId: storageScopeUserId,
+        todoId: item.todo_id,
+        prevStatus: item.status,
+        nextStatus: updated.status,
+        nowIso,
+      });
+      if (didUpdateTodo) void syncTodoAfterCompletionChange();
+    }
+
     upsertPinnedItem(updated, storageScopeUserId);
     setPinned(getDayPinnedItems(dateUtc, storageScopeUserId));
     syncAfterChange();

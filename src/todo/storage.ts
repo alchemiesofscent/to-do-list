@@ -1,5 +1,14 @@
 import type { TodoStep, TodoTask } from './types.ts';
 
+export const TODO_DB_KEY = 'scholar_opus_todo_db';
+
+export function todoStorageKeys(scopeUserId: string | null): { storageKey: string; fallbackStorageKey?: string } {
+  return {
+    storageKey: scopeUserId ? `${TODO_DB_KEY}:${scopeUserId}` : TODO_DB_KEY,
+    fallbackStorageKey: scopeUserId ? TODO_DB_KEY : undefined,
+  };
+}
+
 type TodoDbV1 = {
   version: 1;
   tasksById: Record<string, TodoTask>;
@@ -128,3 +137,25 @@ export function saveTodoTasks(params: { storageKey: string; tasks: TodoTask[] })
   }
 }
 
+export function setTodoTaskCompleted(params: {
+  scopeUserId: string | null;
+  todoId: string;
+  completed: boolean;
+  nowIso?: string;
+}): boolean {
+  const { scopeUserId, todoId, completed } = params;
+  const now = params.nowIso ?? new Date().toISOString();
+  const { storageKey, fallbackStorageKey } = todoStorageKeys(scopeUserId);
+
+  const tasks = loadTodoTasks({ storageKey, fallbackStorageKey });
+  const idx = tasks.findIndex((t) => t.id === todoId && !t.deletedAt);
+  if (idx === -1) return false;
+
+  const existing = tasks[idx]!;
+  if (existing.completed === completed) return false;
+
+  const nextTasks = tasks.slice();
+  nextTasks[idx] = { ...existing, completed, updatedAt: now };
+  saveTodoTasks({ storageKey, tasks: nextTasks });
+  return true;
+}

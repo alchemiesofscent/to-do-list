@@ -14,10 +14,9 @@ import { markPulledOnce } from '../syncState.ts';
 import { setAuthReturnTo } from '../auth/returnTo.ts';
 import { stripBase } from '../pmo/router.ts';
 import type { TodoStep, TodoTask } from './types.ts';
-import { loadTodoTasks, saveTodoTasks } from './storage.ts';
+import { loadTodoTasks, saveTodoTasks, todoStorageKeys } from './storage.ts';
 import { mergeTodo, pullTodoFromCloud, syncTodoTasks } from './syncTodo.ts';
 
-const TODO_DB_KEY = 'scholar_opus_todo_db';
 const SYNC_DEBOUNCE_MS = 800;
 const DUE_SOON_DAYS = 7;
 const DISPLAY_TZ = 'Europe/Prague';
@@ -76,8 +75,7 @@ export const TodoPage: React.FC<{
   session: Session | null;
   storageScopeUserId: string | null;
 }> = ({ onNavigate, session, storageScopeUserId }) => {
-  const todoStorageKey = storageScopeUserId ? `${TODO_DB_KEY}:${storageScopeUserId}` : TODO_DB_KEY;
-  const todoFallbackStorageKey = storageScopeUserId ? TODO_DB_KEY : undefined;
+  const { storageKey: todoStorageKey, fallbackStorageKey: todoFallbackStorageKey } = todoStorageKeys(storageScopeUserId);
 
   const [tasks, setTasks] = useState<TodoTask[]>(() =>
     loadTodoTasks({ storageKey: todoStorageKey, fallbackStorageKey: todoFallbackStorageKey })
