@@ -15,7 +15,7 @@ const App: React.FC = () => {
   const userId = session?.user.id ?? null;
 
   if (route.kind === 'pmo-daily') {
-    return <PmoDailyPage onNavigate={navigate} storageScopeUserId={userId} />;
+    return <PmoDailyPage onNavigate={navigate} storageScopeUserId={userId} session={session} />;
   }
   if (route.kind === 'pmo-project') {
     return <PmoProjectPage projectSlug={route.projectSlug} onNavigate={navigate} storageScopeUserId={userId} />;

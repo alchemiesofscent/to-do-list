@@ -25,8 +25,8 @@ Update: 2026-02-02 — Decision changed: use Supabase Auth (PKCE) + RLS (`owner_
 - Identity for cloud access is Supabase Auth (`auth.uid()`); `tasks.user_id` is legacy-only (kept temporarily for manual claim/migration).
 
 ### PMO “My Day” storage
-- PMO Daily pinned items are local-only in `localStorage` (`src/pmo/dailyStorage.ts`, key `scholar_opus_pmo_daily`).
-- PMO currently has its own UI and does not sync to Supabase.
+- PMO Daily pinned items are local-first in `localStorage` (`src/pmo/dailyStorage.ts`, key `scholar_opus_pmo_daily`).
+- When signed in and online, PMO Daily syncs to Supabase table `my_day_items` via `src/pmo/syncMyDay.ts` (last 30 days; tombstones via `deleted_at`).
 
 ## 2. Key architecture decisions (make these first)
 
@@ -112,14 +112,14 @@ Minimal columns:
 Indexes:
 - `(owner_id, date_utc)`
 - optional unique constraint to prevent duplicates:
-  - for `pmo_action`: `(user_id, date_utc, item_type, (payload->>'action_id'))`
-  - for `todo_task`: `(user_id, date_utc, item_type, (payload->>'todo_id'))`
+  - for `pmo_action`: `(owner_id, date_utc, item_type, (payload->>'action_id'))`
+  - for `todo_task`: `(owner_id, date_utc, item_type, (payload->>'todo_id'))`
 
 Suggested SQL (for migration):
 ```sql
 create table if not exists public.my_day_items (
   id text primary key,
-  user_id text not null,
+  owner_id uuid not null default auth.uid(),
   date_utc date not null,
   chunk_id text not null,
   item_type text not null,
@@ -128,10 +128,12 @@ create table if not exists public.my_day_items (
   reason_code text null,
   reason_text text null,
   pinned_at_utc timestamptz not null,
-  updated_at timestamptz not null
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null,
+  deleted_at timestamptz null
 );
 
-create index if not exists my_day_items_user_day_idx on public.my_day_items (user_id, date_utc);
+create index if not exists my_day_items_owner_day_idx on public.my_day_items (owner_id, date_utc);
 ```
 
 Payload shapes (client-side TypeScript, MVP):

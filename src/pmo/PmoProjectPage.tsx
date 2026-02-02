@@ -45,7 +45,7 @@ export const PmoProjectPage: React.FC<{
   const deepProjectsToday = useMemo(() => {
     const set = new Set<string>();
     for (const item of getDayPinnedItems(dateUtc, storageScopeUserId)) {
-      if (item.kind === 'deep') set.add(item.project_id);
+      if (item.item_type === 'pmo_action' && item.kind === 'deep') set.add(item.project_id);
     }
     return set;
   }, [dateUtc, storageScopeUserId]);

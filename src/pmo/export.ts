@@ -4,6 +4,34 @@ import { formatDateForDisplay } from './time.ts';
 
 export type DailyReportStatus = 'done' | 'ready_to_send' | 'blocked' | 'not_done';
 
+function getReportFields(item: PinnedItem): {
+  project_id: string;
+  project_slug: string;
+  project_title: string;
+  action_id: string;
+  action_text: string;
+  kind: string;
+} {
+  if (item.item_type === 'pmo_action') {
+    return {
+      project_id: item.project_id,
+      project_slug: item.project_slug,
+      project_title: item.project_title,
+      action_id: item.action_id,
+      action_text: item.action_text,
+      kind: item.kind,
+    };
+  }
+  return {
+    project_id: 'todo',
+    project_slug: 'todo',
+    project_title: 'To Do',
+    action_id: item.todo_id,
+    action_text: item.title_snapshot,
+    kind: item.kind,
+  };
+}
+
 export type DailyReportJsonV1 = {
   schema_version: 'scholars-opus-daily-report@1';
   date_utc: string; // YYYY-MM-DD
@@ -69,11 +97,16 @@ export function buildDailyReportJson(params: {
     byChunk.set(p.chunk_id, arr);
   }
 
-  const deepProjects = new Set(pinned.filter((p) => p.kind === 'deep').map((p) => p.project_id));
+  const deepProjects = new Set(
+    pinned
+      .filter((p): p is Extract<PinnedItem, { item_type: 'pmo_action' }> => p.item_type === 'pmo_action' && p.kind === 'deep')
+      .map((p) => p.project_id)
+  );
   const byProject = new Map<string, { slug: string; title: string; items: PinnedItem[] }>();
   for (const p of pinned) {
-    const key = p.project_id;
-    const entry = byProject.get(key) ?? { slug: p.project_slug, title: p.project_title, items: [] };
+    const fields = getReportFields(p);
+    const key = fields.project_id;
+    const entry = byProject.get(key) ?? { slug: fields.project_slug, title: fields.project_title, items: [] };
     entry.items.push(p);
     byProject.set(key, entry);
   }
@@ -95,19 +128,22 @@ export function buildDailyReportJson(params: {
       not_done: counts.not_done,
     },
     chunks: config.chunks.map((c) => {
-      const items = (byChunk.get(c.id) ?? []).map((p) => ({
-        project_id: p.project_id,
-        project_slug: p.project_slug,
-        project_title: p.project_title,
-        action_id: p.action_id,
-        action_text: p.action_text,
-        kind: p.kind,
-        status: p.status,
-        reason_code: p.reason_code,
-        reason_text: p.reason_text,
-        pinned_at_utc: p.pinned_at_utc,
-        updated_at_utc: p.updated_at_utc,
-      }));
+      const items = (byChunk.get(c.id) ?? []).map((p) => {
+        const fields = getReportFields(p);
+        return {
+          project_id: fields.project_id,
+          project_slug: fields.project_slug,
+          project_title: fields.project_title,
+          action_id: fields.action_id,
+          action_text: fields.action_text,
+          kind: fields.kind,
+          status: p.status,
+          reason_code: p.reason_code,
+          reason_text: p.reason_text,
+          pinned_at_utc: p.pinned_at_utc,
+          updated_at_utc: p.updated_at_utc,
+        };
+      });
       return { chunk_id: c.id, label: c.label, start: c.start, end: c.end, kind: c.kind, items };
     }),
     projects: Array.from(byProject.entries()).map(([project_id, entry]) => ({
@@ -115,7 +151,7 @@ export function buildDailyReportJson(params: {
       project_slug: entry.slug,
       project_title: entry.title,
       deep_work_today: deepProjects.has(project_id),
-      items: entry.items.map((i) => ({ action_id: i.action_id, status: i.status })),
+      items: entry.items.map((i) => ({ action_id: getReportFields(i).action_id, status: i.status })),
     })),
     generated_at_utc: new Date().toISOString(),
   };
@@ -146,7 +182,8 @@ export function buildDailyReportMarkdown(params: { config: PmoConfig; dateUtc: s
       continue;
     }
     for (const item of items) {
-      lines.push(`- [${item.project_id}] ${item.action_text} (${item.action_id})`);
+      const fields = getReportFields(item);
+      lines.push(`- [${fields.project_id}] ${fields.action_text} (${fields.action_id})`);
     }
     lines.push('');
   }
@@ -160,10 +197,13 @@ export function buildDailyReportMarkdown(params: { config: PmoConfig; dateUtc: s
       return;
     }
     for (const item of items) {
+      const fields = getReportFields(item);
       if (item.status === 'blocked' || item.status === 'not_done') {
-        lines.push(`- [${item.project_id}] ${item.action_text} (${item.action_id}) — ${item.reason_code ?? 'reason_missing'}: ${item.reason_text ?? ''}`.trim());
+        lines.push(
+          `- [${fields.project_id}] ${fields.action_text} (${fields.action_id}) — ${item.reason_code ?? 'reason_missing'}: ${item.reason_text ?? ''}`.trim()
+        );
       } else {
-        lines.push(`- [${item.project_id}] ${item.action_text} (${item.action_id})`);
+        lines.push(`- [${fields.project_id}] ${fields.action_text} (${fields.action_id})`);
       }
     }
     lines.push('');

@@ -27,3 +27,15 @@
 - Consequences:
   - Existing legacy `tasks.user_id` rows must be manually “claimed” by setting `owner_id` via SQL once per account.
   - Hard delete/purge can be added later as an explicit action (not part of normal UX).
+
+## ADR-0004 — My Day (PMO Daily) sync via `my_day_items`
+- Date: 2026-02-02
+- Status: accepted
+- Context: PMO Daily should be available across devices when cloud sync is enabled, and deletes must not resurrect after offline edits.
+- Decision:
+  - Store PMO Daily items in `public.my_day_items` with RLS (`owner_id = auth.uid()`).
+  - Use tombstones (`deleted_at`) for removes; local storage uses `deleted_at_utc` and merge is last-write-wins by `updated_at`.
+  - Support two item types: `pmo_action` (project action pins) and `todo_task` (To Do pins with kind `light|admin`).
+- Consequences:
+  - “Remove from today” is a soft delete; purge is deferred.
+  - Exports include pinned To Do items but project excerpts are generated only for touched PMO projects.

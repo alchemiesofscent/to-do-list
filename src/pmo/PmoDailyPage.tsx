@@ -1,10 +1,27 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import type { Session } from '@supabase/supabase-js';
 import type { PmoConfig } from './config.ts';
 import { loadPmoConfig, loadProjectBundle } from './content.ts';
 import { formatDateForDisplay, utcDateKey } from './time.ts';
-import { getDayPinnedItems, removePinnedItem, upsertPinnedItem, type DailyStatus, type PinnedItem, type ReasonCode } from './dailyStorage.ts';
+import {
+  getAllPinnedItemsForSync,
+  getDayPinnedItems,
+  removePinnedItem,
+  upsertPinnedItem,
+  upsertPinnedItems,
+  type DailyStatus,
+  type PinnedItem,
+  type ReasonCode,
+} from './dailyStorage.ts';
 import { buildAgentPackMarkdown, buildDailyReportJson, buildDailyReportMarkdown, buildSubprojectAgentPrompt } from './export.ts';
 import { PrimaryNav } from '../components/PrimaryNav.tsx';
+import { SyncStatus as SyncStatusIndicator } from '../components/SyncStatus.tsx';
+import { isSupabaseConfigured } from '../supabase.ts';
+import type { SyncStatus } from '../sync.ts';
+import { markPulledOnce } from '../syncState.ts';
+import { setAuthReturnTo } from '../auth/returnTo.ts';
+import { stripBase } from './router.ts';
+import { filterItemsToWindow, mergeMyDay, pullMyDayFromCloud, syncMyDayItems } from './syncMyDay.ts';
 
 const REASONS: Array<{ code: ReasonCode; label: string }> = [
   { code: 'waiting_on_colleague', label: 'Waiting on colleague' },
@@ -18,14 +35,22 @@ const REASONS: Array<{ code: ReasonCode; label: string }> = [
   { code: 'other', label: 'Other' },
 ];
 
-export const PmoDailyPage: React.FC<{ onNavigate: (path: string) => void; storageScopeUserId: string | null }> = ({
+const MY_DAY_DAYS_BACK = 30;
+
+export const PmoDailyPage: React.FC<{
+  onNavigate: (path: string) => void;
+  storageScopeUserId: string | null;
+  session: Session | null;
+}> = ({
   onNavigate,
   storageScopeUserId,
+  session,
 }) => {
   const [config, setConfig] = useState<PmoConfig | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [dateUtc] = useState(() => utcDateKey());
   const [pinned, setPinned] = useState<PinnedItem[]>(() => getDayPinnedItems(dateUtc, storageScopeUserId));
+  const [syncStatus, setSyncStatus] = useState<SyncStatus>('idle');
   const [exportError, setExportError] = useState<string | null>(null);
   const [isExporting, setIsExporting] = useState(false);
   const [exportPayload, setExportPayload] = useState<{
@@ -42,8 +67,63 @@ export const PmoDailyPage: React.FC<{ onNavigate: (path: string) => void; storag
   }, []);
 
   useEffect(() => {
+    const loaded = getDayPinnedItems(dateUtc, storageScopeUserId);
+    setPinned(loaded);
+
+    if (!isSupabaseConfigured || !session) return;
+    if (!navigator.onLine) {
+      setSyncStatus('offline');
+      return;
+    }
+
+    const doInitialPull = async () => {
+      setSyncStatus('syncing');
+      const cloud = await pullMyDayFromCloud({ daysBack: MY_DAY_DAYS_BACK });
+      if (!cloud) {
+        setSyncStatus('error');
+        return;
+      }
+
+      markPulledOnce(new Date().toISOString(), { entity: 'my_day', scopeUserId: session.user.id });
+
+      const localForSync = filterItemsToWindow(getAllPinnedItemsForSync(storageScopeUserId), { daysBack: MY_DAY_DAYS_BACK });
+      const merged = mergeMyDay(localForSync, cloud);
+      upsertPinnedItems(merged, storageScopeUserId);
+      setPinned(getDayPinnedItems(dateUtc, storageScopeUserId));
+      setSyncStatus('synced');
+    };
+
+    doInitialPull();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [dateUtc, storageScopeUserId, session?.user.id]);
+
+  const openCloudSync = useCallback(() => {
+    setAuthReturnTo(stripBase(window.location.pathname));
+    onNavigate('/auth');
+  }, [onNavigate]);
+
+  const syncAfterChange = useCallback(async () => {
+    if (!isSupabaseConfigured || !session || !navigator.onLine) return;
+    const localForSync = filterItemsToWindow(getAllPinnedItemsForSync(storageScopeUserId), { daysBack: MY_DAY_DAYS_BACK });
+    const merged = await syncMyDayItems(localForSync, setSyncStatus, { daysBack: MY_DAY_DAYS_BACK });
+    upsertPinnedItems(merged, storageScopeUserId);
     setPinned(getDayPinnedItems(dateUtc, storageScopeUserId));
-  }, [dateUtc, storageScopeUserId]);
+  }, [dateUtc, session, storageScopeUserId]);
+
+  const handleManualSync = useCallback(async () => {
+    if (!session) {
+      openCloudSync();
+      return;
+    }
+    if (!isSupabaseConfigured || !navigator.onLine) return;
+    const localForSync = filterItemsToWindow(getAllPinnedItemsForSync(storageScopeUserId), { daysBack: MY_DAY_DAYS_BACK });
+    const merged = await syncMyDayItems(localForSync, setSyncStatus, {
+      daysBack: MY_DAY_DAYS_BACK,
+      allowBootstrapPush: true,
+    });
+    upsertPinnedItems(merged, storageScopeUserId);
+    setPinned(getDayPinnedItems(dateUtc, storageScopeUserId));
+  }, [dateUtc, openCloudSync, session, storageScopeUserId]);
 
   const byChunk = useMemo(() => {
     const map = new Map<string, PinnedItem[]>();
@@ -58,20 +138,22 @@ export const PmoDailyPage: React.FC<{ onNavigate: (path: string) => void; storag
   const deepProjectsToday = useMemo(() => {
     const set = new Set<string>();
     for (const item of pinned) {
-      if (item.kind === 'deep') set.add(item.project_id);
+      if (item.item_type === 'pmo_action' && item.kind === 'deep') set.add(item.project_id);
     }
     return set;
   }, [pinned]);
 
   const handleUpdate = (item: PinnedItem, next: Partial<PinnedItem>) => {
-    const updated: PinnedItem = { ...item, ...next, updated_at_utc: new Date().toISOString() };
+    const updated = { ...item, ...next, updated_at_utc: new Date().toISOString() } as PinnedItem;
     upsertPinnedItem(updated, storageScopeUserId);
     setPinned(getDayPinnedItems(dateUtc, storageScopeUserId));
+    syncAfterChange();
   };
 
   const handleRemove = (item: PinnedItem) => {
     removePinnedItem({ dateUtc, pinnedId: item.pinned_id }, storageScopeUserId);
     setPinned(getDayPinnedItems(dateUtc, storageScopeUserId));
+    syncAfterChange();
   };
 
   const exportReady = useMemo(() => {
@@ -117,9 +199,8 @@ export const PmoDailyPage: React.FC<{ onNavigate: (path: string) => void; storag
       const reportJson = JSON.stringify(report, null, 2) + '\n';
       const reportMd = buildDailyReportMarkdown({ config, dateUtc, pinned });
 
-      const touchedSlugs: string[] = Array.from(new Set<string>(pinned.map((p) => p.project_slug))).sort((a, b) =>
-        a.localeCompare(b)
-      );
+      const projectItems = pinned.filter((p): p is Extract<PinnedItem, { item_type: 'pmo_action' }> => p.item_type === 'pmo_action');
+      const touchedSlugs: string[] = Array.from(new Set<string>(projectItems.map((p) => p.project_slug))).sort((a, b) => a.localeCompare(b));
       const bundles = await Promise.all(touchedSlugs.map((slug) => loadProjectBundle(slug)));
 
       const touchedProjects = bundles.map((b) => {
@@ -174,15 +255,30 @@ export const PmoDailyPage: React.FC<{ onNavigate: (path: string) => void; storag
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-slate-900">
       <header className="border-b border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 sticky top-0 z-40">
-        <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+        <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between gap-4">
           <PrimaryNav active="pmo" onNavigate={onNavigate} />
           <div className="text-center">
             <div className="text-xs font-black uppercase tracking-[0.2em] text-slate-400 dark:text-slate-500">PMO — Today</div>
             <div className="font-serif text-lg font-bold text-slate-900 dark:text-white">{label}</div>
           </div>
-          <div className="text-xs text-slate-400 dark:text-slate-500 text-right">
-            <div>{pinned.length} / {config?.defaults.max_tasks_per_day ?? 8} tasks</div>
-            <div>{deepProjectsToday.size} / {config?.defaults.max_deep_work_projects_per_day ?? 2} deep projects</div>
+          <div className="flex items-center gap-3">
+            {isSupabaseConfigured && (
+              <div className="flex items-center gap-2">
+                <SyncStatusIndicator status={syncStatus} onManualSync={handleManualSync} />
+                <button
+                  type="button"
+                  onClick={openCloudSync}
+                  className="hidden sm:inline-flex items-center px-2 py-1 rounded-lg text-xs font-bold text-slate-500 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700"
+                  title="Cloud sync"
+                >
+                  Cloud
+                </button>
+              </div>
+            )}
+            <div className="text-xs text-slate-400 dark:text-slate-500 text-right">
+              <div>{pinned.length} / {config?.defaults.max_tasks_per_day ?? 8} tasks</div>
+              <div>{deepProjectsToday.size} / {config?.defaults.max_deep_work_projects_per_day ?? 2} deep projects</div>
+            </div>
           </div>
         </div>
       </header>
@@ -221,16 +317,33 @@ export const PmoDailyPage: React.FC<{ onNavigate: (path: string) => void; storag
                       <div key={item.pinned_id} className="border border-slate-200 dark:border-slate-700 rounded-xl p-3">
                         <div className="flex items-start justify-between gap-4">
                           <div>
-                            <button
-                              type="button"
-                              onClick={() => onNavigate(`/pmo/project/${encodeURIComponent(item.project_slug)}`)}
-                              className="text-xs font-black uppercase tracking-widest text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200"
-                              title="Open project"
-                            >
-                              {item.project_title}
-                            </button>
-                            <div className="text-sm font-medium text-slate-900 dark:text-white">{item.action_text}</div>
-                            <div className="text-xs text-slate-500 dark:text-slate-400">Action: {item.action_id} · Kind: {item.kind}</div>
+                            {item.item_type === 'pmo_action' ? (
+                              <>
+                                <button
+                                  type="button"
+                                  onClick={() => onNavigate(`/pmo/project/${encodeURIComponent(item.project_slug)}`)}
+                                  className="text-xs font-black uppercase tracking-widest text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200"
+                                  title="Open project"
+                                >
+                                  {item.project_title}
+                                </button>
+                                <div className="text-sm font-medium text-slate-900 dark:text-white">{item.action_text}</div>
+                                <div className="text-xs text-slate-500 dark:text-slate-400">Action: {item.action_id} · Kind: {item.kind}</div>
+                              </>
+                            ) : (
+                              <>
+                                <button
+                                  type="button"
+                                  onClick={() => onNavigate('/todo')}
+                                  className="text-xs font-black uppercase tracking-widest text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200"
+                                  title="Open To Do"
+                                >
+                                  To Do
+                                </button>
+                                <div className="text-sm font-medium text-slate-900 dark:text-white">{item.title_snapshot}</div>
+                                <div className="text-xs text-slate-500 dark:text-slate-400">To Do: {item.todo_id} · Kind: {item.kind}</div>
+                              </>
+                            )}
                           </div>
                           <button
                             type="button"
@@ -243,6 +356,19 @@ export const PmoDailyPage: React.FC<{ onNavigate: (path: string) => void; storag
                         </div>
 
                         <div className="mt-3 grid grid-cols-1 sm:grid-cols-3 gap-2">
+                          {item.item_type === 'todo_task' && (
+                            <label className="text-xs text-slate-500 dark:text-slate-400">
+                              Kind
+                              <select
+                                value={item.kind}
+                                onChange={(e) => handleUpdate(item, { kind: e.target.value as PinnedItem['kind'] })}
+                                className="mt-1 w-full rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white px-2 py-2 text-sm"
+                              >
+                                <option value="light">Light</option>
+                                <option value="admin">Admin</option>
+                              </select>
+                            </label>
+                          )}
                           <label className="text-xs text-slate-500 dark:text-slate-400">
                             Status
                             <select

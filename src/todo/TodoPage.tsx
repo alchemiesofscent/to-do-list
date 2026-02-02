@@ -3,6 +3,10 @@ import type { Session } from '@supabase/supabase-js';
 
 import { PrimaryNav } from '../components/PrimaryNav.tsx';
 import { SyncStatus as SyncStatusIndicator } from '../components/SyncStatus.tsx';
+import type { PmoConfig } from '../pmo/config.ts';
+import { loadPmoConfig } from '../pmo/content.ts';
+import { getDayPinnedItems, pinTodoTask } from '../pmo/dailyStorage.ts';
+import { utcDateKey } from '../pmo/time.ts';
 import { isSupabaseConfigured } from '../supabase.ts';
 import type { SyncStatus } from '../sync.ts';
 import { markPulledOnce } from '../syncState.ts';
@@ -38,6 +42,9 @@ export const TodoPage: React.FC<{
   const [draftTitle, setDraftTitle] = useState('');
   const [syncStatus, setSyncStatus] = useState<SyncStatus>('idle');
   const [showCompleted, setShowCompleted] = useState(false);
+  const [pmoConfig, setPmoConfig] = useState<PmoConfig | null>(null);
+  const [pinKind, setPinKind] = useState<'light' | 'admin'>('light');
+  const [pinError, setPinError] = useState<string | null>(null);
 
   const visibleTasks = useMemo(() => tasks.filter((t) => !t.deletedAt), [tasks]);
   const displayedTasks = useMemo(() => {
@@ -53,6 +60,10 @@ export const TodoPage: React.FC<{
     () => (selectedId ? tasks.find((t) => t.id === selectedId) ?? null : null),
     [selectedId, tasks]
   );
+
+  useEffect(() => {
+    loadPmoConfig().then(setPmoConfig).catch(() => {});
+  }, []);
 
   useEffect(() => {
     if (selectedId && !tasks.some((t) => t.id === selectedId && !t.deletedAt)) {
@@ -195,6 +206,38 @@ export const TodoPage: React.FC<{
     if (!task) return;
     upsertTask(taskId, { steps: (task.steps ?? []).filter((s) => s.id !== stepId) });
   };
+
+  const isPinnedToday = useMemo(() => {
+    if (!selected) return false;
+    const today = utcDateKey();
+    const items = getDayPinnedItems(today, storageScopeUserId);
+    return items.some((i) => i.item_type === 'todo_task' && i.todo_id === selected.id);
+  }, [selected, storageScopeUserId]);
+
+  const pinToToday = useCallback(() => {
+    if (!selected) return;
+    setPinError(null);
+
+    if (!pmoConfig) {
+      setPinError('PMO config is still loading. Try again in a moment.');
+      return;
+    }
+
+    const today = utcDateKey();
+    const pinnedCount = getDayPinnedItems(today, storageScopeUserId).length;
+    if (pinnedCount >= pmoConfig.defaults.max_tasks_per_day) {
+      setPinError(`Guardrail: max ${pmoConfig.defaults.max_tasks_per_day} tasks per day.`);
+      return;
+    }
+
+    const chunkId = pmoConfig.chunks.find((c) => c.kind === pinKind)?.id ?? pmoConfig.chunks[0]?.id ?? 'chunk_1';
+    pinTodoTask(
+      { dateUtc: today, chunkId, todoId: selected.id, titleSnapshot: selected.title, kind: pinKind },
+      storageScopeUserId
+    );
+
+    onNavigate('/pmo/daily');
+  }, [onNavigate, pinKind, pmoConfig, selected, storageScopeUserId]);
 
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-slate-900">
@@ -360,6 +403,49 @@ export const TodoPage: React.FC<{
                   </div>
                 </div>
 
+                <div className="bg-slate-50 dark:bg-slate-900/40 border border-slate-200 dark:border-slate-700 rounded-2xl p-4">
+                  <div className="flex items-start justify-between gap-4">
+                    <div>
+                      <div className="text-xs font-black uppercase tracking-[0.2em] text-slate-400 dark:text-slate-500">My Day (PMO)</div>
+                      <div className="text-sm text-slate-600 dark:text-slate-300">Pin this task into today’s plan.</div>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => onNavigate('/pmo/daily')}
+                      className="px-3 py-2 rounded-xl text-xs font-black uppercase tracking-widest bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-100"
+                    >
+                      Open today
+                    </button>
+                  </div>
+
+                  {isPinnedToday ? (
+                    <div className="mt-3 text-sm text-emerald-700 dark:text-emerald-300">Pinned to today.</div>
+                  ) : (
+                    <div className="mt-3 flex flex-col sm:flex-row gap-2 sm:items-end sm:justify-between">
+                      <label className="text-xs text-slate-500 dark:text-slate-400">
+                        Kind
+                        <select
+                          value={pinKind}
+                          onChange={(e) => setPinKind(e.target.value as 'light' | 'admin')}
+                          className="mt-1 w-full sm:w-48 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white px-2 py-2 text-sm"
+                        >
+                          <option value="light">Light</option>
+                          <option value="admin">Admin</option>
+                        </select>
+                      </label>
+                      <button
+                        type="button"
+                        onClick={pinToToday}
+                        className="px-4 py-2 rounded-xl font-bold text-sm bg-slate-900 dark:bg-white text-white dark:text-slate-900"
+                      >
+                        Pin to today
+                      </button>
+                    </div>
+                  )}
+
+                  {pinError && <div className="mt-2 text-xs text-rose-600">{pinError}</div>}
+                </div>
+
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <label className="text-xs text-slate-500 dark:text-slate-400">
                     Due date (UTC)
@@ -477,4 +563,3 @@ const StepComposer: React.FC<{ onAdd: (title: string) => void }> = ({ onAdd }) =
     </div>
   );
 };
-

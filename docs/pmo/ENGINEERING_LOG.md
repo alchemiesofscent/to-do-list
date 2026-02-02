@@ -84,3 +84,13 @@
   - Added `owner_id` / RLS foundation and tombstone-based deletes (no hard deletes in-app).
   - Added `/todo` (local-first To Do UI + sync module against `todo_tasks`).
   - Scoped user data storage keys by auth user id (suffixing keys) to prevent account cross-contamination.
+
+## Milestone — My Day sync + To Do pinning (2026-02-02)
+- Added My Day sync module `src/pmo/syncMyDay.ts` against Supabase `my_day_items` with a rolling window (default 30 days; always includes today+yesterday).
+- PMO Daily is now local-first but sync-capable when signed in; deletions are tombstones (`deleted_at` / `deleted_at_utc`).
+- Added To Do → PMO “Pin to today” (light/admin) and updated PMO Daily rendering + exports to include pinned To Do items.
+- Verification commands:
+  - `npm run typecheck`
+  - `npm test`
+  - `npm run lint`
+  - `npm run build`
