@@ -33,15 +33,16 @@ No required environment variables.
 - `src/components/*`: UI components
 - `src/sync.ts`: optional Supabase sync (guarded, record-level)
 
-## Optional Supabase sync: namespace recovery
+## Optional Supabase cloud sync (Auth)
 
-If Supabase sync is enabled and you accidentally wrote into the wrong `user_id` namespace, use the in-app **Synchronisation settings** panel:
+Cloud sync is optional. If `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY` are present, the app can sync via Supabase **Auth + RLS**.
 
-- Open **Synchronisation settings** (desktop: next to the sync indicator; mobile: Actions → Synchronisation settings).
-- Paste the intended `user_id` and click **Verify namespace** to check the remote task count.
-- Click **Switch** to set `localStorage.scholar_opus_user_id`, reset the sync state, and do a pull-first merge.
+- Enable: open **Cloud** (or go to `/auth`) and sign in (PKCE; callback at `${BASE_URL}auth/callback`).
+- Security model: tables are protected by RLS (`owner_id = auth.uid()`); the client does not rely on `user_id` filtering for access control.
+- Deletes: use tombstones (`deleted_at`) to prevent cross-device resurrection; hard delete/purge is deferred.
+- Dashboard settings: add exact redirect URLs for dev + GitHub Pages base path (see `.github/workflows/pages.yml` for the deployed base path, and `vite.config.ts` for `base`).
 
-This flow never auto-pushes on load, and it will not delete anything in Supabase.
+Legacy migration note: if you have old rows in `public.tasks` that only have a legacy `user_id` namespace, you must manually “claim” them by setting `owner_id` via SQL (see `supabase/migrations/*_auth_owner_rls_tombstones.sql`).
 
 ## Data
 

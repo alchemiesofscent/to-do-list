@@ -71,3 +71,16 @@
 ## Notes
 - Timestamps are stored in UTC (ISO8601 `Z`); UI displays dates/times in Europe/Prague.
 - PMO is read-only for project plans; only daily execution is stored locally.
+
+## Session start — 2026-02-02
+- Engineer: Codex
+- Goal for this session: Switch Supabase sync to Auth+RLS (`owner_id = auth.uid()`), add tombstones (soft delete), and implement Phase A To Do (local-first + optional cloud sync).
+- Context read:
+  - `WBS_TODO_SUPABASE_INTEGRATION.md` (schema + sync WBS)
+  - `.github/workflows/pages.yml` (SPA fallback; env injection via secrets)
+  - `src/sync.ts` and `src/supabase.ts` (existing anon-key + namespace model)
+- Outcomes:
+  - Added `/auth` + `/auth/callback` PKCE flow for opt-in cloud sync.
+  - Added `owner_id` / RLS foundation and tombstone-based deletes (no hard deletes in-app).
+  - Added `/todo` (local-first To Do UI + sync module against `todo_tasks`).
+  - Scoped user data storage keys by auth user id (suffixing keys) to prevent account cross-contamination.

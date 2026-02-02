@@ -6,11 +6,19 @@ import { getSyncState, markPulledOnce } from './syncState.ts';
 export type SyncStatus = 'idle' | 'syncing' | 'synced' | 'offline' | 'error';
 export type PushBlockReason = 'fresh-client' | 'anti-clobber' | 'empty-namespace' | null;
 
+async function getOwnerId(): Promise<string | null> {
+  if (!isSupabaseConfigured || !supabase) return null;
+  const { data, error } = await supabase.auth.getSession();
+  if (error) return null;
+  return data.session?.user.id ?? null;
+}
+
 // Convert AcademicTask to database row format
-function taskToRow(task: AcademicTask, userId: string): Omit<TaskRow, 'created_at'> {
+function taskToRow(task: AcademicTask, params: { ownerId: string; legacyUserId: string }): Omit<TaskRow, 'created_at'> {
   return {
     id: task.id,
-    user_id: userId,
+    owner_id: params.ownerId,
+    user_id: params.legacyUserId,
     title: task.title,
     domain: task.domain ?? null,
     type: task.type,
@@ -25,6 +33,7 @@ function taskToRow(task: AcademicTask, userId: string): Omit<TaskRow, 'created_a
     subsection: task.subsection ?? null,
     source: task.source ?? null,
     updated_at: task.updatedAt ?? new Date().toISOString(),
+    deleted_at: task.deletedAt ?? null,
   };
 }
 
@@ -46,6 +55,7 @@ function rowToTask(row: TaskRow): AcademicTask {
     subsection: row.subsection ?? undefined,
     source: row.source ?? undefined,
     updatedAt: row.updated_at,
+    deletedAt: row.deleted_at ?? null,
   };
 }
 
@@ -56,11 +66,11 @@ export async function pullFromCloud(): Promise<AcademicTask[] | null> {
   }
 
   try {
-    const userId = getUserId();
+    const ownerId = await getOwnerId();
+    if (!ownerId) return null;
     const { data, error } = await supabase
       .from('tasks')
-      .select('*')
-      .eq('user_id', userId);
+      .select('*');
 
     if (error) {
       console.error('Failed to pull from cloud:', error);
@@ -74,28 +84,6 @@ export async function pullFromCloud(): Promise<AcademicTask[] | null> {
   }
 }
 
-export async function getCloudTaskCountForUserId(userId: string): Promise<number | null> {
-  if (!isSupabaseConfigured || !supabase) return null;
-  if (!userId.trim()) return null;
-
-  try {
-    const { count, error } = await supabase
-      .from('tasks')
-      .select('id', { count: 'exact', head: true })
-      .eq('user_id', userId.trim());
-
-    if (error) {
-      console.error('Failed to count cloud tasks:', error);
-      return null;
-    }
-
-    return typeof count === 'number' ? count : 0;
-  } catch (err) {
-    console.error('Count cloud tasks failed:', err);
-    return null;
-  }
-}
-
 // Push all tasks to Supabase (upsert)
 export async function pushToCloud(tasks: AcademicTask[]): Promise<boolean> {
   if (!isSupabaseConfigured || !supabase) {
@@ -104,8 +92,10 @@ export async function pushToCloud(tasks: AcademicTask[]): Promise<boolean> {
 
   try {
     if (tasks.length === 0) return true;
-    const userId = getUserId();
-    const rows = tasks.map((task) => taskToRow(task, userId));
+    const ownerId = await getOwnerId();
+    if (!ownerId) return false;
+    const legacyUserId = getUserId();
+    const rows = tasks.map((task) => taskToRow(task, { ownerId, legacyUserId }));
 
     // Upsert all tasks
     const { error } = await supabase
@@ -131,12 +121,13 @@ export async function deleteFromCloud(taskId: string): Promise<boolean> {
   }
 
   try {
-    const userId = getUserId();
+    const ownerId = await getOwnerId();
+    if (!ownerId) return false;
     const { error } = await supabase
       .from('tasks')
       .delete()
       .eq('id', taskId)
-      .eq('user_id', userId);
+      .eq('owner_id', ownerId);
 
     if (error) {
       console.error('Failed to delete from cloud:', error);
@@ -294,12 +285,17 @@ export async function syncTasks(
     return localTasks;
   }
 
+  const ownerId = await getOwnerId();
+  if (!ownerId) {
+    onStatusChange?.('idle');
+    return localTasks;
+  }
+
   onStatusChange?.('syncing');
 
   try {
-    const wasPulledOnce = getSyncState().hasPulledOnce;
+    const wasPulledOnce = getSyncState({ entity: 'tasks', scopeUserId: ownerId }).hasPulledOnce;
     const allowBootstrapPush = Boolean(options?.allowBootstrapPush);
-    const userId = getUserId();
 
     // Pull from cloud
     const cloudTasks = await pullFromCloud();
@@ -310,7 +306,7 @@ export async function syncTasks(
     }
 
     // Mark successful pull (even if empty) so future syncs can push when allowed.
-    markPulledOnce();
+    markPulledOnce(new Date().toISOString(), { entity: 'tasks', scopeUserId: ownerId });
 
     // Merge local and cloud
     const mergedTasks = mergeTasks(localTasks, cloudTasks);
@@ -326,7 +322,7 @@ export async function syncTasks(
     if (blockPush) {
       warnBlockedPushDevOnly(reason, { localCount: localTasks.length, remoteCount: cloudTasks.length });
       logSyncSummaryDevOnly({
-        userId,
+        userId: ownerId,
         localCount: localTasks.length,
         remoteCount: cloudTasks.length,
         upsertsCount: 0,
@@ -347,7 +343,7 @@ export async function syncTasks(
     }
 
     logSyncSummaryDevOnly({
-      userId,
+      userId: ownerId,
       localCount: localTasks.length,
       remoteCount: cloudTasks.length,
       upsertsCount: upsertsOnly.length,

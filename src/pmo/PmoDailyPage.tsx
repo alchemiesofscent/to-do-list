@@ -4,6 +4,7 @@ import { loadPmoConfig, loadProjectBundle } from './content.ts';
 import { formatDateForDisplay, utcDateKey } from './time.ts';
 import { getDayPinnedItems, removePinnedItem, upsertPinnedItem, type DailyStatus, type PinnedItem, type ReasonCode } from './dailyStorage.ts';
 import { buildAgentPackMarkdown, buildDailyReportJson, buildDailyReportMarkdown, buildSubprojectAgentPrompt } from './export.ts';
+import { PrimaryNav } from '../components/PrimaryNav.tsx';
 
 const REASONS: Array<{ code: ReasonCode; label: string }> = [
   { code: 'waiting_on_colleague', label: 'Waiting on colleague' },
@@ -17,11 +18,14 @@ const REASONS: Array<{ code: ReasonCode; label: string }> = [
   { code: 'other', label: 'Other' },
 ];
 
-export const PmoDailyPage: React.FC<{ onNavigate: (path: string) => void }> = ({ onNavigate }) => {
+export const PmoDailyPage: React.FC<{ onNavigate: (path: string) => void; storageScopeUserId: string | null }> = ({
+  onNavigate,
+  storageScopeUserId,
+}) => {
   const [config, setConfig] = useState<PmoConfig | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [dateUtc] = useState(() => utcDateKey());
-  const [pinned, setPinned] = useState<PinnedItem[]>(() => getDayPinnedItems(dateUtc));
+  const [pinned, setPinned] = useState<PinnedItem[]>(() => getDayPinnedItems(dateUtc, storageScopeUserId));
   const [exportError, setExportError] = useState<string | null>(null);
   const [isExporting, setIsExporting] = useState(false);
   const [exportPayload, setExportPayload] = useState<{
@@ -36,6 +40,10 @@ export const PmoDailyPage: React.FC<{ onNavigate: (path: string) => void }> = ({
       .then(setConfig)
       .catch((e: unknown) => setError(e instanceof Error ? e.message : 'Failed to load PMO config'));
   }, []);
+
+  useEffect(() => {
+    setPinned(getDayPinnedItems(dateUtc, storageScopeUserId));
+  }, [dateUtc, storageScopeUserId]);
 
   const byChunk = useMemo(() => {
     const map = new Map<string, PinnedItem[]>();
@@ -57,13 +65,13 @@ export const PmoDailyPage: React.FC<{ onNavigate: (path: string) => void }> = ({
 
   const handleUpdate = (item: PinnedItem, next: Partial<PinnedItem>) => {
     const updated: PinnedItem = { ...item, ...next, updated_at_utc: new Date().toISOString() };
-    upsertPinnedItem(updated);
-    setPinned(getDayPinnedItems(dateUtc));
+    upsertPinnedItem(updated, storageScopeUserId);
+    setPinned(getDayPinnedItems(dateUtc, storageScopeUserId));
   };
 
   const handleRemove = (item: PinnedItem) => {
-    removePinnedItem({ dateUtc, pinnedId: item.pinned_id });
-    setPinned(getDayPinnedItems(dateUtc));
+    removePinnedItem({ dateUtc, pinnedId: item.pinned_id }, storageScopeUserId);
+    setPinned(getDayPinnedItems(dateUtc, storageScopeUserId));
   };
 
   const exportReady = useMemo(() => {
@@ -167,13 +175,7 @@ export const PmoDailyPage: React.FC<{ onNavigate: (path: string) => void }> = ({
     <div className="min-h-screen bg-slate-50 dark:bg-slate-900">
       <header className="border-b border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 sticky top-0 z-40">
         <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
-          <button
-            type="button"
-            onClick={() => onNavigate('/')}
-            className="text-xs font-black uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200"
-          >
-            Back
-          </button>
+          <PrimaryNav active="pmo" onNavigate={onNavigate} />
           <div className="text-center">
             <div className="text-xs font-black uppercase tracking-[0.2em] text-slate-400 dark:text-slate-500">PMO — Today</div>
             <div className="font-serif text-lg font-bold text-slate-900 dark:text-white">{label}</div>

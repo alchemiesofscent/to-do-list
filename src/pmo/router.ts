@@ -3,14 +3,17 @@ import { useEffect, useState } from 'react';
 type Route =
   | { kind: 'tracker' }
   | { kind: 'pmo-daily' }
-  | { kind: 'pmo-project'; projectSlug: string };
+  | { kind: 'pmo-project'; projectSlug: string }
+  | { kind: 'todo' }
+  | { kind: 'auth' }
+  | { kind: 'auth-callback' };
 
-function baseUrl(): string {
+export function baseUrl(): string {
   const base = import.meta.env.BASE_URL || '/';
   return base.endsWith('/') ? base : `${base}/`;
 }
 
-function stripBase(pathname: string): string {
+export function stripBase(pathname: string): string {
   const base = baseUrl();
   if (base === '/') return pathname;
   const normalised = pathname.startsWith('/') ? pathname : `/${pathname}`;
@@ -22,6 +25,9 @@ function stripBase(pathname: string): string {
 
 function parseRoute(pathname: string): Route {
   const rel = stripBase(pathname);
+  if (rel === '/auth' || rel === '/auth/') return { kind: 'auth' };
+  if (rel === '/auth/callback' || rel === '/auth/callback/') return { kind: 'auth-callback' };
+  if (rel === '/todo' || rel === '/todo/') return { kind: 'todo' };
   if (rel === '/pmo' || rel === '/pmo/' || rel === '/pmo/daily' || rel === '/pmo/daily/') return { kind: 'pmo-daily' };
   const project = rel.match(/^\/pmo\/project\/([^/]+)\/?$/);
   if (project) return { kind: 'pmo-project', projectSlug: decodeURIComponent(project[1] ?? '') };
@@ -47,4 +53,3 @@ export function navigate(path: string): void {
   window.history.pushState({}, '', url);
   window.dispatchEvent(new PopStateEvent('popstate'));
 }
-

@@ -1,4 +1,5 @@
 import React, { useState, useMemo, useEffect, useCallback } from 'react';
+import type { Session } from '@supabase/supabase-js';
 import { AcademicTask, Domain, TaskType } from './types.ts';
 import { INITIAL_TASKS, PROJECTS_MD_REVISION } from './initialData.ts';
 import { loadTasksFromDb, saveTasksToDb } from './db.ts';
@@ -6,13 +7,14 @@ import { StatsFilterKey, StatsOverview } from './components/StatsOverview.tsx';
 import { AcademicTaskList } from './components/AcademicTaskList.tsx';
 import { TaskForm } from './components/TaskForm.tsx';
 import { SearchIcon, FilterIcon, PlusIcon, BookIcon, SunIcon, MoonIcon, MonitorIcon, MenuIcon, XIcon } from './components/Icons.tsx';
-import { syncTasks, deleteFromCloud, pullFromCloud, mergeTasks, getCloudTaskCountForUserId, type SyncStatus } from './sync.ts';
+import { syncTasks, pullFromCloud, mergeTasks, type SyncStatus } from './sync.ts';
 import { isSupabaseConfigured } from './supabase.ts';
 import { SyncStatus as SyncStatusIndicator } from './components/SyncStatus.tsx';
-import { getOrCreateUserId, logActiveUserIdDevOnly, setUserIdExplicit } from './userNamespace.ts';
-import { markPulledOnce, resetSyncState } from './syncState.ts';
+import { markPulledOnce } from './syncState.ts';
 import { runInitialPullMerge } from './initialSync.ts';
-import { switchNamespaceAndPullMerge } from './namespaceRecovery.ts';
+import { PrimaryNav } from './components/PrimaryNav.tsx';
+import { setAuthReturnTo } from './auth/returnTo.ts';
+import { stripBase } from './pmo/router.ts';
 
 type Theme = 'light' | 'dark' | 'system';
 
@@ -108,9 +110,23 @@ const MobileDrawer: React.FC<{
   );
 };
 
-const App: React.FC = () => {
+const TASKS_DB_KEY = 'scholar_opus_db';
+
+const TrackerApp: React.FC<{
+  onNavigate: (path: string) => void;
+  session: Session | null;
+  storageScopeUserId: string | null;
+}> = ({ onNavigate, session, storageScopeUserId }) => {
+  const tasksStorageKey = storageScopeUserId ? `${TASKS_DB_KEY}:${storageScopeUserId}` : TASKS_DB_KEY;
+  const tasksFallbackStorageKey = storageScopeUserId ? TASKS_DB_KEY : undefined;
+
   const [tasks, setTasks] = useState<AcademicTask[]>(() =>
-    loadTasksFromDb({ seedTasks: INITIAL_TASKS, seedRevision: PROJECTS_MD_REVISION })
+    loadTasksFromDb({
+      seedTasks: INITIAL_TASKS,
+      seedRevision: PROJECTS_MD_REVISION,
+      storageKey: tasksStorageKey,
+      fallbackStorageKey: tasksFallbackStorageKey,
+    })
   );
   
   const [isFormOpen, setIsFormOpen] = useState(false);
@@ -133,32 +149,33 @@ const App: React.FC = () => {
   const [isFiltersDrawerOpen, setIsFiltersDrawerOpen] = useState(false);
   const [isActionsDrawerOpen, setIsActionsDrawerOpen] = useState(false);
   const [syncStatus, setSyncStatus] = useState<SyncStatus>('idle');
-  const [isSyncSettingsOpen, setIsSyncSettingsOpen] = useState(false);
-  const [activeUserId, setActiveUserId] = useState(() => getOrCreateUserId());
-  const [namespaceDraft, setNamespaceDraft] = useState(() => getOrCreateUserId());
-  const [namespaceVerifyStatus, setNamespaceVerifyStatus] = useState<'idle' | 'verifying' | 'ok' | 'error'>('idle');
-  const [namespaceVerifiedFor, setNamespaceVerifiedFor] = useState<string | null>(null);
-  const [namespaceVerifiedCount, setNamespaceVerifiedCount] = useState<number | null>(null);
-  const [namespaceVerifyError, setNamespaceVerifyError] = useState<string | null>(null);
 
-  // Save to localStorage whenever tasks change
-  useEffect(() => {
-    saveTasksToDb({ tasks, seedRevision: PROJECTS_MD_REVISION });
-  }, [tasks]);
+  const visibleTasks = useMemo(() => tasks.filter((t) => !t.deletedAt), [tasks]);
 
-  // Sync with cloud on app load - pull only, don't push seed data
   useEffect(() => {
-    if (!isSupabaseConfigured) return;
+    const loadedTasks = loadTasksFromDb({
+      seedTasks: INITIAL_TASKS,
+      seedRevision: PROJECTS_MD_REVISION,
+      storageKey: tasksStorageKey,
+      fallbackStorageKey: tasksFallbackStorageKey,
+    });
+    setTasks(loadedTasks);
+
+    if (!isSupabaseConfigured || !session) return;
+    if (!navigator.onLine) {
+      setSyncStatus('offline');
+      return;
+    }
 
     const doInitialSync = async () => {
       setSyncStatus('syncing');
-      logActiveUserIdDevOnly();
 
       const { status, mergedTasks } = await runInitialPullMerge({
-        localTasks: tasks,
+        localTasks: loadedTasks,
         pullFromCloud,
         mergeTasks,
-        markPulledOnce: () => markPulledOnce(),
+        markPulledOnce: () =>
+          markPulledOnce(new Date().toISOString(), { entity: 'tasks', scopeUserId: session.user.id }),
       });
 
       setTasks(mergedTasks);
@@ -167,23 +184,17 @@ const App: React.FC = () => {
 
     doInitialSync();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []); // Only run on mount
+  }, [tasksStorageKey, session?.user.id]);
 
-  const openSyncSettings = () => {
-    const current = getOrCreateUserId();
-    setActiveUserId(current);
-    setNamespaceDraft(current);
-    setNamespaceVerifyStatus('idle');
-    setNamespaceVerifiedFor(null);
-    setNamespaceVerifiedCount(null);
-    setNamespaceVerifyError(null);
-    setIsSyncSettingsOpen(true);
-  };
+  // Save to localStorage whenever tasks change
+  useEffect(() => {
+    saveTasksToDb({ tasks, seedRevision: PROJECTS_MD_REVISION, storageKey: tasksStorageKey });
+  }, [tasks, tasksStorageKey]);
 
   // Listen for online/offline events
   useEffect(() => {
     const handleOnline = () => {
-      if (isSupabaseConfigured) {
+      if (isSupabaseConfigured && session) {
         syncTasks(tasks, setSyncStatus).then((merged) => setTasks(merged));
       }
     };
@@ -199,14 +210,14 @@ const App: React.FC = () => {
       window.removeEventListener('online', handleOnline);
       window.removeEventListener('offline', handleOffline);
     };
-  }, [tasks]);
+  }, [session, tasks]);
 
   // Sync after task changes (debounced)
   const syncAfterChange = useCallback(async (updatedTasks: AcademicTask[]) => {
-    if (!isSupabaseConfigured || !navigator.onLine) return;
+    if (!isSupabaseConfigured || !session || !navigator.onLine) return;
     const merged = await syncTasks(updatedTasks, setSyncStatus);
     setTasks(merged);
-  }, []);
+  }, [session]);
 
   useEffect(() => {
     const anyOpen = isTabsDrawerOpen || isFiltersDrawerOpen || isActionsDrawerOpen;
@@ -280,12 +291,13 @@ const App: React.FC = () => {
     syncAfterChange(updatedTasks);
   };
 
-  const deleteTask = async (id: string) => {
+  const deleteTask = (id: string) => {
     if (confirm('Are you sure you want to remove this project?')) {
-      const updatedTasks = tasks.filter(t => t.id !== id);
+      const now = new Date().toISOString();
+      const updatedTasks = tasks.map((t) =>
+        t.id === id ? { ...t, deletedAt: now, updatedAt: now } : t
+      );
       setTasks(updatedTasks);
-      // Delete from cloud as well
-      await deleteFromCloud(id);
       syncAfterChange(updatedTasks);
     }
   };
@@ -299,12 +311,12 @@ const App: React.FC = () => {
 
   const domainCounts = useMemo(() => {
     const counts: Record<Domain, number> = { Writing: 0, Experiments: 0, DH: 0, Grants: 0, Admin: 0 };
-    for (const task of tasks) counts[classifyTaskDomain(task)]++;
+    for (const task of visibleTasks) counts[classifyTaskDomain(task)]++;
     return counts;
-  }, [tasks]);
+  }, [visibleTasks]);
 
   const tasksAfterPrimaryFilters = useMemo(() => {
-    const result = tasks.filter(t => classifyTaskDomain(t) === activeDomainTab).filter(t => {
+    const result = visibleTasks.filter(t => classifyTaskDomain(t) === activeDomainTab).filter(t => {
       const matchesSearch = t.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
                            t.description.toLowerCase().includes(searchQuery.toLowerCase());
       const matchesType = activeTypeFilter === 'All' || t.type === activeTypeFilter;
@@ -319,7 +331,7 @@ const App: React.FC = () => {
       if (sortBy === 'type') return a.type.localeCompare(b.type);
       return a.title.localeCompare(b.title);
     });
-  }, [tasks, activeDomainTab, searchQuery, activeTypeFilter, sortBy]);
+  }, [visibleTasks, activeDomainTab, searchQuery, activeTypeFilter, sortBy]);
 
   const displayedTasks = useMemo(
     () => applyStatsFilter(tasksAfterPrimaryFilters, activeStatsFilter),
@@ -348,11 +360,20 @@ const App: React.FC = () => {
     setActiveStatsFilter('total');
   };
 
+  const openCloudSync = useCallback(() => {
+    setAuthReturnTo(stripBase(window.location.pathname));
+    onNavigate('/auth');
+  }, [onNavigate]);
+
   const handleManualSync = useCallback(async () => {
+    if (!session) {
+      openCloudSync();
+      return;
+    }
     if (!isSupabaseConfigured || !navigator.onLine) return;
     const merged = await syncTasks(tasks, setSyncStatus, { allowBootstrapPush: true });
     setTasks(merged);
-  }, [tasks]);
+  }, [openCloudSync, session, tasks]);
 
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-slate-900 transition-colors duration-200">
@@ -362,24 +383,18 @@ const App: React.FC = () => {
             <div className="bg-slate-900 dark:bg-slate-100 p-1.5 rounded-lg shadow-sm">
               <BookIcon className="w-5 h-5 text-white dark:text-slate-900" />
             </div>
-	            <h1 className="font-serif text-xl font-bold text-slate-900 dark:text-white tracking-tight">Scholar's Opus</h1>
-	            <a
-	              href={`${import.meta.env.BASE_URL}pmo/daily`}
-	              className="hidden sm:inline-flex items-center px-2 py-1 rounded-lg text-xs font-black uppercase tracking-widest text-slate-500 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700"
-	              title="Open PMO console"
-	            >
-	              PMO
-	            </a>
-	            {isSupabaseConfigured && (
-	              <div className="flex items-center gap-2">
-	                <SyncStatusIndicator status={syncStatus} onManualSync={handleManualSync} />
+            <h1 className="font-serif text-xl font-bold text-slate-900 dark:text-white tracking-tight">Scholar's Opus</h1>
+            <PrimaryNav active="tracker" onNavigate={onNavigate} className="hidden sm:block ml-2" />
+            {isSupabaseConfigured && (
+              <div className="hidden sm:flex items-center gap-2">
+                <SyncStatusIndicator status={syncStatus} onManualSync={handleManualSync} />
                 <button
                   type="button"
-                  onClick={openSyncSettings}
-                  className="hidden sm:inline-flex items-center px-2 py-1 rounded-lg text-xs font-bold text-slate-500 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700"
-                  title="Synchronisation settings"
+                  onClick={openCloudSync}
+                  className="inline-flex items-center px-2 py-1 rounded-lg text-xs font-bold text-slate-500 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700"
+                  title="Cloud sync"
                 >
-                  Settings
+                  Cloud
                 </button>
               </div>
             )}
@@ -704,13 +719,28 @@ const App: React.FC = () => {
 	            New Project
 	          </button>
 
-	          <a
-	            href={`${import.meta.env.BASE_URL}pmo/daily`}
-	            onClick={() => setIsActionsDrawerOpen(false)}
-	            className="w-full bg-white dark:bg-slate-900/30 text-slate-700 dark:text-slate-200 px-4 py-3 rounded-xl font-black uppercase tracking-widest flex items-center justify-center border border-slate-200 dark:border-slate-700"
-	          >
-	            PMO console
-	          </a>
+            <div className="grid grid-cols-1 gap-2">
+              <button
+                type="button"
+                onClick={() => {
+                  setIsActionsDrawerOpen(false);
+                  onNavigate('/pmo/daily');
+                }}
+                className="w-full bg-white dark:bg-slate-900/30 text-slate-700 dark:text-slate-200 px-4 py-3 rounded-xl font-black uppercase tracking-widest flex items-center justify-center border border-slate-200 dark:border-slate-700"
+              >
+                PMO
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  setIsActionsDrawerOpen(false);
+                  onNavigate('/todo');
+                }}
+                className="w-full bg-white dark:bg-slate-900/30 text-slate-700 dark:text-slate-200 px-4 py-3 rounded-xl font-black uppercase tracking-widest flex items-center justify-center border border-slate-200 dark:border-slate-700"
+              >
+                To Do
+              </button>
+            </div>
 	
 	          <div className="bg-white dark:bg-slate-900/30 border border-slate-200 dark:border-slate-700 rounded-xl p-3">
             <div className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 dark:text-slate-500 mb-2">Theme</div>
@@ -773,12 +803,14 @@ const App: React.FC = () => {
               type="button"
               onClick={() => {
                 setIsActionsDrawerOpen(false);
-                openSyncSettings();
+                openCloudSync();
               }}
               className="w-full px-4 py-3 rounded-xl font-black uppercase tracking-widest flex items-center justify-between transition-all border bg-white dark:bg-slate-900/30 text-slate-600 dark:text-slate-300 border-slate-200 dark:border-slate-700"
             >
-              <span>Synchronisation settings</span>
-              <span className="text-xs font-bold normal-case tracking-normal text-slate-400 dark:text-slate-500">Namespace</span>
+              <span>Cloud sync</span>
+              <span className="text-xs font-bold normal-case tracking-normal text-slate-400 dark:text-slate-500">
+                {session ? 'Signed in' : 'Sign in'}
+              </span>
             </button>
           )}
 
@@ -792,146 +824,6 @@ const App: React.FC = () => {
         </div>
       </MobileDrawer>
 
-      {isSyncSettingsOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-          <button
-            type="button"
-            className="absolute inset-0 bg-black/40 dark:bg-black/60"
-            onClick={() => setIsSyncSettingsOpen(false)}
-            aria-label="Close synchronisation settings"
-          />
-          <div className="relative w-full max-w-lg bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-2xl">
-            <div className="flex items-center justify-between p-4 border-b border-slate-100 dark:border-slate-700">
-              <h3 className="text-xs font-black uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">Synchronisation settings</h3>
-              <button
-                type="button"
-                onClick={() => setIsSyncSettingsOpen(false)}
-                className="p-2 rounded-lg text-slate-400 hover:text-slate-600 dark:hover:text-slate-200"
-                aria-label="Close"
-              >
-                <XIcon className="w-5 h-5" />
-              </button>
-            </div>
-
-            <div className="p-4 space-y-4">
-              <div className="bg-slate-50 dark:bg-slate-900/40 border border-slate-200 dark:border-slate-700 rounded-xl p-3">
-                <div className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 dark:text-slate-500 mb-1">Current namespace</div>
-                <div className="font-mono text-xs text-slate-700 dark:text-slate-200 break-all">{activeUserId}</div>
-              </div>
-
-              <div className="space-y-2">
-                <label className="block text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 dark:text-slate-500">
-                  Switch namespace (explicit)
-                </label>
-                <input
-                  value={namespaceDraft}
-                  onChange={(e) => {
-                    setNamespaceDraft(e.target.value);
-                    setNamespaceVerifyStatus('idle');
-                    setNamespaceVerifiedFor(null);
-                    setNamespaceVerifiedCount(null);
-                    setNamespaceVerifyError(null);
-                  }}
-                  placeholder="Enter a Supabase user_id"
-                  className="w-full px-3 py-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-100 text-sm"
-                />
-
-                <div className="flex gap-2">
-                  <button
-                    type="button"
-                    disabled={!isSupabaseConfigured || !navigator.onLine || !namespaceDraft.trim() || namespaceVerifyStatus === 'verifying'}
-                    onClick={async () => {
-                      setNamespaceVerifyStatus('verifying');
-                      setNamespaceVerifyError(null);
-                      const count = await getCloudTaskCountForUserId(namespaceDraft.trim());
-                      if (count === null) {
-                        setNamespaceVerifyStatus('error');
-                        setNamespaceVerifyError('Could not verify (offline or Supabase error).');
-                        return;
-                      }
-                      setNamespaceVerifiedFor(namespaceDraft.trim());
-                      setNamespaceVerifiedCount(count);
-                      setNamespaceVerifyStatus('ok');
-                    }}
-                    className="flex-1 px-4 py-2 rounded-xl font-bold text-sm bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-100 disabled:opacity-50"
-                  >
-                    {namespaceVerifyStatus === 'verifying' ? 'Verifying…' : 'Verify namespace'}
-                  </button>
-                  <button
-                    type="button"
-                    disabled={
-                      !namespaceDraft.trim() ||
-                      namespaceVerifyStatus !== 'ok' ||
-                      namespaceVerifiedFor !== namespaceDraft.trim() ||
-                      !isSupabaseConfigured ||
-                      !navigator.onLine
-                    }
-                    onClick={async () => {
-                      const next = namespaceDraft.trim();
-                      const remoteCount = namespaceVerifiedCount ?? 0;
-                      const ok = confirm(
-                        `Switch synchronisation namespace to:\n\n${next}\n\nRemote tasks visible in this namespace: ${remoteCount}\n\nThis will not delete anything in Supabase.`
-                      );
-                      if (!ok) return;
-
-                      setSyncStatus('syncing');
-                      const { status, mergedTasks } = await switchNamespaceAndPullMerge({
-                        nextUserId: next,
-                        localTasks: tasks,
-                        setUserIdExplicit,
-                        resetSyncState,
-                        runInitialPullMerge,
-                        pullFromCloud,
-                        mergeTasks,
-                        markPulledOnce: () => markPulledOnce(),
-                      });
-
-                      setActiveUserId(getOrCreateUserId());
-                      setTasks(mergedTasks);
-                      setSyncStatus(status);
-                      setIsSyncSettingsOpen(false);
-                    }}
-                    className="flex-1 px-4 py-2 rounded-xl font-bold text-sm bg-slate-900 dark:bg-white text-white dark:text-slate-900 disabled:opacity-50"
-                  >
-                    Switch
-                  </button>
-                </div>
-
-                {namespaceVerifyStatus === 'ok' && namespaceVerifiedFor === namespaceDraft.trim() && (
-                  <div className="text-xs text-slate-500 dark:text-slate-400">
-                    Verified: {namespaceVerifiedCount} remote task{namespaceVerifiedCount === 1 ? '' : 's'}.
-                  </div>
-                )}
-                {namespaceVerifyStatus === 'ok' &&
-                  namespaceVerifiedFor === namespaceDraft.trim() &&
-                  namespaceVerifiedCount === 0 && (
-                    <div className="text-xs text-amber-600 dark:text-amber-400">
-                      This namespace is empty. Automatic pushes are disabled; use manual sync only if you intentionally want to bootstrap it.
-                    </div>
-                  )}
-                {namespaceVerifyStatus === 'error' && namespaceVerifyError && (
-                  <div className="text-xs text-rose-500">{namespaceVerifyError}</div>
-                )}
-
-                <div className="text-xs text-slate-500 dark:text-slate-400">
-                  Tip: use Verify first to find the namespace with the full dataset, then Switch.
-                </div>
-              </div>
-
-              <div className="flex gap-2">
-                <button
-                  type="button"
-                  onClick={() => setIsSyncSettingsOpen(false)}
-                  className="flex-1 px-4 py-2 rounded-xl font-bold bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-200"
-                >
-                  Close
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
-
       {isFormOpen && (
         <TaskForm
           onSave={handleSaveTask}
@@ -944,4 +836,4 @@ const App: React.FC = () => {
   );
 };
 
-export default App;
+export default TrackerApp;

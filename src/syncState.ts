@@ -6,6 +6,12 @@ type SyncStateV1 = {
 
 const SYNC_STATE_KEY = 'scholar_opus_sync_state';
 
+export type SyncStateScope = {
+  entity?: 'tasks' | 'todo' | 'my_day';
+  scopeUserId?: string | null;
+  storageKey?: string;
+};
+
 function isRecord(value: unknown): value is Record<string, unknown> {
   return typeof value === 'object' && value !== null;
 }
@@ -35,22 +41,30 @@ function safeSetItem(key: string, value: string): void {
   }
 }
 
-export function getSyncState(): SyncStateV1 {
-  const raw = safeParseJson(safeGetItem(SYNC_STATE_KEY));
+function resolveKey(scope?: SyncStateScope): string {
+  if (!scope) return SYNC_STATE_KEY;
+  if (scope.storageKey) return scope.storageKey;
+  const entity = scope.entity ?? 'tasks';
+  const userPart = scope.scopeUserId ? `:${scope.scopeUserId}` : '';
+  return `${SYNC_STATE_KEY}:${entity}${userPart}`;
+}
+
+export function getSyncState(scope?: SyncStateScope): SyncStateV1 {
+  const raw = safeParseJson(safeGetItem(resolveKey(scope)));
   if (!isRecord(raw)) return { version: 1, hasPulledOnce: false };
   if (raw.version !== 1) return { version: 1, hasPulledOnce: false };
   if (typeof raw.hasPulledOnce !== 'boolean') return { version: 1, hasPulledOnce: false };
   return raw as SyncStateV1;
 }
 
-export function markPulledOnce(pulledAtIso: string = new Date().toISOString()): void {
+export function markPulledOnce(pulledAtIso: string = new Date().toISOString(), scope?: SyncStateScope): void {
   const next: SyncStateV1 = { version: 1, hasPulledOnce: true, lastPulledAt: pulledAtIso };
-  safeSetItem(SYNC_STATE_KEY, JSON.stringify(next));
+  safeSetItem(resolveKey(scope), JSON.stringify(next));
 }
 
-export function resetSyncState(): void {
+export function resetSyncState(scope?: SyncStateScope): void {
   const next: SyncStateV1 = { version: 1, hasPulledOnce: false };
-  safeSetItem(SYNC_STATE_KEY, JSON.stringify(next));
+  safeSetItem(resolveKey(scope), JSON.stringify(next));
 }
 
 export function resetSyncStateForTestsOnly(): void {

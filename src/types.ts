@@ -70,6 +70,7 @@ export interface AcademicTask {
   subsection?: string;
   source?: string;
   updatedAt?: string; // ISO timestamp for sync conflict resolution
+  deletedAt?: string | null; // ISO timestamp (tombstone)
 }
 
 export interface Stats {

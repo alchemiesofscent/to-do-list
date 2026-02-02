@@ -8,13 +8,21 @@ export const isSupabaseConfigured = Boolean(supabaseUrl && supabaseAnonKey);
 
 // Create client only if configured (avoids errors during local dev without Supabase)
 export const supabase = isSupabaseConfigured
-  ? createClient(supabaseUrl, supabaseAnonKey)
+  ? createClient(supabaseUrl, supabaseAnonKey, {
+      auth: {
+        flowType: 'pkce',
+        persistSession: true,
+        autoRefreshToken: true,
+        detectSessionInUrl: true,
+      },
+    })
   : null;
 
 // Database row type (snake_case to match PostgreSQL conventions)
 export interface TaskRow {
   id: string;
-  user_id: string;
+  owner_id?: string;
+  user_id?: string;
   title: string;
   domain: string | null;
   type: string;
@@ -29,5 +37,6 @@ export interface TaskRow {
   subsection: string | null;
   source: string | null;
   updated_at: string;
+  deleted_at?: string | null;
   created_at: string;
 }

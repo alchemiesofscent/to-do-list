@@ -5,11 +5,13 @@ import { parseActionsFromDoc } from './projectActions.ts';
 import { pinAction, getDayPinnedItems } from './dailyStorage.ts';
 import { utcDateKey } from './time.ts';
 import type { PmoConfig } from './config.ts';
+import { PrimaryNav } from '../components/PrimaryNav.tsx';
 
 export const PmoProjectPage: React.FC<{
   projectSlug: string;
   onNavigate: (path: string) => void;
-}> = ({ projectSlug, onNavigate }) => {
+  storageScopeUserId: string | null;
+}> = ({ projectSlug, onNavigate, storageScopeUserId }) => {
   const [config, setConfig] = useState<PmoConfig | null>(null);
   const [bundle, setBundle] = useState<Awaited<ReturnType<typeof loadProjectBundle>> | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -42,13 +44,13 @@ export const PmoProjectPage: React.FC<{
 
   const deepProjectsToday = useMemo(() => {
     const set = new Set<string>();
-    for (const item of getDayPinnedItems(dateUtc)) {
+    for (const item of getDayPinnedItems(dateUtc, storageScopeUserId)) {
       if (item.kind === 'deep') set.add(item.project_id);
     }
     return set;
-  }, [dateUtc]);
+  }, [dateUtc, storageScopeUserId]);
 
-  const pinnedCount = useMemo(() => getDayPinnedItems(dateUtc).length, [dateUtc]);
+  const pinnedCount = useMemo(() => getDayPinnedItems(dateUtc, storageScopeUserId).length, [dateUtc, storageScopeUserId]);
 
   const canPin = (kind: 'deep' | 'light' | 'admin') => {
     if (!config) return true;
@@ -85,7 +87,7 @@ export const PmoProjectPage: React.FC<{
       actionId,
       actionText,
       kind,
-    });
+    }, storageScopeUserId);
     onNavigate('/pmo/daily');
   };
 
@@ -93,13 +95,7 @@ export const PmoProjectPage: React.FC<{
     <div className="min-h-screen bg-slate-50 dark:bg-slate-900">
       <header className="border-b border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 sticky top-0 z-40">
         <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
-          <button
-            type="button"
-            onClick={() => onNavigate('/pmo/daily')}
-            className="text-xs font-black uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200"
-          >
-            Back
-          </button>
+          <PrimaryNav active="pmo" onNavigate={onNavigate} />
           <div className="text-center">
             <div className="text-xs font-black uppercase tracking-[0.2em] text-slate-400 dark:text-slate-500">PMO — Project</div>
             <div className="font-serif text-lg font-bold text-slate-900 dark:text-white">{projectTitle}</div>
@@ -221,4 +217,3 @@ export const PmoProjectPage: React.FC<{
     </div>
   );
 };
-

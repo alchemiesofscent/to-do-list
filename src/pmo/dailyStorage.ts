@@ -41,8 +41,28 @@ type PmoDailyDbV1 = {
 
 const KEY = 'scholar_opus_pmo_daily';
 
+function keyForScope(scopeUserId: string | null | undefined): string {
+  return scopeUserId ? `${KEY}:${scopeUserId}` : KEY;
+}
+
 function isRecord(value: unknown): value is Record<string, unknown> {
   return typeof value === 'object' && value !== null;
+}
+
+function safeGetItem(key: string): string | null {
+  try {
+    return localStorage.getItem(key);
+  } catch {
+    return null;
+  }
+}
+
+function safeSetItem(key: string, value: string): void {
+  try {
+    localStorage.setItem(key, value);
+  } catch {
+    // Ignore storage failures.
+  }
 }
 
 function safeParse(value: string | null): unknown {
@@ -54,42 +74,42 @@ function safeParse(value: string | null): unknown {
   }
 }
 
-function loadDb(): PmoDailyDbV1 {
-  const raw = safeParse(localStorage.getItem(KEY));
+function loadDb(scopeUserId: string | null | undefined): PmoDailyDbV1 {
+  const raw = safeParse(safeGetItem(keyForScope(scopeUserId)));
   if (!isRecord(raw)) return { version: 1, days: {} };
   if (raw.version !== 1) return { version: 1, days: {} };
   if (!isRecord(raw.days)) return { version: 1, days: {} };
   return raw as unknown as PmoDailyDbV1;
 }
 
-function saveDb(db: PmoDailyDbV1) {
-  localStorage.setItem(KEY, JSON.stringify(db));
+function saveDb(scopeUserId: string | null | undefined, db: PmoDailyDbV1) {
+  safeSetItem(keyForScope(scopeUserId), JSON.stringify(db));
 }
 
 function newId(): string {
   return Math.random().toString(36).slice(2, 10);
 }
 
-export function getDayPinnedItems(dateUtc: string = utcDateKey()): PinnedItem[] {
-  const db = loadDb();
+export function getDayPinnedItems(dateUtc: string = utcDateKey(), scopeUserId?: string | null): PinnedItem[] {
+  const db = loadDb(scopeUserId);
   return db.days[dateUtc]?.pinned ?? [];
 }
 
-export function upsertPinnedItem(item: PinnedItem): void {
-  const db = loadDb();
+export function upsertPinnedItem(item: PinnedItem, scopeUserId?: string | null): void {
+  const db = loadDb(scopeUserId);
   const day = (db.days[item.date_utc] ??= { pinned: [] });
   const idx = day.pinned.findIndex((p) => p.pinned_id === item.pinned_id);
   if (idx === -1) day.pinned.push(item);
   else day.pinned[idx] = item;
-  saveDb(db);
+  saveDb(scopeUserId, db);
 }
 
-export function removePinnedItem(params: { dateUtc: string; pinnedId: string }): void {
-  const db = loadDb();
+export function removePinnedItem(params: { dateUtc: string; pinnedId: string }, scopeUserId?: string | null): void {
+  const db = loadDb(scopeUserId);
   const day = db.days[params.dateUtc];
   if (!day) return;
   day.pinned = day.pinned.filter((p) => p.pinned_id !== params.pinnedId);
-  saveDb(db);
+  saveDb(scopeUserId, db);
 }
 
 export function pinAction(params: {
@@ -101,7 +121,7 @@ export function pinAction(params: {
   actionId: string;
   actionText: string;
   kind: 'deep' | 'light' | 'admin';
-}): PinnedItem {
+}, scopeUserId?: string | null): PinnedItem {
   const date_utc = params.dateUtc ?? utcDateKey();
   const now = new Date().toISOString();
 
@@ -122,10 +142,9 @@ export function pinAction(params: {
     updated_at_utc: now,
   };
 
-  const db = loadDb();
+  const db = loadDb(scopeUserId);
   const day = (db.days[date_utc] ??= { pinned: [] });
   day.pinned.push(item);
-  saveDb(db);
+  saveDb(scopeUserId, db);
   return item;
 }
-
