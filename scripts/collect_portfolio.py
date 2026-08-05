@@ -37,7 +37,9 @@ def gh(path, accept="application/vnd.github+json"):
         with urllib.request.urlopen(req, timeout=30) as r:
             return json.load(r)
     except urllib.error.HTTPError as e:
-        if e.code == 404:
+        if e.code in (403, 404):
+            if e.code == 403:
+                print(f"WARN: 403 on {path} (missing PAT permission?)", file=sys.stderr)
             return None
         raise
 
