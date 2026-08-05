@@ -5,18 +5,27 @@
 
 ## Previously on alchemiesofscent…
 
-Twenty-five repos, two machines, and years of agent-assisted work had quietly
-sprawled: duplicate clones, unpushed branches, work that existed in exactly one
-place. The fix: make git the database — portfolio, repo health, and per-machine
-audits all live as committed files here, and a dashboard reads them. The GitHub
-inventory came first and named the suspects (tei-maker and oribasius-app hiding
-the most divergence). Then the metopion audit confirmed it: an entire unpushed
-"Hylike cutover" program inside oribasius-app that contradicts the standing
-plan to absorb aetius/ancient-simples into it — ruling deferred; 551 dirty
-files on frozen tei-maker's Windows clone; four repos with no remote at all;
-and the Scholar's Opus browser state eight days ahead of anything committed,
-frozen since January. Nothing merges until the desktop machine, theophrastos,
-tells its side of the story.
+Sean, a scholar of ancient perfume, has years of research projects scattered
+across twenty-five online archives and two computers — a laptop and a desktop.
+Over time, he and his AI assistants made copies of copies, left work half-filed,
+and in places kept the only version of something on a single machine, where a
+spilled coffee could end it. So he started a cleanup with one rule: everything
+important must live in the shared online archive, where every machine can see
+it, and this folder is the cleanup's logbook.
+
+Step one: list what the online archive holds. Done — and it showed the mess.
+Step two: search each computer and compare. The laptop has now been searched,
+and it was hiding things. The biggest surprise: inside one project sits a
+detailed plan, written by an AI assistant in July and never shared online, to
+freeze that project and start a successor called "hylike" — the exact opposite
+of the current cleanup plan, which says to fold two other projects *into* it.
+Sean has deferred that decision. The laptop also holds hundreds of unfiled
+edits to a project that's supposed to be untouched, several projects with no
+online backup at all, and a to-do app whose latest state was never written
+down anywhere — it exists only inside a web browser.
+
+The desktop hasn't been searched yet. It may hold a third version of events,
+so no cleanup — no merging, no deleting — happens until it has been heard.
 
 ## State
 
