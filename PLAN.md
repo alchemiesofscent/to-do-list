@@ -1,6 +1,6 @@
 # Pipeline Build Plan
 
-**Version:** 0.2 (2026-08-05)
+**Version:** 0.3 (2026-08-05)
 **Lives at:** repo root of `to-do-list` — update status here, commit on every change.
 **Status codes:** `[ ]` not started · `[~]` in progress · `[x]` done · `[!]` blocked (note why)
 
@@ -20,9 +20,10 @@
 - [ ] 1.1 Claude writes `scripts/collect_portfolio.py` — queries GitHub API: every repo, last push, branches, ahead/behind default, open PRs, pulls `STATUS.md` if present → writes `data/portfolio.json`
 - [ ] 1.2 Claude writes `.github/workflows/collect.yml` — nightly schedule + manual trigger; commits `portfolio.json` if changed
 - [ ] 1.3 Sean merges both, adds secret if 0.3 = yes
-- [ ] 1.4 Trigger manually once; verify `data/portfolio.json` is sane
-- [ ] 1.5 Review output together: first real inventory of what's on GitHub
+- [x] 1.4 Trigger manually once; verify `data/portfolio.json` is sane (25 repos; PAT needed Pull requests: read — fixed)
+- [x] 1.5 Review output: 5 live repos; divergence concentrated in `tei-maker` (wellmann-qc +194) and `oribasius-app` (consolidation-20260729 +120/-0); duplicate clusters identified; zero STATUS.md files
 - [ ] 1.6 Sean enumerates Google Drive project folders → added to `projects.md` as entries with `drive:` links (automation of Drive freshness deferred to v0.3 if wanted)
+- [ ] 1.7 Extend collector: capture README.md + `docs/` file listing per repo, so consolidation/documentation questions are answerable from `portfolio.json`
 
 ## Phase 2 — Local audit (per machine, whenever at that machine)
 
@@ -31,12 +32,21 @@
 - [!] 2.3 Run on `theophrastos` (desktop) — blocked until Sean is next at that machine
 - [ ] 2.4 Cross-reference GitHub list vs. machine reports → stranded-work list
 
-## Phase 3 — Triage (the one-time cleanup)
+## Phase 3 — Triage & consolidation (the one-time cleanup)
 
-- [ ] 3.1 Go through stranded-work list repo by repo; ruling per repo: push / merge / archive / delete
-- [ ] 3.2 Kill stray worktrees and duplicate clones; one canonical clone per repo per machine
-- [ ] 3.3 Add `STATUS.md` to every surviving active repo (template: last state, next action, blockers, canonical branch)
-- [ ] 3.4 Add standing instruction to agent configs (CLAUDE.md / AGENTS.md): end every session by updating `STATUS.md` and pushing
+**Rulings so far (2026-08-05):**
+- `oribasius-app` absorbs `aetius`, `ancient-simples` (+ `simples` archived as superseded scaffold) — merger must be documented in oribasius-app docs first (→ 3.1a)
+- `kyphi-repo` absorbed into `perfume-tables`
+- Duplicate clusters pending ruling: `cookbook`/`aos-cookbook`/`aos-cookbook-mockup`; `dmm`/`aos-dmm`
+
+- [ ] 3.1a Verify/write the oribasius-app consolidation plan in its `docs/` (currently undocumented in any public repo)
+- [ ] 3.1b Rescue stranded work first: `oribasius-app` consolidation-20260729 → main (fast-forward); `ancient-simples` wip/public-read (+18/-0); `aetius` integrate/schema-policy (+3/-0); decide `tei-maker` wellmann-qc (+194) and berendes branches (active or abandoned?)
+- [ ] 3.1c Execute mergers: aetius + ancient-simples → oribasius-app; kyphi-repo → perfume-tables; archive sources with pointer in README
+- [ ] 3.1d Rule on remaining duplicate clusters (cookbook×3, dmm×2)
+- [ ] 3.2 Kill stray branches (`backup/*`, `recovery/*`, `archive/*`, agent leftovers) and worktrees; one canonical clone per repo per machine
+- [ ] 3.3 Apply REPO_STANDARD.md to every surviving active repo: STATUS.md (with branch registry), AGENTS.md, docs/DECISIONS.md
+- [ ] 3.4 Dashboard flags unregistered branches: declared (STATUS.md registry) vs. actual (portfolio.json) diff — the "PM" is this mechanism, not a person
+- [ ] 3.5 Archive dead repos (GitHub archive flag + README pointer): candidates `simples`, `flash`, `recipe-aligner`, `eggphy` — confirm each
 
 ## Phase 4 — App rework (viewer over git data)
 
@@ -62,5 +72,6 @@
 
 ## Changelog
 
+- 0.3 (2026-08-05): First inventory complete (1.4–1.5). Phase 3 rewritten with consolidation rulings (oribasius-app absorbs aetius/ancient-simples/simples; kyphi-repo → perfume-tables), stranded-work rescue list, REPO_STANDARD.md rollout, branch-registry mechanism. Added 1.7 (collector captures README + docs).
 - 0.2 (2026-08-05): Phase 0 decisions recorded (source of truth, scope incl. Drive folders, private repos + PAT, machine names). Added 1.6 (Drive enumeration). Phase 1 build started.
 - 0.1 (2026-08-05): initial plan.
