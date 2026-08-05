@@ -1,6 +1,6 @@
 # Pipeline Build Plan
 
-**Version:** 0.3 (2026-08-05)
+**Version:** 0.4 (2026-08-05)
 **Lives at:** repo root of `to-do-list` — update status here, commit on every change.
 **Status codes:** `[ ]` not started · `[~]` in progress · `[x]` done · `[!]` blocked (note why)
 
@@ -27,12 +27,16 @@
 
 ## Phase 2 — Local audit (per machine, whenever at that machine)
 
-- [ ] 2.1 Claude writes `scripts/repo_audit.py` — walks filesystem, finds every repo/worktree, reports dirty trees, unpushed commits, stashes, no-remote repos, divergence → table + `data/machines/<name>.json`
-- [ ] 2.2 Run on `metopion` (laptop); commit report
+- [x] 2.1 Claude writes `scripts/repo_audit.py` — walks filesystem, finds every repo/worktree, reports dirty trees, unpushed commits, stashes, no-remote repos, divergence → table + `data/machines/<name>.json`
+- [x] 2.2 Run on `metopion` (laptop); commit report — two JSONs: `metopion.json` (Windows: C:\Projects, C:\dev) + `metopion-wsl.json` (WSL: ~/Projects et al.); Windows git cannot read \\wsl.localhost repos
 - [!] 2.3 Run on `theophrastos` (desktop) — blocked until Sean is next at that machine
-- [ ] 2.4 Cross-reference GitHub list vs. machine reports → stranded-work list
+- [~] 2.4 Cross-reference GitHub list vs. machine reports → stranded-work list — metopion side done, PROVISIONAL: `docs/FINDINGS-metopion-20260805.md`; final only after 2.3
 
 ## Phase 3 — Triage & consolidation (the one-time cleanup)
+
+**GATE (2026-08-05): no Phase 3 action — no merge, branch deletion, archive, or worktree removal in any repo — until BOTH machine audits (2.2 metopion ✓, 2.3 theophrastos ✗) are committed.** Existing local clones are evidence: read, never modify. metopion findings are PROVISIONAL until theophrastos lands.
+
+**Open contradiction (2026-08-05, from metopion audit):** the local oribasius-app clone carries an authorized (2026-07-12) "Hylike greenfield cutover" program — oribasius-app frozen as a forensic *bridge* repo, successor repo `hylike` to become canonical; local main +326/−98 vs origin (no fast-forward possible for 3.1b); unpushed `refactor/project-layout` diverged 329/218 from `consolidation-20260729`. This contradicts the 3.1a/3.1c ruling that oribasius-app absorbs aetius/ancient-simples. Sean must rule before any 3.1 work. See `docs/FINDINGS-metopion-20260805.md` §5.
 
 **Rulings so far (2026-08-05):**
 - `oribasius-app` absorbs `aetius`, `ancient-simples` (+ `simples` archived as superseded scaffold) — merger must be documented in oribasius-app docs first (→ 3.1a)
@@ -72,6 +76,7 @@
 
 ## Changelog
 
+- 0.4 (2026-08-05): metopion audit run and committed (2.1–2.2 done; two JSONs, Windows + WSL). Phase 3 hard-gated on both machine audits. Cross-reference done provisionally (2.4 [~]): headline risks — oribasius-app unpushed Hylike-cutover line (main +326/−98, local-only `refactor/project-layout`); tei-maker Windows clone dirty:551 with no-upstream main, WSL clone with 6 local-only branches + 2 stashes; `tei-maker.mixed` no-remote dirty:10,576; 4 no-remote WSL repos incl. `~/Projects` wrapper repo; Scholar's Opus localStorage 8 days ahead of projects.md (both frozen since 2026-01); browser-only tasks exist. Open contradiction logged: Hylike cutover vs. 3.1 absorption ruling — needs Sean. Details: `docs/FINDINGS-metopion-20260805.md`.
 - 0.3 (2026-08-05): First inventory complete (1.4–1.5). Phase 3 rewritten with consolidation rulings (oribasius-app absorbs aetius/ancient-simples/simples; kyphi-repo → perfume-tables), stranded-work rescue list, REPO_STANDARD.md rollout, branch-registry mechanism. Added 1.7 (collector captures README + docs).
 - 0.2 (2026-08-05): Phase 0 decisions recorded (source of truth, scope incl. Drive folders, private repos + PAT, machine names). Added 1.6 (Drive enumeration). Phase 1 build started.
 - 0.1 (2026-08-05): initial plan.

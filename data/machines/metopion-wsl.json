@@ -1,0 +1,689 @@
+{
+  "machine": "metopion-wsl",
+  "generated_at": "2026-08-05T12:54:39+00:00",
+  "roots": [
+    "/home/seancoughlin/Projects",
+    "/home/seancoughlin/Projects/aetius",
+    "/home/seancoughlin/Projects/ancient-simples",
+    "/home/seancoughlin/Projects/aos-cookbook-mockup",
+    "/home/seancoughlin/Projects/aos-corpus-cli",
+    "/home/seancoughlin/Projects/aos-recipes",
+    "/home/seancoughlin/Projects/aos-research",
+    "/home/seancoughlin/Projects/apographon",
+    "/home/seancoughlin/Projects/cookbook-archive",
+    "/home/seancoughlin/Projects/cookbook",
+    "/home/seancoughlin/Projects/corpora",
+    "/home/seancoughlin/Projects/dmm",
+    "/home/seancoughlin/Projects/egg-ink-phylogeny",
+    "/home/seancoughlin/Projects/eggphy-clean",
+    "/home/seancoughlin/Projects/eggphy",
+    "/home/seancoughlin/Projects/flash",
+    "/home/seancoughlin/Projects/gacr2027",
+    "/home/seancoughlin/Projects/ids",
+    "/home/seancoughlin/Projects/index",
+    "/home/seancoughlin/Projects/oribasius-app",
+    "/home/seancoughlin/Projects/oribasius-viewer",
+    "/home/seancoughlin/Projects/periplus-material-map",
+    "/home/seancoughlin/Projects/periplus-tour-mvp",
+    "/home/seancoughlin/Projects/recipe-aligner",
+    "/home/seancoughlin/Projects/simples",
+    "/home/seancoughlin/Projects/skill-reviews",
+    "/home/seancoughlin/Projects/social",
+    "/home/seancoughlin/Projects/tei-maker-anchor-step5",
+    "/home/seancoughlin/Projects/tei-maker-beck-publication",
+    "/home/seancoughlin/Projects/tei-maker-data",
+    "/home/seancoughlin/Projects/tei-maker.mixed-20260622-114326",
+    "/home/seancoughlin/Projects/tei-maker",
+    "/home/seancoughlin/Projects/to-do-list",
+    "/home/seancoughlin/Projects/wellmann_tei_extract",
+    "/home/seancoughlin/sweep2",
+    "/home/seancoughlin/sweeprun",
+    "/home/seancoughlin/Preservation"
+  ],
+  "fetched": true,
+  "repos": [
+    {
+      "path": "/home/seancoughlin/Projects",
+      "remotes": [],
+      "no_remote": true,
+      "dirty_files": 0,
+      "stashes": 0,
+      "head": "?",
+      "last_commit": null,
+      "branches": [],
+      "unpushed_branches": [],
+      "worktrees": []
+    },
+    {
+      "path": "/home/seancoughlin/Projects/aetius",
+      "remotes": [
+        "git@github.com:alchemiesofscent/aetius.git"
+      ],
+      "no_remote": false,
+      "dirty_files": 0,
+      "stashes": 0,
+      "head": "main",
+      "last_commit": "2026-06-05T14:18:08+02:00",
+      "branches": [
+        {
+          "name": "main",
+          "upstream": "origin/main",
+          "tip_date": "2026-06-05T14:18:08+02:00",
+          "ahead": 0,
+          "behind": 0
+        }
+      ],
+      "unpushed_branches": [],
+      "worktrees": []
+    },
+    {
+      "path": "/home/seancoughlin/Projects/ancient-simples",
+      "remotes": [
+        "https://github.com/alchemiesofscent/ancient-simples.git"
+      ],
+      "no_remote": false,
+      "dirty_files": 0,
+      "stashes": 0,
+      "head": "wip/public-read",
+      "last_commit": "2026-05-04T22:40:41+02:00",
+      "branches": [
+        {
+          "name": "main",
+          "upstream": "origin/main",
+          "tip_date": "2026-02-05T21:44:52+01:00",
+          "behind": 5
+        },
+        {
+          "name": "wip/public-read",
+          "upstream": "origin/wip/public-read",
+          "tip_date": "2026-05-04T22:40:41+02:00",
+          "ahead": 0,
+          "behind": 0
+        }
+      ],
+      "unpushed_branches": [],
+      "worktrees": []
+    },
+    {
+      "path": "/home/seancoughlin/Projects/aos-cookbook-mockup",
+      "remotes": [
+        "https://github.com/alchemiesofscent/aos-cookbook-mockup.git"
+      ],
+      "no_remote": false,
+      "dirty_files": 2,
+      "stashes": 0,
+      "head": "main",
+      "last_commit": "2026-02-13T17:10:38+01:00",
+      "branches": [
+        {
+          "name": "main",
+          "upstream": "origin/main",
+          "tip_date": "2026-02-13T17:10:38+01:00",
+          "behind": 3
+        },
+        {
+          "name": "pages-preview",
+          "upstream": "origin/pages-preview",
+          "tip_date": "2026-01-14T22:51:37+01:00",
+          "ahead": 0,
+          "behind": 0
+        },
+        {
+          "name": "workflow-bootstrap",
+          "upstream": "origin/workflow-bootstrap",
+          "tip_date": "2026-01-14T22:27:22+01:00",
+          "upstream_gone": true
+        }
+      ],
+      "unpushed_branches": [],
+      "worktrees": []
+    },
+    {
+      "path": "/home/seancoughlin/Projects/aos-corpus-cli",
+      "remotes": [],
+      "no_remote": true,
+      "dirty_files": 0,
+      "stashes": 0,
+      "head": "main",
+      "last_commit": "2026-05-04T19:16:36+02:00",
+      "branches": [
+        {
+          "name": "main",
+          "upstream": null,
+          "tip_date": "2026-05-04T19:16:36+02:00"
+        }
+      ],
+      "unpushed_branches": [],
+      "worktrees": []
+    },
+    {
+      "path": "/home/seancoughlin/Projects/aos-recipes",
+      "remotes": [
+        "https://github.com/alchemiesofscent/aos-recipes.git"
+      ],
+      "no_remote": false,
+      "dirty_files": 1,
+      "stashes": 0,
+      "head": "main",
+      "last_commit": "2026-06-07T01:24:09+02:00",
+      "branches": [
+        {
+          "name": "main",
+          "upstream": "origin/main",
+          "tip_date": "2026-06-07T01:24:09+02:00",
+          "ahead": 0,
+          "behind": 0
+        }
+      ],
+      "unpushed_branches": [],
+      "worktrees": []
+    },
+    {
+      "path": "/home/seancoughlin/Projects/apographon",
+      "remotes": [
+        "https://github.com/alchemiesofscent/apographon.git"
+      ],
+      "no_remote": false,
+      "dirty_files": 0,
+      "stashes": 0,
+      "head": "main",
+      "last_commit": "2025-10-02T08:55:40+02:00",
+      "branches": [
+        {
+          "name": "main",
+          "upstream": "origin/main",
+          "tip_date": "2025-10-02T08:55:40+02:00",
+          "ahead": 0,
+          "behind": 0
+        }
+      ],
+      "unpushed_branches": [],
+      "worktrees": []
+    },
+    {
+      "path": "/home/seancoughlin/Projects/cookbook",
+      "remotes": [
+        "git@github.com:alchemiesofscent/cookbook.git"
+      ],
+      "no_remote": false,
+      "dirty_files": 13,
+      "stashes": 0,
+      "head": "HEAD",
+      "last_commit": null,
+      "branches": [],
+      "unpushed_branches": [],
+      "worktrees": []
+    },
+    {
+      "path": "/home/seancoughlin/Projects/cookbook-archive",
+      "remotes": [
+        "git@github.com:alchemiesofscent/cookbook.git"
+      ],
+      "no_remote": false,
+      "dirty_files": 14,
+      "stashes": 0,
+      "head": "HEAD",
+      "last_commit": null,
+      "branches": [],
+      "unpushed_branches": [],
+      "worktrees": []
+    },
+    {
+      "path": "/home/seancoughlin/Projects/corpora/digiliblt",
+      "remotes": [
+        "https://github.com/lascivaroma/digiliblt"
+      ],
+      "no_remote": false,
+      "dirty_files": 1,
+      "stashes": 0,
+      "head": "master",
+      "last_commit": "2023-06-18T10:46:14+02:00",
+      "branches": [
+        {
+          "name": "master",
+          "upstream": "origin/master",
+          "tip_date": "2023-06-18T10:46:14+02:00",
+          "ahead": 0,
+          "behind": 0
+        }
+      ],
+      "unpushed_branches": [],
+      "worktrees": []
+    },
+    {
+      "path": "/home/seancoughlin/Projects/corpora/first1kgreek",
+      "remotes": [
+        "https://github.com/OpenGreekAndLatin/First1KGreek.git"
+      ],
+      "no_remote": false,
+      "dirty_files": 0,
+      "stashes": 0,
+      "head": "master",
+      "last_commit": "2026-04-28T15:57:40-04:00",
+      "branches": [
+        {
+          "name": "master",
+          "upstream": "origin/master",
+          "tip_date": "2026-04-28T15:57:40-04:00",
+          "behind": 8
+        }
+      ],
+      "unpushed_branches": [],
+      "worktrees": []
+    },
+    {
+      "path": "/home/seancoughlin/Projects/corpora/idp",
+      "remotes": [
+        "https://github.com/papyri/idp.data.git"
+      ],
+      "no_remote": false,
+      "dirty_files": 0,
+      "stashes": 0,
+      "head": "master",
+      "last_commit": "2026-07-25T18:56:29+02:00",
+      "branches": [
+        {
+          "name": "master",
+          "upstream": "origin/master",
+          "tip_date": "2026-07-25T18:56:29+02:00",
+          "behind": 241791
+        }
+      ],
+      "unpushed_branches": [],
+      "worktrees": []
+    },
+    {
+      "path": "/home/seancoughlin/Projects/dmm",
+      "remotes": [
+        "git@github.com:alchemiesofscent/dmm.git"
+      ],
+      "no_remote": false,
+      "dirty_files": 5,
+      "stashes": 0,
+      "head": "main",
+      "last_commit": "2026-05-03T09:20:15+02:00",
+      "branches": [
+        {
+          "name": "main",
+          "upstream": "origin/main",
+          "tip_date": "2026-05-03T09:20:15+02:00",
+          "ahead": 6
+        }
+      ],
+      "unpushed_branches": [
+        "main"
+      ],
+      "worktrees": []
+    },
+    {
+      "path": "/home/seancoughlin/Projects/egg-ink-phylogeny",
+      "remotes": [],
+      "no_remote": true,
+      "dirty_files": 0,
+      "stashes": 0,
+      "head": "main",
+      "last_commit": "2025-09-18T00:24:56+02:00",
+      "branches": [
+        {
+          "name": "main",
+          "upstream": null,
+          "tip_date": "2025-09-18T00:24:56+02:00"
+        }
+      ],
+      "unpushed_branches": [],
+      "worktrees": []
+    },
+    {
+      "path": "/home/seancoughlin/Projects/eggphy",
+      "remotes": [
+        "https://github.com/alchemiesofscent/eggphy.git"
+      ],
+      "no_remote": false,
+      "dirty_files": 18,
+      "stashes": 0,
+      "head": "main",
+      "last_commit": "2025-09-22T02:56:37+02:00",
+      "branches": [
+        {
+          "name": "main",
+          "upstream": "origin/main",
+          "tip_date": "2025-09-22T02:56:37+02:00",
+          "ahead": 0,
+          "behind": 0
+        }
+      ],
+      "unpushed_branches": [],
+      "worktrees": []
+    },
+    {
+      "path": "/home/seancoughlin/Projects/flash",
+      "remotes": [
+        "https://github.com/alchemiesofscent/flash.git"
+      ],
+      "no_remote": false,
+      "dirty_files": 11,
+      "stashes": 0,
+      "head": "main",
+      "last_commit": "2026-03-24T20:04:46+01:00",
+      "branches": [
+        {
+          "name": "main",
+          "upstream": "origin/main",
+          "tip_date": "2026-03-24T20:04:46+01:00",
+          "ahead": 0,
+          "behind": 0
+        }
+      ],
+      "unpushed_branches": [],
+      "worktrees": []
+    },
+    {
+      "path": "/home/seancoughlin/Projects/index",
+      "remotes": [
+        "git@github.com:alchemiesofscent/index-locorum.git"
+      ],
+      "no_remote": false,
+      "dirty_files": 25,
+      "stashes": 1,
+      "head": "main",
+      "last_commit": "2026-02-09T13:12:08+01:00",
+      "branches": [
+        {
+          "name": "main",
+          "upstream": "origin/main",
+          "tip_date": "2026-02-09T13:12:08+01:00",
+          "ahead": 0,
+          "behind": 0
+        }
+      ],
+      "unpushed_branches": [],
+      "worktrees": []
+    },
+    {
+      "path": "/home/seancoughlin/Projects/oribasius-app",
+      "remotes": [
+        "git@github.com:alchemiesofscent/oribasius-app.git"
+      ],
+      "no_remote": false,
+      "dirty_files": 0,
+      "stashes": 0,
+      "head": "refactor/project-layout",
+      "last_commit": "2026-08-04T23:47:21+02:00",
+      "branches": [
+        {
+          "name": "agent/export-aetius-translations",
+          "upstream": "origin/agent/export-aetius-translations",
+          "tip_date": "2026-07-20T20:29:54+02:00",
+          "ahead": 0,
+          "behind": 0
+        },
+        {
+          "name": "consolidation-20260729",
+          "upstream": "origin/consolidation-20260729",
+          "tip_date": "2026-08-03T13:12:29+02:00",
+          "ahead": 0,
+          "behind": 0
+        },
+        {
+          "name": "main",
+          "upstream": "origin/main",
+          "tip_date": "2026-07-12T13:20:27+02:00",
+          "ahead": 326,
+          "behind": 98
+        },
+        {
+          "name": "refactor/project-layout",
+          "upstream": null,
+          "tip_date": "2026-08-04T23:47:21+02:00"
+        }
+      ],
+      "unpushed_branches": [
+        "main",
+        "refactor/project-layout"
+      ],
+      "worktrees": [
+        "/home/seancoughlin/Projects/oribasius-viewer"
+      ]
+    },
+    {
+      "path": "/home/seancoughlin/Projects/periplus-material-map",
+      "remotes": [],
+      "no_remote": true,
+      "dirty_files": 0,
+      "stashes": 0,
+      "head": "?",
+      "last_commit": null,
+      "branches": [],
+      "unpushed_branches": [],
+      "worktrees": []
+    },
+    {
+      "path": "/home/seancoughlin/Projects/periplus-tour-mvp",
+      "remotes": [
+        "https://github.com/alchemiesofscent/map.git",
+        "https://github.com/alchemiesofscent/periplus-tour.git"
+      ],
+      "no_remote": false,
+      "dirty_files": 0,
+      "stashes": 0,
+      "head": "main",
+      "last_commit": "2026-05-14T09:51:57+02:00",
+      "branches": [
+        {
+          "name": "main",
+          "upstream": "map/main",
+          "tip_date": "2026-05-14T09:51:57+02:00",
+          "ahead": 0,
+          "behind": 0
+        }
+      ],
+      "unpushed_branches": [],
+      "worktrees": []
+    },
+    {
+      "path": "/home/seancoughlin/Projects/recipe-aligner",
+      "remotes": [
+        "https://github.com/alchemiesofscent/recipe-aligner.git"
+      ],
+      "no_remote": false,
+      "dirty_files": 0,
+      "stashes": 0,
+      "head": "main",
+      "last_commit": "2025-11-10T00:28:53+01:00",
+      "branches": [
+        {
+          "name": "main",
+          "upstream": "origin/main",
+          "tip_date": "2025-11-10T00:28:53+01:00",
+          "behind": 1
+        }
+      ],
+      "unpushed_branches": [],
+      "worktrees": []
+    },
+    {
+      "path": "/home/seancoughlin/Projects/simples",
+      "remotes": [
+        "git@github.com:alchemiesofscent/simples.git",
+        "https://github.com/alchemiesofscent/simples.git"
+      ],
+      "no_remote": false,
+      "dirty_files": 1,
+      "stashes": 0,
+      "head": "main",
+      "last_commit": "2026-02-04T19:37:54+01:00",
+      "branches": [
+        {
+          "name": "main",
+          "upstream": "origins/main",
+          "tip_date": "2026-02-04T19:37:54+01:00",
+          "ahead": 1
+        }
+      ],
+      "unpushed_branches": [
+        "main"
+      ],
+      "worktrees": []
+    },
+    {
+      "path": "/home/seancoughlin/Projects/social",
+      "remotes": [
+        "https://github.com/alchemiesofscent/social-carousel-bank.git"
+      ],
+      "no_remote": false,
+      "dirty_files": 16,
+      "stashes": 0,
+      "head": "main",
+      "last_commit": "2026-03-29T19:54:44+02:00",
+      "branches": [
+        {
+          "name": "main",
+          "upstream": "origin/main",
+          "tip_date": "2026-03-29T19:54:44+02:00",
+          "ahead": 0,
+          "behind": 0
+        }
+      ],
+      "unpushed_branches": [],
+      "worktrees": []
+    },
+    {
+      "path": "/home/seancoughlin/Projects/tei-maker",
+      "remotes": [
+        "git@github.com:alchemiesofscent/tei-maker.git"
+      ],
+      "no_remote": false,
+      "dirty_files": 5,
+      "stashes": 2,
+      "head": "docs/wellmann-qc-token-diagnosis",
+      "last_commit": "2026-07-14T20:35:39+02:00",
+      "branches": [
+        {
+          "name": "agent/private-workspace-assets",
+          "upstream": "origin/agent/private-workspace-assets",
+          "tip_date": "2026-07-16T12:49:45+02:00",
+          "upstream_gone": true
+        },
+        {
+          "name": "anchor-step5-completion",
+          "upstream": null,
+          "tip_date": "2026-07-12T23:43:37+02:00"
+        },
+        {
+          "name": "anchor-step5-exec",
+          "upstream": null,
+          "tip_date": "2026-07-13T04:27:36+02:00"
+        },
+        {
+          "name": "anchor-step5-greenbase",
+          "upstream": null,
+          "tip_date": "2026-07-12T21:25:45+02:00"
+        },
+        {
+          "name": "beck-publication-qc-20260713",
+          "upstream": null,
+          "tip_date": "2026-07-13T23:29:06+02:00"
+        },
+        {
+          "name": "berendes-publication-repair",
+          "upstream": "origin/berendes-publication-repair",
+          "tip_date": "2026-07-13T09:07:36+02:00",
+          "ahead": 0,
+          "behind": 0
+        },
+        {
+          "name": "docs/repository-refresh-20260716",
+          "upstream": null,
+          "tip_date": "2026-07-16T01:51:02+02:00"
+        },
+        {
+          "name": "docs/wellmann-qc-token-diagnosis",
+          "upstream": null,
+          "tip_date": "2026-07-14T20:35:39+02:00"
+        },
+        {
+          "name": "main",
+          "upstream": "origin/main",
+          "tip_date": "2026-07-16T11:51:29+02:00",
+          "behind": 9
+        }
+      ],
+      "unpushed_branches": [
+        "anchor-step5-completion",
+        "anchor-step5-exec",
+        "anchor-step5-greenbase",
+        "beck-publication-qc-20260713",
+        "docs/repository-refresh-20260716",
+        "docs/wellmann-qc-token-diagnosis"
+      ],
+      "worktrees": [
+        "/home/seancoughlin/Projects/tei-maker-anchor-step5",
+        "/home/seancoughlin/Projects/tei-maker-beck-publication",
+        "/tmp/tei-maker-private-main"
+      ]
+    },
+    {
+      "path": "/home/seancoughlin/Projects/tei-maker.mixed-20260622-114326",
+      "remotes": [],
+      "no_remote": true,
+      "dirty_files": 10576,
+      "stashes": 0,
+      "head": "main",
+      "last_commit": "2026-05-31T00:22:04+02:00",
+      "branches": [
+        {
+          "name": "main",
+          "upstream": null,
+          "tip_date": "2026-05-31T00:22:04+02:00"
+        },
+        {
+          "name": "refactor/pharmacopoeia",
+          "upstream": null,
+          "tip_date": "2026-05-18T13:38:24+02:00"
+        },
+        {
+          "name": "refactor/tei-maker-pipeline",
+          "upstream": null,
+          "tip_date": "2026-05-18T01:56:34+02:00"
+        }
+      ],
+      "unpushed_branches": [],
+      "worktrees": []
+    },
+    {
+      "path": "/home/seancoughlin/Projects/to-do-list",
+      "remotes": [
+        "https://github.com/alchemiesofscent/to-do-list.git"
+      ],
+      "no_remote": false,
+      "dirty_files": 0,
+      "stashes": 0,
+      "head": "main",
+      "last_commit": "2026-02-02T12:46:03+01:00",
+      "branches": [
+        {
+          "name": "main",
+          "upstream": "origin/main",
+          "tip_date": "2026-02-02T12:46:03+01:00",
+          "behind": 7
+        }
+      ],
+      "unpushed_branches": [],
+      "worktrees": []
+    }
+  ],
+  "detached_worktrees": [
+    {
+      "path": "/home/seancoughlin/Projects/oribasius-viewer",
+      "gitdir": "/home/seancoughlin/Projects/oribasius-app/.git/worktrees/oribasius-viewer"
+    },
+    {
+      "path": "/home/seancoughlin/Projects/tei-maker-anchor-step5",
+      "gitdir": "/home/seancoughlin/Projects/tei-maker/.git/worktrees/tei-maker-anchor-step5"
+    },
+    {
+      "path": "/home/seancoughlin/Projects/tei-maker-beck-publication",
+      "gitdir": "/home/seancoughlin/Projects/tei-maker/.git/worktrees/tei-maker-beck-publication"
+    }
+  ]
+}

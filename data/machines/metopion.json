@@ -1,0 +1,218 @@
+{
+  "machine": "metopion",
+  "generated_at": "2026-08-05T13:10:34+00:00",
+  "roots": [
+    "C:\\Projects",
+    "C:\\dev"
+  ],
+  "fetched": true,
+  "repos": [
+    {
+      "path": "C:\\Projects\\aos-cookbook",
+      "remotes": [
+        "https://github.com/alchemiesofscent/aos-cookbook.git"
+      ],
+      "no_remote": false,
+      "dirty_files": 0,
+      "stashes": 0,
+      "head": "main",
+      "last_commit": "2025-08-16T16:16:05+02:00",
+      "branches": [
+        {
+          "name": "main",
+          "upstream": "origin/main",
+          "tip_date": "2025-08-16T16:16:05+02:00",
+          "behind": 1
+        }
+      ],
+      "unpushed_branches": [],
+      "worktrees": []
+    },
+    {
+      "path": "C:\\Projects\\aos-dmm",
+      "remotes": [
+        "https://github.com/alchemiesofscent/aos-dmm.git"
+      ],
+      "no_remote": false,
+      "dirty_files": 398,
+      "stashes": 0,
+      "head": "main",
+      "last_commit": "2025-08-16T23:53:53+02:00",
+      "branches": [
+        {
+          "name": "main",
+          "upstream": "origin/main",
+          "tip_date": "2025-08-16T23:53:53+02:00",
+          "ahead": 0,
+          "behind": 0
+        }
+      ],
+      "unpushed_branches": [],
+      "worktrees": []
+    },
+    {
+      "path": "C:\\Projects\\kyphi-repo",
+      "remotes": [
+        "https://github.com/alchemiesofscent/kyphi-repo.git"
+      ],
+      "no_remote": false,
+      "dirty_files": 2,
+      "stashes": 0,
+      "head": "main",
+      "last_commit": "2025-09-02T15:09:24+02:00",
+      "branches": [
+        {
+          "name": "backup/main",
+          "upstream": null,
+          "tip_date": "2025-09-01T23:31:20+02:00"
+        },
+        {
+          "name": "backup/seed-rufus",
+          "upstream": null,
+          "tip_date": "2025-09-01T23:28:00+02:00"
+        },
+        {
+          "name": "ci/commit-back",
+          "upstream": "origin/ci/commit-back",
+          "tip_date": "2025-09-01T23:26:47+02:00",
+          "ahead": 0,
+          "behind": 0
+        },
+        {
+          "name": "main",
+          "upstream": "origin/main",
+          "tip_date": "2025-09-02T15:09:24+02:00",
+          "ahead": 0,
+          "behind": 0
+        },
+        {
+          "name": "seed/rufus",
+          "upstream": "origin/seed/rufus",
+          "tip_date": "2025-09-02T01:33:11+02:00",
+          "ahead": 2
+        },
+        {
+          "name": "wip/backup-before-merge",
+          "upstream": null,
+          "tip_date": "2025-09-02T00:11:08+02:00"
+        }
+      ],
+      "unpushed_branches": [
+        "backup/main",
+        "backup/seed-rufus",
+        "seed/rufus",
+        "wip/backup-before-merge"
+      ],
+      "worktrees": []
+    },
+    {
+      "path": "C:\\Projects\\recipe-aligner-1",
+      "remotes": [
+        "https://github.com/alchemiesofscent/recipe-aligner.git"
+      ],
+      "no_remote": false,
+      "dirty_files": 0,
+      "stashes": 0,
+      "head": "main",
+      "last_commit": "2025-09-08T16:12:10+02:00",
+      "branches": [
+        {
+          "name": "main",
+          "upstream": "origin/main",
+          "tip_date": "2025-09-08T16:12:10+02:00",
+          "behind": 20
+        }
+      ],
+      "unpushed_branches": [],
+      "worktrees": []
+    },
+    {
+      "path": "C:\\Projects\\recipe-aligner-bak",
+      "remotes": [
+        "https://github.com/alchemiesofscent/recipe-aligner.git"
+      ],
+      "no_remote": false,
+      "dirty_files": 1,
+      "stashes": 0,
+      "head": "main",
+      "last_commit": "2025-09-03T21:33:07+02:00",
+      "branches": [
+        {
+          "name": "main",
+          "upstream": "origin/main",
+          "tip_date": "2025-09-03T21:33:07+02:00",
+          "behind": 30
+        }
+      ],
+      "unpushed_branches": [],
+      "worktrees": []
+    },
+    {
+      "path": "C:\\Projects\\tei-maker",
+      "remotes": [
+        "https://github.com/alchemiesofscent/tei-maker.git"
+      ],
+      "no_remote": false,
+      "dirty_files": 551,
+      "stashes": 0,
+      "head": "main",
+      "last_commit": "2026-08-04T01:13:58+02:00",
+      "branches": [
+        {
+          "name": "main",
+          "upstream": null,
+          "tip_date": "2026-08-04T01:13:58+02:00"
+        }
+      ],
+      "unpushed_branches": [
+        "main"
+      ],
+      "worktrees": []
+    },
+    {
+      "path": "C:\\Projects\\to-do-list",
+      "remotes": [
+        "https://github.com/alchemiesofscent/to-do-list.git"
+      ],
+      "no_remote": false,
+      "dirty_files": 3,
+      "stashes": 0,
+      "head": "main",
+      "last_commit": "2026-08-05T05:02:09-07:00",
+      "branches": [
+        {
+          "name": "main",
+          "upstream": "origin/main",
+          "tip_date": "2026-08-05T05:02:09-07:00",
+          "ahead": 0,
+          "behind": 0
+        }
+      ],
+      "unpushed_branches": [],
+      "worktrees": []
+    },
+    {
+      "path": "C:\\dev\\perfume-tables",
+      "remotes": [
+        "https://github.com/alchemiesofscent/perfume-tables.git"
+      ],
+      "no_remote": false,
+      "dirty_files": 15,
+      "stashes": 0,
+      "head": "main",
+      "last_commit": "2026-07-31T00:33:50+02:00",
+      "branches": [
+        {
+          "name": "main",
+          "upstream": "origin/main",
+          "tip_date": "2026-07-31T00:33:50+02:00",
+          "ahead": 0,
+          "behind": 0
+        }
+      ],
+      "unpushed_branches": [],
+      "worktrees": []
+    }
+  ],
+  "detached_worktrees": []
+}
