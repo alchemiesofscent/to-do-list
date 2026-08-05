@@ -36,7 +36,7 @@
 
 **GATE (2026-08-05): no Phase 3 action — no merge, branch deletion, archive, or worktree removal in any repo — until BOTH machine audits (2.2 metopion ✓, 2.3 theophrastos ✗) are committed.** Existing local clones are evidence: read, never modify. metopion findings are PROVISIONAL until theophrastos lands.
 
-**Open contradiction (2026-08-05, from metopion audit):** the local oribasius-app clone carries an authorized (2026-07-12) "Hylike greenfield cutover" program — oribasius-app frozen as a forensic *bridge* repo, successor repo `hylike` to become canonical; local main +326/−98 vs origin (no fast-forward possible for 3.1b); unpushed `refactor/project-layout` diverged 329/218 from `consolidation-20260729`. This contradicts the 3.1a/3.1c ruling that oribasius-app absorbs aetius/ancient-simples. Sean must rule before any 3.1 work. See `docs/FINDINGS-metopion-20260805.md` §5.
+**Open contradiction (2026-08-05, from metopion audit):** the local oribasius-app clone carries an authorized (2026-07-12) "Hylike greenfield cutover" program — oribasius-app frozen as a forensic *bridge* repo, successor repo `hylike` to become canonical; local main +326/−98 vs origin (no fast-forward possible for 3.1b); unpushed `refactor/project-layout` diverged 329/218 from `consolidation-20260729`. This contradicts the 3.1a/3.1c ruling that oribasius-app absorbs aetius/ancient-simples. Sean must rule before any 3.1 work. See `docs/FINDINGS-metopion-20260805.md` §5. **Ruling 2026-08-05: deferred until the theophrastos audit lands (2.3).**
 
 **Rulings so far (2026-08-05):**
 - `oribasius-app` absorbs `aetius`, `ancient-simples` (+ `simples` archived as superseded scaffold) — merger must be documented in oribasius-app docs first (→ 3.1a)
