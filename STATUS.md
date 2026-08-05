@@ -121,12 +121,16 @@ open_rulings:
                v4.0.5 once jobs complete."
     status: open   # check after ~2026-08-09
   - id: unpushed-automation-risk
-    question: "The /goals jobs commit to local branches, several with no
-               upstream (wellmann-qc +1, extraction-pipeline feat no-up,
-               oribasius paul-book7 lines). Days of unattended work on one
-               machine = exactly the stranded-work pattern this cleanup
-               exists to kill. Do the jobs push? If not, arrange it."
-    status: open   # flagged to Sean 2026-08-05
+    question: "Do the three /goals jobs push their work?"
+    status: half_resolved   # checked 2026-08-05 late evening via ls-remote/fetch:
+    # oribasius-app PUSHES (consolidation-20260729 tip 2026-08-05 20:26 CEST)
+    # tei-maker PUSHES (new wellmann-endgame-20260805, tip 2026-08-06 00:33 CEST)
+    # extraction-pipeline DOES NOT PUSH: feat/f0.12.0-ingredient-join exists
+    #   only on theophrastos; remote unchanged since 2026-08-01. Unattended
+    #   until ~08-09. Needs: push enabled on that job, or manual push Sunday.
+    # (Older theo-local rescue branches — paul-book7-translation, galen-json
+    #   +19 — remain unpushed regardless; they belong to the rescue-order
+    #   ruling, not the running jobs.)
   - id: oribasius-rescue-order
     question: "Rescue order for theophrastos paul-book7 + recovery branches
                (galen-json +19 unpushed) across three diverged states"
