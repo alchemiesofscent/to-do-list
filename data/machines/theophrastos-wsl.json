@@ -1,0 +1,613 @@
+{
+  "machine": "theophrastos-wsl",
+  "generated_at": "2026-08-05T18:09:23+00:00",
+  "roots": [
+    "/home/seanm/githun",
+    "/home/seanm/github/aetius",
+    "/home/seanm/github/ancient-simples",
+    "/home/seanm/github/aos-cookbook-mockup",
+    "/home/seanm/github/aos-cookbook",
+    "/home/seanm/github/aos-dmm",
+    "/home/seanm/github/aos-recipes",
+    "/home/seanm/github/apographon",
+    "/home/seanm/github/corpora",
+    "/home/seanm/github/dmm",
+    "/home/seanm/github/eggphy",
+    "/home/seanm/github/extraction-pipeline",
+    "/home/seanm/github/index-locorum",
+    "/home/seanm/github/kyphi-repo",
+    "/home/seanm/github/oribasius-app-paul-completion-20260722",
+    "/home/seanm/github/oribasius-app-paul7",
+    "/home/seanm/github/oribasius-app",
+    "/home/seanm/github/recipe-aligner",
+    "/home/seanm/github/rescue-20260729",
+    "/home/seanm/github/source-artifacts",
+    "/home/seanm/github/tei-maker-integration",
+    "/home/seanm/github/tei-maker-trip-ocr",
+    "/home/seanm/github/tei-maker-trip-paul7",
+    "/home/seanm/github/tei-maker-trip",
+    "/home/seanm/github/tei-maker",
+    "/home/seanm/github/to-do-list"
+  ],
+  "fetched": true,
+  "repos": [
+    {
+      "path": "/home/seanm/github/aetius",
+      "remotes": [
+        "https://github.com/alchemiesofscent/aetius.git"
+      ],
+      "no_remote": false,
+      "dirty_files": 1,
+      "stashes": 2,
+      "head": "integrate/schema-policy-2026-06-05",
+      "last_commit": "2026-06-05T18:38:11+02:00",
+      "branches": [
+        {
+          "name": "backup/main-before-origin-sync-20260426",
+          "upstream": null,
+          "tip_date": "2026-04-14T10:59:48+02:00"
+        },
+        {
+          "name": "codex-balaunos-review-refresh",
+          "upstream": "origin/codex-balaunos-review-refresh",
+          "tip_date": "2026-04-12T00:07:31+02:00",
+          "ahead": 0,
+          "behind": 0
+        },
+        {
+          "name": "integrate/schema-policy-2026-06-05",
+          "upstream": "origin/integrate/schema-policy-2026-06-05",
+          "tip_date": "2026-06-05T18:38:11+02:00",
+          "ahead": 0,
+          "behind": 0
+        },
+        {
+          "name": "main",
+          "upstream": "origin/main",
+          "tip_date": "2026-05-27T16:47:36+02:00",
+          "behind": 3
+        }
+      ],
+      "unpushed_branches": [
+        "backup/main-before-origin-sync-20260426"
+      ],
+      "worktrees": []
+    },
+    {
+      "path": "/home/seanm/github/ancient-simples",
+      "remotes": [
+        "https://github.com/alchemiesofscent/ancient-simples"
+      ],
+      "no_remote": false,
+      "dirty_files": 0,
+      "stashes": 0,
+      "head": "wip/public-read",
+      "last_commit": "2026-05-04T22:40:41+02:00",
+      "branches": [
+        {
+          "name": "main",
+          "upstream": "origin/main",
+          "tip_date": "2026-02-12T19:11:57+01:00",
+          "ahead": 0,
+          "behind": 0
+        },
+        {
+          "name": "wip/public-read",
+          "upstream": "origin/wip/public-read",
+          "tip_date": "2026-05-04T22:40:41+02:00",
+          "ahead": 0,
+          "behind": 0
+        }
+      ],
+      "unpushed_branches": [],
+      "worktrees": []
+    },
+    {
+      "path": "/home/seanm/github/aos-cookbook",
+      "remotes": [
+        "git@github.com:alchemiesofscent/aos-cookbook.git"
+      ],
+      "no_remote": false,
+      "dirty_files": 0,
+      "stashes": 0,
+      "head": "main",
+      "last_commit": "2025-08-16T23:29:05+02:00",
+      "branches": [
+        {
+          "name": "main",
+          "upstream": "origin/main",
+          "tip_date": "2025-08-16T23:29:05+02:00",
+          "ahead": 0,
+          "behind": 0
+        }
+      ],
+      "unpushed_branches": [],
+      "worktrees": []
+    },
+    {
+      "path": "/home/seanm/github/aos-cookbook-mockup",
+      "remotes": [
+        "https://github.com/alchemiesofscent/aos-cookbook-mockup"
+      ],
+      "no_remote": false,
+      "dirty_files": 0,
+      "stashes": 0,
+      "head": "main",
+      "last_commit": "2026-05-18T19:19:57+02:00",
+      "branches": [
+        {
+          "name": "main",
+          "upstream": "origin/main",
+          "tip_date": "2026-05-18T19:19:57+02:00",
+          "ahead": 0,
+          "behind": 0
+        }
+      ],
+      "unpushed_branches": [],
+      "worktrees": []
+    },
+    {
+      "path": "/home/seanm/github/aos-dmm",
+      "remotes": [
+        "git@github.com:alchemiesofscent/aos-dmm.git"
+      ],
+      "no_remote": false,
+      "dirty_files": 2,
+      "stashes": 0,
+      "head": "main",
+      "last_commit": "2025-08-16T23:53:53+02:00",
+      "branches": [
+        {
+          "name": "main",
+          "upstream": "origin/main",
+          "tip_date": "2025-08-16T23:53:53+02:00",
+          "ahead": 0,
+          "behind": 0
+        }
+      ],
+      "unpushed_branches": [],
+      "worktrees": []
+    },
+    {
+      "path": "/home/seanm/github/aos-recipes",
+      "remotes": [
+        "https://github.com/alchemiesofscent/aos-recipes.git"
+      ],
+      "no_remote": false,
+      "dirty_files": 0,
+      "stashes": 0,
+      "head": "main",
+      "last_commit": "2026-06-07T01:24:09+02:00",
+      "branches": [
+        {
+          "name": "main",
+          "upstream": "origin/main",
+          "tip_date": "2026-06-07T01:24:09+02:00",
+          "ahead": 0,
+          "behind": 0
+        }
+      ],
+      "unpushed_branches": [],
+      "worktrees": []
+    },
+    {
+      "path": "/home/seanm/github/apographon",
+      "remotes": [
+        "git@github.com:alchemiesofscent/apographon.git"
+      ],
+      "no_remote": false,
+      "dirty_files": 0,
+      "stashes": 0,
+      "head": "remove-epub-pipeline",
+      "last_commit": "2025-10-24T15:48:31+02:00",
+      "branches": [
+        {
+          "name": "main",
+          "upstream": "origin/main",
+          "tip_date": "2025-10-02T08:55:40+02:00",
+          "ahead": 0,
+          "behind": 0
+        },
+        {
+          "name": "remove-epub-pipeline",
+          "upstream": "origin/remove-epub-pipeline",
+          "tip_date": "2025-10-24T15:48:31+02:00",
+          "ahead": 0,
+          "behind": 0
+        }
+      ],
+      "unpushed_branches": [],
+      "worktrees": []
+    },
+    {
+      "path": "/home/seanm/github/dmm",
+      "remotes": [
+        "https://github.com/alchemiesofscent/dmm.git"
+      ],
+      "no_remote": false,
+      "dirty_files": 0,
+      "stashes": 0,
+      "head": "main",
+      "last_commit": "2026-04-15T13:59:16+02:00",
+      "branches": [
+        {
+          "name": "main",
+          "upstream": "origin/main",
+          "tip_date": "2026-04-15T13:59:16+02:00",
+          "ahead": 0,
+          "behind": 0
+        }
+      ],
+      "unpushed_branches": [],
+      "worktrees": []
+    },
+    {
+      "path": "/home/seanm/github/eggphy",
+      "remotes": [
+        "git@github.com:alchemiesofscent/eggphy.git"
+      ],
+      "no_remote": false,
+      "dirty_files": 0,
+      "stashes": 0,
+      "head": "main",
+      "last_commit": "2025-09-22T02:56:37+02:00",
+      "branches": [
+        {
+          "name": "main",
+          "upstream": "origin/main",
+          "tip_date": "2025-09-22T02:56:37+02:00",
+          "ahead": 0,
+          "behind": 0
+        }
+      ],
+      "unpushed_branches": [],
+      "worktrees": []
+    },
+    {
+      "path": "/home/seanm/github/extraction-pipeline",
+      "remotes": [
+        "https://github.com/alchemiesofscent/extraction-pipeline.git"
+      ],
+      "no_remote": false,
+      "dirty_files": 0,
+      "stashes": 0,
+      "head": "feat/f0.12.0-ingredient-join",
+      "last_commit": "2026-08-05T20:01:23+02:00",
+      "branches": [
+        {
+          "name": "feat/f0.12.0-ingredient-join",
+          "upstream": null,
+          "tip_date": "2026-08-05T20:01:23+02:00"
+        },
+        {
+          "name": "main",
+          "upstream": "origin/main",
+          "tip_date": "2026-08-05T19:50:32+02:00",
+          "ahead": 0,
+          "behind": 0
+        },
+        {
+          "name": "source-review-appendix-a",
+          "upstream": "origin/source-review-appendix-a",
+          "tip_date": "2026-07-15T15:42:44+02:00",
+          "ahead": 0,
+          "behind": 0
+        },
+        {
+          "name": "trip-harness",
+          "upstream": "origin/trip-harness",
+          "tip_date": "2026-07-29T11:27:48+02:00",
+          "ahead": 0,
+          "behind": 0
+        }
+      ],
+      "unpushed_branches": [
+        "feat/f0.12.0-ingredient-join"
+      ],
+      "worktrees": []
+    },
+    {
+      "path": "/home/seanm/github/index-locorum",
+      "remotes": [
+        "https://github.com/alchemiesofscent/index-locorum.git"
+      ],
+      "no_remote": false,
+      "dirty_files": 4,
+      "stashes": 0,
+      "head": "main",
+      "last_commit": "2026-02-09T13:12:08+01:00",
+      "branches": [
+        {
+          "name": "main",
+          "upstream": "origin/main",
+          "tip_date": "2026-02-09T13:12:08+01:00",
+          "ahead": 0,
+          "behind": 0
+        }
+      ],
+      "unpushed_branches": [],
+      "worktrees": []
+    },
+    {
+      "path": "/home/seanm/github/kyphi-repo",
+      "remotes": [
+        "git@github.com:alchemiesofscent/kyphi-repo.git"
+      ],
+      "no_remote": false,
+      "dirty_files": 0,
+      "stashes": 0,
+      "head": "main",
+      "last_commit": "2025-09-02T15:09:24+02:00",
+      "branches": [
+        {
+          "name": "main",
+          "upstream": "origin/main",
+          "tip_date": "2025-09-02T15:09:24+02:00",
+          "ahead": 0,
+          "behind": 0
+        }
+      ],
+      "unpushed_branches": [],
+      "worktrees": []
+    },
+    {
+      "path": "/home/seanm/github/oribasius-app",
+      "remotes": [
+        "https://www.github.com/alchemiesofscent/oribasius-app"
+      ],
+      "no_remote": false,
+      "dirty_files": 999,
+      "stashes": 0,
+      "head": "consolidation-20260729",
+      "last_commit": "2026-08-05T19:42:28+02:00",
+      "branches": [
+        {
+          "name": "backup/local-main-2026-07-15",
+          "upstream": null,
+          "tip_date": "2026-07-15T21:22:22+02:00"
+        },
+        {
+          "name": "consolidation-20260729",
+          "upstream": "origin/consolidation-20260729",
+          "tip_date": "2026-08-05T19:42:28+02:00",
+          "ahead": 0,
+          "behind": 0
+        },
+        {
+          "name": "dioscorides-fresh-translation-2026-07-20",
+          "upstream": "origin/dioscorides-fresh-translation-2026-07-20",
+          "tip_date": "2026-07-29T00:51:43+02:00",
+          "ahead": 0,
+          "behind": 0
+        },
+        {
+          "name": "feature/commentary-workflow",
+          "upstream": "origin/feature/commentary-workflow",
+          "tip_date": "2026-05-05T20:12:56+02:00",
+          "ahead": 0,
+          "behind": 0
+        },
+        {
+          "name": "feature/paul-book7-translation-20260722",
+          "upstream": null,
+          "tip_date": "2026-07-22T01:08:45+02:00"
+        },
+        {
+          "name": "main",
+          "upstream": "origin/main",
+          "tip_date": "2026-07-29T06:50:14+02:00",
+          "behind": 1
+        },
+        {
+          "name": "paul-book7-completion-20260722",
+          "upstream": null,
+          "tip_date": "2026-07-29T16:03:44+02:00"
+        },
+        {
+          "name": "recovery/aetius-export-20260728",
+          "upstream": null,
+          "tip_date": "2026-07-20T20:29:54+02:00"
+        },
+        {
+          "name": "recovery/galen-json-2026-07-15",
+          "upstream": "origin/recovery/galen-json-2026-07-15",
+          "tip_date": "2026-07-20T18:21:44+02:00",
+          "ahead": 19
+        }
+      ],
+      "unpushed_branches": [
+        "backup/local-main-2026-07-15",
+        "feature/paul-book7-translation-20260722",
+        "paul-book7-completion-20260722",
+        "recovery/aetius-export-20260728",
+        "recovery/galen-json-2026-07-15"
+      ],
+      "worktrees": [
+        "/home/seanm/github/oribasius-app-paul-completion-20260722",
+        "/home/seanm/github/oribasius-app-paul7",
+        "/tmp/claude-1000/-home-seanm-github-oribasius-app/582ee196-962a-4c99-afc6-8aa423840b29/scratchpad/prewave"
+      ]
+    },
+    {
+      "path": "/home/seanm/github/recipe-aligner",
+      "remotes": [
+        "git@github.com:alchemiesofscent/recipe-aligner.git"
+      ],
+      "no_remote": false,
+      "dirty_files": 5,
+      "stashes": 0,
+      "head": "main",
+      "last_commit": "2025-10-23T21:55:57+02:00",
+      "branches": [
+        {
+          "name": "main",
+          "upstream": "origin/main",
+          "tip_date": "2025-10-23T21:55:57+02:00",
+          "behind": 5
+        }
+      ],
+      "unpushed_branches": [],
+      "worktrees": []
+    },
+    {
+      "path": "/home/seanm/github/source-artifacts",
+      "remotes": [],
+      "no_remote": true,
+      "dirty_files": 1,
+      "stashes": 0,
+      "head": "main",
+      "last_commit": "2026-07-30T19:13:58+02:00",
+      "branches": [
+        {
+          "name": "main",
+          "upstream": null,
+          "tip_date": "2026-07-30T19:13:58+02:00"
+        }
+      ],
+      "unpushed_branches": [],
+      "worktrees": []
+    },
+    {
+      "path": "/home/seanm/github/tei-maker",
+      "remotes": [
+        "https://github.com/alchemiesofscent/tei-maker.git"
+      ],
+      "no_remote": false,
+      "dirty_files": 5,
+      "stashes": 0,
+      "head": "wellmann-qc-desktop-20260716",
+      "last_commit": "2026-07-21T00:47:27+02:00",
+      "branches": [
+        {
+          "name": "feature/berendes-lineation-pilot-20260722",
+          "upstream": "origin/feature/berendes-lineation-pilot-20260722",
+          "tip_date": "2026-07-22T02:37:52+02:00",
+          "ahead": 0,
+          "behind": 0
+        },
+        {
+          "name": "feature/berendes-reading-v2-20260722",
+          "upstream": "origin/feature/berendes-reading-v2-20260722",
+          "tip_date": "2026-07-22T05:31:46+02:00",
+          "ahead": 0,
+          "behind": 0
+        },
+        {
+          "name": "feature/paul-book7-translation-20260721",
+          "upstream": null,
+          "tip_date": "2026-07-22T00:01:56+02:00"
+        },
+        {
+          "name": "feature/reference-witness-ocr-20260721",
+          "upstream": "origin/main",
+          "tip_date": "2026-07-21T22:51:36+02:00",
+          "ahead": 3,
+          "behind": 3
+        },
+        {
+          "name": "fix/new-viewer-inherited-page-20260722",
+          "upstream": "origin/fix/new-viewer-inherited-page-20260722",
+          "tip_date": "2026-07-22T04:37:56+02:00",
+          "upstream_gone": true
+        },
+        {
+          "name": "main",
+          "upstream": "origin/main",
+          "tip_date": "2026-07-21T22:21:22+02:00",
+          "behind": 1
+        },
+        {
+          "name": "trip-f020-docs-hygiene-20260720",
+          "upstream": null,
+          "tip_date": "2026-07-21T19:10:53+02:00"
+        },
+        {
+          "name": "wellmann-endgame-20260805",
+          "upstream": "origin/wellmann-endgame-20260805",
+          "tip_date": "2026-08-05T19:58:09+02:00",
+          "ahead": 0,
+          "behind": 0
+        },
+        {
+          "name": "wellmann-qc-20260721",
+          "upstream": "origin/wellmann-qc-20260721",
+          "tip_date": "2026-08-05T18:42:47+02:00",
+          "ahead": 1
+        },
+        {
+          "name": "wellmann-qc-desktop-20260716",
+          "upstream": null,
+          "tip_date": "2026-07-21T00:47:27+02:00"
+        }
+      ],
+      "unpushed_branches": [
+        "feature/paul-book7-translation-20260721",
+        "feature/reference-witness-ocr-20260721",
+        "trip-f020-docs-hygiene-20260720",
+        "wellmann-qc-20260721",
+        "wellmann-qc-desktop-20260716"
+      ],
+      "worktrees": [
+        "/home/seanm/github/tei-maker-integration",
+        "/home/seanm/github/tei-maker-trip",
+        "/home/seanm/github/tei-maker-trip-ocr",
+        "/home/seanm/github/tei-maker-trip-paul7",
+        "/tmp/tei-maker-berendes-lineation-pilot",
+        "/tmp/tei-maker-berendes-reading-v2",
+        "/tmp/tei-maker-berendes-review",
+        "/tmp/tei-maker-viewer-inherited-page",
+        "/tmp/tei-maker-wellmann-20260721",
+        "/tmp/tei-maker-wellmann-endgame",
+        "/tmp/tei-maker-wellmann-p145-clean-refresh",
+        "/tmp/tei-maker-wellmann-p242-clean-refresh"
+      ]
+    },
+    {
+      "path": "/home/seanm/github/to-do-list",
+      "remotes": [
+        "https://github.com/alchemiesofscent/to-do-list.git"
+      ],
+      "no_remote": false,
+      "dirty_files": 0,
+      "stashes": 0,
+      "head": "main",
+      "last_commit": "2026-01-23T20:22:54+01:00",
+      "branches": [
+        {
+          "name": "main",
+          "upstream": "origin/main",
+          "tip_date": "2026-01-23T20:22:54+01:00",
+          "behind": 21
+        }
+      ],
+      "unpushed_branches": [],
+      "worktrees": []
+    }
+  ],
+  "detached_worktrees": [
+    {
+      "path": "/home/seanm/github/oribasius-app-paul-completion-20260722",
+      "gitdir": "/home/seanm/github/oribasius-app/.git/worktrees/oribasius-paul-completion-20260722"
+    },
+    {
+      "path": "/home/seanm/github/oribasius-app-paul7",
+      "gitdir": "/home/seanm/github/oribasius-app/.git/worktrees/oribasius-app-paul7"
+    },
+    {
+      "path": "/home/seanm/github/tei-maker-integration",
+      "gitdir": "/home/seanm/github/tei-maker/.git/worktrees/tei-maker-integration"
+    },
+    {
+      "path": "/home/seanm/github/tei-maker-trip-ocr",
+      "gitdir": "/home/seanm/github/tei-maker/.git/worktrees/tei-maker-trip-ocr"
+    },
+    {
+      "path": "/home/seanm/github/tei-maker-trip-paul7",
+      "gitdir": "/home/seanm/github/tei-maker/.git/worktrees/tei-maker-trip-paul7"
+    },
+    {
+      "path": "/home/seanm/github/tei-maker-trip",
+      "gitdir": "/home/seanm/github/tei-maker/.git/worktrees/tei-maker-trip"
+    }
+  ]
+}

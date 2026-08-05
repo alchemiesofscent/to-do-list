@@ -1,0 +1,134 @@
+{
+  "machine": "theophrastos",
+  "generated_at": "2026-08-05T18:02:53+00:00",
+  "roots": [
+    "c:\\dev",
+    "\\\\wsl.localhost\\Ubuntu\\home\\seanm"
+  ],
+  "fetched": true,
+  "repos": [
+    {
+      "path": "\\\\wsl.localhost\\Ubuntu\\home\\seanm\\.claude\\jobs\\a66daad1\\tmp\\clone-test",
+      "remotes": [],
+      "no_remote": true,
+      "dirty_files": 0,
+      "stashes": 0,
+      "head": "?",
+      "last_commit": null,
+      "branches": [],
+      "unpushed_branches": [],
+      "worktrees": []
+    },
+    {
+      "path": "\\\\wsl.localhost\\Ubuntu\\home\\seanm\\.claude\\jobs\\b7ef2073\\tmp\\TRIP-workflow",
+      "remotes": [],
+      "no_remote": true,
+      "dirty_files": 0,
+      "stashes": 0,
+      "head": "?",
+      "last_commit": null,
+      "branches": [],
+      "unpushed_branches": [],
+      "worktrees": []
+    },
+    {
+      "path": "\\\\wsl.localhost\\Ubuntu\\home\\seanm\\.codex\\.tmp\\plugins",
+      "remotes": [],
+      "no_remote": true,
+      "dirty_files": 0,
+      "stashes": 0,
+      "head": "?",
+      "last_commit": null,
+      "branches": [],
+      "unpushed_branches": [],
+      "worktrees": []
+    },
+    {
+      "path": "\\\\wsl.localhost\\Ubuntu\\home\\seanm\\.codex\\memories",
+      "remotes": [],
+      "no_remote": true,
+      "dirty_files": 0,
+      "stashes": 0,
+      "head": "?",
+      "last_commit": null,
+      "branches": [],
+      "unpushed_branches": [],
+      "worktrees": []
+    },
+    {
+      "path": "\\\\wsl.localhost\\Ubuntu\\home\\seanm\\.nvm",
+      "remotes": [],
+      "no_remote": true,
+      "dirty_files": 0,
+      "stashes": 0,
+      "head": "?",
+      "last_commit": null,
+      "branches": [],
+      "unpushed_branches": [],
+      "worktrees": []
+    },
+    {
+      "path": "\\\\wsl.localhost\\Ubuntu\\home\\seanm\\github",
+      "remotes": [],
+      "no_remote": true,
+      "dirty_files": 0,
+      "stashes": 0,
+      "head": "?",
+      "last_commit": null,
+      "branches": [],
+      "unpushed_branches": [],
+      "worktrees": []
+    },
+    {
+      "path": "c:\\dev\\perfume-tables",
+      "remotes": [
+        "https://github.com/alchemiesofscent/perfume-tables.git"
+      ],
+      "no_remote": false,
+      "dirty_files": 5,
+      "stashes": 1,
+      "head": "main",
+      "last_commit": "2026-07-21T22:12:38+02:00",
+      "branches": [
+        {
+          "name": "import-laboratory-prototype",
+          "upstream": "origin/import-laboratory-prototype",
+          "tip_date": "2026-07-16T20:42:25+02:00",
+          "ahead": 0,
+          "behind": 0
+        },
+        {
+          "name": "main",
+          "upstream": "origin/main",
+          "tip_date": "2026-07-21T22:12:38+02:00",
+          "behind": 48
+        }
+      ],
+      "unpushed_branches": [],
+      "worktrees": []
+    },
+    {
+      "path": "c:\\dev\\to-do-list",
+      "remotes": [
+        "https://github.com/alchemiesofscent/to-do-list.git"
+      ],
+      "no_remote": false,
+      "dirty_files": 0,
+      "stashes": 0,
+      "head": "main",
+      "last_commit": "2026-08-05T16:14:42+02:00",
+      "branches": [
+        {
+          "name": "main",
+          "upstream": "origin/main",
+          "tip_date": "2026-08-05T16:14:42+02:00",
+          "ahead": 0,
+          "behind": 0
+        }
+      ],
+      "unpushed_branches": [],
+      "worktrees": []
+    }
+  ],
+  "detached_worktrees": []
+}
