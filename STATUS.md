@@ -51,11 +51,17 @@ the supposedly frozen text-editing tool had been changed *that very day* by
 something still running on the desktop — nobody yet knows what. And a small
 project surfaced that exists on no archive at all, only on that one machine.
 
-Both machines have now been heard; the searching phase is over. The cleanup
-itself can finally be planned. But three questions must be answered first,
-by Sean, not by any assistant: which future the Oribasius project gets, what
-exactly keeps editing the frozen tool, and in what order the desktop's rescue
-work gets carried to safety.
+Both machines have now been heard; the searching phase is over. The mystery
+of the frozen tool solved itself: the editor was Sean — before leaving town,
+he deliberately restarted three automated jobs on the desktop (the Oribasius
+translations, the Dioscorides edition, and the cookbook's extraction
+pipeline) so they'd finish while he's away, back Sunday. So those three
+projects are off-limits until the machines go quiet. The cleanup can now be
+planned, but two questions remain Sean's alone: which future the Oribasius
+project gets, and in what order the desktop's rescue work gets carried to
+safety. And one worry stands: the automated jobs are writing days of work
+onto that single desktop — if they don't send it to the shared archive as
+they go, the cleanup's central sin is being recommitted in real time.
 
 ### What happens next
 
@@ -100,8 +106,27 @@ open_rulings:
     status: ready_for_ruling   # deferral condition met — all evidence in
   - id: tei-maker-active-writer
     question: "What on theophrastos committed to FROZEN tei-maker on
-               2026-08-05 (wellmann-qc-20260721 +1)? Identify and stop."
-    status: open   # blocks any tei-maker ruling
+               2026-08-05?"
+    status: resolved_2026-08-05   # Sean: his own automated /goals jobs, authorized
+  - id: active-lines-hands-off
+    rule: "Sean resumed three automated lines on theophrastos (2026-08-05,
+           via /goals), running unattended until ~2026-08-09 (Sunday):
+           (1) oribasius-app translations, (2) tei-maker wellmann_dioscorides
+           edition, (3) extraction-pipeline (WS-E of cookbook). NO
+           consolidation, rescue, or branch surgery on these three repos
+           until the jobs finish AND their work is pushed."
+    status: standing
+  - id: schema-v405-conformance
+    question: "Verify the three active lines' outputs conform to schema
+               v4.0.5 once jobs complete."
+    status: open   # check after ~2026-08-09
+  - id: unpushed-automation-risk
+    question: "The /goals jobs commit to local branches, several with no
+               upstream (wellmann-qc +1, extraction-pipeline feat no-up,
+               oribasius paul-book7 lines). Days of unattended work on one
+               machine = exactly the stranded-work pattern this cleanup
+               exists to kill. Do the jobs push? If not, arrange it."
+    status: open   # flagged to Sean 2026-08-05
   - id: oribasius-rescue-order
     question: "Rescue order for theophrastos paul-book7 + recovery branches
                (galen-json +19 unpushed) across three diverged states"
