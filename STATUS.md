@@ -41,14 +41,30 @@ several smaller projects with no online backup at all, and a to-do app whose
 latest state was never written down anywhere — it exists only inside a web
 browser, last touched in January.
 
-The desktop hasn't been searched yet. It may hold a third version of events,
-so no cleanup — no merging, no deleting — happens until it has been heard.
+Then, that same evening, Sean sat down at the desktop and ran the search
+himself. It did hold a third version of events. The Oribasius project turned
+out to exist in three states that no longer agree: the shared archive's
+version, the laptop's secret successor plan, and the desktop's own pile —
+nearly a thousand unfiled edits plus rescue work (a translation of Paul of
+Aegina's Book 7, recovered Galen data) that was never sent anywhere. Worse:
+the supposedly frozen text-editing tool had been changed *that very day* by
+something still running on the desktop — nobody yet knows what. And a small
+project surfaced that exists on no archive at all, only on that one machine.
+
+Both machines have now been heard; the searching phase is over. The cleanup
+itself can finally be planned. But three questions must be answered first,
+by Sean, not by any assistant: which future the Oribasius project gets, what
+exactly keeps editing the frozen tool, and in what order the desktop's rescue
+work gets carried to safety.
 
 ### What happens next
 
-Next time you're at the desktop: open a terminal in this project's folder,
-pull the latest version, and run the search command (it's in Part 2, ready to
-paste). Five minutes. That unlocks everything else.
+Three decisions, all Sean's, in any order: (1) rule on the Oribasius future —
+keep the absorption plan or adopt the successor plan found on the laptop;
+(2) find out what on the desktop keeps editing the frozen tool, and stop it;
+(3) approve the order for carrying the desktop's rescue work (Paul Book 7,
+Galen data) to the shared archive. Everything else in the cleanup waits on
+these, and nothing gets deleted without an explicit yes.
 
 ---
 
@@ -62,25 +78,34 @@ plan_version: "0.4"
 plan_file: PLAN.md
 phases:
   phase0_decisions: done
-  phase1_github_truth: partial   # 1.1/1.2 stale-unticked but scripts exist & ran; 1.6, 1.7 open
+  phase1_github_truth: partial   # 1.1/1.2 stale-unticked but scripts exist & ran; 1.6 in progress, 1.7 open
   phase2_machine_audit:
     metopion: done               # 2026-08-05, two reports (Windows + WSL)
-    theophrastos: blocked        # until Sean is at that machine
-    cross_reference: provisional # metopion only
-  phase3_consolidation: GATED
+    theophrastos: done           # 2026-08-05, two reports (c:\dev + ~/github WSL)
+    cross_reference: done        # both findings docs committed
+  phase3_consolidation: open_for_rulings   # execution blocked on open_rulings below
   phase4_app_rework: not_started
   phase5_rhythm: not_started
 gate:
-  rule: "No merge, branch deletion, archive, or worktree removal in ANY repo
-         until data/machines/theophrastos.json is committed."
+  rule: "SATISFIED 2026-08-05 — both machine audits committed. Phase 3 rulings
+         may proceed; each destructive execution still needs Sean's explicit
+         in-session confirmation."
   evidence_rule: "Existing local clones are evidence: read, never modify."
 frozen_repos:
   - tei-maker   # pending Sean's review of PR#13
 open_rulings:
   - id: oribasius-hylike-contradiction
-    question: "Hylike greenfield cutover (local, 2026-07-12) vs PLAN 3.1
+    question: "Hylike greenfield cutover (metopion, 2026-07-12) vs PLAN 3.1
                absorption ruling — which stands?"
-    status: deferred_until_theophrastos   # ruled 2026-08-05
+    status: ready_for_ruling   # deferral condition met — all evidence in
+  - id: tei-maker-active-writer
+    question: "What on theophrastos committed to FROZEN tei-maker on
+               2026-08-05 (wellmann-qc-20260721 +1)? Identify and stop."
+    status: open   # blocks any tei-maker ruling
+  - id: oribasius-rescue-order
+    question: "Rescue order for theophrastos paul-book7 + recovery branches
+               (galen-json +19 unpushed) across three diverged states"
+    status: open
   - id: duplicate-clusters
     question: "cookbook/aos-cookbook/aos-cookbook-mockup; dmm/aos-dmm"
     status: open
@@ -89,16 +114,16 @@ artifacts:
   machine_reports:
     - data/machines/metopion.json          # Windows roots: C:\Projects, C:\dev
     - data/machines/metopion-wsl.json      # WSL roots: ~/Projects et al.
-  findings: docs/FINDINGS-metopion-20260805.md   # ALL PROVISIONAL
+    - data/machines/theophrastos.json      # c:\dev valid; WSL rows garbage (rc=128)
+    - data/machines/theophrastos-wsl.json  # ~/github; wrapper repo itself unaudited (typo root)
+  findings:
+    - docs/FINDINGS-metopion-20260805.md
+    - docs/FINDINGS-theophrastos-20260805.md
 next_action:
-  where: theophrastos
-  commands:
-    - git pull
-    - python scripts/repo_audit.py --machine theophrastos --root <dirs> --fetch
-    - git add data/machines/theophrastos.json && git commit -m "audit: theophrastos" && git push
-  note: "Ask Sean for scan roots first; pass each subdirectory as its own root
-         if a root directory is itself a git repo (script does not descend
-         into nested repos)."
+  where: anywhere
+  what: "Obtain Sean's rulings on open_rulings (Hylike first); no execution
+         without them. In parallel: finish 1.6 Drive links in
+         data/projects.md."
 known_hazards:
   - "Windows git cannot read \\\\wsl.localhost repos (rc=128); audit WSL side
      from inside WSL."

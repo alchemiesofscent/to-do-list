@@ -1,6 +1,6 @@
 # Pipeline Build Plan
 
-**Version:** 0.4 (2026-08-05)
+**Version:** 0.5 (2026-08-05)
 **Lives at:** repo root of `to-do-list` — update status here, commit on every change.
 **Status codes:** `[ ]` not started · `[~]` in progress · `[x]` done · `[!]` blocked (note why)
 
@@ -29,12 +29,12 @@
 
 - [x] 2.1 Claude writes `scripts/repo_audit.py` — walks filesystem, finds every repo/worktree, reports dirty trees, unpushed commits, stashes, no-remote repos, divergence → table + `data/machines/<name>.json`
 - [x] 2.2 Run on `metopion` (laptop); commit report — two JSONs: `metopion.json` (Windows: C:\Projects, C:\dev) + `metopion-wsl.json` (WSL: ~/Projects et al.); Windows git cannot read \\wsl.localhost repos
-- [!] 2.3 Run on `theophrastos` (desktop) — blocked until Sean is next at that machine
-- [~] 2.4 Cross-reference GitHub list vs. machine reports → stranded-work list — metopion side done, PROVISIONAL: `docs/FINDINGS-metopion-20260805.md`; final only after 2.3
+- [x] 2.3 Run on `theophrastos` (desktop) — done 2026-08-05 by Sean; two JSONs (`theophrastos.json` c:\dev + `theophrastos-wsl.json` ~/github); Windows-pass WSL rows are garbage (rc=128), WSL JSON supersedes
+- [x] 2.4 Cross-reference GitHub list vs. machine reports → stranded-work list: `docs/FINDINGS-metopion-20260805.md` + `docs/FINDINGS-theophrastos-20260805.md`
 
 ## Phase 3 — Triage & consolidation (the one-time cleanup)
 
-**GATE (2026-08-05): no Phase 3 action — no merge, branch deletion, archive, or worktree removal in any repo — until BOTH machine audits (2.2 metopion ✓, 2.3 theophrastos ✗) are committed.** Existing local clones are evidence: read, never modify. metopion findings are PROVISIONAL until theophrastos lands.
+**GATE (2026-08-05): SATISFIED same day — both machine audits committed (2.2 metopion ✓, 2.3 theophrastos ✓).** Phase 3 may now be *planned and ruled on*; execution still requires Sean's per-ruling confirmation, and three new blockers from the desktop audit come first: (a) the Hylike-vs-absorption ruling (evidence now complete); (b) **something on theophrastos committed to FROZEN tei-maker today (2026-08-05, wellmann-qc-20260721 +1) — identify and stop it before any tei-maker ruling**; (c) oribasius-app now exists in three mutually diverged states (GitHub / metopion Hylike line / theophrastos paul-book7 + recovery lines, galen-json +19 unpushed) — rescue order needed. See `docs/FINDINGS-theophrastos-20260805.md`.
 
 **Open contradiction (2026-08-05, from metopion audit):** the local oribasius-app clone carries an authorized (2026-07-12) "Hylike greenfield cutover" program — oribasius-app frozen as a forensic *bridge* repo, successor repo `hylike` to become canonical; local main +326/−98 vs origin (no fast-forward possible for 3.1b); unpushed `refactor/project-layout` diverged 329/218 from `consolidation-20260729`. This contradicts the 3.1a/3.1c ruling that oribasius-app absorbs aetius/ancient-simples. Sean must rule before any 3.1 work. See `docs/FINDINGS-metopion-20260805.md` §5. **Ruling 2026-08-05: deferred until the theophrastos audit lands (2.3).**
 
@@ -48,7 +48,7 @@
 - [ ] 3.1c Execute mergers: aetius + ancient-simples → oribasius-app; kyphi-repo → perfume-tables; archive sources with pointer in README
 - [ ] 3.1d Rule on remaining duplicate clusters (cookbook×3, dmm×2)
 - [ ] 3.2 Kill stray branches (`backup/*`, `recovery/*`, `archive/*`, agent leftovers) and worktrees; one canonical clone per repo per machine
-- [ ] 3.3 Apply REPO_STANDARD.md to every surviving active repo: STATUS.md (with branch registry), AGENTS.md, docs/DECISIONS.md
+- [ ] 3.3 Apply REPO_STANDARD.md to every surviving active repo: STATUS.md (with branch registry), AGENTS.md, docs/DECISIONS.md — candidate template: the two-part STATUS.md shape adopted in to-do-list 2026-08-05 (Part 1 plain-English story for Sean, Part 2 machine-readable YAML for agents)
 - [ ] 3.4 Dashboard flags unregistered branches: declared (STATUS.md registry) vs. actual (portfolio.json) diff — the "PM" is this mechanism, not a person
 - [ ] 3.5 Archive dead repos (GitHub archive flag + README pointer): candidates `simples`, `flash`, `recipe-aligner`, `eggphy` — confirm each
 
@@ -76,6 +76,7 @@
 
 ## Changelog
 
+- 0.5 (2026-08-05): theophrastos audit committed by Sean (2.3, 2.4 done) — gate satisfied. Desktop holds: oribasius-app dirty:999 on consolidation checkout with unpushed paul-book7 + recovery branches (galen-json +19); FROZEN tei-maker touched today (unpushed +1) with 12 worktrees; machine-only repo `source-artifacts`; extraction-pipeline feature branch active today, unpushed. Full picture: oribasius-app and tei-maker each exist in three diverged states. Findings: `docs/FINDINGS-theophrastos-20260805.md`. Phase 3 open for rulings; execution blocked on (a) Hylike ruling, (b) stopping whatever writes to frozen tei-maker, (c) paul-book7 rescue order. 3.3 noted candidate STATUS.md template (two-part, story+YAML).
 - 0.4 (2026-08-05): metopion audit run and committed (2.1–2.2 done; two JSONs, Windows + WSL). Phase 3 hard-gated on both machine audits. Cross-reference done provisionally (2.4 [~]): headline risks — oribasius-app unpushed Hylike-cutover line (main +326/−98, local-only `refactor/project-layout`); tei-maker Windows clone dirty:551 with no-upstream main, WSL clone with 6 local-only branches + 2 stashes; `tei-maker.mixed` no-remote dirty:10,576; 4 no-remote WSL repos incl. `~/Projects` wrapper repo; Scholar's Opus localStorage 8 days ahead of projects.md (both frozen since 2026-01); browser-only tasks exist. Open contradiction logged: Hylike cutover vs. 3.1 absorption ruling — needs Sean. Details: `docs/FINDINGS-metopion-20260805.md`.
 - 0.3 (2026-08-05): First inventory complete (1.4–1.5). Phase 3 rewritten with consolidation rulings (oribasius-app absorbs aetius/ancient-simples/simples; kyphi-repo → perfume-tables), stranded-work rescue list, REPO_STANDARD.md rollout, branch-registry mechanism. Added 1.7 (collector captures README + docs).
 - 0.2 (2026-08-05): Phase 0 decisions recorded (source of truth, scope incl. Drive folders, private repos + PAT, machine names). Added 1.6 (Drive enumeration). Phase 1 build started.
