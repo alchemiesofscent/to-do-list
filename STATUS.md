@@ -1,7 +1,16 @@
 # STATUS
 
-**Updated:** 2026-08-05 (by: claude-cowork)
+**Updated:** 2026-08-06 (by: claude-cowork)
 **Canonical branch:** main
+
+> **⚠ TOP ITEM (2026-08-06): a finished corpus is one disk failure from gone.**
+> The Galen *De alimentorum facultatibus* lane on theophrastos — 2,463 files,
+> 147 approved chapters — is **untracked: no commit, no branch, no backup**
+> (rescue bundles predate it). Flagged by the oribasius /goals job itself at
+> 06:56. Sean is away until ~2026-08-09. If ANY access to theophrastos exists
+> first, run:
+> `cd ~/github/oribasius-app && git checkout -b rescue/alimfac-20260806 && git add -f translation_project/galen-alimentary-faculties/ && git commit -m "rescue: alim.fac. lane" && git push -u origin rescue/alimfac-20260806`
+> Book XIV wave artifacts are untracked too (same repo, same exposure).
 
 ---
 
@@ -137,6 +146,14 @@ open_rulings:
   - id: duplicate-clusters
     question: "cookbook/aos-cookbook/aos-cookbook-mockup; dmm/aos-dmm"
     status: open
+  - id: alimfac-exposed-corpus
+    question: "Galen Alim.Fac. lane (2,463 files, 147 approved chapters) and
+               Book XIV wave artifacts are untracked on theophrastos — no
+               commit/branch/backup. Rescue command in TOP ITEM banner above.
+               Owner actions also queued: Galen SMT I–V canonical approval;
+               extraction-pipeline ὕπνον decision queue; stale Book XIV
+               routing hold."
+    status: URGENT_open   # flagged by the job 2026-08-06 06:56, logged here same day
 artifacts:
   portfolio: data/portfolio.json           # GitHub-side truth, nightly
   machine_reports:
