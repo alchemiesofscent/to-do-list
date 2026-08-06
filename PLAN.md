@@ -22,7 +22,7 @@
 - [ ] 1.3 Sean merges both, adds secret if 0.3 = yes
 - [x] 1.4 Trigger manually once; verify `data/portfolio.json` is sane (25 repos; PAT needed Pull requests: read — fixed)
 - [x] 1.5 Review output: 5 live repos; divergence concentrated in `tei-maker` (wellmann-qc +194) and `oribasius-app` (consolidation-20260729 +120/-0); duplicate clusters identified; zero STATUS.md files
-- [ ] 1.6 Sean enumerates Google Drive project folders → added to `projects.md` as entries with `drive:` links (automation of Drive freshness deferred to v0.3 if wanted)
+- [~] 1.6 Sean enumerates Google Drive project folders → added to `projects.md` as entries with `drive:` links — 16 folders linked 2026-08-06. Open: (a) `Galen Commentators` folder → which Galen translation entries; (b) `03. Research/07. Edited Volume` → Perfume Production or Michael volume; (c) unmatched folders Kyphi / Styrax / Eggs like Peaches / Two Traditions of Materia Medica → new entries or skip. (Note: a second `07. Edited Volume` exists inside `Wilde_Files` — ignored as non-canonical.)
 - [ ] 1.7 Extend collector: capture README.md + `docs/` file listing per repo, so consolidation/documentation questions are answerable from `portfolio.json`
 
 ## Phase 2 — Local audit (per machine, whenever at that machine)
@@ -37,6 +37,8 @@
 **GATE (2026-08-05): SATISFIED same day — both machine audits committed (2.2 metopion ✓, 2.3 theophrastos ✓).** Phase 3 may now be *planned and ruled on*; execution still requires Sean's per-ruling confirmation, and three new blockers from the desktop audit come first: (a) the Hylike-vs-absorption ruling (evidence now complete); (b) ~~something on theophrastos committed to FROZEN tei-maker today~~ **resolved 2026-08-05: Sean's own automated /goals jobs — he deliberately resumed three lines (oribasius-app translations; tei-maker wellmann_dioscorides edition; extraction-pipeline = WS-E of cookbook), unattended until ~2026-08-09. Standing rule: hands off those three repos until jobs finish and their work is pushed; then verify v4.0.5 schema conformance**; (c) oribasius-app now exists in three mutually diverged states (GitHub / metopion Hylike line / theophrastos paul-book7 + recovery lines, galen-json +19 unpushed) — rescue order needed. See `docs/FINDINGS-theophrastos-20260805.md`.
 
 **Open contradiction (2026-08-05, from metopion audit):** the local oribasius-app clone carries an authorized (2026-07-12) "Hylike greenfield cutover" program — oribasius-app frozen as a forensic *bridge* repo, successor repo `hylike` to become canonical; local main +326/−98 vs origin (no fast-forward possible for 3.1b); unpushed `refactor/project-layout` diverged 329/218 from `consolidation-20260729`. This contradicts the 3.1a/3.1c ruling that oribasius-app absorbs aetius/ancient-simples. Sean must rule before any 3.1 work. See `docs/FINDINGS-metopion-20260805.md` §5. **Ruling 2026-08-05: deferred until the theophrastos audit lands (2.3).**
+
+**Naming note (2026-08-06, Sean):** if the successor-repo path is taken, `hylike` should be named **`materia-medica`**. The cutover-vs-absorption ruling itself remains deferred.
 
 **Rulings so far (2026-08-05):**
 - `oribasius-app` absorbs `aetius`, `ancient-simples` (+ `simples` archived as superseded scaffold) — merger must be documented in oribasius-app docs first (→ 3.1a)

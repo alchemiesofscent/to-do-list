@@ -45,6 +45,7 @@ Notes:
 
 - [ ] Michael of Ephesus: Philosopher and Commentator (Edited Volume)
   - id: ev-michael-of-ephesus-brill-intro
+  - drive: https://drive.google.com/drive/folders/1SRo3jN91Hp05h_Z4vGugXe8taA-CyVPa
   - domain: Writing
   - type: Edited Volume
   - status: Draft
@@ -54,6 +55,7 @@ Notes:
 
 - [ ] Metaphor in Aristotle’s Natural Science (Studium Estonica)
   - id: art-metaphor-aristotle-natural-science
+  - drive: https://drive.google.com/drive/folders/1CkRPz1eklZKu2D7iQv_dA7l5Lba63vET
   - domain: Writing
   - type: Article
   - status: Needs Update
@@ -134,6 +136,7 @@ Notes:
 
 - [ ] Aristotle on the Separation of Males and Females
   - id: art-aristotle-separation-sexes
+  - drive: https://drive.google.com/drive/folders/1E-Wz-HG2wXYqQGMalgbdSTC6w9vF8BRw
   - domain: Writing
   - type: Article
   - status: Needs Update
@@ -165,6 +168,7 @@ Notes:
 
 - [ ] Theophrastus on Art Completing Nature
   - id: art-theophrastus-art-completing-nature
+  - drive: https://drive.google.com/drive/folders/1bBBuF7pdLRi7sCxd60DyOpVhEHKj7og6
   - domain: Writing
   - type: Article
   - status: Complete
@@ -197,6 +201,7 @@ Notes:
 
 - [ ] Oribasius and the Pneumatist Division of Medicine
   - id: art-oribasius-pneumatist-division
+  - drive: https://drive.google.com/drive/folders/1m1JU2FAgHv0IxcUFR1EukKPbtMb7t9uA
   - domain: Writing
   - type: Article
   - status: Draft
@@ -205,6 +210,7 @@ Notes:
 
 - [ ] Aetius of Amida (Brill compendium chapter)
   - id: art-aetius-amida-brill-chapter
+  - drive: https://drive.google.com/drive/folders/1kiYSZdVuEVGsiFi0SqDhzclfFxWliYgD
   - domain: Writing
   - type: Article
   - status: Draft
@@ -213,6 +219,7 @@ Notes:
 
 - [ ] Michael of Ephesus on Sexual Difference as Adaptation
   - id: art-michael-of-ephesus-sexual-difference
+  - drive: https://drive.google.com/drive/folders/1M4oYJrwMuc7RO2WRyK-BUf9m7jwssuA7
   - domain: Writing
   - type: Article
   - status: Early Stage
@@ -221,6 +228,7 @@ Notes:
 
 - [ ] Galen on Solecism
   - id: art-galen-on-solecism
+  - drive: https://drive.google.com/drive/folders/1ENOVMpnh8opt_rgiemhB2P3qW5W_u1oX
   - domain: Writing
   - type: Article
   - status: Early Stage
@@ -247,6 +255,7 @@ Notes:
 
 - [ ] A New Method for Identifying Ancient Stacte
   - id: exp-identifying-ancient-stacte
+  - drive: https://drive.google.com/drive/folders/1qYBVNxxrsbwkv0UiCPcWB-vCqxHtt0x9
   - domain: Experiments
   - type: Article
   - status: Complete
@@ -263,6 +272,7 @@ Notes:
 
 - [ ] Stypsis in Perfumery and the Arts of Dyeing
   - id: exp-stypsis-perfumery-dyeing
+  - drive: https://drive.google.com/drive/folders/14LpKUQgTskRyET44db0sXxNK7uwmOroZ
   - domain: Experiments
   - type: Article
   - status: Complete
@@ -271,6 +281,7 @@ Notes:
 
 - [ ] What did “stypsis” mean in ancient perfumery?
   - id: exp-stypsis-meaning
+  - drive: https://drive.google.com/drive/folders/1ArRYBSHQ3D7ggbKaSoIkrUbxDB4nRNzW
   - domain: Experiments
   - type: Article
   - status: Experimental
@@ -286,6 +297,7 @@ Notes:
 
 - [ ] Organic Residue Analysis & Mendesian Fragrance
   - id: exp-ora-mendesian-fragrance
+  - drive: https://drive.google.com/drive/folders/1p4_RTPLDKaVo4Hl4BIED0qH8FczLWIXJ
   - domain: Experiments
   - type: Article
   - status: Early Stage
@@ -324,6 +336,7 @@ Notes:
 
 - [ ] Aetius of Amida I and II (De Gruyter)
   - id: tr-aetius-amida-i-ii
+  - drive: https://drive.google.com/drive/folders/1HbmUy4OqfpiKHrwaKZyf2ZAXeIze4I_X
   - domain: Writing
   - type: Translation
   - status: Early Stage
@@ -332,6 +345,7 @@ Notes:
 
 - [ ] Michael of Ephesus — On Aristotle’s Generation of Animals I–II (Sorabji Series)
   - id: tr-michael-of-ephesus-generation-of-animals
+  - drive: https://drive.google.com/drive/folders/1SPOVy1sz0N4q4Q_FX1ajzslQ_ZVUzNyH
   - domain: Writing
   - type: Translation
   - status: Revision
@@ -391,6 +405,7 @@ Notes:
 
 - [ ] Digital Dioscorides
   - id: dh-digital-dioscorides
+  - drive: https://drive.google.com/drive/folders/1LAkhNl8FVu7Ux99SKWnyi45EXJ7J9yO7
   - domain: DH
   - type: Digital Humanities
   - status: Early Stage
@@ -440,6 +455,7 @@ Notes:
 
 - [ ] Future funding: Biomarkers for Commiphora myrrha
   - id: grant-biomarkers-commiphora-myrrha
+  - drive: https://drive.google.com/drive/folders/1qXo0PdLfsPGDIJQv45etlUMxjwSZF0sR
   - domain: Grants
   - type: Grant
   - status: Early Stage
