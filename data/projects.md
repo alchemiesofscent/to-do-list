@@ -26,11 +26,11 @@ Notes:
 
 ## Immediate Priorities & Deadlines
 
-- [ ] Ager — The Scent of Ancient Magic (Book Review)
+- [x] Ager — The Scent of Ancient Magic (Book Review)
   - id: br-ager-scent-ancient-magic
   - domain: Writing
   - type: Book Review
-  - status: Draft
+  - status: Complete
   - priority: High
   - deadlineNote: End of week
   - description: Drafting.
@@ -175,11 +175,11 @@ Notes:
   - priority: Medium
   - description: Complete draft.
 
-- [ ] Athenaeus the Aristotelian (Festschrift)
+- [x] Athenaeus the Aristotelian (Festschrift)
   - id: art-athenaeus-aristotelian-festschrift
   - domain: Writing
   - type: Article
-  - status: Revision
+  - status: Complete
   - priority: Medium
   - description: Near complete / in revision.
 
@@ -304,6 +304,39 @@ Notes:
   - priority: Medium
   - description: Co-authored; middle/last author.
 
+- [ ] Kyphi
+  - id: exp-kyphi
+  - drive: https://drive.google.com/drive/folders/1fgcGW_CQ0P0BOZfDXwwIAemniZ2hrYqV
+  - domain: Experiments
+  - type: Article
+  - status: Early Stage
+  - priority: Medium
+
+- [ ] Styrax
+  - id: exp-styrax
+  - drive: https://drive.google.com/drive/folders/1U0IZ3NxDW0VlhGnIyxYfmj_LaPENhVUt
+  - domain: Experiments
+  - type: Article
+  - status: Early Stage
+  - priority: Medium
+
+- [ ] Eggs like Peaches (PGM VII note)
+  - id: exp-eggs-like-peaches
+  - drive: https://drive.google.com/drive/folders/1DzWvGwTdex_lF6vaRz9pXsyBJi-eeEPn
+  - domain: Experiments
+  - type: Article
+  - status: Early Stage
+  - priority: Medium
+  - description: Experimental note on PGM VII; previously existed only as a browser task.
+
+- [ ] Two Traditions of Materia Medica
+  - id: art-two-traditions-materia-medica
+  - drive: https://drive.google.com/drive/folders/1PfUDVf9zdXu-wuWIaPGF9AFA1Gv6NFb8
+  - domain: Writing
+  - type: Article
+  - status: Early Stage
+  - priority: Medium
+
 - [ ] A Data Model for the History of Ancient Pharmacology
   - id: dh-data-model-ancient-pharmacology
   - domain: DH
@@ -314,19 +347,19 @@ Notes:
 
 ### Reception
 
-- [ ] A 3rd Century Ink Recipe and its Modern Reception
+- [x] A 3rd Century Ink Recipe and its Modern Reception
   - id: art-3rd-century-ink-recipe
   - domain: Writing
   - type: Article
-  - status: Revision
+  - status: Complete
   - priority: Medium
   - description: Complete draft; in revision.
 
-- [ ] The Fragrance of Places We Have Not Known
+- [x] The Fragrance of Places We Have Not Known
   - id: art-fragrance-of-places-reception
   - domain: Writing
   - type: Article
-  - status: Revision
+  - status: Complete
   - priority: Medium
   - description: Coty, Fascism, and Ancient Greek reception; final revisions.
 
@@ -352,16 +385,27 @@ Notes:
   - priority: High
   - description: Draft translation done; needs commentary.
 
-- [ ] Galen’s Hippocratic Commentary
+- [ ] Galen’s Hippocratic Commentary (sourcebook volume)
   - id: tr-galen-hippocratic-commentary
+  - drive: https://drive.google.com/drive/folders/18jXqjsftCv28BOM2gblz8CCwzz5u36Gu
   - domain: Writing
   - type: Translation
   - status: Early Stage
   - priority: Medium
   - coAuthors: Peter Singer
 
-- [ ] Galen — Against Lycus + Against Julian
-  - id: tr-galen-against-lycus-julian
+- [ ] Galen — Against Lycus
+  - id: tr-galen-against-lycus
+  - drive: https://drive.google.com/drive/folders/18jXqjsftCv28BOM2gblz8CCwzz5u36Gu
+  - domain: Writing
+  - type: Translation
+  - status: Early Stage
+  - priority: Medium
+  - coAuthors: Peter Singer
+
+- [ ] Galen — Against Julian
+  - id: tr-galen-against-julian
+  - drive: https://drive.google.com/drive/folders/18jXqjsftCv28BOM2gblz8CCwzz5u36Gu
   - domain: Writing
   - type: Translation
   - status: Early Stage
@@ -370,6 +414,7 @@ Notes:
 
 - [ ] [Galen] — On Causes of Affections
   - id: tr-galen-on-causes-of-affections
+  - drive: https://drive.google.com/drive/folders/18jXqjsftCv28BOM2gblz8CCwzz5u36Gu
   - domain: Writing
   - type: Translation
   - status: Early Stage
@@ -386,6 +431,7 @@ Notes:
 
 - [ ] Perfume Production in the Ancient World
   - id: ev-perfume-production-ancient-world
+  - drive: https://drive.google.com/drive/folders/1KADUVUeehLp4iIt9hr7ur0hJthtdUhxC
   - domain: Writing
   - type: Edited Volume
   - status: Early Stage
