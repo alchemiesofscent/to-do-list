@@ -122,15 +122,14 @@ open_rulings:
     status: open   # check after ~2026-08-09
   - id: unpushed-automation-risk
     question: "Do the three /goals jobs push their work?"
-    status: half_resolved   # checked 2026-08-05 late evening via ls-remote/fetch:
-    # oribasius-app PUSHES (consolidation-20260729 tip 2026-08-05 20:26 CEST)
-    # tei-maker PUSHES (new wellmann-endgame-20260805, tip 2026-08-06 00:33 CEST)
-    # extraction-pipeline DOES NOT PUSH: feat/f0.12.0-ingredient-join exists
-    #   only on theophrastos; remote unchanged since 2026-08-01. Unattended
-    #   until ~08-09. Needs: push enabled on that job, or manual push Sunday.
+    status: resolved_2026-08-06   # all three confirmed pushing:
+    # oribasius-app: consolidation-20260729 pushed 2026-08-05 20:26 CEST
+    # tei-maker: wellmann-endgame-20260805 pushing repeatedly (last 06:45 CEST)
+    # extraction-pipeline: feat/f0.12.0-ingredient-join now on remote; main
+    #   advanced too (first push observed morning 2026-08-06)
     # (Older theo-local rescue branches — paul-book7-translation, galen-json
-    #   +19 — remain unpushed regardless; they belong to the rescue-order
-    #   ruling, not the running jobs.)
+    #   +19 — remain unpushed; they belong to the rescue-order ruling, not
+    #   the running jobs.)
   - id: oribasius-rescue-order
     question: "Rescue order for theophrastos paul-book7 + recovery branches
                (galen-json +19 unpushed) across three diverged states"
