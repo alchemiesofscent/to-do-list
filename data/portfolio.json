@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-07T05:02:23+00:00",
+  "generated_at": "2026-08-08T04:21:33+00:00",
   "account": "alchemiesofscent",
   "schema": 2,
   "repos": [
@@ -8,22 +8,52 @@
       "private": true,
       "archived": false,
       "default_branch": "main",
-      "pushed_at": "2026-08-06T18:14:40Z",
-      "open_prs": 0,
+      "pushed_at": "2026-08-07T21:53:26Z",
+      "open_prs": 1,
       "branches": [
         {
           "name": "feat/f0.12.0-ingredient-join",
           "tip_date": "2026-08-06T18:14:37Z",
           "tip_author": "alchemiesofscent",
           "tip_message": "fix(F_0.12.0): S1.0 becomes variant-scoped — sol code review round 7",
-          "ahead": 18,
-          "behind": 1
+          "ahead": 0,
+          "behind": 9
+        },
+        {
+          "name": "feat/ws-e-lexical-construction-rules",
+          "tip_date": "2026-08-07T21:53:18Z",
+          "tip_author": "Alchemies of Scent Project",
+          "tip_message": "feat(ws-e): generalize lexical occurrence composition",
+          "ahead": 1,
+          "behind": 0,
+          "pr": {
+            "number": 2,
+            "title": "feat(ws-e): generalize lexical occurrence composition",
+            "state": "open",
+            "merged_at": null,
+            "updated_at": "2026-08-07T21:54:05Z"
+          }
+        },
+        {
+          "name": "feat/ws-e-lexical-occurrence-audit",
+          "tip_date": "2026-08-07T20:13:33Z",
+          "tip_author": "alchemiesofscent",
+          "tip_message": "Merge remote-tracking branch 'origin/main' into feat/ws-e-lexical-occurrence-audit",
+          "ahead": 0,
+          "behind": 0,
+          "pr": {
+            "number": 1,
+            "title": "docs(F_0.12.0): preserve sol plan-review round 1 (REQUEST_CHANGES, 6 findings)",
+            "state": "closed",
+            "merged_at": "2026-08-07T19:07:50Z",
+            "updated_at": "2026-08-07T19:07:50Z"
+          }
         },
         {
           "name": "main",
-          "tip_date": "2026-08-05T23:01:34Z",
+          "tip_date": "2026-08-07T20:13:33Z",
           "tip_author": "alchemiesofscent",
-          "tip_message": "ops: backup-push safety net for unpushed work"
+          "tip_message": "Merge remote-tracking branch 'origin/main' into feat/ws-e-lexical-occurrence-audit"
         },
         {
           "name": "source-review-appendix-a",
@@ -31,7 +61,7 @@
           "tip_author": "alchemiesofscent",
           "tip_message": "docs: seat handoff v2.0 — tandem phase with perfume-tables, thin-relay retired, CLAUDE.md seat-continuity pointer",
           "ahead": 0,
-          "behind": 82
+          "behind": 108
         },
         {
           "name": "trip-harness",
@@ -39,7 +69,7 @@
           "tip_author": "alchemiesofscent",
           "tip_message": "docs(release): v0.10.0 — record identity, and the first authoritative artifact class",
           "ahead": 0,
-          "behind": 33
+          "behind": 59
         }
       ],
       "branch_detail_skipped": false,
@@ -72,6 +102,7 @@
         "QC_CHECKS.md",
         "QC_REVIEW_APPROACH.md",
         "README.md",
+        "WS-E_12-Hour_Lexical_Occurrence_Audit_Work_Order_2026-08-07.md",
         "WSE-PILOT-PROMPT.md",
         "_wse-handoff/README.md",
         "_wse-handoff/WS-N-RESTRUCTURE-PROMPT.md",
@@ -111,6 +142,7 @@
         "archive/QC_REVIEW_APPROACH.v1.1.md",
         "audit/PROJECT-COMPLETION-AUDIT.md",
         "audit/README.md",
+        "audit/ingredient_scope/lexical_occurrences/MODEL-NOTE.md",
         "audit/logeion/README.md",
         "audit/source_review/README.md",
         "audit/source_review/manual-review-groups.md",
@@ -130,6 +162,7 @@
         "docs/1-plans/F_0.6.0_manniche-multilingual-linking.sketch.md",
         "docs/1-plans/F_0.7.0_page-provenance-calibration.plan.md",
         "docs/1-plans/F_0.8.0_greek-lsj-logeion-linking.plan.md",
+        "docs/1-plans/F_lexical-occurrence-audit.plan.md",
         "docs/1-plans/MOVE-PORTABILITY.plan.md",
         "docs/1-plans/archive/F_0.1.0_trip-harness-bootstrap.plan.v1.0.md",
         "docs/1-plans/archive/F_0.11.0_claim-provenance-carry.plan.v1.3.md",
@@ -137,6 +170,15 @@
         "docs/1-plans/archive/F_0.11.0_claim-provenance-carry.plan.v1.5.md",
         "docs/1-plans/archive/F_0.12.0_ingredient-scope-closeout.plan.v1.0.md",
         "docs/1-plans/archive/F_0.12.0_ingredient-scope-closeout.plan.v1.1.md",
+        "docs/1-plans/archive/F_0.12.0_ingredient-scope-closeout.plan.v1.11.md",
+        "docs/1-plans/archive/F_0.12.0_ingredient-scope-closeout.plan.v1.12.md",
+        "docs/1-plans/archive/F_0.12.0_ingredient-scope-closeout.plan.v1.3.md",
+        "docs/1-plans/archive/F_0.12.0_ingredient-scope-closeout.plan.v1.4.md",
+        "docs/1-plans/archive/F_0.12.0_ingredient-scope-closeout.plan.v1.5.md",
+        "docs/1-plans/archive/F_0.12.0_ingredient-scope-closeout.plan.v1.6.md",
+        "docs/1-plans/archive/F_0.12.0_ingredient-scope-closeout.plan.v1.7.md",
+        "docs/1-plans/archive/F_0.12.0_ingredient-scope-closeout.plan.v1.8.md",
+        "docs/1-plans/archive/F_0.12.0_ingredient-scope-closeout.plan.v1.9.md",
         "docs/1-plans/archive/F_0.2.0_dioscorides-pilot-repro-check.plan.v1.0.md",
         "docs/1-plans/archive/F_0.3.0_variant-spelling-folding.plan.v1.0.md",
         "docs/1-plans/archive/F_0.4.0_variant-alias-activation.plan.v1.0.md",
@@ -187,6 +229,17 @@
         "docs/3-code-review/F_0.11.0-sol-rounds/round-2.md",
         "docs/3-code-review/F_0.11.0-sol-rounds/round-3.md",
         "docs/3-code-review/F_0.11.0-sol-rounds/round-4.md",
+        "docs/3-code-review/F_0.12.0-sol-rounds/code-round-1-REQUEST_CHANGES.md",
+        "docs/3-code-review/F_0.12.0-sol-rounds/code-round-2-REQUEST_CHANGES.md",
+        "docs/3-code-review/F_0.12.0-sol-rounds/code-round-3-REQUEST_CHANGES.md",
+        "docs/3-code-review/F_0.12.0-sol-rounds/code-round-4-REQUEST_CHANGES.md",
+        "docs/3-code-review/F_0.12.0-sol-rounds/code-round-5-APPROVED.md",
+        "docs/3-code-review/F_0.12.0-sol-rounds/code-round-6-NEEDS_REWORK.md",
+        "docs/3-code-review/F_0.12.0-sol-rounds/plan-round-1-REQUEST_CHANGES.md",
+        "docs/3-code-review/F_0.12.0-sol-rounds/plan-round-2-REQUEST_CHANGES.md",
+        "docs/3-code-review/F_0.12.0-sol-rounds/plan-round-3-REQUEST_CHANGES.md",
+        "docs/3-code-review/F_0.12.0-sol-rounds/plan-round-4-REQUEST_CHANGES.md",
+        "docs/3-code-review/F_0.12.0-sol-rounds/plan-round-5-REQUEST_CHANGES.md",
         "docs/4-unit-tests/COVERAGE-DEBT.md",
         "docs/4-unit-tests/TESTING.md",
         "docs/4-unit-tests/archive/COVERAGE-DEBT.v0.1.md",
@@ -199,7 +252,9 @@
         "docs/6-memo/F_0.11.0-review-status-2026-07-30.md",
         "docs/6-memo/F_0.3.0-planning-brief.md",
         "docs/6-memo/HANDOFF-F_0.12.0-ingredient-join.md",
+        "docs/6-memo/HANDOFF-lexical-occurrence-audit-2026-08-07.md",
         "docs/6-memo/MOVE-LEDGER-2026-07-15.md",
+        "docs/6-memo/QUESTIONS-FOR-SEAN-2026-08-05.md",
         "docs/6-memo/QUESTIONS-FOR-SEAN-overnight-2026-07-15.md",
         "docs/6-memo/TRIP-HARNESS-BOOTSTRAP-STATUS.md",
         "docs/6-memo/archive/FABLE-RESTART-PROMPT.v1.0.md",
@@ -328,6 +383,53 @@
       "md_files_truncated": false,
       "readme": "# Classical Plant Identification Database\n\n## Development workflow\n\nChanges to the pipeline run through the TRIP cross-model loop in `.claude/skills/`\n(fable plans, Sol reviews, Luna implements — release ledger in\n`docs/2-changelog/changelog_table.md`, currently v0.11.0). Architecture source of truth:\n`docs/ARCHI.md`; agent rules: `AGENTS.md`.\n\n**Runtime floor: Python >= 3.11.** The pipeline uses `datetime.UTC` in 253 scripts, which\nraises `AttributeError` on 3.10 (`datetime.timezone.utc` is the pre-3.11 spelling). The\nfloor was undeclared until the F_0.11.0 round-5 review found it via\n`scripts/tests/test_trackb_logeion_phase2.py`; it is declared rather than worked around,\nsince rewriting 253 call sites to serve an unsupported interpreter is the wrong trade.\n\n## What this is\n\nA pipeline for extracting structured plant-identification data from\nclassical and botanical reference texts and building a unified database\nthat links ancient plant names to modern botanical taxonomy.\n\nThe core question: when an ancient Greek or Roman author mentions a plant\nby name — σχοῖνος, absinthium, sšnj — what plant are they actually\ntalking about? Generations of scholars have worked on this, but their\nanswers are scattered across monographs in French, German, English, and\nGreek, published between 1833 and 2020, each with its own conventions,\nabbreviations, and levels of certainty.\n\nThis project extracts those identifications into a single structured\ndataset where every claim is traceable: who made the identification, in\nwhich text, with what evidence, and with what degree of confidence.\n\n## What we're building\n\nA database of **identification claims** — structured records asserting\nthat a given classical plant name corresponds to a given modern species.\nEach claim preserves:\n\n- **The classical name** (Greek, Latin, or Egyptian) exactly as the\n  ancient source uses it, with full diacritics.\n- **The modern botanical identification** (binomial with taxonomic\n  authority).\n- **The source of the claim** — which modern scholar made the\n  identification, in which publication, on which page.\n- **The degree of certainty** — whether the scholar treats the\n  identification as settled, tentative, or contested.\n- **The ancient evidence** — which classical authors and passages attest\n  the plant name (Dioscorides II, 135; Pliny NH XXI, 92; Theophrastus\n  HP IX, 7, 3).\n- **Vernacular names** — the common names in French, German, English, or\n  Arabic that each modern scholar associates with the plant.\n\nNote on current handoff scope: some source entries, especially André dictionary\nentries, include useful source-language vernacular glosses that were not always\ncaptured in the v4.0.3 review artifacts. Examples include André's French\ncommon-name glosses for `(h)abrotonum` and `abellana`. Do not reopen the current\nterm/taxon/claim review gates just to ingest those omissions. Treat them as a\npost-gate enrichment pass for source-language common names or gloss assertions,\nunless the missing vernacular directly affects an identification decision now\nunder review.\n\nThe resulting dataset supports queries like: \"What species has\nἀψίνθιον been identified as, by whom, and do they agree?\" or \"Which\nidentifications does André give that Beck's Dioscorides index\ncontradicts?\" or \"Which plants in Dioscorides Book IV have no modern\nidentification from any source?\"\n\n## Source texts\n\nEach text is a modern scholarly work that systematically identifies\nplants mentioned in classical antiquity. They vary in language, period,\nmethod, and scope:\n\n| Text | Author | Year | Language | Scope | Records | Extraction status |\n|---|---|---|---|---|---|---|\n| André | Jacques André | 2010 (repr. 1985) | French | Latin plant names in Roman antiquity (dictionary) | 4051 | Complete |\n| Haars | Maximilian Haars | 2018 | German | Galen's simple drugs via Oribasius (commentary) | 1385 | Complete |\n| Manniche | Lise Manniche | 2006 (repr. 1989) | English | Ancient Egyptian herbal (thematic handbook) | 95 | \n…[truncated at 4000 chars]",
       "status_md": null
+    },
+    {
+      "name": "to-do-list",
+      "private": false,
+      "archived": false,
+      "default_branch": "main",
+      "pushed_at": "2026-08-07T05:03:59Z",
+      "open_prs": 0,
+      "branches": [
+        {
+          "name": "main",
+          "tip_date": "2026-08-07T05:03:59Z",
+          "tip_author": "portfolio-bot",
+          "tip_message": "portfolio: nightly collection 2026-08-07"
+        }
+      ],
+      "branch_detail_skipped": false,
+      "md_files": [
+        ".github/pull_request_template.md",
+        "CONTRIBUTING.md",
+        "PLAN.md",
+        "README.md",
+        "REPO_STANDARD.md",
+        "SECURITY.md",
+        "STATUS.md",
+        "WBS_TODO_SUPABASE_INTEGRATION.md",
+        "data/projects.md",
+        "docs/FINDINGS-metopion-20260805.md",
+        "docs/FINDINGS-theophrastos-20260805.md",
+        "docs/QA_CHECKLIST.md",
+        "docs/pmo.md",
+        "docs/pmo/CHANGELOG.md",
+        "docs/pmo/DECISIONS.md",
+        "docs/pmo/ENGINEERING_LOG.md",
+        "docs/pmo/KNOWN_ISSUES.md",
+        "pmo/decision_log.md",
+        "pmo/delegation_outbox.md",
+        "pmo/inbox.md",
+        "projects/br-ager-scent-ancient-magic/00_brief.md",
+        "projects/br-ager-scent-ancient-magic/01_plan.md",
+        "projects/br-ager-scent-ancient-magic/02_status.md",
+        "projects/br-ager-scent-ancient-magic/03_actions.md",
+        "projects/br-ager-scent-ancient-magic/04_assets.md"
+      ],
+      "md_files_truncated": false,
+      "readme": "# Scholar's Opus\n\nLightweight, local-first academic research and publication tracker (Vite + React). It seeds from a Markdown project list and stores edits locally in the browser (no backend).\n\n## Quickstart\n\n**Requirements:** Node.js 20+\n\n```bash\nnpm ci && npm run dev\n```\n\n## Scripts\n\n- `npm run dev`: run the dev server\n- `npm run build`: build a production bundle into `dist/`\n- `npm run preview`: preview the production build locally\n- `npm run lint`: lint the codebase\n- `npm run typecheck`: TypeScript typecheck\n- `npm test`: run unit tests\n- `npm run validate:data`: validate `data/projects.md` parses cleanly\n\n## Configuration\n\nNo required environment variables.\n\n## Architecture\n\n- `src/main.tsx`: app entrypoint\n- `src/App.tsx`: UI + filtering (Writing/Experiments/DH/Grants/Admin tabs)\n- `src/projectsParser.ts`: parses `data/projects.md` into tasks at build time\n- `src/db.ts`: localStorage persistence + migrations\n- `src/components/*`: UI components\n- `src/sync.ts`: optional Supabase sync (guarded, record-level)\n\n## Optional Supabase cloud sync (Auth)\n\nCloud sync is optional. If `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY` are present, the app can sync via Supabase **Auth + RLS**.\n\n- Enable: open **Cloud** (or go to `/auth`) and sign in (PKCE; callback at `${BASE_URL}auth/callback`).\n- Security model: tables are protected by RLS (`owner_id = auth.uid()`); the client does not rely on `user_id` filtering for access control.\n- Deletes: use tombstones (`deleted_at`) to prevent cross-device resurrection; hard delete/purge is deferred.\n- Dashboard settings: add exact redirect URLs for dev + GitHub Pages base path (see `.github/workflows/pages.yml` for the deployed base path, and `vite.config.ts` for `base`).\n\nLegacy migration note: if you have old rows in `public.tasks` that only have a legacy `user_id` namespace, you must manually “claim” them by setting `owner_id` via SQL (see `supabase/migrations/*_auth_owner_rls_tombstones.sql`).\n\n## Data\n\n- Seed list: `data/projects.md` (each entry is a checklist item with an indented metadata block)\n- Saved state: browser `localStorage` (`scholar_opus_db`)\n\nThe Markdown seed is treated as read-only at runtime; changes made in the UI are not written back to `data/projects.md`.\n\nExample entry:\n\n```md\n- [ ] Project title\n  - domain: Writing\n  - type: Article\n  - status: Draft\n  - priority: Medium\n  - description: Short notes…\n```\n\n## Deployment (GitHub Pages)\n\nThis repo deploys to `https://alchemiesofscent.github.io/to-do-list/` via `.github/workflows/pages.yml`.\n\nNote: the GitHub Pages build is configured for the `/to-do-list/` base path. If you fork or rename the repo, set `VITE_BASE_PATH` for production builds or update the Vite `base` setting in `vite.config.ts`.\n",
+      "status_md": "# STATUS\n\n**Updated:** 2026-08-06 (by: claude-cowork)\n**Canonical branch:** main\n\n> **⚠ TOP ITEM (2026-08-06): a finished corpus is one disk failure from gone.**\n> The Galen *De alimentorum facultatibus* lane on theophrastos — 2,463 files,\n> 147 approved chapters — is **untracked: no commit, no branch, no backup**\n> (rescue bundles predate it). Flagged by the oribasius /goals job itself at\n> 06:56. Sean is away until ~2026-08-09. If ANY access to theophrastos exists\n> first, run:\n> `cd ~/github/oribasius-app && git checkout -b rescue/alimfac-20260806 && git add -f translation_project/galen-alimentary-faculties/ && git commit -m \"rescue: alim.fac. lane\" && git push -u origin rescue/alimfac-20260806`\n> Book XIV wave artifacts are untracked too (same repo, same exposure).\n\n---\n\n## Part 1 — The story so far (for Sean)\n\n### Previously on alchemiesofscent…\n\nSean, a scholar of ancient perfume, has years of research projects scattered\nacross twenty-five online archives and two computers — a laptop and a desktop.\nOver time, he and his AI assistants made copies of copies, left work half-filed,\nand in places kept the only version of something on a single machine, where a\nspilled coffee could end it. So he started a cleanup with one rule: everything\nimportant must live in the shared online archive, where every machine can see\nit, and this folder is the cleanup's logbook.\n\nStep one: list what the online archive holds. Done. Of twenty-five projects,\nonly about five showed recent life; the rest were husks, half-finished starts,\nor duplicates. The same project often existed under two or three names — a\ncookbook of ancient recipes in three variants, a data model in two — because\nwhen a project stalled, the habit was to start a fresh copy rather than repair\nthe old one. And the two busiest projects (a tool for editing ancient texts,\nand a database of the physician Oribasius) each had a large body of new work\nsitting in side-drafts that were never folded back into the official version.\nThe cause, in one sentence: many working sessions — human and AI alike — ended\nwithout anyone filing what had been done, and each rescue attempt made another\ncopy instead of cleaning up the last one.\n\nStep two: search each computer and compare. The laptop has now been searched,\nand it was hiding things. The biggest surprise: inside the Oribasius project\nsits a detailed plan, written by an AI assistant in July and never shared\nonline, to freeze that project and start a successor called \"hylike\" — the\nexact opposite of the current cleanup plan, which says to fold two other\nprojects *into* it. Sean has deferred that decision. The laptop also holds\nhundreds of unfiled edits to the text-editing tool (which is supposed to be\nfrozen), a ten-thousand-file salvage copy of it with no backup anywhere,\nseveral smaller projects with no online backup at all, and a to-do app whose\nlatest state was never written down anywhere — it exists only inside a web\nbrowser, last touched in January.\n\nThen, that same evening, Sean sat down at the desktop and ran the search\nhimself. It did hold a third version of events. The Oribasius project turned\nout to exist in three states that no longer agree: the shared archive's\nversion, the laptop's secret successor plan, and the desktop's own pile —\nnearly a thousand unfiled edits plus rescue work (a translation of Paul of\nAegina's Book 7, recovered Galen data) that was never sent anywhere. Worse:\nthe supposedly frozen text-editing tool had been changed *that very day* by\nsomething still running on the desktop — nobody yet knows what. And a small\nproject surfaced that exists on no archive at all, only on that one machine.\n\nBoth machines have now been heard; the searching phase is over. The mystery\nof the frozen tool solved itself: the editor was Sean — before leaving town,\nhe deliberately restarted three automated jobs on the desktop (the Oribasius\ntranslations, the Dioscorides edition, and the cookbook's extraction\npipeline) so they'd finish while \n…[truncated at 4000 chars]"
     },
     {
       "name": "oribasius-app",
@@ -468,53 +570,6 @@
       "md_files_truncated": true,
       "readme": "# Oribasius Collectiones Medicae — Scholarly Database\n\nLast updated: 2026-07-21 — Corpus release `2026.07.21.2` carries repaired Oribasius, complete Dioscorides, and the Book XV Clinopodion correction.\n\nA collaborative Flask application for editing, translating, and analyzing\nancient Greek medical texts from Oribasius and Dioscorides.\n\n> **Alignment is deprecated.** Do not run the Greek-English alignment worker\n> or treat queued alignment as required for approval or publication. See\n> [`docs/ALIGNMENT_DEPRECATION.md`](docs/ALIGNMENT_DEPRECATION.md) for the\n> removal decision and scope.\n\nDetailed documentation lives in:\n\n- [App Guide](docs/APP_GUIDE.md)\n- [Translation Workflow](docs/TRANSLATION_WORKFLOW.md)\n- [Alignment Deprecation](docs/ALIGNMENT_DEPRECATION.md)\n- [Lexicon Evaluation](docs/LEXICON_EVALUATION.md)\n- [Corpus Translation Program](docs/CORPUS_TRANSLATION_PROGRAM.md)\n- [Data Versioning](docs/DATA_VERSIONING.md)\n- [Data Changelog](docs/DATA_CHANGELOG.md)\n- [Recovery Snapshots](recovery/README.md)\n\n## Current Data Release\n\nThe tracked corpus release is `2026.07.21.2`: 1,261 Oribasius entries covering\nBooks I-X and XV, with all 1,259 substantive Greek bodies translated, plus 835\nfreshly translated Dioscorides entries covering Books I-V. Its canonical\nmanifest pins the compact database, the two Oribasius recovery manifests, the\nDioscorides recovery manifest, and their checksum inventories by SHA-256.\n\n```bash\npython scripts/check_data_version.py\n```\n\nSee [`data/VERSION.json`](data/VERSION.json) for the machine-readable release\nrecord and [`docs/DATA_CHANGELOG.md`](docs/DATA_CHANGELOG.md) for its history.\nThe same release metadata is available from `GET /api/data-version`.\n\n## Preserved Galen Translation\n\nThe tracked recovery snapshot at\n[`recovery/galen-simple-drugs-books-6-11-2026-07-15/`](recovery/galen-simple-drugs-books-6-11-2026-07-15/)\ncontains all 639 approved translations for the repository's Galen, *On Simple\nDrugs*, Books 6-11 corpus. Each JSON record includes the original Greek and the\napproved English together, so a fresh clone no longer depends on the ignored\ndevelopment database or runtime project artifacts to recover this work.\n\nValidate the snapshot with:\n\n```bash\npython scripts/export_galen_simple_drugs_json.py --validate-only\n```\n\n## Dioscorides Fresh-Translation Workflow\n\nDioscorides' *De materia medica* uses the dedicated\n`fresh_two_pass_v1` workflow. All 835 units receive a new translation from the\nGreek. Beck is stored only in `original_translation_*` for the 832 matched\nunits and may be consulted only in Pass A as a reference witness; it is never\ncopied into `translation_*` or used as an editable base. The three `RV` units\nare translated without a Beck reference.\n\nThis is a Codex PM-controlled workflow, not an in-process model integration.\nRepository commands build and validate bounded JSON packets; a live PM launches\nstateless workers and is the only actor that records stages or approves text:\n\n```text\nroute and inject matched terminology\n  → Pass A fresh Greek translation (Beck reference available when present)\n  → deterministic mechanics, terminology, and Beck-distinctness gates\n  → Pass B independent Greek verification (Beck-blind)\n  → sentence-only patch, at most two retries, when required\n  → mandatory PM review for variants, cruxes, failures, and audit samples\n  → approval, recovery snapshot, and compact publication\n```\n\nThe CLI surface is discoverable with `python -m oribasius.jobs --help`; its\nDioscorides commands are prefixed `translation-fresh-`. Canonical English is\nwritten only by `translation-fresh-approve`, after every applicable gate has\npassed. Approval preserves the Beck witness, refuses to overwrite existing\ncanonical English, and writes a stable source-key recovery artifact containing\nthe Greek, fresh English, quality/distinctness receipts, and model/token\nprovenance.\n\nThe tracked recovery directory contains the complete 835-entry snapshot.\nRegenerate and verify it with:\n\n```ba\n…[truncated at 4000 chars]",
       "status_md": null
-    },
-    {
-      "name": "to-do-list",
-      "private": false,
-      "archived": false,
-      "default_branch": "main",
-      "pushed_at": "2026-08-06T07:01:04Z",
-      "open_prs": 0,
-      "branches": [
-        {
-          "name": "main",
-          "tip_date": "2026-08-06T07:01:02Z",
-          "tip_author": "Sean Coughlin",
-          "tip_message": "1.6 complete: Galen split (Lycus/Julian), PPAW link, 4 new entries, 4 projects marked Complete (PLAN 0.6)"
-        }
-      ],
-      "branch_detail_skipped": false,
-      "md_files": [
-        ".github/pull_request_template.md",
-        "CONTRIBUTING.md",
-        "PLAN.md",
-        "README.md",
-        "REPO_STANDARD.md",
-        "SECURITY.md",
-        "STATUS.md",
-        "WBS_TODO_SUPABASE_INTEGRATION.md",
-        "data/projects.md",
-        "docs/FINDINGS-metopion-20260805.md",
-        "docs/FINDINGS-theophrastos-20260805.md",
-        "docs/QA_CHECKLIST.md",
-        "docs/pmo.md",
-        "docs/pmo/CHANGELOG.md",
-        "docs/pmo/DECISIONS.md",
-        "docs/pmo/ENGINEERING_LOG.md",
-        "docs/pmo/KNOWN_ISSUES.md",
-        "pmo/decision_log.md",
-        "pmo/delegation_outbox.md",
-        "pmo/inbox.md",
-        "projects/br-ager-scent-ancient-magic/00_brief.md",
-        "projects/br-ager-scent-ancient-magic/01_plan.md",
-        "projects/br-ager-scent-ancient-magic/02_status.md",
-        "projects/br-ager-scent-ancient-magic/03_actions.md",
-        "projects/br-ager-scent-ancient-magic/04_assets.md"
-      ],
-      "md_files_truncated": false,
-      "readme": "# Scholar's Opus\n\nLightweight, local-first academic research and publication tracker (Vite + React). It seeds from a Markdown project list and stores edits locally in the browser (no backend).\n\n## Quickstart\n\n**Requirements:** Node.js 20+\n\n```bash\nnpm ci && npm run dev\n```\n\n## Scripts\n\n- `npm run dev`: run the dev server\n- `npm run build`: build a production bundle into `dist/`\n- `npm run preview`: preview the production build locally\n- `npm run lint`: lint the codebase\n- `npm run typecheck`: TypeScript typecheck\n- `npm test`: run unit tests\n- `npm run validate:data`: validate `data/projects.md` parses cleanly\n\n## Configuration\n\nNo required environment variables.\n\n## Architecture\n\n- `src/main.tsx`: app entrypoint\n- `src/App.tsx`: UI + filtering (Writing/Experiments/DH/Grants/Admin tabs)\n- `src/projectsParser.ts`: parses `data/projects.md` into tasks at build time\n- `src/db.ts`: localStorage persistence + migrations\n- `src/components/*`: UI components\n- `src/sync.ts`: optional Supabase sync (guarded, record-level)\n\n## Optional Supabase cloud sync (Auth)\n\nCloud sync is optional. If `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY` are present, the app can sync via Supabase **Auth + RLS**.\n\n- Enable: open **Cloud** (or go to `/auth`) and sign in (PKCE; callback at `${BASE_URL}auth/callback`).\n- Security model: tables are protected by RLS (`owner_id = auth.uid()`); the client does not rely on `user_id` filtering for access control.\n- Deletes: use tombstones (`deleted_at`) to prevent cross-device resurrection; hard delete/purge is deferred.\n- Dashboard settings: add exact redirect URLs for dev + GitHub Pages base path (see `.github/workflows/pages.yml` for the deployed base path, and `vite.config.ts` for `base`).\n\nLegacy migration note: if you have old rows in `public.tasks` that only have a legacy `user_id` namespace, you must manually “claim” them by setting `owner_id` via SQL (see `supabase/migrations/*_auth_owner_rls_tombstones.sql`).\n\n## Data\n\n- Seed list: `data/projects.md` (each entry is a checklist item with an indented metadata block)\n- Saved state: browser `localStorage` (`scholar_opus_db`)\n\nThe Markdown seed is treated as read-only at runtime; changes made in the UI are not written back to `data/projects.md`.\n\nExample entry:\n\n```md\n- [ ] Project title\n  - domain: Writing\n  - type: Article\n  - status: Draft\n  - priority: Medium\n  - description: Short notes…\n```\n\n## Deployment (GitHub Pages)\n\nThis repo deploys to `https://alchemiesofscent.github.io/to-do-list/` via `.github/workflows/pages.yml`.\n\nNote: the GitHub Pages build is configured for the `/to-do-list/` base path. If you fork or rename the repo, set `VITE_BASE_PATH` for production builds or update the Vite `base` setting in `vite.config.ts`.\n",
-      "status_md": "# STATUS\n\n**Updated:** 2026-08-06 (by: claude-cowork)\n**Canonical branch:** main\n\n> **⚠ TOP ITEM (2026-08-06): a finished corpus is one disk failure from gone.**\n> The Galen *De alimentorum facultatibus* lane on theophrastos — 2,463 files,\n> 147 approved chapters — is **untracked: no commit, no branch, no backup**\n> (rescue bundles predate it). Flagged by the oribasius /goals job itself at\n> 06:56. Sean is away until ~2026-08-09. If ANY access to theophrastos exists\n> first, run:\n> `cd ~/github/oribasius-app && git checkout -b rescue/alimfac-20260806 && git add -f translation_project/galen-alimentary-faculties/ && git commit -m \"rescue: alim.fac. lane\" && git push -u origin rescue/alimfac-20260806`\n> Book XIV wave artifacts are untracked too (same repo, same exposure).\n\n---\n\n## Part 1 — The story so far (for Sean)\n\n### Previously on alchemiesofscent…\n\nSean, a scholar of ancient perfume, has years of research projects scattered\nacross twenty-five online archives and two computers — a laptop and a desktop.\nOver time, he and his AI assistants made copies of copies, left work half-filed,\nand in places kept the only version of something on a single machine, where a\nspilled coffee could end it. So he started a cleanup with one rule: everything\nimportant must live in the shared online archive, where every machine can see\nit, and this folder is the cleanup's logbook.\n\nStep one: list what the online archive holds. Done. Of twenty-five projects,\nonly about five showed recent life; the rest were husks, half-finished starts,\nor duplicates. The same project often existed under two or three names — a\ncookbook of ancient recipes in three variants, a data model in two — because\nwhen a project stalled, the habit was to start a fresh copy rather than repair\nthe old one. And the two busiest projects (a tool for editing ancient texts,\nand a database of the physician Oribasius) each had a large body of new work\nsitting in side-drafts that were never folded back into the official version.\nThe cause, in one sentence: many working sessions — human and AI alike — ended\nwithout anyone filing what had been done, and each rescue attempt made another\ncopy instead of cleaning up the last one.\n\nStep two: search each computer and compare. The laptop has now been searched,\nand it was hiding things. The biggest surprise: inside the Oribasius project\nsits a detailed plan, written by an AI assistant in July and never shared\nonline, to freeze that project and start a successor called \"hylike\" — the\nexact opposite of the current cleanup plan, which says to fold two other\nprojects *into* it. Sean has deferred that decision. The laptop also holds\nhundreds of unfiled edits to the text-editing tool (which is supposed to be\nfrozen), a ten-thousand-file salvage copy of it with no backup anywhere,\nseveral smaller projects with no online backup at all, and a to-do app whose\nlatest state was never written down anywhere — it exists only inside a web\nbrowser, last touched in January.\n\nThen, that same evening, Sean sat down at the desktop and ran the search\nhimself. It did hold a third version of events. The Oribasius project turned\nout to exist in three states that no longer agree: the shared archive's\nversion, the laptop's secret successor plan, and the desktop's own pile —\nnearly a thousand unfiled edits plus rescue work (a translation of Paul of\nAegina's Book 7, recovered Galen data) that was never sent anywhere. Worse:\nthe supposedly frozen text-editing tool had been changed *that very day* by\nsomething still running on the desktop — nobody yet knows what. And a small\nproject surfaced that exists on no archive at all, only on that one machine.\n\nBoth machines have now been heard; the searching phase is over. The mystery\nof the frozen tool solved itself: the editor was Sean — before leaving town,\nhe deliberately restarted three automated jobs on the desktop (the Oribasius\ntranslations, the Dioscorides edition, and the cookbook's extraction\npipeline) so they'd finish while \n…[truncated at 4000 chars]"
     },
     {
       "name": "tei-maker",
