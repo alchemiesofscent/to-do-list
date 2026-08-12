@@ -1,8 +1,136 @@
 {
-  "generated_at": "2026-08-11T04:39:29+00:00",
+  "generated_at": "2026-08-12T05:01:39+00:00",
   "account": "alchemiesofscent",
   "schema": 2,
   "repos": [
+    {
+      "name": "map",
+      "private": false,
+      "archived": false,
+      "default_branch": "main",
+      "pushed_at": "2026-08-11T10:19:38Z",
+      "open_prs": 0,
+      "branches": [
+        {
+          "name": "agent/fix-house-of-mendes-assets",
+          "tip_date": "2026-08-11T10:19:09Z",
+          "tip_author": "Alchemies of Scent Project",
+          "tip_message": "Load complete Mendes page from static assets",
+          "ahead": 9,
+          "behind": 1,
+          "pr": {
+            "number": 2,
+            "title": "Complete House of Mendes Pages deployment",
+            "state": "closed",
+            "merged_at": "2026-08-11T10:19:38Z",
+            "updated_at": "2026-08-11T10:19:38Z"
+          }
+        },
+        {
+          "name": "agent/publish-house-of-mendes",
+          "tip_date": "2026-08-11T10:03:57Z",
+          "tip_author": "Alchemies of Scent Project",
+          "tip_message": "Publish House of Mendes dossier",
+          "ahead": 1,
+          "behind": 2,
+          "pr": {
+            "number": 1,
+            "title": "Publish House of Mendes dossier",
+            "state": "closed",
+            "merged_at": "2026-08-11T10:04:36Z",
+            "updated_at": "2026-08-11T10:04:37Z"
+          }
+        },
+        {
+          "name": "main",
+          "tip_date": "2026-08-11T10:19:38Z",
+          "tip_author": "Alchemies of Scent Project",
+          "tip_message": "Complete House of Mendes Pages deployment"
+        }
+      ],
+      "branch_detail_skipped": false,
+      "md_files": [
+        "ATTRIBUTION.md",
+        "CONTRIBUTING.md",
+        "README.md",
+        "data/external/google_mymaps/README.md",
+        "data/generated/periplus/chunks/0011_0020/ingestion_report_0011_0020.md",
+        "data/generated/periplus/chunks/0021_0030/ingestion_report_0021_0030.md",
+        "data/generated/periplus/chunks/0031_0040/ingestion_report_0031_0040.md",
+        "data/generated/periplus/chunks/0041_0050/ingestion_report_0041_0050.md",
+        "data/generated/periplus/chunks/0051_0060/ingestion_report_0051_0060.md",
+        "data/generated/periplus/chunks/0061_0066/ingestion_report_0061_0066.md",
+        "data/generated/periplus/ingestion_report_0001_0032.md",
+        "data/generated/periplus/ingestion_report_0001_0066.md",
+        "data/pleiades/README.md",
+        "data/review/README.md",
+        "data/review/route_markers.md",
+        "docs/01-json-schema.md",
+        "docs/02-repo-plan-task-list.md",
+        "docs/03-frontend-wireframe-spec.md",
+        "docs/galen_ambiguous_places.md",
+        "docs/galen_journey_passages_full_greek.md",
+        "docs/galen_route_candidates.md",
+        "docs/galen_route_decisions.md",
+        "docs/galen_routes_philological_breakdown_plan.md",
+        "docs/galen_unmatched_capitals.md",
+        "docs/materia_tei_ingredient_journeys.md",
+        "docs/simple_provenance_model.md",
+        "docs/simples_provenance_pipeline_todo.md",
+        "features/scrollytelling-viewer/ENGINE_DECISION.md",
+        "features/scrollytelling-viewer/README.md"
+      ],
+      "md_files_truncated": false,
+      "readme": "# Periplus Tour MVP\n\nPeriplus Tour MVP is a static research atlas for reading ancient geographic and medical texts as structured journeys. It combines source passages, translations, local review ledgers, Pleiades place identifiers, and generated map-ready JSON so that a reader can move between text, place evidence, and route geography without needing a database server.\n\nThe current app has two main research surfaces:\n\n- A Periplus route viewer for the anonymous *Periplus Maris Erythraei*, covering the full 66-section journey model currently generated from `texts.csv`, `translations.csv`, review ledgers, and route sidecars.\n- A Galen/simple-medicine provenance pipeline that identifies source passages where a simple medicine is tied to a place, adjudicates candidate links, and emits map-ready provenance points.\n\nThe project is still an MVP, but the important pieces are reproducible: generated data is built from scripts, uncertain geography is preserved as metadata, and accepted place links carry their review source.\n\n## What The Atlas Does\n\nThe viewer in `app/` presents a full-screen Leaflet map with a reading panel and a site strip. It lets a reader step through the route, inspect places mentioned in the passage, and distinguish mapped locations from unresolved or contextual geography.\n\nFor the Periplus route, the generated data model separates:\n\n- source sections and translations,\n- local place-authority records,\n- reviewed route focus records,\n- route legs,\n- off-route or contextual sites,\n- optional Google My Maps and webmap-derived review inputs.\n\nFor the simple-medicine provenance work, the pipeline asks a narrower question: when a medical entry names a place, is that place actually evidence for where a substance grows, is produced, is sourced, is acquired, or is merely contextual? The current cleaned run keeps only five accepted Dioscorides provenance links after suppressing false positives such as entry headwords that happen to match Pleiades place names.\n\n## Why This Exists\n\nAncient route and materia-medica texts often mix several kinds of geography:\n\n- direct route sequence,\n- market or harbor geography,\n- ethnographic or regional context,\n- ingredient provenance,\n- named varieties such as regional plants,\n- later editorial or translation labels.\n\nMapping all of those as if they were the same thing produces misleading maps. This repo keeps those layers separate. The route viewer can show the journey, while provenance sidecars can say why a material is linked to Arabia, Galatia, Iudaea, or another region and whether that link came from deterministic matching, human review, or LLM consensus review.\n\n## Repository Layout\n\n- `app/` - canonical static Atlas viewer.\n- `features/scrollytelling-viewer/` - older scroll-driven prototype kept for reference.\n- `data/generated/periplus/` - generated Periplus sections, places, route views, and route model.\n- `data/generated/galen/` - generated Galen route and materia data used by the viewer.\n- `data/generated/simples/` - generated simple-medicine provenance artifacts.\n- `data/review/` - human-readable review ledgers and CSV review surfaces.\n- `data/pleiades/` - cached Pleiades place snapshots and local Pleiades documentation.\n- `schemas/` - JSON Schemas for generated data contracts.\n- `scripts/` - deterministic builders, importers, validators, and exporters.\n- `docs/` - design notes, pipeline checklists, and data-model documentation.\n\n## Data Pipeline\n\nThe Periplus route pipeline is:\n\n```bash\npython3 scripts/ingest_tour_chunk.py --start 1 --count 66\npython3 scripts/apply_place_review_decisions.py --max-section 66\npython3 scripts/build_route_views.py\npython3 scripts/check_generated_tour.py\n```\n\nThat rebuilds `data/generated/periplus/` from the CSV source text, translations, reviewed place decisions, and route-view sidecars.\n\nThe simple provenance pipeline is:\n\n```bash\npython3 scripts/simples/build_pilot_manifest.py\npython3 scripts/simples/check_pilot_manifest.py\npython3 scripts/simpl\n…[truncated at 4000 chars]",
+      "status_md": null
+    },
+    {
+      "name": "to-do-list",
+      "private": false,
+      "archived": false,
+      "default_branch": "main",
+      "pushed_at": "2026-08-11T04:41:23Z",
+      "open_prs": 0,
+      "branches": [
+        {
+          "name": "main",
+          "tip_date": "2026-08-11T04:41:22Z",
+          "tip_author": "portfolio-bot",
+          "tip_message": "portfolio: nightly collection 2026-08-11"
+        }
+      ],
+      "branch_detail_skipped": false,
+      "md_files": [
+        ".github/pull_request_template.md",
+        "CONTRIBUTING.md",
+        "PLAN.md",
+        "README.md",
+        "REPO_STANDARD.md",
+        "SECURITY.md",
+        "STATUS.md",
+        "WBS_TODO_SUPABASE_INTEGRATION.md",
+        "data/projects.md",
+        "docs/FINDINGS-metopion-20260805.md",
+        "docs/FINDINGS-theophrastos-20260805.md",
+        "docs/QA_CHECKLIST.md",
+        "docs/pmo.md",
+        "docs/pmo/CHANGELOG.md",
+        "docs/pmo/DECISIONS.md",
+        "docs/pmo/ENGINEERING_LOG.md",
+        "docs/pmo/KNOWN_ISSUES.md",
+        "pmo/decision_log.md",
+        "pmo/delegation_outbox.md",
+        "pmo/inbox.md",
+        "projects/br-ager-scent-ancient-magic/00_brief.md",
+        "projects/br-ager-scent-ancient-magic/01_plan.md",
+        "projects/br-ager-scent-ancient-magic/02_status.md",
+        "projects/br-ager-scent-ancient-magic/03_actions.md",
+        "projects/br-ager-scent-ancient-magic/04_assets.md"
+      ],
+      "md_files_truncated": false,
+      "readme": "# Scholar's Opus\n\nLightweight, local-first academic research and publication tracker (Vite + React). It seeds from a Markdown project list and stores edits locally in the browser (no backend).\n\n## Quickstart\n\n**Requirements:** Node.js 20+\n\n```bash\nnpm ci && npm run dev\n```\n\n## Scripts\n\n- `npm run dev`: run the dev server\n- `npm run build`: build a production bundle into `dist/`\n- `npm run preview`: preview the production build locally\n- `npm run lint`: lint the codebase\n- `npm run typecheck`: TypeScript typecheck\n- `npm test`: run unit tests\n- `npm run validate:data`: validate `data/projects.md` parses cleanly\n\n## Configuration\n\nNo required environment variables.\n\n## Architecture\n\n- `src/main.tsx`: app entrypoint\n- `src/App.tsx`: UI + filtering (Writing/Experiments/DH/Grants/Admin tabs)\n- `src/projectsParser.ts`: parses `data/projects.md` into tasks at build time\n- `src/db.ts`: localStorage persistence + migrations\n- `src/components/*`: UI components\n- `src/sync.ts`: optional Supabase sync (guarded, record-level)\n\n## Optional Supabase cloud sync (Auth)\n\nCloud sync is optional. If `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY` are present, the app can sync via Supabase **Auth + RLS**.\n\n- Enable: open **Cloud** (or go to `/auth`) and sign in (PKCE; callback at `${BASE_URL}auth/callback`).\n- Security model: tables are protected by RLS (`owner_id = auth.uid()`); the client does not rely on `user_id` filtering for access control.\n- Deletes: use tombstones (`deleted_at`) to prevent cross-device resurrection; hard delete/purge is deferred.\n- Dashboard settings: add exact redirect URLs for dev + GitHub Pages base path (see `.github/workflows/pages.yml` for the deployed base path, and `vite.config.ts` for `base`).\n\nLegacy migration note: if you have old rows in `public.tasks` that only have a legacy `user_id` namespace, you must manually “claim” them by setting `owner_id` via SQL (see `supabase/migrations/*_auth_owner_rls_tombstones.sql`).\n\n## Data\n\n- Seed list: `data/projects.md` (each entry is a checklist item with an indented metadata block)\n- Saved state: browser `localStorage` (`scholar_opus_db`)\n\nThe Markdown seed is treated as read-only at runtime; changes made in the UI are not written back to `data/projects.md`.\n\nExample entry:\n\n```md\n- [ ] Project title\n  - domain: Writing\n  - type: Article\n  - status: Draft\n  - priority: Medium\n  - description: Short notes…\n```\n\n## Deployment (GitHub Pages)\n\nThis repo deploys to `https://alchemiesofscent.github.io/to-do-list/` via `.github/workflows/pages.yml`.\n\nNote: the GitHub Pages build is configured for the `/to-do-list/` base path. If you fork or rename the repo, set `VITE_BASE_PATH` for production builds or update the Vite `base` setting in `vite.config.ts`.\n",
+      "status_md": "# STATUS\n\n**Updated:** 2026-08-06 (by: claude-cowork)\n**Canonical branch:** main\n\n> **⚠ TOP ITEM (2026-08-06): a finished corpus is one disk failure from gone.**\n> The Galen *De alimentorum facultatibus* lane on theophrastos — 2,463 files,\n> 147 approved chapters — is **untracked: no commit, no branch, no backup**\n> (rescue bundles predate it). Flagged by the oribasius /goals job itself at\n> 06:56. Sean is away until ~2026-08-09. If ANY access to theophrastos exists\n> first, run:\n> `cd ~/github/oribasius-app && git checkout -b rescue/alimfac-20260806 && git add -f translation_project/galen-alimentary-faculties/ && git commit -m \"rescue: alim.fac. lane\" && git push -u origin rescue/alimfac-20260806`\n> Book XIV wave artifacts are untracked too (same repo, same exposure).\n\n---\n\n## Part 1 — The story so far (for Sean)\n\n### Previously on alchemiesofscent…\n\nSean, a scholar of ancient perfume, has years of research projects scattered\nacross twenty-five online archives and two computers — a laptop and a desktop.\nOver time, he and his AI assistants made copies of copies, left work half-filed,\nand in places kept the only version of something on a single machine, where a\nspilled coffee could end it. So he started a cleanup with one rule: everything\nimportant must live in the shared online archive, where every machine can see\nit, and this folder is the cleanup's logbook.\n\nStep one: list what the online archive holds. Done. Of twenty-five projects,\nonly about five showed recent life; the rest were husks, half-finished starts,\nor duplicates. The same project often existed under two or three names — a\ncookbook of ancient recipes in three variants, a data model in two — because\nwhen a project stalled, the habit was to start a fresh copy rather than repair\nthe old one. And the two busiest projects (a tool for editing ancient texts,\nand a database of the physician Oribasius) each had a large body of new work\nsitting in side-drafts that were never folded back into the official version.\nThe cause, in one sentence: many working sessions — human and AI alike — ended\nwithout anyone filing what had been done, and each rescue attempt made another\ncopy instead of cleaning up the last one.\n\nStep two: search each computer and compare. The laptop has now been searched,\nand it was hiding things. The biggest surprise: inside the Oribasius project\nsits a detailed plan, written by an AI assistant in July and never shared\nonline, to freeze that project and start a successor called \"hylike\" — the\nexact opposite of the current cleanup plan, which says to fold two other\nprojects *into* it. Sean has deferred that decision. The laptop also holds\nhundreds of unfiled edits to the text-editing tool (which is supposed to be\nfrozen), a ten-thousand-file salvage copy of it with no backup anywhere,\nseveral smaller projects with no online backup at all, and a to-do app whose\nlatest state was never written down anywhere — it exists only inside a web\nbrowser, last touched in January.\n\nThen, that same evening, Sean sat down at the desktop and ran the search\nhimself. It did hold a third version of events. The Oribasius project turned\nout to exist in three states that no longer agree: the shared archive's\nversion, the laptop's secret successor plan, and the desktop's own pile —\nnearly a thousand unfiled edits plus rescue work (a translation of Paul of\nAegina's Book 7, recovered Galen data) that was never sent anywhere. Worse:\nthe supposedly frozen text-editing tool had been changed *that very day* by\nsomething still running on the desktop — nobody yet knows what. And a small\nproject surfaced that exists on no archive at all, only on that one machine.\n\nBoth machines have now been heard; the searching phase is over. The mystery\nof the frozen tool solved itself: the editor was Sean — before leaving town,\nhe deliberately restarted three automated jobs on the desktop (the Oribasius\ntranslations, the Dioscorides edition, and the cookbook's extraction\npipeline) so they'd finish while \n…[truncated at 4000 chars]"
+    },
     {
       "name": "perfume-tables",
       "private": true,
@@ -4064,53 +4192,6 @@
       "status_md": null
     },
     {
-      "name": "to-do-list",
-      "private": false,
-      "archived": false,
-      "default_branch": "main",
-      "pushed_at": "2026-08-10T04:55:21Z",
-      "open_prs": 0,
-      "branches": [
-        {
-          "name": "main",
-          "tip_date": "2026-08-10T04:55:20Z",
-          "tip_author": "portfolio-bot",
-          "tip_message": "portfolio: nightly collection 2026-08-10"
-        }
-      ],
-      "branch_detail_skipped": false,
-      "md_files": [
-        ".github/pull_request_template.md",
-        "CONTRIBUTING.md",
-        "PLAN.md",
-        "README.md",
-        "REPO_STANDARD.md",
-        "SECURITY.md",
-        "STATUS.md",
-        "WBS_TODO_SUPABASE_INTEGRATION.md",
-        "data/projects.md",
-        "docs/FINDINGS-metopion-20260805.md",
-        "docs/FINDINGS-theophrastos-20260805.md",
-        "docs/QA_CHECKLIST.md",
-        "docs/pmo.md",
-        "docs/pmo/CHANGELOG.md",
-        "docs/pmo/DECISIONS.md",
-        "docs/pmo/ENGINEERING_LOG.md",
-        "docs/pmo/KNOWN_ISSUES.md",
-        "pmo/decision_log.md",
-        "pmo/delegation_outbox.md",
-        "pmo/inbox.md",
-        "projects/br-ager-scent-ancient-magic/00_brief.md",
-        "projects/br-ager-scent-ancient-magic/01_plan.md",
-        "projects/br-ager-scent-ancient-magic/02_status.md",
-        "projects/br-ager-scent-ancient-magic/03_actions.md",
-        "projects/br-ager-scent-ancient-magic/04_assets.md"
-      ],
-      "md_files_truncated": false,
-      "readme": "# Scholar's Opus\n\nLightweight, local-first academic research and publication tracker (Vite + React). It seeds from a Markdown project list and stores edits locally in the browser (no backend).\n\n## Quickstart\n\n**Requirements:** Node.js 20+\n\n```bash\nnpm ci && npm run dev\n```\n\n## Scripts\n\n- `npm run dev`: run the dev server\n- `npm run build`: build a production bundle into `dist/`\n- `npm run preview`: preview the production build locally\n- `npm run lint`: lint the codebase\n- `npm run typecheck`: TypeScript typecheck\n- `npm test`: run unit tests\n- `npm run validate:data`: validate `data/projects.md` parses cleanly\n\n## Configuration\n\nNo required environment variables.\n\n## Architecture\n\n- `src/main.tsx`: app entrypoint\n- `src/App.tsx`: UI + filtering (Writing/Experiments/DH/Grants/Admin tabs)\n- `src/projectsParser.ts`: parses `data/projects.md` into tasks at build time\n- `src/db.ts`: localStorage persistence + migrations\n- `src/components/*`: UI components\n- `src/sync.ts`: optional Supabase sync (guarded, record-level)\n\n## Optional Supabase cloud sync (Auth)\n\nCloud sync is optional. If `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY` are present, the app can sync via Supabase **Auth + RLS**.\n\n- Enable: open **Cloud** (or go to `/auth`) and sign in (PKCE; callback at `${BASE_URL}auth/callback`).\n- Security model: tables are protected by RLS (`owner_id = auth.uid()`); the client does not rely on `user_id` filtering for access control.\n- Deletes: use tombstones (`deleted_at`) to prevent cross-device resurrection; hard delete/purge is deferred.\n- Dashboard settings: add exact redirect URLs for dev + GitHub Pages base path (see `.github/workflows/pages.yml` for the deployed base path, and `vite.config.ts` for `base`).\n\nLegacy migration note: if you have old rows in `public.tasks` that only have a legacy `user_id` namespace, you must manually “claim” them by setting `owner_id` via SQL (see `supabase/migrations/*_auth_owner_rls_tombstones.sql`).\n\n## Data\n\n- Seed list: `data/projects.md` (each entry is a checklist item with an indented metadata block)\n- Saved state: browser `localStorage` (`scholar_opus_db`)\n\nThe Markdown seed is treated as read-only at runtime; changes made in the UI are not written back to `data/projects.md`.\n\nExample entry:\n\n```md\n- [ ] Project title\n  - domain: Writing\n  - type: Article\n  - status: Draft\n  - priority: Medium\n  - description: Short notes…\n```\n\n## Deployment (GitHub Pages)\n\nThis repo deploys to `https://alchemiesofscent.github.io/to-do-list/` via `.github/workflows/pages.yml`.\n\nNote: the GitHub Pages build is configured for the `/to-do-list/` base path. If you fork or rename the repo, set `VITE_BASE_PATH` for production builds or update the Vite `base` setting in `vite.config.ts`.\n",
-      "status_md": "# STATUS\n\n**Updated:** 2026-08-06 (by: claude-cowork)\n**Canonical branch:** main\n\n> **⚠ TOP ITEM (2026-08-06): a finished corpus is one disk failure from gone.**\n> The Galen *De alimentorum facultatibus* lane on theophrastos — 2,463 files,\n> 147 approved chapters — is **untracked: no commit, no branch, no backup**\n> (rescue bundles predate it). Flagged by the oribasius /goals job itself at\n> 06:56. Sean is away until ~2026-08-09. If ANY access to theophrastos exists\n> first, run:\n> `cd ~/github/oribasius-app && git checkout -b rescue/alimfac-20260806 && git add -f translation_project/galen-alimentary-faculties/ && git commit -m \"rescue: alim.fac. lane\" && git push -u origin rescue/alimfac-20260806`\n> Book XIV wave artifacts are untracked too (same repo, same exposure).\n\n---\n\n## Part 1 — The story so far (for Sean)\n\n### Previously on alchemiesofscent…\n\nSean, a scholar of ancient perfume, has years of research projects scattered\nacross twenty-five online archives and two computers — a laptop and a desktop.\nOver time, he and his AI assistants made copies of copies, left work half-filed,\nand in places kept the only version of something on a single machine, where a\nspilled coffee could end it. So he started a cleanup with one rule: everything\nimportant must live in the shared online archive, where every machine can see\nit, and this folder is the cleanup's logbook.\n\nStep one: list what the online archive holds. Done. Of twenty-five projects,\nonly about five showed recent life; the rest were husks, half-finished starts,\nor duplicates. The same project often existed under two or three names — a\ncookbook of ancient recipes in three variants, a data model in two — because\nwhen a project stalled, the habit was to start a fresh copy rather than repair\nthe old one. And the two busiest projects (a tool for editing ancient texts,\nand a database of the physician Oribasius) each had a large body of new work\nsitting in side-drafts that were never folded back into the official version.\nThe cause, in one sentence: many working sessions — human and AI alike — ended\nwithout anyone filing what had been done, and each rescue attempt made another\ncopy instead of cleaning up the last one.\n\nStep two: search each computer and compare. The laptop has now been searched,\nand it was hiding things. The biggest surprise: inside the Oribasius project\nsits a detailed plan, written by an AI assistant in July and never shared\nonline, to freeze that project and start a successor called \"hylike\" — the\nexact opposite of the current cleanup plan, which says to fold two other\nprojects *into* it. Sean has deferred that decision. The laptop also holds\nhundreds of unfiled edits to the text-editing tool (which is supposed to be\nfrozen), a ten-thousand-file salvage copy of it with no backup anywhere,\nseveral smaller projects with no online backup at all, and a to-do app whose\nlatest state was never written down anywhere — it exists only inside a web\nbrowser, last touched in January.\n\nThen, that same evening, Sean sat down at the desktop and ran the search\nhimself. It did hold a third version of events. The Oribasius project turned\nout to exist in three states that no longer agree: the shared archive's\nversion, the laptop's secret successor plan, and the desktop's own pile —\nnearly a thousand unfiled edits plus rescue work (a translation of Paul of\nAegina's Book 7, recovered Galen data) that was never sent anywhere. Worse:\nthe supposedly frozen text-editing tool had been changed *that very day* by\nsomething still running on the desktop — nobody yet knows what. And a small\nproject surfaced that exists on no archive at all, only on that one machine.\n\nBoth machines have now been heard; the searching phase is over. The mystery\nof the frozen tool solved itself: the editor was Sean — before leaving town,\nhe deliberately restarted three automated jobs on the desktop (the Oribasius\ntranslations, the Dioscorides edition, and the cookbook's extraction\npipeline) so they'd finish while \n…[truncated at 4000 chars]"
-    },
-    {
       "name": "extraction-pipeline",
       "private": true,
       "archived": false,
@@ -4821,57 +4902,6 @@
       "archived": false,
       "default_branch": "main",
       "pushed_at": "2026-05-14T14:37:26Z",
-      "open_prs": 0,
-      "branches": [
-        {
-          "name": "main",
-          "tip_date": "2026-05-14T07:51:57Z",
-          "tip_author": "alchemiesofscent",
-          "tip_message": "Reset Materia journeys from TEI"
-        }
-      ],
-      "branch_detail_skipped": false,
-      "md_files": [
-        "ATTRIBUTION.md",
-        "CONTRIBUTING.md",
-        "README.md",
-        "data/external/google_mymaps/README.md",
-        "data/generated/periplus/chunks/0011_0020/ingestion_report_0011_0020.md",
-        "data/generated/periplus/chunks/0021_0030/ingestion_report_0021_0030.md",
-        "data/generated/periplus/chunks/0031_0040/ingestion_report_0031_0040.md",
-        "data/generated/periplus/chunks/0041_0050/ingestion_report_0041_0050.md",
-        "data/generated/periplus/chunks/0051_0060/ingestion_report_0051_0060.md",
-        "data/generated/periplus/chunks/0061_0066/ingestion_report_0061_0066.md",
-        "data/generated/periplus/ingestion_report_0001_0032.md",
-        "data/generated/periplus/ingestion_report_0001_0066.md",
-        "data/pleiades/README.md",
-        "data/review/README.md",
-        "data/review/route_markers.md",
-        "docs/01-json-schema.md",
-        "docs/02-repo-plan-task-list.md",
-        "docs/03-frontend-wireframe-spec.md",
-        "docs/galen_ambiguous_places.md",
-        "docs/galen_journey_passages_full_greek.md",
-        "docs/galen_route_candidates.md",
-        "docs/galen_route_decisions.md",
-        "docs/galen_routes_philological_breakdown_plan.md",
-        "docs/galen_unmatched_capitals.md",
-        "docs/materia_tei_ingredient_journeys.md",
-        "docs/simple_provenance_model.md",
-        "docs/simples_provenance_pipeline_todo.md",
-        "features/scrollytelling-viewer/ENGINE_DECISION.md",
-        "features/scrollytelling-viewer/README.md"
-      ],
-      "md_files_truncated": false,
-      "readme": "# Periplus Tour MVP\n\nPeriplus Tour MVP is a static research atlas for reading ancient geographic and medical texts as structured journeys. It combines source passages, translations, local review ledgers, Pleiades place identifiers, and generated map-ready JSON so that a reader can move between text, place evidence, and route geography without needing a database server.\n\nThe current app has two main research surfaces:\n\n- A Periplus route viewer for the anonymous *Periplus Maris Erythraei*, covering the full 66-section journey model currently generated from `texts.csv`, `translations.csv`, review ledgers, and route sidecars.\n- A Galen/simple-medicine provenance pipeline that identifies source passages where a simple medicine is tied to a place, adjudicates candidate links, and emits map-ready provenance points.\n\nThe project is still an MVP, but the important pieces are reproducible: generated data is built from scripts, uncertain geography is preserved as metadata, and accepted place links carry their review source.\n\n## What The Atlas Does\n\nThe viewer in `app/` presents a full-screen Leaflet map with a reading panel and a site strip. It lets a reader step through the route, inspect places mentioned in the passage, and distinguish mapped locations from unresolved or contextual geography.\n\nFor the Periplus route, the generated data model separates:\n\n- source sections and translations,\n- local place-authority records,\n- reviewed route focus records,\n- route legs,\n- off-route or contextual sites,\n- optional Google My Maps and webmap-derived review inputs.\n\nFor the simple-medicine provenance work, the pipeline asks a narrower question: when a medical entry names a place, is that place actually evidence for where a substance grows, is produced, is sourced, is acquired, or is merely contextual? The current cleaned run keeps only five accepted Dioscorides provenance links after suppressing false positives such as entry headwords that happen to match Pleiades place names.\n\n## Why This Exists\n\nAncient route and materia-medica texts often mix several kinds of geography:\n\n- direct route sequence,\n- market or harbor geography,\n- ethnographic or regional context,\n- ingredient provenance,\n- named varieties such as regional plants,\n- later editorial or translation labels.\n\nMapping all of those as if they were the same thing produces misleading maps. This repo keeps those layers separate. The route viewer can show the journey, while provenance sidecars can say why a material is linked to Arabia, Galatia, Iudaea, or another region and whether that link came from deterministic matching, human review, or LLM consensus review.\n\n## Repository Layout\n\n- `app/` - canonical static Atlas viewer.\n- `features/scrollytelling-viewer/` - older scroll-driven prototype kept for reference.\n- `data/generated/periplus/` - generated Periplus sections, places, route views, and route model.\n- `data/generated/galen/` - generated Galen route and materia data used by the viewer.\n- `data/generated/simples/` - generated simple-medicine provenance artifacts.\n- `data/review/` - human-readable review ledgers and CSV review surfaces.\n- `data/pleiades/` - cached Pleiades place snapshots and local Pleiades documentation.\n- `schemas/` - JSON Schemas for generated data contracts.\n- `scripts/` - deterministic builders, importers, validators, and exporters.\n- `docs/` - design notes, pipeline checklists, and data-model documentation.\n\n## Data Pipeline\n\nThe Periplus route pipeline is:\n\n```bash\npython3 scripts/ingest_tour_chunk.py --start 1 --count 66\npython3 scripts/apply_place_review_decisions.py --max-section 66\npython3 scripts/build_route_views.py\npython3 scripts/check_generated_tour.py\n```\n\nThat rebuilds `data/generated/periplus/` from the CSV source text, translations, reviewed place decisions, and route-view sidecars.\n\nThe simple provenance pipeline is:\n\n```bash\npython3 scripts/simples/build_pilot_manifest.py\npython3 scripts/simples/check_pilot_manifest.py\npython3 scripts/simpl\n…[truncated at 4000 chars]",
-      "status_md": null
-    },
-    {
-      "name": "map",
-      "private": false,
-      "archived": false,
-      "default_branch": "main",
-      "pushed_at": "2026-05-14T07:52:09Z",
       "open_prs": 0,
       "branches": [
         {
