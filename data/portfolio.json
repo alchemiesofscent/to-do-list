@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-12T05:01:39+00:00",
+  "generated_at": "2026-08-13T05:03:41+00:00",
   "account": "alchemiesofscent",
   "schema": 2,
   "repos": [
@@ -8,16 +8,46 @@
       "private": false,
       "archived": false,
       "default_branch": "main",
-      "pushed_at": "2026-08-11T10:19:38Z",
+      "pushed_at": "2026-08-12T17:37:57Z",
       "open_prs": 0,
       "branches": [
+        {
+          "name": "agent/add-credited-ingredient-images-v15",
+          "tip_date": "2026-08-12T16:34:03Z",
+          "tip_author": "Alchemies of Scent Project",
+          "tip_message": "Publish illustrated Mendes dossier: mendes/map/content-1.html",
+          "ahead": 8,
+          "behind": 2,
+          "pr": {
+            "number": 7,
+            "title": "Add credited ingredient images to the Mendes dossier",
+            "state": "closed",
+            "merged_at": "2026-08-12T16:36:53Z",
+            "updated_at": "2026-08-12T16:41:57Z"
+          }
+        },
+        {
+          "name": "agent/correct-terebinth-v14",
+          "tip_date": "2026-08-12T15:18:10Z",
+          "tip_author": "Alchemies of Scent Project",
+          "tip_message": "Refresh House of Mendes static assets",
+          "ahead": 6,
+          "behind": 3,
+          "pr": {
+            "number": 6,
+            "title": "Correct terebinth as a cooked perfumery product",
+            "state": "closed",
+            "merged_at": "2026-08-12T15:19:07Z",
+            "updated_at": "2026-08-12T15:19:07Z"
+          }
+        },
         {
           "name": "agent/fix-house-of-mendes-assets",
           "tip_date": "2026-08-11T10:19:09Z",
           "tip_author": "Alchemies of Scent Project",
           "tip_message": "Load complete Mendes page from static assets",
           "ahead": 9,
-          "behind": 1,
+          "behind": 7,
           "pr": {
             "number": 2,
             "title": "Complete House of Mendes Pages deployment",
@@ -27,12 +57,42 @@
           }
         },
         {
+          "name": "agent/fix-mendes-loaders",
+          "tip_date": "2026-08-12T15:01:23Z",
+          "tip_author": "Alchemies of Scent Project",
+          "tip_message": "Fix map asset loader arrays",
+          "ahead": 2,
+          "behind": 5,
+          "pr": {
+            "number": 4,
+            "title": "Fix House of Mendes page loaders",
+            "state": "closed",
+            "merged_at": "2026-08-12T15:01:43Z",
+            "updated_at": "2026-08-12T15:01:43Z"
+          }
+        },
+        {
+          "name": "agent/fix-mobile-images-and-replace-five",
+          "tip_date": "2026-08-12T17:36:31Z",
+          "tip_author": "Alchemies of Scent Project",
+          "tip_message": "Reserve mobile image space during lazy loading",
+          "ahead": 9,
+          "behind": 1,
+          "pr": {
+            "number": 8,
+            "title": "Fix mobile image sizing and replace five Mendes images",
+            "state": "closed",
+            "merged_at": "2026-08-12T17:37:57Z",
+            "updated_at": "2026-08-12T17:40:55Z"
+          }
+        },
+        {
           "name": "agent/publish-house-of-mendes",
           "tip_date": "2026-08-11T10:03:57Z",
           "tip_author": "Alchemies of Scent Project",
           "tip_message": "Publish House of Mendes dossier",
           "ahead": 1,
-          "behind": 2,
+          "behind": 8,
           "pr": {
             "number": 1,
             "title": "Publish House of Mendes dossier",
@@ -42,10 +102,40 @@
           }
         },
         {
-          "name": "main",
-          "tip_date": "2026-08-11T10:19:38Z",
+          "name": "agent/split-house-of-mendes-map",
+          "tip_date": "2026-08-12T14:55:25Z",
           "tip_author": "Alchemies of Scent Project",
-          "tip_message": "Complete House of Mendes Pages deployment"
+          "tip_message": "Split Mendes map: add app-3.js",
+          "ahead": 11,
+          "behind": 6,
+          "pr": {
+            "number": 3,
+            "title": "Move the Mendes map to its own page",
+            "state": "closed",
+            "merged_at": "2026-08-12T14:55:50Z",
+            "updated_at": "2026-08-12T14:55:51Z"
+          }
+        },
+        {
+          "name": "agent/version-mendes-assets",
+          "tip_date": "2026-08-12T15:07:43Z",
+          "tip_author": "Alchemies of Scent Project",
+          "tip_message": "Version Mendes asset loading: mendes/map/content-1.html",
+          "ahead": 4,
+          "behind": 4,
+          "pr": {
+            "number": 5,
+            "title": "Version House of Mendes page assets",
+            "state": "closed",
+            "merged_at": "2026-08-12T15:08:02Z",
+            "updated_at": "2026-08-12T15:08:02Z"
+          }
+        },
+        {
+          "name": "main",
+          "tip_date": "2026-08-12T17:37:57Z",
+          "tip_author": "Alchemies of Scent Project",
+          "tip_message": "Fix mobile image sizing and replace five Mendes images (#8)"
         }
       ],
       "branch_detail_skipped": false,
@@ -89,14 +179,14 @@
       "private": false,
       "archived": false,
       "default_branch": "main",
-      "pushed_at": "2026-08-11T04:41:23Z",
+      "pushed_at": "2026-08-12T05:04:22Z",
       "open_prs": 0,
       "branches": [
         {
           "name": "main",
-          "tip_date": "2026-08-11T04:41:22Z",
+          "tip_date": "2026-08-12T05:04:21Z",
           "tip_author": "portfolio-bot",
-          "tip_message": "portfolio: nightly collection 2026-08-11"
+          "tip_message": "portfolio: nightly collection 2026-08-12"
         }
       ],
       "branch_detail_skipped": false,
