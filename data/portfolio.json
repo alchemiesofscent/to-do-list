@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-13T05:03:41+00:00",
+  "generated_at": "2026-08-14T05:01:07+00:00",
   "account": "alchemiesofscent",
   "schema": 2,
   "repos": [
@@ -8,7 +8,7 @@
       "private": false,
       "archived": false,
       "default_branch": "main",
-      "pushed_at": "2026-08-12T17:37:57Z",
+      "pushed_at": "2026-08-13T16:11:44Z",
       "open_prs": 0,
       "branches": [
         {
@@ -17,7 +17,7 @@
           "tip_author": "Alchemies of Scent Project",
           "tip_message": "Publish illustrated Mendes dossier: mendes/map/content-1.html",
           "ahead": 8,
-          "behind": 2,
+          "behind": 6,
           "pr": {
             "number": 7,
             "title": "Add credited ingredient images to the Mendes dossier",
@@ -27,12 +27,27 @@
           }
         },
         {
+          "name": "agent/compact-map-details",
+          "tip_date": "2026-08-13T15:40:39Z",
+          "tip_author": "Sean Coughlin",
+          "tip_message": "Preserve focus across map detail changes",
+          "ahead": 2,
+          "behind": 1,
+          "pr": {
+            "number": 12,
+            "title": "Compact the map details navigator",
+            "state": "closed",
+            "merged_at": "2026-08-13T16:11:44Z",
+            "updated_at": "2026-08-13T16:14:24Z"
+          }
+        },
+        {
           "name": "agent/correct-terebinth-v14",
           "tip_date": "2026-08-12T15:18:10Z",
           "tip_author": "Alchemies of Scent Project",
           "tip_message": "Refresh House of Mendes static assets",
           "ahead": 6,
-          "behind": 3,
+          "behind": 7,
           "pr": {
             "number": 6,
             "title": "Correct terebinth as a cooked perfumery product",
@@ -47,7 +62,7 @@
           "tip_author": "Alchemies of Scent Project",
           "tip_message": "Load complete Mendes page from static assets",
           "ahead": 9,
-          "behind": 7,
+          "behind": 11,
           "pr": {
             "number": 2,
             "title": "Complete House of Mendes Pages deployment",
@@ -62,7 +77,7 @@
           "tip_author": "Alchemies of Scent Project",
           "tip_message": "Fix map asset loader arrays",
           "ahead": 2,
-          "behind": 5,
+          "behind": 9,
           "pr": {
             "number": 4,
             "title": "Fix House of Mendes page loaders",
@@ -77,7 +92,7 @@
           "tip_author": "Alchemies of Scent Project",
           "tip_message": "Reserve mobile image space during lazy loading",
           "ahead": 9,
-          "behind": 1,
+          "behind": 5,
           "pr": {
             "number": 8,
             "title": "Fix mobile image sizing and replace five Mendes images",
@@ -87,12 +102,42 @@
           }
         },
         {
+          "name": "agent/kind-ingredient-location-nav",
+          "tip_date": "2026-08-13T05:43:25Z",
+          "tip_author": "Sean Coughlin",
+          "tip_message": "Separate ingredient and location navigation",
+          "ahead": 1,
+          "behind": 3,
+          "pr": {
+            "number": 10,
+            "title": "Separate ingredient and location map navigation",
+            "state": "closed",
+            "merged_at": "2026-08-13T05:48:02Z",
+            "updated_at": "2026-08-13T05:48:03Z"
+          }
+        },
+        {
+          "name": "agent/map-init-hotfix",
+          "tip_date": "2026-08-13T06:10:49Z",
+          "tip_author": "Sean Coughlin",
+          "tip_message": "Fix map navigation initialization",
+          "ahead": 1,
+          "behind": 2,
+          "pr": {
+            "number": 11,
+            "title": "Fix map navigation initialization",
+            "state": "closed",
+            "merged_at": "2026-08-13T15:21:34Z",
+            "updated_at": "2026-08-13T15:24:46Z"
+          }
+        },
+        {
           "name": "agent/publish-house-of-mendes",
           "tip_date": "2026-08-11T10:03:57Z",
           "tip_author": "Alchemies of Scent Project",
           "tip_message": "Publish House of Mendes dossier",
           "ahead": 1,
-          "behind": 8,
+          "behind": 12,
           "pr": {
             "number": 1,
             "title": "Publish House of Mendes dossier",
@@ -107,7 +152,7 @@
           "tip_author": "Alchemies of Scent Project",
           "tip_message": "Split Mendes map: add app-3.js",
           "ahead": 11,
-          "behind": 6,
+          "behind": 10,
           "pr": {
             "number": 3,
             "title": "Move the Mendes map to its own page",
@@ -117,12 +162,27 @@
           }
         },
         {
+          "name": "agent/swipe-ingredient-map",
+          "tip_date": "2026-08-13T04:56:04Z",
+          "tip_author": "Sean Coughlin",
+          "tip_message": "Add swipeable ingredient map navigation",
+          "ahead": 1,
+          "behind": 4,
+          "pr": {
+            "number": 9,
+            "title": "Add swipeable ingredient map navigation",
+            "state": "closed",
+            "merged_at": "2026-08-13T05:09:03Z",
+            "updated_at": "2026-08-13T05:12:25Z"
+          }
+        },
+        {
           "name": "agent/version-mendes-assets",
           "tip_date": "2026-08-12T15:07:43Z",
           "tip_author": "Alchemies of Scent Project",
           "tip_message": "Version Mendes asset loading: mendes/map/content-1.html",
           "ahead": 4,
-          "behind": 4,
+          "behind": 8,
           "pr": {
             "number": 5,
             "title": "Version House of Mendes page assets",
@@ -133,9 +193,9 @@
         },
         {
           "name": "main",
-          "tip_date": "2026-08-12T17:37:57Z",
+          "tip_date": "2026-08-13T16:11:44Z",
           "tip_author": "Alchemies of Scent Project",
-          "tip_message": "Fix mobile image sizing and replace five Mendes images (#8)"
+          "tip_message": "Compact the map details navigator (#12)"
         }
       ],
       "branch_detail_skipped": false,
@@ -179,14 +239,14 @@
       "private": false,
       "archived": false,
       "default_branch": "main",
-      "pushed_at": "2026-08-12T05:04:22Z",
+      "pushed_at": "2026-08-13T05:05:53Z",
       "open_prs": 0,
       "branches": [
         {
           "name": "main",
-          "tip_date": "2026-08-12T05:04:21Z",
+          "tip_date": "2026-08-13T05:05:52Z",
           "tip_author": "portfolio-bot",
-          "tip_message": "portfolio: nightly collection 2026-08-12"
+          "tip_message": "portfolio: nightly collection 2026-08-13"
         }
       ],
       "branch_detail_skipped": false,
