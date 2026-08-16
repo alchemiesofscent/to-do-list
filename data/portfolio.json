@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-15T03:53:22+00:00",
+  "generated_at": "2026-08-16T03:59:05+00:00",
   "account": "alchemiesofscent",
   "schema": 2,
   "repos": [
@@ -8,8 +8,8 @@
       "private": false,
       "archived": false,
       "default_branch": "main",
-      "pushed_at": "2026-08-14T23:28:49Z",
-      "open_prs": 1,
+      "pushed_at": "2026-08-16T01:52:07Z",
+      "open_prs": 0,
       "branches": [
         {
           "name": "agent/add-credited-ingredient-images-v15",
@@ -17,7 +17,7 @@
           "tip_author": "Alchemies of Scent Project",
           "tip_message": "Publish illustrated Mendes dossier: mendes/map/content-1.html",
           "ahead": 8,
-          "behind": 39,
+          "behind": 98,
           "pr": {
             "number": 7,
             "title": "Add credited ingredient images to the Mendes dossier",
@@ -32,7 +32,7 @@
           "tip_author": "Sean Coughlin",
           "tip_message": "Preserve focus across map detail changes",
           "ahead": 2,
-          "behind": 34,
+          "behind": 93,
           "pr": {
             "number": 12,
             "title": "Compact the map details navigator",
@@ -47,7 +47,7 @@
           "tip_author": "Alchemies of Scent Project",
           "tip_message": "Refresh House of Mendes static assets",
           "ahead": 6,
-          "behind": 40,
+          "behind": 99,
           "pr": {
             "number": 6,
             "title": "Correct terebinth as a cooked perfumery product",
@@ -62,7 +62,7 @@
           "tip_author": "Alchemies of Scent Project",
           "tip_message": "Load complete Mendes page from static assets",
           "ahead": 9,
-          "behind": 44,
+          "behind": 103,
           "pr": {
             "number": 2,
             "title": "Complete House of Mendes Pages deployment",
@@ -77,7 +77,7 @@
           "tip_author": "Alchemies of Scent Project",
           "tip_message": "Fix map asset loader arrays",
           "ahead": 2,
-          "behind": 42,
+          "behind": 101,
           "pr": {
             "number": 4,
             "title": "Fix House of Mendes page loaders",
@@ -92,7 +92,7 @@
           "tip_author": "Alchemies of Scent Project",
           "tip_message": "Reserve mobile image space during lazy loading",
           "ahead": 9,
-          "behind": 38,
+          "behind": 97,
           "pr": {
             "number": 8,
             "title": "Fix mobile image sizing and replace five Mendes images",
@@ -107,7 +107,7 @@
           "tip_author": "Sean Coughlin",
           "tip_message": "Separate ingredient and location navigation",
           "ahead": 1,
-          "behind": 36,
+          "behind": 95,
           "pr": {
             "number": 10,
             "title": "Separate ingredient and location map navigation",
@@ -122,7 +122,7 @@
           "tip_author": "Sean Coughlin",
           "tip_message": "Fix map navigation initialization",
           "ahead": 1,
-          "behind": 35,
+          "behind": 94,
           "pr": {
             "number": 11,
             "title": "Fix map navigation initialization",
@@ -137,7 +137,7 @@
           "tip_author": "Alchemies of Scent Project",
           "tip_message": "Publish House of Mendes dossier",
           "ahead": 1,
-          "behind": 45,
+          "behind": 104,
           "pr": {
             "number": 1,
             "title": "Publish House of Mendes dossier",
@@ -152,7 +152,7 @@
           "tip_author": "Alchemies of Scent Project",
           "tip_message": "Split Mendes map: add app-3.js",
           "ahead": 11,
-          "behind": 43,
+          "behind": 102,
           "pr": {
             "number": 3,
             "title": "Move the Mendes map to its own page",
@@ -167,7 +167,7 @@
           "tip_author": "Sean Coughlin",
           "tip_message": "Add swipeable ingredient map navigation",
           "ahead": 1,
-          "behind": 37,
+          "behind": 96,
           "pr": {
             "number": 9,
             "title": "Add swipeable ingredient map navigation",
@@ -182,7 +182,7 @@
           "tip_author": "Alchemies of Scent Project",
           "tip_message": "Version Mendes asset loading: mendes/map/content-1.html",
           "ahead": 4,
-          "behind": 41,
+          "behind": 100,
           "pr": {
             "number": 5,
             "title": "Version House of Mendes page assets",
@@ -192,12 +192,27 @@
           }
         },
         {
+          "name": "claude/map-mendes-claims-formatting-7c8lsd",
+          "tip_date": "2026-08-15T23:44:18Z",
+          "tip_author": "Claude",
+          "tip_message": "Drop the unverified flags from the Herodian entry",
+          "ahead": 0,
+          "behind": 10,
+          "pr": {
+            "number": 39,
+            "title": "mendes: the two Louvre lily-perfume reliefs in the susinum section",
+            "state": "closed",
+            "merged_at": "2026-08-15T23:46:37Z",
+            "updated_at": "2026-08-15T23:46:37Z"
+          }
+        },
+        {
           "name": "claude/mendes-map-revision",
           "tip_date": "2026-08-14T15:49:17Z",
           "tip_author": "Claude",
           "tip_message": "mendes/map: give the phone one search bar and one job per surface",
           "ahead": 0,
-          "behind": 16,
+          "behind": 75,
           "pr": {
             "number": 16,
             "title": "One search bar, one job per surface on the phone",
@@ -208,24 +223,24 @@
         },
         {
           "name": "claude/mendes-map-revision-7mlcw0",
-          "tip_date": "2026-08-14T23:28:47Z",
+          "tip_date": "2026-08-15T07:09:58Z",
           "tip_author": "Claude",
-          "tip_message": "mendes/map: put the corridor labels in the land register",
-          "ahead": 2,
-          "behind": 0,
+          "tip_message": "mendes/map: drop the zoom cluster below the rail's reach",
+          "ahead": 0,
+          "behind": 42,
           "pr": {
-            "number": 23,
-            "title": "mendes/map: two colours that were never named, and one named for the wrong ground",
-            "state": "open",
-            "merged_at": null,
-            "updated_at": "2026-08-14T23:29:16Z"
+            "number": 29,
+            "title": "mendes/map: drop the zoom cluster below the rail's reach",
+            "state": "closed",
+            "merged_at": "2026-08-15T07:12:32Z",
+            "updated_at": "2026-08-15T07:12:33Z"
           }
         },
         {
           "name": "main",
-          "tip_date": "2026-08-14T22:44:25Z",
-          "tip_author": "Alchemies of Scent Project",
-          "tip_message": "Merge pull request #22 from alchemiesofscent/claude/mendes-map-revision-7mlcw0"
+          "tip_date": "2026-08-16T01:52:06Z",
+          "tip_author": "Claude",
+          "tip_message": "mendes: sweep the remaining colours that did not follow the theme"
         }
       ],
       "branch_detail_skipped": false,
@@ -248,6 +263,7 @@
         "docs/01-json-schema.md",
         "docs/02-repo-plan-task-list.md",
         "docs/03-frontend-wireframe-spec.md",
+        "docs/04-claims-reader-plan.md",
         "docs/galen_ambiguous_places.md",
         "docs/galen_journey_passages_full_greek.md",
         "docs/galen_route_candidates.md",
@@ -258,7 +274,8 @@
         "docs/simple_provenance_model.md",
         "docs/simples_provenance_pipeline_todo.md",
         "features/scrollytelling-viewer/ENGINE_DECISION.md",
-        "features/scrollytelling-viewer/README.md"
+        "features/scrollytelling-viewer/README.md",
+        "mendes/images/louvre/README.md"
       ],
       "md_files_truncated": false,
       "readme": "# Periplus Tour MVP\n\nPeriplus Tour MVP is a static research atlas for reading ancient geographic and medical texts as structured journeys. It combines source passages, translations, local review ledgers, Pleiades place identifiers, and generated map-ready JSON so that a reader can move between text, place evidence, and route geography without needing a database server.\n\nThe current app has two main research surfaces:\n\n- A Periplus route viewer for the anonymous *Periplus Maris Erythraei*, covering the full 66-section journey model currently generated from `texts.csv`, `translations.csv`, review ledgers, and route sidecars.\n- A Galen/simple-medicine provenance pipeline that identifies source passages where a simple medicine is tied to a place, adjudicates candidate links, and emits map-ready provenance points.\n\nThe project is still an MVP, but the important pieces are reproducible: generated data is built from scripts, uncertain geography is preserved as metadata, and accepted place links carry their review source.\n\n## What The Atlas Does\n\nThe viewer in `app/` presents a full-screen Leaflet map with a reading panel and a site strip. It lets a reader step through the route, inspect places mentioned in the passage, and distinguish mapped locations from unresolved or contextual geography.\n\nFor the Periplus route, the generated data model separates:\n\n- source sections and translations,\n- local place-authority records,\n- reviewed route focus records,\n- route legs,\n- off-route or contextual sites,\n- optional Google My Maps and webmap-derived review inputs.\n\nFor the simple-medicine provenance work, the pipeline asks a narrower question: when a medical entry names a place, is that place actually evidence for where a substance grows, is produced, is sourced, is acquired, or is merely contextual? The current cleaned run keeps only five accepted Dioscorides provenance links after suppressing false positives such as entry headwords that happen to match Pleiades place names.\n\n## Why This Exists\n\nAncient route and materia-medica texts often mix several kinds of geography:\n\n- direct route sequence,\n- market or harbor geography,\n- ethnographic or regional context,\n- ingredient provenance,\n- named varieties such as regional plants,\n- later editorial or translation labels.\n\nMapping all of those as if they were the same thing produces misleading maps. This repo keeps those layers separate. The route viewer can show the journey, while provenance sidecars can say why a material is linked to Arabia, Galatia, Iudaea, or another region and whether that link came from deterministic matching, human review, or LLM consensus review.\n\n## Repository Layout\n\n- `app/` - canonical static Atlas viewer.\n- `features/scrollytelling-viewer/` - older scroll-driven prototype kept for reference.\n- `data/generated/periplus/` - generated Periplus sections, places, route views, and route model.\n- `data/generated/galen/` - generated Galen route and materia data used by the viewer.\n- `data/generated/simples/` - generated simple-medicine provenance artifacts.\n- `data/review/` - human-readable review ledgers and CSV review surfaces.\n- `data/pleiades/` - cached Pleiades place snapshots and local Pleiades documentation.\n- `schemas/` - JSON Schemas for generated data contracts.\n- `scripts/` - deterministic builders, importers, validators, and exporters.\n- `docs/` - design notes, pipeline checklists, and data-model documentation.\n\n## Data Pipeline\n\nThe Periplus route pipeline is:\n\n```bash\npython3 scripts/ingest_tour_chunk.py --start 1 --count 66\npython3 scripts/apply_place_review_decisions.py --max-section 66\npython3 scripts/build_route_views.py\npython3 scripts/check_generated_tour.py\n```\n\nThat rebuilds `data/generated/periplus/` from the CSV source text, translations, reviewed place decisions, and route-view sidecars.\n\nThe simple provenance pipeline is:\n\n```bash\npython3 scripts/simples/build_pilot_manifest.py\npython3 scripts/simples/check_pilot_manifest.py\npython3 scripts/simpl\n…[truncated at 4000 chars]",
@@ -269,16 +286,11 @@
       "private": true,
       "archived": false,
       "default_branch": "main",
-      "pushed_at": "2026-08-14T21:59:30Z",
-      "open_prs": 3,
+      "pushed_at": "2026-08-15T23:19:36Z",
+      "open_prs": 2,
       "branches": [
         {
           "name": "agent/create-pre-refactor-snapshot",
-          "tip_date": "2026-08-08T14:37:16Z",
-          "tip_author": "Alchemies of Scent Project",
-          "tip_message": "ci: remove one-shot snapshot workflow after success",
-          "ahead": 3,
-          "behind": 13,
           "pr": {
             "number": 5,
             "title": "ci(R0.1): create annotated pre-refactor snapshot tag [completed unmerged]",
@@ -289,11 +301,6 @@
         },
         {
           "name": "agent/refactor-plan-v1-1",
-          "tip_date": "2026-08-08T12:49:55Z",
-          "tip_author": "Alchemies of Scent Project",
-          "tip_message": "docs(refactor): separate transition from history",
-          "ahead": 13,
-          "behind": 14,
           "pr": {
             "number": 4,
             "title": "docs(refactor): activate corpus-preserving path to Corpus Alpha v1.2",
@@ -304,11 +311,6 @@
         },
         {
           "name": "claude/aos-v5-vision-eval-mbq1vq",
-          "tip_date": "2026-08-05T23:01:58Z",
-          "tip_author": "Claude",
-          "tip_message": "Merge main; re-cut architecture-review corrections as vision v2.2",
-          "ahead": 0,
-          "behind": 15,
           "pr": {
             "number": 3,
             "title": "AoS v5 vision v2.2: architecture-review corrections, re-cut atop main's v2.1",
@@ -318,12 +320,17 @@
           }
         },
         {
+          "name": "claude/repo-refactor-status-yplmv2",
+          "pr": {
+            "number": 22,
+            "title": "docs(checklist): refresh to v2.8 — close R2.2–R2.4 WP2, record ADR-0018 deviation, correct R0 head",
+            "state": "closed",
+            "merged_at": "2026-08-15T05:58:12Z",
+            "updated_at": "2026-08-15T06:10:32Z"
+          }
+        },
+        {
           "name": "claude/users-data-model-vision-uu9qvy",
-          "tip_date": "2026-07-10T00:59:55Z",
-          "tip_author": "Claude",
-          "tip_message": "AoS v5 vision v2.0: referential grounding, passage-alignment spine, pilot-first sequencing",
-          "ahead": 0,
-          "behind": 74,
           "pr": {
             "number": 1,
             "title": "AoS v5 vision plan: witness stack, TEI import/export, corpus expansion, knowledge graph",
@@ -334,26 +341,36 @@
         },
         {
           "name": "codex/ingredient-provenance-map",
-          "tip_date": "2026-08-14T21:59:06Z",
-          "tip_author": "Sean Coughlin",
-          "tip_message": "research(natgeo): add House of Mendes dossier and provenance map",
-          "ahead": 1,
-          "behind": 0,
           "pr": {
             "number": 20,
             "title": "research(natgeo): add House of Mendes dossier and provenance map",
+            "state": "closed",
+            "merged_at": "2026-08-15T06:10:52Z",
+            "updated_at": "2026-08-15T06:11:14Z"
+          }
+        },
+        {
+          "name": "codex/ptolemaic-queen-fragments",
+          "pr": {
+            "number": 21,
+            "title": "research: add Ptolemaic queens scent fragment repository",
+            "state": "closed",
+            "merged_at": "2026-08-15T05:42:26Z",
+            "updated_at": "2026-08-15T05:42:26Z"
+          }
+        },
+        {
+          "name": "codex/ptolemaic-transmission-corrections",
+          "pr": {
+            "number": 32,
+            "title": "Record Ptolemaic queen scent and transmission fragments",
             "state": "open",
             "merged_at": null,
-            "updated_at": "2026-08-14T22:00:04Z"
+            "updated_at": "2026-08-15T15:28:18Z"
           }
         },
         {
           "name": "data/r1-baseline-manifest",
-          "tip_date": "2026-08-09T07:18:11Z",
-          "tip_author": "Alchemies of Scent Project",
-          "tip_message": "docs(R1): record preservation baseline",
-          "ahead": 21,
-          "behind": 12,
           "pr": {
             "number": 7,
             "title": "data(R1): add reproducible baseline, launch cohort, and manifest isolation",
@@ -364,11 +381,6 @@
         },
         {
           "name": "data/r2-0-census-alpha-map",
-          "tip_date": "2026-08-09T20:27:53Z",
-          "tip_author": "alchemiesofscent",
-          "tip_message": "fix(R2.0): close exact-head review gaps",
-          "ahead": 3,
-          "behind": 11,
           "pr": {
             "number": 8,
             "title": "data(R2.0): map populated fields to alpha dispositions",
@@ -378,12 +390,17 @@
           }
         },
         {
+          "name": "docs/adr-0019-merge-verification",
+          "pr": {
+            "number": 35,
+            "title": "ADR-0019: compensating merge verification (Proposed); exec checklist v1.2",
+            "state": "closed",
+            "merged_at": "2026-08-15T16:44:05Z",
+            "updated_at": "2026-08-15T16:44:19Z"
+          }
+        },
+        {
           "name": "docs/agent-bridge-async-qa",
-          "tip_date": "2026-08-09T21:50:52Z",
-          "tip_author": "Alchemies of Scent Project",
-          "tip_message": "docs(PR #9): merge current main into agent-bridge branch",
-          "ahead": 2,
-          "behind": 9,
           "pr": {
             "number": 9,
             "title": "docs(AGENTS v1.4): async agent Q&A via agent-bridge/QUESTIONS.md while Sean is away",
@@ -393,12 +410,37 @@
           }
         },
         {
+          "name": "docs/plan-derived-numbers-sweep",
+          "pr": {
+            "number": 43,
+            "title": "Sweep the superseded Athenaeus figures to the derived numbers (plan v1.6, flag 1 ruling)",
+            "state": "closed",
+            "merged_at": "2026-08-15T22:48:41Z",
+            "updated_at": "2026-08-15T22:48:41Z"
+          }
+        },
+        {
+          "name": "docs/post-r3-housekeeping",
+          "pr": {
+            "number": 45,
+            "title": "docs: post-R3 housekeeping — vision pin to immutable archive; docket v1.5",
+            "state": "closed",
+            "merged_at": "2026-08-15T23:19:36Z",
+            "updated_at": "2026-08-15T23:19:36Z"
+          }
+        },
+        {
+          "name": "docs/r2-4-closure",
+          "pr": {
+            "number": 24,
+            "title": "docs(checklist): v3.0 — close R2.4 with WP3/WP4 evidence",
+            "state": "closed",
+            "merged_at": "2026-08-15T08:54:18Z",
+            "updated_at": "2026-08-15T08:55:14Z"
+          }
+        },
+        {
           "name": "docs/r2-4-scoping",
-          "tip_date": "2026-08-10T15:51:12Z",
-          "tip_author": "alchemiesofscent",
-          "tip_message": "docs(r2.4): scope coverage and publication fixtures",
-          "ahead": 1,
-          "behind": 3,
           "pr": {
             "number": 16,
             "title": "docs(r2.4): scoping memo — autonomous vs Sean-gated work",
@@ -408,12 +450,37 @@
           }
         },
         {
+          "name": "docs/r2-acceptance",
+          "pr": {
+            "number": 26,
+            "title": "spec(R2): complete-R2 acceptance of v5.0.0-alpha.1 — pre-authorized CURRENT.md cutover",
+            "state": "closed",
+            "merged_at": "2026-08-15T09:38:46Z",
+            "updated_at": "2026-08-15T09:39:08Z"
+          }
+        },
+        {
+          "name": "docs/r3-9-upstream-crosswalk",
+          "pr": {
+            "number": 40,
+            "title": "R3.9: freeze the upstream term crosswalk target",
+            "state": "closed",
+            "merged_at": "2026-08-15T21:01:16Z",
+            "updated_at": "2026-08-15T21:01:45Z"
+          }
+        },
+        {
+          "name": "docs/r3-execution-checklist",
+          "pr": {
+            "number": 31,
+            "title": "docs: R3 execution checklist for a lower-capability executor",
+            "state": "closed",
+            "merged_at": "2026-08-15T14:18:10Z",
+            "updated_at": "2026-08-15T14:18:24Z"
+          }
+        },
+        {
           "name": "docs/r3-r9-decision-docket",
-          "tip_date": "2026-08-09T21:07:18Z",
-          "tip_author": "alchemiesofscent",
-          "tip_message": "docs(docket): resolve review scope ambiguities",
-          "ahead": 3,
-          "behind": 10,
           "pr": {
             "number": 10,
             "title": "docs(plan): consolidate R3-R9 decision docket",
@@ -424,11 +491,6 @@
         },
         {
           "name": "docs/refactor-status-sync-20260810",
-          "tip_date": "2026-08-10T14:39:27Z",
-          "tip_author": "alchemiesofscent",
-          "tip_message": "docs(refactor): sync milestone statuses to merged PRs",
-          "ahead": 1,
-          "behind": 5,
           "pr": {
             "number": 14,
             "title": "docs(refactor): sync milestone statuses to merged PRs",
@@ -439,26 +501,16 @@
         },
         {
           "name": "entity-linking/doc-versioning-v1.1-v2.2",
-          "tip_date": "2026-08-10T19:46:28Z",
-          "tip_author": "Sean Coughlin",
-          "tip_message": "entity-linking: commit PILOT-PLAN v2.2 and WHITEPAPER v1.1 with version archives. Why: these drafts existed only in the working tree; the v2.2 rulings (blob dilution class, 22/37 tier-2 baseline, hub_",
-          "ahead": 1,
-          "behind": 0,
           "pr": {
             "number": 19,
             "title": "entity-linking: version PILOT-PLAN v2.2 + WHITEPAPER v1.1 with archives",
-            "state": "open",
-            "merged_at": null,
-            "updated_at": "2026-08-10T19:47:08Z"
+            "state": "closed",
+            "merged_at": "2026-08-15T06:18:24Z",
+            "updated_at": "2026-08-15T06:18:24Z"
           }
         },
         {
           "name": "fix/r2-2-authority-pin-refresh",
-          "tip_date": "2026-08-10T14:59:05Z",
-          "tip_author": "alchemiesofscent",
-          "tip_message": "fix(r2.2): refresh REFACTOR_PLAN authority pin in registry and validator after #14",
-          "ahead": 1,
-          "behind": 4,
           "pr": {
             "number": 15,
             "title": "fix(r2.2): refresh REFACTOR_PLAN authority pin after #14",
@@ -469,11 +521,6 @@
         },
         {
           "name": "fixtures/r2-4-wp1",
-          "tip_date": "2026-08-10T17:23:05Z",
-          "tip_author": "alchemiesofscent",
-          "tip_message": "fixtures(R2.4): add work package 1 coverage",
-          "ahead": 1,
-          "behind": 2,
           "pr": {
             "number": 17,
             "title": "fixtures(r2.4): work package 1",
@@ -484,11 +531,6 @@
         },
         {
           "name": "fixtures/r2-4-wp2",
-          "tip_date": "2026-08-10T18:13:40Z",
-          "tip_author": "alchemiesofscent",
-          "tip_message": "fixtures(r2.4): work package 2",
-          "ahead": 1,
-          "behind": 1,
           "pr": {
             "number": 18,
             "title": "fixtures(r2.4): work package 2",
@@ -498,12 +540,27 @@
           }
         },
         {
+          "name": "fixtures/r2-4-wp3",
+          "pr": {
+            "number": 23,
+            "title": "R2.4 WP3: rights/publication audit and fail-closed projection policy",
+            "state": "closed",
+            "merged_at": "2026-08-15T07:10:31Z",
+            "updated_at": "2026-08-15T07:11:42Z"
+          }
+        },
+        {
+          "name": "governance/unpin-living-plan-authority",
+          "pr": {
+            "number": 42,
+            "title": "Move the r2Architecture pin onto an immutable artifact (flag 2 ruling)",
+            "state": "closed",
+            "merged_at": "2026-08-15T22:41:20Z",
+            "updated_at": "2026-08-15T22:41:21Z"
+          }
+        },
+        {
           "name": "import-laboratory-prototype",
-          "tip_date": "2026-07-16T18:42:25Z",
-          "tip_author": "alchemiesofscent",
-          "tip_message": "Confirm Eleventy laboratory stack",
-          "ahead": 6,
-          "behind": 68,
           "pr": {
             "number": 2,
             "title": "Add laboratory site scaffold and research updates",
@@ -513,18 +570,140 @@
           }
         },
         {
-          "name": "main",
-          "tip_date": "2026-08-10T18:20:41Z",
-          "tip_author": "Alchemies of Scent Project",
-          "tip_message": "fixtures(r2.4): work package 2 (#18)"
+          "name": "lexical/r3-4-canonical-stores",
+          "pr": {
+            "number": 36,
+            "title": "R3.4: canonical lexical ledger, terms, and forms",
+            "state": "closed",
+            "merged_at": "2026-08-15T18:57:52Z",
+            "updated_at": "2026-08-15T18:58:28Z"
+          }
+        },
+        {
+          "name": "lexical/r3-5-registry-parity",
+          "pr": {
+            "number": 37,
+            "title": "R3.5: regenerated registry parity",
+            "state": "closed",
+            "merged_at": "2026-08-15T20:17:26Z",
+            "updated_at": "2026-08-15T20:17:56Z"
+          }
+        },
+        {
+          "name": "lexical/r3-6-crosswalk",
+          "pr": {
+            "number": 39,
+            "title": "R3.6: correction crosswalk contract and reference closure",
+            "state": "closed",
+            "merged_at": "2026-08-15T20:41:23Z",
+            "updated_at": "2026-08-15T20:42:01Z"
+          }
+        },
+        {
+          "name": "lexical/r3-7-active-ledger",
+          "pr": {
+            "number": 34,
+            "title": "R3.7: non-lexical active ledger from the R2 census",
+            "state": "closed",
+            "merged_at": "2026-08-15T16:31:27Z",
+            "updated_at": "2026-08-15T16:31:59Z"
+          }
+        },
+        {
+          "name": "lexical/r3-8-registries-manifest",
+          "pr": {
+            "number": 44,
+            "title": "R3.8 — give corpus/registries/ its own manifest layer (the last R3 step)",
+            "state": "closed",
+            "merged_at": "2026-08-15T22:57:02Z",
+            "updated_at": "2026-08-15T22:58:14Z"
+          }
+        },
+        {
+          "name": "lexical/r3-10-boundary-freeze",
+          "pr": {
+            "number": 41,
+            "title": "R3.10 — Athenaeus boundary freeze and plan amendment to the derived numbers",
+            "state": "closed",
+            "merged_at": "2026-08-15T21:41:30Z",
+            "updated_at": "2026-08-15T21:42:21Z"
+          }
+        },
+        {
+          "name": "lexical/r3-accent-storage",
+          "pr": {
+            "number": 30,
+            "title": "R3.1: nardinon headword and Greek storage-encoding rulings",
+            "state": "closed",
+            "merged_at": "2026-08-15T13:50:16Z",
+            "updated_at": "2026-08-15T13:50:16Z"
+          }
+        },
+        {
+          "name": "lexical/r3-identity-convergence",
+          "pr": {
+            "number": 27,
+            "title": "R3.1: rulings-corrected reconciliation, Athenaeus dossiers, and identity-link table",
+            "state": "closed",
+            "merged_at": "2026-08-15T10:48:37Z",
+            "updated_at": "2026-08-15T10:48:53Z"
+          }
+        },
+        {
+          "name": "lexical/r3-kyp01-reversal",
+          "pr": {
+            "number": 38,
+            "title": "R3: KYP-01 reversed — kyprinon perfume as a distinct term",
+            "state": "closed",
+            "merged_at": "2026-08-15T20:02:07Z",
+            "updated_at": "2026-08-15T20:02:37Z"
+          }
+        },
+        {
+          "name": "lexical/r3-kyprinon-ruling",
+          "pr": {
+            "number": 33,
+            "title": "R3: KYP-01 provisional kyprinon binding with context",
+            "state": "closed",
+            "merged_at": "2026-08-15T14:43:02Z",
+            "updated_at": "2026-08-15T14:43:17Z"
+          }
+        },
+        {
+          "name": "lexical/r3-review-1",
+          "pr": {
+            "number": 29,
+            "title": "R3.1: Sean's identity-link verdicts and the PLD-02/03 rulings",
+            "state": "closed",
+            "merged_at": "2026-08-15T13:24:05Z",
+            "updated_at": "2026-08-15T13:24:21Z"
+          }
+        },
+        {
+          "name": "lexical/r3-review-tooling",
+          "pr": {
+            "number": 28,
+            "title": "tooling(r3): review-verdicts applier with term-level schema",
+            "state": "closed",
+            "merged_at": "2026-08-15T13:13:05Z",
+            "updated_at": "2026-08-15T13:13:05Z"
+          }
+        },
+        {
+          "name": "main"
+        },
+        {
+          "name": "product/r2-5-dist-interface",
+          "pr": {
+            "number": 25,
+            "title": "R2.5: compiled dist/corpus interface and product-surface fixtures",
+            "state": "closed",
+            "merged_at": "2026-08-15T09:05:58Z",
+            "updated_at": "2026-08-15T09:06:15Z"
+          }
         },
         {
           "name": "refactor/r0-authority",
-          "tip_date": "2026-08-08T18:45:53Z",
-          "tip_author": "Alchemies of Scent Project",
-          "tip_message": "docs(R0): align exact-head governance evidence",
-          "ahead": 71,
-          "behind": 13,
           "pr": {
             "number": 6,
             "title": "refactor(R0): establish repository authority and delivery governance",
@@ -535,11 +714,6 @@
         },
         {
           "name": "schema/r2-1-alpha-types",
-          "tip_date": "2026-08-10T00:18:52Z",
-          "tip_author": "alchemiesofscent",
-          "tip_message": "docs(R2.1): record complete parity repair",
-          "ahead": 22,
-          "behind": 8,
           "pr": {
             "number": 11,
             "title": "schema(R2.1): add self-contained v5 alpha contract",
@@ -550,11 +724,6 @@
         },
         {
           "name": "schema/r2-2-controlled-enums",
-          "tip_date": "2026-08-10T02:28:25Z",
-          "tip_author": "alchemiesofscent",
-          "tip_message": "Lock R2.2 vocabulary authority pointers",
-          "ahead": 9,
-          "behind": 7,
           "pr": {
             "number": 12,
             "title": "R2.2: controlled enums (frozen head 3ccaed11)",
@@ -565,11 +734,6 @@
         },
         {
           "name": "schema/r2-3-ownership-contract",
-          "tip_date": "2026-08-10T13:26:06Z",
-          "tip_author": "alchemiesofscent",
-          "tip_message": "Reconcile R2.3 architecture matrix",
-          "ahead": 14,
-          "behind": 6,
           "pr": {
             "number": 13,
             "title": "R2.3: authored/generated ownership contract (frozen head f18f30aa)",
@@ -579,21 +743,17 @@
           }
         },
         {
-          "name": "wip/windows-checkout-20260809",
-          "tip_date": "2026-08-09T19:33:04Z",
-          "tip_author": "alchemiesofscent",
-          "tip_message": "WIP: preserve Windows checkout changes (2026-08-09)",
-          "ahead": 1,
-          "behind": 65
+          "name": "wip/windows-checkout-20260809"
         }
       ],
-      "branch_detail_skipped": false,
+      "branch_detail_skipped": true,
       "md_files": [
         ".github/pull_request_template.md",
         "AGENTS.md",
         "AoS_spec/AoS_v4.0.2_revision_report.md",
         "AoS_spec/AoS_v5_vision.md",
         "AoS_spec/CURRENT.md",
+        "AoS_spec/R2_ACCEPTANCE.md",
         "AoS_spec/README.md",
         "AoS_spec/adr/0001-repo-strategy.md",
         "AoS_spec/adr/0002-recordkind-discriminator.md",
@@ -612,6 +772,7 @@
         "AoS_spec/adr/0016-lexical-handoff-authority.md",
         "AoS_spec/adr/0017-site-dist-only.md",
         "AoS_spec/adr/0018-procedural-main-governance.md",
+        "AoS_spec/adr/0019-compensating-merge-verification.md",
         "AoS_spec/adr/README.md",
         "AoS_spec/adr/archive/0010-monorepo-layout.v1.0.md",
         "AoS_spec/adr/archive/0011-evidence-model-v4.1-deltas.v1.0.md",
@@ -623,6 +784,8 @@
         "AoS_spec/archive/AoS_v5_vision.v2.0.md",
         "AoS_spec/archive/AoS_v5_vision.v2.1.md",
         "AoS_spec/archive/AoS_v5_vision.v2.2.md",
+        "AoS_spec/archive/AoS_v5_vision.v2.3.md",
+        "AoS_spec/archive/CURRENT.v1.0.md",
         "AoS_spec/archive/README.pre-r0-20260808.md",
         "AoS_spec/archive/README.v2.0.md",
         "AoS_spec/versions/v3.0/Technical_Specification_v3.0_StaticSite.md",
@@ -983,6 +1146,7 @@
         "archive/MAP.v1.3.md",
         "archive/MAP.v2.0.md",
         "archive/MAP.v2.1.md",
+        "archive/MAP.v2.2.md",
         "archive/MEDIA-OMITTED.md",
         "archive/MOVED.v1.0.md",
         "archive/README.md",
@@ -1103,6 +1267,7 @@
         "cookbook/plan/PROJECT_LEAD_DECISION_DOCKET.md",
         "cookbook/plan/R2.0_CENSUS_TO_ALPHA_WORK_ORDER.md",
         "cookbook/plan/R2_4_SCOPING_MEMO.md",
+        "cookbook/plan/R3_EXECUTION_CHECKLIST.md",
         "cookbook/plan/REFACTOR_PLAN.md",
         "cookbook/plan/REORG_PLAN.md",
         "cookbook/plan/WORKPLAN.md",
@@ -1116,11 +1281,39 @@
         "cookbook/plan/archive/CHECKLIST.v2.4.md",
         "cookbook/plan/archive/CHECKLIST.v2.5.md",
         "cookbook/plan/archive/CHECKLIST.v2.6.md",
+        "cookbook/plan/archive/CHECKLIST.v2.7.md",
+        "cookbook/plan/archive/CHECKLIST.v2.8.md",
+        "cookbook/plan/archive/CHECKLIST.v2.9.md",
+        "cookbook/plan/archive/CHECKLIST.v3.0.md",
+        "cookbook/plan/archive/CHECKLIST.v3.1.md",
+        "cookbook/plan/archive/CHECKLIST.v3.10.md",
+        "cookbook/plan/archive/CHECKLIST.v3.11.md",
+        "cookbook/plan/archive/CHECKLIST.v3.12.md",
+        "cookbook/plan/archive/CHECKLIST.v3.13.md",
+        "cookbook/plan/archive/CHECKLIST.v3.14.md",
+        "cookbook/plan/archive/CHECKLIST.v3.15.md",
+        "cookbook/plan/archive/CHECKLIST.v3.16.md",
+        "cookbook/plan/archive/CHECKLIST.v3.2.md",
+        "cookbook/plan/archive/CHECKLIST.v3.3.md",
+        "cookbook/plan/archive/CHECKLIST.v3.4.md",
+        "cookbook/plan/archive/CHECKLIST.v3.5.md",
+        "cookbook/plan/archive/CHECKLIST.v3.6.md",
+        "cookbook/plan/archive/CHECKLIST.v3.7.md",
+        "cookbook/plan/archive/CHECKLIST.v3.8.md",
+        "cookbook/plan/archive/CHECKLIST.v3.9.md",
         "cookbook/plan/archive/PROJECT_LEAD_DECISION_DOCKET.v1.0.md",
+        "cookbook/plan/archive/PROJECT_LEAD_DECISION_DOCKET.v1.1.md",
+        "cookbook/plan/archive/PROJECT_LEAD_DECISION_DOCKET.v1.2.md",
+        "cookbook/plan/archive/PROJECT_LEAD_DECISION_DOCKET.v1.3.md",
+        "cookbook/plan/archive/PROJECT_LEAD_DECISION_DOCKET.v1.4.md",
+        "cookbook/plan/archive/R3_EXECUTION_CHECKLIST.v1.0.md",
+        "cookbook/plan/archive/R3_EXECUTION_CHECKLIST.v1.1.md",
         "cookbook/plan/archive/README.md",
         "cookbook/plan/archive/README.v1.0.md",
         "cookbook/plan/archive/REFACTOR_PLAN.v1.2.md",
         "cookbook/plan/archive/REFACTOR_PLAN.v1.3.md",
+        "cookbook/plan/archive/REFACTOR_PLAN.v1.4.md",
+        "cookbook/plan/archive/REFACTOR_PLAN.v1.5.md",
         "cookbook/plan/archive/REORG_PLAN.v1.2.md",
         "cookbook/plan/archive/WORKPLAN.v1.1.md",
         "cookbook/plan/archive/WS-E-PROVENANCE-PLAN.v1.0.md",
@@ -1384,9 +1577,15 @@
         "editions/paul-7-20-myrepsika/paul_sikyonion_epitome_7-20-24.md",
         "editions/paul-7-20-myrepsika/paul_soysinon_epitome_7-20-8.md",
         "entity-linking/INSTRUCTIONS.md",
+        "entity-linking/PILOT-PLAN.md",
         "entity-linking/PROMPTS.md",
         "entity-linking/README.md",
         "entity-linking/WHITEPAPER.md",
+        "entity-linking/archive/PILOT-PLAN.v1.0.md",
+        "entity-linking/archive/PILOT-PLAN.v1.1.md",
+        "entity-linking/archive/PILOT-PLAN.v2.0.md",
+        "entity-linking/archive/PILOT-PLAN.v2.1.md",
+        "entity-linking/archive/WHITEPAPER.v1.0.md",
         "greek-recipe-edition/CHANGELOG.md",
         "greek-recipe-edition/INSTALL.md",
         "greek-recipe-edition/SKILL.md",
@@ -1435,12 +1634,23 @@
         "migration/r2_3/archive/FIELD_TRACEABILITY.v1.0.md",
         "migration/r2_3/archive/RELATIONSHIP_OWNERSHIP.v1.0.md",
         "migration/r2_4/README.md",
+        "migration/r2_4/RIGHTS_PROJECTION_POLICY.md",
         "migration/r2_4/archive/README.v1.0.md",
+        "migration/r2_4/archive/README.v1.1.md",
+        "migration/r2_5/README.md",
+        "migration/r3/UPSTREAM_TERM_CROSSWALK_TARGET.md",
         "musk_and_amber_preparations.md",
         "research/PROMPT_adulteration_dossier.md",
         "research/TRIAGE_PROTOCOL.md",
         "research/USES_OF_PERFUME.md",
         "research/adulteration_dossier.md",
+        "research/allyson-natgeo-ingredient-dossier.md",
+        "research/allyson-natgeo-ingredient-dossier.v1.1.md",
+        "research/allyson-natgeo-ingredient-dossier.v1.2.md",
+        "research/allyson-natgeo-ingredient-dossier.v1.3.md",
+        "research/allyson-natgeo-ingredient-dossier.v1.4.md",
+        "research/allyson-natgeo-ingredient-dossier.v1.5.md",
+        "research/allyson-natgeo-ingredient-dossier.v1.6.md",
         "research/apollonius_mys_crito_stratum.md",
         "research/apollonius_mys_reconstruction.md",
         "research/apollonius_mys_style_and_recipes.md",
@@ -1549,6 +1759,9 @@
         "research/prices/metopion_cost_comparison.md",
         "research/prices/perfume_costs_in_wages.md",
         "research/process_targets_dossier.md",
+        "research/ptolemaic-queens-fragments/README.md",
+        "research/ptolemaic-queens-fragments/fragments.md",
+        "research/ptolemaic-queens-fragments/search-log.md",
         "research/recipe-manuscripts/BnF-lat-12995_perfume-oils.md",
         "research/recipe-manuscripts/Clm-337_dioscorides-longobardus.md",
         "research/sec_locos_procedures_equipment.md",
@@ -1594,14 +1807,14 @@
       "private": false,
       "archived": false,
       "default_branch": "main",
-      "pushed_at": "2026-08-14T05:03:55Z",
+      "pushed_at": "2026-08-15T03:55:04Z",
       "open_prs": 0,
       "branches": [
         {
           "name": "main",
-          "tip_date": "2026-08-14T05:03:54Z",
+          "tip_date": "2026-08-15T03:55:03Z",
           "tip_author": "portfolio-bot",
-          "tip_message": "portfolio: nightly collection 2026-08-14"
+          "tip_message": "portfolio: nightly collection 2026-08-15"
         }
       ],
       "branch_detail_skipped": false,
