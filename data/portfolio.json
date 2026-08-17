@@ -1,292 +1,14 @@
 {
-  "generated_at": "2026-08-16T03:59:05+00:00",
+  "generated_at": "2026-08-17T04:01:48+00:00",
   "account": "alchemiesofscent",
   "schema": 2,
   "repos": [
-    {
-      "name": "map",
-      "private": false,
-      "archived": false,
-      "default_branch": "main",
-      "pushed_at": "2026-08-16T01:52:07Z",
-      "open_prs": 0,
-      "branches": [
-        {
-          "name": "agent/add-credited-ingredient-images-v15",
-          "tip_date": "2026-08-12T16:34:03Z",
-          "tip_author": "Alchemies of Scent Project",
-          "tip_message": "Publish illustrated Mendes dossier: mendes/map/content-1.html",
-          "ahead": 8,
-          "behind": 98,
-          "pr": {
-            "number": 7,
-            "title": "Add credited ingredient images to the Mendes dossier",
-            "state": "closed",
-            "merged_at": "2026-08-12T16:36:53Z",
-            "updated_at": "2026-08-12T16:41:57Z"
-          }
-        },
-        {
-          "name": "agent/compact-map-details",
-          "tip_date": "2026-08-13T15:40:39Z",
-          "tip_author": "Sean Coughlin",
-          "tip_message": "Preserve focus across map detail changes",
-          "ahead": 2,
-          "behind": 93,
-          "pr": {
-            "number": 12,
-            "title": "Compact the map details navigator",
-            "state": "closed",
-            "merged_at": "2026-08-13T16:11:44Z",
-            "updated_at": "2026-08-13T16:14:24Z"
-          }
-        },
-        {
-          "name": "agent/correct-terebinth-v14",
-          "tip_date": "2026-08-12T15:18:10Z",
-          "tip_author": "Alchemies of Scent Project",
-          "tip_message": "Refresh House of Mendes static assets",
-          "ahead": 6,
-          "behind": 99,
-          "pr": {
-            "number": 6,
-            "title": "Correct terebinth as a cooked perfumery product",
-            "state": "closed",
-            "merged_at": "2026-08-12T15:19:07Z",
-            "updated_at": "2026-08-12T15:19:07Z"
-          }
-        },
-        {
-          "name": "agent/fix-house-of-mendes-assets",
-          "tip_date": "2026-08-11T10:19:09Z",
-          "tip_author": "Alchemies of Scent Project",
-          "tip_message": "Load complete Mendes page from static assets",
-          "ahead": 9,
-          "behind": 103,
-          "pr": {
-            "number": 2,
-            "title": "Complete House of Mendes Pages deployment",
-            "state": "closed",
-            "merged_at": "2026-08-11T10:19:38Z",
-            "updated_at": "2026-08-11T10:19:38Z"
-          }
-        },
-        {
-          "name": "agent/fix-mendes-loaders",
-          "tip_date": "2026-08-12T15:01:23Z",
-          "tip_author": "Alchemies of Scent Project",
-          "tip_message": "Fix map asset loader arrays",
-          "ahead": 2,
-          "behind": 101,
-          "pr": {
-            "number": 4,
-            "title": "Fix House of Mendes page loaders",
-            "state": "closed",
-            "merged_at": "2026-08-12T15:01:43Z",
-            "updated_at": "2026-08-12T15:01:43Z"
-          }
-        },
-        {
-          "name": "agent/fix-mobile-images-and-replace-five",
-          "tip_date": "2026-08-12T17:36:31Z",
-          "tip_author": "Alchemies of Scent Project",
-          "tip_message": "Reserve mobile image space during lazy loading",
-          "ahead": 9,
-          "behind": 97,
-          "pr": {
-            "number": 8,
-            "title": "Fix mobile image sizing and replace five Mendes images",
-            "state": "closed",
-            "merged_at": "2026-08-12T17:37:57Z",
-            "updated_at": "2026-08-12T17:40:55Z"
-          }
-        },
-        {
-          "name": "agent/kind-ingredient-location-nav",
-          "tip_date": "2026-08-13T05:43:25Z",
-          "tip_author": "Sean Coughlin",
-          "tip_message": "Separate ingredient and location navigation",
-          "ahead": 1,
-          "behind": 95,
-          "pr": {
-            "number": 10,
-            "title": "Separate ingredient and location map navigation",
-            "state": "closed",
-            "merged_at": "2026-08-13T05:48:02Z",
-            "updated_at": "2026-08-13T05:48:03Z"
-          }
-        },
-        {
-          "name": "agent/map-init-hotfix",
-          "tip_date": "2026-08-13T06:10:49Z",
-          "tip_author": "Sean Coughlin",
-          "tip_message": "Fix map navigation initialization",
-          "ahead": 1,
-          "behind": 94,
-          "pr": {
-            "number": 11,
-            "title": "Fix map navigation initialization",
-            "state": "closed",
-            "merged_at": "2026-08-13T15:21:34Z",
-            "updated_at": "2026-08-13T15:24:46Z"
-          }
-        },
-        {
-          "name": "agent/publish-house-of-mendes",
-          "tip_date": "2026-08-11T10:03:57Z",
-          "tip_author": "Alchemies of Scent Project",
-          "tip_message": "Publish House of Mendes dossier",
-          "ahead": 1,
-          "behind": 104,
-          "pr": {
-            "number": 1,
-            "title": "Publish House of Mendes dossier",
-            "state": "closed",
-            "merged_at": "2026-08-11T10:04:36Z",
-            "updated_at": "2026-08-11T10:04:37Z"
-          }
-        },
-        {
-          "name": "agent/split-house-of-mendes-map",
-          "tip_date": "2026-08-12T14:55:25Z",
-          "tip_author": "Alchemies of Scent Project",
-          "tip_message": "Split Mendes map: add app-3.js",
-          "ahead": 11,
-          "behind": 102,
-          "pr": {
-            "number": 3,
-            "title": "Move the Mendes map to its own page",
-            "state": "closed",
-            "merged_at": "2026-08-12T14:55:50Z",
-            "updated_at": "2026-08-12T14:55:51Z"
-          }
-        },
-        {
-          "name": "agent/swipe-ingredient-map",
-          "tip_date": "2026-08-13T04:56:04Z",
-          "tip_author": "Sean Coughlin",
-          "tip_message": "Add swipeable ingredient map navigation",
-          "ahead": 1,
-          "behind": 96,
-          "pr": {
-            "number": 9,
-            "title": "Add swipeable ingredient map navigation",
-            "state": "closed",
-            "merged_at": "2026-08-13T05:09:03Z",
-            "updated_at": "2026-08-13T05:12:25Z"
-          }
-        },
-        {
-          "name": "agent/version-mendes-assets",
-          "tip_date": "2026-08-12T15:07:43Z",
-          "tip_author": "Alchemies of Scent Project",
-          "tip_message": "Version Mendes asset loading: mendes/map/content-1.html",
-          "ahead": 4,
-          "behind": 100,
-          "pr": {
-            "number": 5,
-            "title": "Version House of Mendes page assets",
-            "state": "closed",
-            "merged_at": "2026-08-12T15:08:02Z",
-            "updated_at": "2026-08-12T15:08:02Z"
-          }
-        },
-        {
-          "name": "claude/map-mendes-claims-formatting-7c8lsd",
-          "tip_date": "2026-08-15T23:44:18Z",
-          "tip_author": "Claude",
-          "tip_message": "Drop the unverified flags from the Herodian entry",
-          "ahead": 0,
-          "behind": 10,
-          "pr": {
-            "number": 39,
-            "title": "mendes: the two Louvre lily-perfume reliefs in the susinum section",
-            "state": "closed",
-            "merged_at": "2026-08-15T23:46:37Z",
-            "updated_at": "2026-08-15T23:46:37Z"
-          }
-        },
-        {
-          "name": "claude/mendes-map-revision",
-          "tip_date": "2026-08-14T15:49:17Z",
-          "tip_author": "Claude",
-          "tip_message": "mendes/map: give the phone one search bar and one job per surface",
-          "ahead": 0,
-          "behind": 75,
-          "pr": {
-            "number": 16,
-            "title": "One search bar, one job per surface on the phone",
-            "state": "closed",
-            "merged_at": "2026-08-14T16:06:18Z",
-            "updated_at": "2026-08-14T16:06:19Z"
-          }
-        },
-        {
-          "name": "claude/mendes-map-revision-7mlcw0",
-          "tip_date": "2026-08-15T07:09:58Z",
-          "tip_author": "Claude",
-          "tip_message": "mendes/map: drop the zoom cluster below the rail's reach",
-          "ahead": 0,
-          "behind": 42,
-          "pr": {
-            "number": 29,
-            "title": "mendes/map: drop the zoom cluster below the rail's reach",
-            "state": "closed",
-            "merged_at": "2026-08-15T07:12:32Z",
-            "updated_at": "2026-08-15T07:12:33Z"
-          }
-        },
-        {
-          "name": "main",
-          "tip_date": "2026-08-16T01:52:06Z",
-          "tip_author": "Claude",
-          "tip_message": "mendes: sweep the remaining colours that did not follow the theme"
-        }
-      ],
-      "branch_detail_skipped": false,
-      "md_files": [
-        "ATTRIBUTION.md",
-        "CONTRIBUTING.md",
-        "README.md",
-        "data/external/google_mymaps/README.md",
-        "data/generated/periplus/chunks/0011_0020/ingestion_report_0011_0020.md",
-        "data/generated/periplus/chunks/0021_0030/ingestion_report_0021_0030.md",
-        "data/generated/periplus/chunks/0031_0040/ingestion_report_0031_0040.md",
-        "data/generated/periplus/chunks/0041_0050/ingestion_report_0041_0050.md",
-        "data/generated/periplus/chunks/0051_0060/ingestion_report_0051_0060.md",
-        "data/generated/periplus/chunks/0061_0066/ingestion_report_0061_0066.md",
-        "data/generated/periplus/ingestion_report_0001_0032.md",
-        "data/generated/periplus/ingestion_report_0001_0066.md",
-        "data/pleiades/README.md",
-        "data/review/README.md",
-        "data/review/route_markers.md",
-        "docs/01-json-schema.md",
-        "docs/02-repo-plan-task-list.md",
-        "docs/03-frontend-wireframe-spec.md",
-        "docs/04-claims-reader-plan.md",
-        "docs/galen_ambiguous_places.md",
-        "docs/galen_journey_passages_full_greek.md",
-        "docs/galen_route_candidates.md",
-        "docs/galen_route_decisions.md",
-        "docs/galen_routes_philological_breakdown_plan.md",
-        "docs/galen_unmatched_capitals.md",
-        "docs/materia_tei_ingredient_journeys.md",
-        "docs/simple_provenance_model.md",
-        "docs/simples_provenance_pipeline_todo.md",
-        "features/scrollytelling-viewer/ENGINE_DECISION.md",
-        "features/scrollytelling-viewer/README.md",
-        "mendes/images/louvre/README.md"
-      ],
-      "md_files_truncated": false,
-      "readme": "# Periplus Tour MVP\n\nPeriplus Tour MVP is a static research atlas for reading ancient geographic and medical texts as structured journeys. It combines source passages, translations, local review ledgers, Pleiades place identifiers, and generated map-ready JSON so that a reader can move between text, place evidence, and route geography without needing a database server.\n\nThe current app has two main research surfaces:\n\n- A Periplus route viewer for the anonymous *Periplus Maris Erythraei*, covering the full 66-section journey model currently generated from `texts.csv`, `translations.csv`, review ledgers, and route sidecars.\n- A Galen/simple-medicine provenance pipeline that identifies source passages where a simple medicine is tied to a place, adjudicates candidate links, and emits map-ready provenance points.\n\nThe project is still an MVP, but the important pieces are reproducible: generated data is built from scripts, uncertain geography is preserved as metadata, and accepted place links carry their review source.\n\n## What The Atlas Does\n\nThe viewer in `app/` presents a full-screen Leaflet map with a reading panel and a site strip. It lets a reader step through the route, inspect places mentioned in the passage, and distinguish mapped locations from unresolved or contextual geography.\n\nFor the Periplus route, the generated data model separates:\n\n- source sections and translations,\n- local place-authority records,\n- reviewed route focus records,\n- route legs,\n- off-route or contextual sites,\n- optional Google My Maps and webmap-derived review inputs.\n\nFor the simple-medicine provenance work, the pipeline asks a narrower question: when a medical entry names a place, is that place actually evidence for where a substance grows, is produced, is sourced, is acquired, or is merely contextual? The current cleaned run keeps only five accepted Dioscorides provenance links after suppressing false positives such as entry headwords that happen to match Pleiades place names.\n\n## Why This Exists\n\nAncient route and materia-medica texts often mix several kinds of geography:\n\n- direct route sequence,\n- market or harbor geography,\n- ethnographic or regional context,\n- ingredient provenance,\n- named varieties such as regional plants,\n- later editorial or translation labels.\n\nMapping all of those as if they were the same thing produces misleading maps. This repo keeps those layers separate. The route viewer can show the journey, while provenance sidecars can say why a material is linked to Arabia, Galatia, Iudaea, or another region and whether that link came from deterministic matching, human review, or LLM consensus review.\n\n## Repository Layout\n\n- `app/` - canonical static Atlas viewer.\n- `features/scrollytelling-viewer/` - older scroll-driven prototype kept for reference.\n- `data/generated/periplus/` - generated Periplus sections, places, route views, and route model.\n- `data/generated/galen/` - generated Galen route and materia data used by the viewer.\n- `data/generated/simples/` - generated simple-medicine provenance artifacts.\n- `data/review/` - human-readable review ledgers and CSV review surfaces.\n- `data/pleiades/` - cached Pleiades place snapshots and local Pleiades documentation.\n- `schemas/` - JSON Schemas for generated data contracts.\n- `scripts/` - deterministic builders, importers, validators, and exporters.\n- `docs/` - design notes, pipeline checklists, and data-model documentation.\n\n## Data Pipeline\n\nThe Periplus route pipeline is:\n\n```bash\npython3 scripts/ingest_tour_chunk.py --start 1 --count 66\npython3 scripts/apply_place_review_decisions.py --max-section 66\npython3 scripts/build_route_views.py\npython3 scripts/check_generated_tour.py\n```\n\nThat rebuilds `data/generated/periplus/` from the CSV source text, translations, reviewed place decisions, and route-view sidecars.\n\nThe simple provenance pipeline is:\n\n```bash\npython3 scripts/simples/build_pilot_manifest.py\npython3 scripts/simples/check_pilot_manifest.py\npython3 scripts/simpl\n…[truncated at 4000 chars]",
-      "status_md": null
-    },
     {
       "name": "perfume-tables",
       "private": true,
       "archived": false,
       "default_branch": "main",
-      "pushed_at": "2026-08-15T23:19:36Z",
+      "pushed_at": "2026-08-16T19:39:20Z",
       "open_prs": 2,
       "branches": [
         {
@@ -320,13 +42,26 @@
           }
         },
         {
+          "name": "claude/perseid-tools-evaluation-v7fuev"
+        },
+        {
           "name": "claude/repo-refactor-status-yplmv2",
           "pr": {
-            "number": 22,
-            "title": "docs(checklist): refresh to v2.8 — close R2.2–R2.4 WP2, record ADR-0018 deviation, correct R0 head",
+            "number": 47,
+            "title": "docs: file accepted DTS 1.0 citation alignment into the roadmap (PLD-NEXT-02)",
             "state": "closed",
-            "merged_at": "2026-08-15T05:58:12Z",
-            "updated_at": "2026-08-15T06:10:32Z"
+            "merged_at": "2026-08-16T19:39:20Z",
+            "updated_at": "2026-08-16T19:39:44Z"
+          }
+        },
+        {
+          "name": "claude/seplasia-methodological-critique-ctqa9p",
+          "pr": {
+            "number": 46,
+            "title": "Add SEPLASIA methodological critique to research folder",
+            "state": "closed",
+            "merged_at": "2026-08-16T15:04:21Z",
+            "updated_at": "2026-08-16T15:04:22Z"
           }
         },
         {
@@ -1306,6 +1041,7 @@
         "cookbook/plan/archive/PROJECT_LEAD_DECISION_DOCKET.v1.2.md",
         "cookbook/plan/archive/PROJECT_LEAD_DECISION_DOCKET.v1.3.md",
         "cookbook/plan/archive/PROJECT_LEAD_DECISION_DOCKET.v1.4.md",
+        "cookbook/plan/archive/PROJECT_LEAD_DECISION_DOCKET.v1.5.md",
         "cookbook/plan/archive/R3_EXECUTION_CHECKLIST.v1.0.md",
         "cookbook/plan/archive/R3_EXECUTION_CHECKLIST.v1.1.md",
         "cookbook/plan/archive/README.md",
@@ -1314,6 +1050,7 @@
         "cookbook/plan/archive/REFACTOR_PLAN.v1.3.md",
         "cookbook/plan/archive/REFACTOR_PLAN.v1.4.md",
         "cookbook/plan/archive/REFACTOR_PLAN.v1.5.md",
+        "cookbook/plan/archive/REFACTOR_PLAN.v1.6.md",
         "cookbook/plan/archive/REORG_PLAN.v1.2.md",
         "cookbook/plan/archive/WORKPLAN.v1.1.md",
         "cookbook/plan/archive/WS-E-PROVENANCE-PLAN.v1.0.md",
@@ -1765,6 +1502,7 @@
         "research/recipe-manuscripts/BnF-lat-12995_perfume-oils.md",
         "research/recipe-manuscripts/Clm-337_dioscorides-longobardus.md",
         "research/sec_locos_procedures_equipment.md",
+        "research/seplasia_methodological_critique.md",
         "research/smoked-perfume/experiment-plan.md",
         "research/stypsis_myron_elaion.md",
         "research/stypsis_quickcheck.md",
@@ -1803,18 +1541,296 @@
       "status_md": null
     },
     {
+      "name": "map",
+      "private": false,
+      "archived": false,
+      "default_branch": "main",
+      "pushed_at": "2026-08-16T13:10:53Z",
+      "open_prs": 0,
+      "branches": [
+        {
+          "name": "agent/add-credited-ingredient-images-v15",
+          "tip_date": "2026-08-12T16:34:03Z",
+          "tip_author": "Alchemies of Scent Project",
+          "tip_message": "Publish illustrated Mendes dossier: mendes/map/content-1.html",
+          "ahead": 8,
+          "behind": 99,
+          "pr": {
+            "number": 7,
+            "title": "Add credited ingredient images to the Mendes dossier",
+            "state": "closed",
+            "merged_at": "2026-08-12T16:36:53Z",
+            "updated_at": "2026-08-12T16:41:57Z"
+          }
+        },
+        {
+          "name": "agent/compact-map-details",
+          "tip_date": "2026-08-13T15:40:39Z",
+          "tip_author": "Sean Coughlin",
+          "tip_message": "Preserve focus across map detail changes",
+          "ahead": 2,
+          "behind": 94,
+          "pr": {
+            "number": 12,
+            "title": "Compact the map details navigator",
+            "state": "closed",
+            "merged_at": "2026-08-13T16:11:44Z",
+            "updated_at": "2026-08-13T16:14:24Z"
+          }
+        },
+        {
+          "name": "agent/correct-terebinth-v14",
+          "tip_date": "2026-08-12T15:18:10Z",
+          "tip_author": "Alchemies of Scent Project",
+          "tip_message": "Refresh House of Mendes static assets",
+          "ahead": 6,
+          "behind": 100,
+          "pr": {
+            "number": 6,
+            "title": "Correct terebinth as a cooked perfumery product",
+            "state": "closed",
+            "merged_at": "2026-08-12T15:19:07Z",
+            "updated_at": "2026-08-12T15:19:07Z"
+          }
+        },
+        {
+          "name": "agent/fix-house-of-mendes-assets",
+          "tip_date": "2026-08-11T10:19:09Z",
+          "tip_author": "Alchemies of Scent Project",
+          "tip_message": "Load complete Mendes page from static assets",
+          "ahead": 9,
+          "behind": 104,
+          "pr": {
+            "number": 2,
+            "title": "Complete House of Mendes Pages deployment",
+            "state": "closed",
+            "merged_at": "2026-08-11T10:19:38Z",
+            "updated_at": "2026-08-11T10:19:38Z"
+          }
+        },
+        {
+          "name": "agent/fix-mendes-loaders",
+          "tip_date": "2026-08-12T15:01:23Z",
+          "tip_author": "Alchemies of Scent Project",
+          "tip_message": "Fix map asset loader arrays",
+          "ahead": 2,
+          "behind": 102,
+          "pr": {
+            "number": 4,
+            "title": "Fix House of Mendes page loaders",
+            "state": "closed",
+            "merged_at": "2026-08-12T15:01:43Z",
+            "updated_at": "2026-08-12T15:01:43Z"
+          }
+        },
+        {
+          "name": "agent/fix-mobile-images-and-replace-five",
+          "tip_date": "2026-08-12T17:36:31Z",
+          "tip_author": "Alchemies of Scent Project",
+          "tip_message": "Reserve mobile image space during lazy loading",
+          "ahead": 9,
+          "behind": 98,
+          "pr": {
+            "number": 8,
+            "title": "Fix mobile image sizing and replace five Mendes images",
+            "state": "closed",
+            "merged_at": "2026-08-12T17:37:57Z",
+            "updated_at": "2026-08-12T17:40:55Z"
+          }
+        },
+        {
+          "name": "agent/kind-ingredient-location-nav",
+          "tip_date": "2026-08-13T05:43:25Z",
+          "tip_author": "Sean Coughlin",
+          "tip_message": "Separate ingredient and location navigation",
+          "ahead": 1,
+          "behind": 96,
+          "pr": {
+            "number": 10,
+            "title": "Separate ingredient and location map navigation",
+            "state": "closed",
+            "merged_at": "2026-08-13T05:48:02Z",
+            "updated_at": "2026-08-13T05:48:03Z"
+          }
+        },
+        {
+          "name": "agent/map-init-hotfix",
+          "tip_date": "2026-08-13T06:10:49Z",
+          "tip_author": "Sean Coughlin",
+          "tip_message": "Fix map navigation initialization",
+          "ahead": 1,
+          "behind": 95,
+          "pr": {
+            "number": 11,
+            "title": "Fix map navigation initialization",
+            "state": "closed",
+            "merged_at": "2026-08-13T15:21:34Z",
+            "updated_at": "2026-08-13T15:24:46Z"
+          }
+        },
+        {
+          "name": "agent/publish-house-of-mendes",
+          "tip_date": "2026-08-11T10:03:57Z",
+          "tip_author": "Alchemies of Scent Project",
+          "tip_message": "Publish House of Mendes dossier",
+          "ahead": 1,
+          "behind": 105,
+          "pr": {
+            "number": 1,
+            "title": "Publish House of Mendes dossier",
+            "state": "closed",
+            "merged_at": "2026-08-11T10:04:36Z",
+            "updated_at": "2026-08-11T10:04:37Z"
+          }
+        },
+        {
+          "name": "agent/split-house-of-mendes-map",
+          "tip_date": "2026-08-12T14:55:25Z",
+          "tip_author": "Alchemies of Scent Project",
+          "tip_message": "Split Mendes map: add app-3.js",
+          "ahead": 11,
+          "behind": 103,
+          "pr": {
+            "number": 3,
+            "title": "Move the Mendes map to its own page",
+            "state": "closed",
+            "merged_at": "2026-08-12T14:55:50Z",
+            "updated_at": "2026-08-12T14:55:51Z"
+          }
+        },
+        {
+          "name": "agent/swipe-ingredient-map",
+          "tip_date": "2026-08-13T04:56:04Z",
+          "tip_author": "Sean Coughlin",
+          "tip_message": "Add swipeable ingredient map navigation",
+          "ahead": 1,
+          "behind": 97,
+          "pr": {
+            "number": 9,
+            "title": "Add swipeable ingredient map navigation",
+            "state": "closed",
+            "merged_at": "2026-08-13T05:09:03Z",
+            "updated_at": "2026-08-13T05:12:25Z"
+          }
+        },
+        {
+          "name": "agent/version-mendes-assets",
+          "tip_date": "2026-08-12T15:07:43Z",
+          "tip_author": "Alchemies of Scent Project",
+          "tip_message": "Version Mendes asset loading: mendes/map/content-1.html",
+          "ahead": 4,
+          "behind": 101,
+          "pr": {
+            "number": 5,
+            "title": "Version House of Mendes page assets",
+            "state": "closed",
+            "merged_at": "2026-08-12T15:08:02Z",
+            "updated_at": "2026-08-12T15:08:02Z"
+          }
+        },
+        {
+          "name": "claude/map-mendes-claims-formatting-7c8lsd",
+          "tip_date": "2026-08-15T23:44:18Z",
+          "tip_author": "Claude",
+          "tip_message": "Drop the unverified flags from the Herodian entry",
+          "ahead": 0,
+          "behind": 11,
+          "pr": {
+            "number": 39,
+            "title": "mendes: the two Louvre lily-perfume reliefs in the susinum section",
+            "state": "closed",
+            "merged_at": "2026-08-15T23:46:37Z",
+            "updated_at": "2026-08-15T23:46:37Z"
+          }
+        },
+        {
+          "name": "claude/mendes-map-revision",
+          "tip_date": "2026-08-14T15:49:17Z",
+          "tip_author": "Claude",
+          "tip_message": "mendes/map: give the phone one search bar and one job per surface",
+          "ahead": 0,
+          "behind": 76,
+          "pr": {
+            "number": 16,
+            "title": "One search bar, one job per surface on the phone",
+            "state": "closed",
+            "merged_at": "2026-08-14T16:06:18Z",
+            "updated_at": "2026-08-14T16:06:19Z"
+          }
+        },
+        {
+          "name": "claude/mendes-map-revision-7mlcw0",
+          "tip_date": "2026-08-15T07:09:58Z",
+          "tip_author": "Claude",
+          "tip_message": "mendes/map: drop the zoom cluster below the rail's reach",
+          "ahead": 0,
+          "behind": 43,
+          "pr": {
+            "number": 29,
+            "title": "mendes/map: drop the zoom cluster below the rail's reach",
+            "state": "closed",
+            "merged_at": "2026-08-15T07:12:32Z",
+            "updated_at": "2026-08-15T07:12:33Z"
+          }
+        },
+        {
+          "name": "main",
+          "tip_date": "2026-08-16T13:10:52Z",
+          "tip_author": "Claude",
+          "tip_message": "mendes: two editors on Galen's metopion derivation, recorded as notes"
+        }
+      ],
+      "branch_detail_skipped": false,
+      "md_files": [
+        "ATTRIBUTION.md",
+        "CONTRIBUTING.md",
+        "README.md",
+        "data/external/google_mymaps/README.md",
+        "data/generated/periplus/chunks/0011_0020/ingestion_report_0011_0020.md",
+        "data/generated/periplus/chunks/0021_0030/ingestion_report_0021_0030.md",
+        "data/generated/periplus/chunks/0031_0040/ingestion_report_0031_0040.md",
+        "data/generated/periplus/chunks/0041_0050/ingestion_report_0041_0050.md",
+        "data/generated/periplus/chunks/0051_0060/ingestion_report_0051_0060.md",
+        "data/generated/periplus/chunks/0061_0066/ingestion_report_0061_0066.md",
+        "data/generated/periplus/ingestion_report_0001_0032.md",
+        "data/generated/periplus/ingestion_report_0001_0066.md",
+        "data/pleiades/README.md",
+        "data/review/README.md",
+        "data/review/route_markers.md",
+        "docs/01-json-schema.md",
+        "docs/02-repo-plan-task-list.md",
+        "docs/03-frontend-wireframe-spec.md",
+        "docs/04-claims-reader-plan.md",
+        "docs/galen_ambiguous_places.md",
+        "docs/galen_journey_passages_full_greek.md",
+        "docs/galen_route_candidates.md",
+        "docs/galen_route_decisions.md",
+        "docs/galen_routes_philological_breakdown_plan.md",
+        "docs/galen_unmatched_capitals.md",
+        "docs/materia_tei_ingredient_journeys.md",
+        "docs/simple_provenance_model.md",
+        "docs/simples_provenance_pipeline_todo.md",
+        "features/scrollytelling-viewer/ENGINE_DECISION.md",
+        "features/scrollytelling-viewer/README.md",
+        "mendes/images/louvre/README.md"
+      ],
+      "md_files_truncated": false,
+      "readme": "# Periplus Tour MVP\n\nPeriplus Tour MVP is a static research atlas for reading ancient geographic and medical texts as structured journeys. It combines source passages, translations, local review ledgers, Pleiades place identifiers, and generated map-ready JSON so that a reader can move between text, place evidence, and route geography without needing a database server.\n\nThe current app has two main research surfaces:\n\n- A Periplus route viewer for the anonymous *Periplus Maris Erythraei*, covering the full 66-section journey model currently generated from `texts.csv`, `translations.csv`, review ledgers, and route sidecars.\n- A Galen/simple-medicine provenance pipeline that identifies source passages where a simple medicine is tied to a place, adjudicates candidate links, and emits map-ready provenance points.\n\nThe project is still an MVP, but the important pieces are reproducible: generated data is built from scripts, uncertain geography is preserved as metadata, and accepted place links carry their review source.\n\n## What The Atlas Does\n\nThe viewer in `app/` presents a full-screen Leaflet map with a reading panel and a site strip. It lets a reader step through the route, inspect places mentioned in the passage, and distinguish mapped locations from unresolved or contextual geography.\n\nFor the Periplus route, the generated data model separates:\n\n- source sections and translations,\n- local place-authority records,\n- reviewed route focus records,\n- route legs,\n- off-route or contextual sites,\n- optional Google My Maps and webmap-derived review inputs.\n\nFor the simple-medicine provenance work, the pipeline asks a narrower question: when a medical entry names a place, is that place actually evidence for where a substance grows, is produced, is sourced, is acquired, or is merely contextual? The current cleaned run keeps only five accepted Dioscorides provenance links after suppressing false positives such as entry headwords that happen to match Pleiades place names.\n\n## Why This Exists\n\nAncient route and materia-medica texts often mix several kinds of geography:\n\n- direct route sequence,\n- market or harbor geography,\n- ethnographic or regional context,\n- ingredient provenance,\n- named varieties such as regional plants,\n- later editorial or translation labels.\n\nMapping all of those as if they were the same thing produces misleading maps. This repo keeps those layers separate. The route viewer can show the journey, while provenance sidecars can say why a material is linked to Arabia, Galatia, Iudaea, or another region and whether that link came from deterministic matching, human review, or LLM consensus review.\n\n## Repository Layout\n\n- `app/` - canonical static Atlas viewer.\n- `features/scrollytelling-viewer/` - older scroll-driven prototype kept for reference.\n- `data/generated/periplus/` - generated Periplus sections, places, route views, and route model.\n- `data/generated/galen/` - generated Galen route and materia data used by the viewer.\n- `data/generated/simples/` - generated simple-medicine provenance artifacts.\n- `data/review/` - human-readable review ledgers and CSV review surfaces.\n- `data/pleiades/` - cached Pleiades place snapshots and local Pleiades documentation.\n- `schemas/` - JSON Schemas for generated data contracts.\n- `scripts/` - deterministic builders, importers, validators, and exporters.\n- `docs/` - design notes, pipeline checklists, and data-model documentation.\n\n## Data Pipeline\n\nThe Periplus route pipeline is:\n\n```bash\npython3 scripts/ingest_tour_chunk.py --start 1 --count 66\npython3 scripts/apply_place_review_decisions.py --max-section 66\npython3 scripts/build_route_views.py\npython3 scripts/check_generated_tour.py\n```\n\nThat rebuilds `data/generated/periplus/` from the CSV source text, translations, reviewed place decisions, and route-view sidecars.\n\nThe simple provenance pipeline is:\n\n```bash\npython3 scripts/simples/build_pilot_manifest.py\npython3 scripts/simples/check_pilot_manifest.py\npython3 scripts/simpl\n…[truncated at 4000 chars]",
+      "status_md": null
+    },
+    {
       "name": "to-do-list",
       "private": false,
       "archived": false,
       "default_branch": "main",
-      "pushed_at": "2026-08-15T03:55:04Z",
+      "pushed_at": "2026-08-16T04:01:05Z",
       "open_prs": 0,
       "branches": [
         {
           "name": "main",
-          "tip_date": "2026-08-15T03:55:03Z",
+          "tip_date": "2026-08-16T04:01:04Z",
           "tip_author": "portfolio-bot",
-          "tip_message": "portfolio: nightly collection 2026-08-15"
+          "tip_message": "portfolio: nightly collection 2026-08-16"
         }
       ],
       "branch_detail_skipped": false,
