@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-23T04:00:10+00:00",
+  "generated_at": "2026-08-24T04:04:39+00:00",
   "account": "alchemiesofscent",
   "schema": 2,
   "repos": [
@@ -8,8 +8,8 @@
       "private": true,
       "archived": false,
       "default_branch": "main",
-      "pushed_at": "2026-08-22T19:10:55Z",
-      "open_prs": 4,
+      "pushed_at": "2026-08-23T14:19:41Z",
+      "open_prs": 2,
       "branches": [
         {
           "name": "agent/create-pre-refactor-snapshot",
@@ -329,9 +329,9 @@
           "pr": {
             "number": 86,
             "title": "Research: Alpha.2 design-candidate viewer (loopback read-only preview of the four pilot cases)",
-            "state": "open",
-            "merged_at": null,
-            "updated_at": "2026-08-22T19:00:48Z"
+            "state": "closed",
+            "merged_at": "2026-08-23T14:19:38Z",
+            "updated_at": "2026-08-23T14:19:38Z"
           }
         },
         {
@@ -792,9 +792,9 @@
           "pr": {
             "number": 87,
             "title": "research(house-of-mendes): add the 15 source images behind the dossier pages",
-            "state": "open",
-            "merged_at": null,
-            "updated_at": "2026-08-22T19:10:56Z"
+            "state": "closed",
+            "merged_at": "2026-08-23T14:19:42Z",
+            "updated_at": "2026-08-23T14:19:42Z"
           }
         },
         {
@@ -1844,6 +1844,7 @@
         "research/galen_gleukinon_per_genera_7.14.md",
         "research/galen_perfume_crossref.md",
         "research/haars-vegetabilia-comparison.md",
+        "research/house-of-mendes-images/README.md",
         "research/ingredient_smyrna.md",
         "research/ingredient_smyrna_v1.md",
         "research/ingredients.md",
@@ -1866,12 +1867,14 @@
         "research/misc_aromata_summary.md",
         "research/model-pilots/README.md",
         "research/model-pilots/v5.0.0-alpha.2-design-candidate/README.md",
+        "research/model-pilots/v5.0.0-alpha.2-design-candidate/archive/README.v1.0.md",
         "research/model-pilots/v5.0.0-alpha.2-design-candidate/comparative-cases/COMPARATIVE-FINDINGS.md",
         "research/model-pilots/v5.0.0-alpha.2-design-candidate/comparative-cases/README.md",
         "research/model-pilots/v5.0.0-alpha.2-design-candidate/comparative-cases/UI-PAGE-MATRIX.md",
         "research/model-pilots/v5.0.0-alpha.2-design-candidate/paul-mendesian/MODEL.md",
         "research/model-pilots/v5.0.0-alpha.2-design-candidate/paul-mendesian/README.md",
         "research/model-pilots/v5.0.0-alpha.2-design-candidate/paul-mendesian/UI-REQUIREMENTS.md",
+        "research/model-pilots/v5.0.0-alpha.2-design-candidate/viewer/README.md",
         "research/myrrh_wine_soaking_apparatus.md",
         "research/myrrh_wine_summary.md",
         "research/notes-to-revise.md",
@@ -1979,14 +1982,14 @@
       "private": false,
       "archived": false,
       "default_branch": "main",
-      "pushed_at": "2026-08-22T03:57:19Z",
+      "pushed_at": "2026-08-23T04:02:12Z",
       "open_prs": 0,
       "branches": [
         {
           "name": "main",
-          "tip_date": "2026-08-22T03:57:18Z",
+          "tip_date": "2026-08-23T04:02:11Z",
           "tip_author": "portfolio-bot",
-          "tip_message": "portfolio: nightly collection 2026-08-22"
+          "tip_message": "portfolio: nightly collection 2026-08-23"
         }
       ],
       "branch_detail_skipped": false,
