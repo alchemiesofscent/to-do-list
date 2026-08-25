@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-24T04:04:39+00:00",
+  "generated_at": "2026-08-25T03:58:51+00:00",
   "account": "alchemiesofscent",
   "schema": 2,
   "repos": [
@@ -8,8 +8,8 @@
       "private": true,
       "archived": false,
       "default_branch": "main",
-      "pushed_at": "2026-08-23T14:19:41Z",
-      "open_prs": 2,
+      "pushed_at": "2026-08-24T13:39:10Z",
+      "open_prs": 0,
       "branches": [
         {
           "name": "agent/create-pre-refactor-snapshot",
@@ -309,9 +309,9 @@
           "pr": {
             "number": 32,
             "title": "Record Ptolemaic queen scent and transmission fragments",
-            "state": "open",
-            "merged_at": null,
-            "updated_at": "2026-08-15T15:28:18Z"
+            "state": "closed",
+            "merged_at": "2026-08-24T13:01:02Z",
+            "updated_at": "2026-08-24T13:01:02Z"
           }
         },
         {
@@ -609,9 +609,9 @@
           "pr": {
             "number": 2,
             "title": "Add laboratory site scaffold and research updates",
-            "state": "open",
+            "state": "closed",
             "merged_at": null,
-            "updated_at": "2026-07-16T18:43:43Z"
+            "updated_at": "2026-08-24T13:05:39Z"
           }
         },
         {
@@ -795,6 +795,26 @@
             "state": "closed",
             "merged_at": "2026-08-23T14:19:42Z",
             "updated_at": "2026-08-23T14:19:42Z"
+          }
+        },
+        {
+          "name": "research/pr2-salvage",
+          "pr": {
+            "number": 88,
+            "title": "research: salvage the research half of PR #2",
+            "state": "closed",
+            "merged_at": "2026-08-24T13:04:44Z",
+            "updated_at": "2026-08-24T13:04:44Z"
+          }
+        },
+        {
+          "name": "revert/pr32-r3-freeze",
+          "pr": {
+            "number": 89,
+            "title": "Revert #32: it modified files inside the frozen R3.10 evidence set",
+            "state": "closed",
+            "merged_at": "2026-08-24T13:39:10Z",
+            "updated_at": "2026-08-24T13:39:10Z"
           }
         },
         {
@@ -1839,6 +1859,7 @@
         "research/dioscorides_aetius_oil_comparison.md",
         "research/dioscorides_flower_perfume_technique.md",
         "research/edict-guild/EDICT_VS_GUILD.md",
+        "research/first1kgreek_apparatus_reliability.md",
         "research/galen_akopa_per_genera_7.12.md",
         "research/galen_de_antidotis_1_4_honey.md",
         "research/galen_gleukinon_per_genera_7.14.md",
@@ -1982,14 +2003,14 @@
       "private": false,
       "archived": false,
       "default_branch": "main",
-      "pushed_at": "2026-08-23T04:02:12Z",
+      "pushed_at": "2026-08-24T04:06:56Z",
       "open_prs": 0,
       "branches": [
         {
           "name": "main",
-          "tip_date": "2026-08-23T04:02:11Z",
+          "tip_date": "2026-08-24T04:06:55Z",
           "tip_author": "portfolio-bot",
-          "tip_message": "portfolio: nightly collection 2026-08-23"
+          "tip_message": "portfolio: nightly collection 2026-08-24"
         }
       ],
       "branch_detail_skipped": false,
