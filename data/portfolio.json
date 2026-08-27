@@ -1,44 +1,24 @@
 {
-  "generated_at": "2026-08-26T04:02:28+00:00",
+  "generated_at": "2026-08-27T14:11:16+00:00",
   "account": "alchemiesofscent",
   "schema": 2,
   "repos": [
-    {
-      "name": "cmg-viewer",
-      "private": false,
-      "archived": false,
-      "default_branch": "main",
-      "pushed_at": "2026-08-26T01:01:05Z",
-      "open_prs": 0,
-      "branches": [
-        {
-          "name": "main",
-          "tip_date": "2026-08-26T01:01:03Z",
-          "tip_author": "Sean Coughlin",
-          "tip_message": "Clean up lazy IIIF viewer handoff"
-        }
-      ],
-      "branch_detail_skipped": false,
-      "md_files": [
-        "README.md",
-        "THIRD_PARTY_NOTICES.md",
-        "docs/architecture.md",
-        "docs/catalogue-scope.md",
-        "docs/deployment.md",
-        "docs/language-defaults.md"
-      ],
-      "md_files_truncated": false,
-      "readme": "# CMG Viewer\n\nA static, catalogue-wide viewer for the digital editions published by the\nCorpus Medicorum Graecorum / Latinorum at BBAW. The site is designed for\ndeployment at <https://alchemiesofscent.github.io/cmg-viewer/>.\n\nThe application keeps its searchable catalogue, IIIF Presentation manifests,\nand viewer routes on GitHub Pages. Page images remain on BBAW's HTTPS IIIF\nImage API, so the repository does not duplicate the scan collection.\n\nThe catalogue search lives in the site header. Results are grouped by their\ntop-level Roman series division while retaining the complete bibliographic\nshelfmark on each work, and the author menu connects reviewed CMG divisions\nwith the broader indexed-author list.\n\nThe reader provides logical contents, stable page-image URLs, a lazy-loaded\ncontinuous page stream, facing-page layouts, full-resolution zoom, and a\nkeyboard-accessible thumbnail rail that loads only nearby previews. A single\ntoolbar owns navigation and viewer actions; on phones it becomes a compact\nbottom bar with the same controls in one disclosure. Source page labels are\npreferred over physical scan numbers in the visible interface, with page\nposition used when no distinct label exists.\n\nThe reviewed live census currently contains 218 work-level entries mapped to\n143 physical viewers and 37,756 available scans. Of those viewers, 117 use\nMETS and 26 use a validated legacy-HTML/Digilib fallback.\n\n## Local development\n\nRequirements: Python 3.11+, Node.js 20+, and pnpm 11.\n\n```powershell\ncorepack enable\npnpm install --frozen-lockfile\npnpm test\npnpm sync\npnpm build\npnpm validate\npnpm serve\n```\n\nThen open <http://localhost:8000/cmg-viewer/>. `pn` in a viewer URL always\nmeans the legacy CMG physical scan order, not an array index or printed page\nlabel. For a quick four-volume fixture build, use `pnpm sync:samples` instead\nof `pnpm sync`.\n\nCatalogue fields are evidence-based. Explicit author/editor/translation clauses\nand reviewed source-language defaults are indexed with field-level provenance;\nroleless METS names remain generic contributors, and missing metadata is not\nguessed. The upstream METS currently supplies no MODS language terms, so the\nlanguage facet uses the reviewed source, collection, volume, and work rules\ndocumented in [language defaults](docs/language-defaults.md).\n\n## Project layout\n\n- `config/` — allowlisted upstream catalogue sources and curated overrides.\n- `scripts/` — synchronization, normalization, validation, and static build.\n- `src/` — dependency-light catalogue and viewer interface.\n- `scripts/tests/` — generator, ingestion, and URL-contract tests.\n- `data/last-successful-sync.json` — compact marker updated after each scheduled sync.\n- `dist/` — generated GitHub Pages artifact (ignored by Git).\n\nThe older single-volume prototype in `bbaw-cmg-tify-mobile-prototype/` is kept\nlocally for comparison but intentionally ignored because it contains roughly\n80 MB of substitute scans.\n\n## Deployment\n\nPush `main` to the `alchemiesofscent/cmg-viewer` repository and enable GitHub\nPages with **GitHub Actions** as the source. The deployment workflow builds and\nvalidates a static artifact with the `/cmg-viewer/` base path. A monthly\nscheduled run refreshes upstream catalogue metadata and deploys only after all\nfail-closed checks pass.\n\nSee [the architecture decision](docs/architecture.md) for the data model and\nsync guarantees, [the reviewed catalogue scope](docs/catalogue-scope.md) for\nthe upstream census, and [the deployment guide](docs/deployment.md) for Pages\nsetup.\n\n## License\n\nCMG Viewer is released under the [GNU Affero General Public License v3.0](LICENSE).\nThe generated site also includes TIFY 0.35.0 under the same license family; see\n[the third-party notices](THIRD_PARTY_NOTICES.md). Catalogue records and page\nimages remain linked to their BBAW sources and are not relicensed here.\n",
-      "status_md": null
-    },
     {
       "name": "extraction-pipeline",
       "private": true,
       "archived": false,
       "default_branch": "main",
-      "pushed_at": "2026-08-25T16:47:06Z",
+      "pushed_at": "2026-08-27T13:45:03Z",
       "open_prs": 0,
       "branches": [
+        {
+          "name": "feat/ws-e-handoff-pilot",
+          "tip_date": "2026-08-27T13:44:44Z",
+          "tip_author": "alchemiesofscent",
+          "tip_message": "Build R5.1 lexical handoff pilot",
+          "ahead": 1,
+          "behind": 0
+        },
         {
           "name": "main",
           "tip_date": "2026-08-25T16:42:42Z",
@@ -400,18 +380,46 @@
       "status_md": null
     },
     {
-      "name": "to-do-list",
+      "name": "cmg-viewer",
       "private": false,
       "archived": false,
       "default_branch": "main",
-      "pushed_at": "2026-08-25T04:00:43Z",
+      "pushed_at": "2026-08-26T10:43:32Z",
       "open_prs": 0,
       "branches": [
         {
           "name": "main",
-          "tip_date": "2026-08-25T04:00:42Z",
+          "tip_date": "2026-08-26T10:43:22Z",
+          "tip_author": "Sean Coughlin",
+          "tip_message": "Fix mobile fullscreen behavior"
+        }
+      ],
+      "branch_detail_skipped": false,
+      "md_files": [
+        "README.md",
+        "THIRD_PARTY_NOTICES.md",
+        "docs/architecture.md",
+        "docs/catalogue-scope.md",
+        "docs/deployment.md",
+        "docs/language-defaults.md"
+      ],
+      "md_files_truncated": false,
+      "readme": "# CMG Viewer\n\nA static, catalogue-wide viewer for the digital editions published by the\nCorpus Medicorum Graecorum / Latinorum at BBAW. The site is designed for\ndeployment at <https://alchemiesofscent.github.io/cmg-viewer/>.\n\nThe application keeps its searchable catalogue, IIIF Presentation manifests,\nand viewer routes on GitHub Pages. Page images remain on BBAW's HTTPS IIIF\nImage API, so the repository does not duplicate the scan collection.\n\nThe catalogue search lives in the site header. Results are grouped by their\ntop-level Roman series division while retaining the complete bibliographic\nshelfmark on each work, and the author menu connects reviewed CMG divisions\nwith the broader indexed-author list.\n\nThe reader provides logical contents, stable page-image URLs, a lazy-loaded\ncontinuous page stream, facing-page layouts, full-resolution zoom, and a\nkeyboard-accessible thumbnail rail that loads only nearby previews. A single\ntoolbar owns navigation and viewer actions; on phones it becomes a compact\nbottom bar with the same controls in one disclosure. Source page labels are\npreferred over physical scan numbers in the visible interface, with page\nposition used when no distinct label exists.\n\nThe reviewed live census currently contains 218 work-level entries mapped to\n143 physical viewers and 37,756 available scans. Of those viewers, 117 use\nMETS and 26 use a validated legacy-HTML/Digilib fallback.\n\n## Local development\n\nRequirements: Python 3.11+, Node.js 20+, and pnpm 11.\n\n```powershell\ncorepack enable\npnpm install --frozen-lockfile\npnpm test\npnpm sync\npnpm build\npnpm validate\npnpm serve\n```\n\nThen open <http://localhost:8000/cmg-viewer/>. `pn` in a viewer URL always\nmeans the legacy CMG physical scan order, not an array index or printed page\nlabel. For a quick four-volume fixture build, use `pnpm sync:samples` instead\nof `pnpm sync`.\n\nCatalogue fields are evidence-based. Explicit author/editor/translation clauses\nand reviewed source-language defaults are indexed with field-level provenance;\nroleless METS names remain generic contributors, and missing metadata is not\nguessed. The upstream METS currently supplies no MODS language terms, so the\nlanguage facet uses the reviewed source, collection, volume, and work rules\ndocumented in [language defaults](docs/language-defaults.md).\n\n## Project layout\n\n- `config/` — allowlisted upstream catalogue sources and curated overrides.\n- `scripts/` — synchronization, normalization, validation, and static build.\n- `src/` — dependency-light catalogue and viewer interface.\n- `scripts/tests/` — generator, ingestion, and URL-contract tests.\n- `data/last-successful-sync.json` — compact marker updated after each scheduled sync.\n- `dist/` — generated GitHub Pages artifact (ignored by Git).\n\nThe older single-volume prototype in `bbaw-cmg-tify-mobile-prototype/` is kept\nlocally for comparison but intentionally ignored because it contains roughly\n80 MB of substitute scans.\n\n## Deployment\n\nPush `main` to the `alchemiesofscent/cmg-viewer` repository and enable GitHub\nPages with **GitHub Actions** as the source. The deployment workflow builds and\nvalidates a static artifact with the `/cmg-viewer/` base path. A monthly\nscheduled run refreshes upstream catalogue metadata and deploys only after all\nfail-closed checks pass.\n\nSee [the architecture decision](docs/architecture.md) for the data model and\nsync guarantees, [the reviewed catalogue scope](docs/catalogue-scope.md) for\nthe upstream census, and [the deployment guide](docs/deployment.md) for Pages\nsetup.\n\n## License\n\nCMG Viewer is released under the [GNU Affero General Public License v3.0](LICENSE).\nThe generated site also includes TIFY 0.35.0 under the same license family; see\n[the third-party notices](THIRD_PARTY_NOTICES.md). Catalogue records and page\nimages remain linked to their BBAW sources and are not relicensed here.\n",
+      "status_md": null
+    },
+    {
+      "name": "to-do-list",
+      "private": false,
+      "archived": false,
+      "default_branch": "main",
+      "pushed_at": "2026-08-26T04:04:27Z",
+      "open_prs": 0,
+      "branches": [
+        {
+          "name": "main",
+          "tip_date": "2026-08-26T04:04:26Z",
           "tip_author": "portfolio-bot",
-          "tip_message": "portfolio: nightly collection 2026-08-25"
+          "tip_message": "portfolio: nightly collection 2026-08-26"
         }
       ],
       "branch_detail_skipped": false,
