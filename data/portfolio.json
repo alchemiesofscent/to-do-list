@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-03T08:02:14+00:00",
+  "generated_at": "2026-09-04T07:57:55+00:00",
   "account": "alchemiesofscent",
   "schema": 2,
   "repos": [
@@ -8,7 +8,7 @@
       "private": true,
       "archived": false,
       "default_branch": "main",
-      "pushed_at": "2026-09-03T08:01:14Z",
+      "pushed_at": "2026-09-04T07:42:04Z",
       "open_prs": 0,
       "branches": [
         {
@@ -38,6 +38,16 @@
             "state": "closed",
             "merged_at": "2026-08-28T17:08:17Z",
             "updated_at": "2026-08-28T17:08:18Z"
+          }
+        },
+        {
+          "name": "claude/ci-gate-q-offline-install",
+          "pr": {
+            "number": 125,
+            "title": "Gate Q: bound the one step that reaches the network",
+            "state": "closed",
+            "merged_at": "2026-09-04T00:39:01Z",
+            "updated_at": "2026-09-04T00:39:33Z"
           }
         },
         {
@@ -380,6 +390,66 @@
           }
         },
         {
+          "name": "claude/r7-1-compiler-inputs",
+          "pr": {
+            "number": 121,
+            "title": "R7.1: the sixth manifest layer, the read chokepoint, and the forbidden-input battery",
+            "state": "closed",
+            "merged_at": "2026-09-04T00:02:15Z",
+            "updated_at": "2026-09-04T00:02:52Z"
+          }
+        },
+        {
+          "name": "claude/r7-2-internal-projection",
+          "pr": {
+            "number": 124,
+            "title": "R7.2: the internal projection, which carries every state rather than deriving one",
+            "state": "closed",
+            "merged_at": null,
+            "updated_at": "2026-09-04T01:16:33Z"
+          }
+        },
+        {
+          "name": "claude/r7-2-internal-projection-ready",
+          "pr": {
+            "number": 127,
+            "title": "R7.2: the internal projection, which carries every state rather than deriving one",
+            "state": "closed",
+            "merged_at": "2026-09-04T01:15:49Z",
+            "updated_at": "2026-09-04T01:16:21Z"
+          }
+        },
+        {
+          "name": "claude/r7-5-export-envelope",
+          "pr": {
+            "number": 132,
+            "title": "R7.5 machinery: the export envelope, and page parity as byte parity",
+            "state": "closed",
+            "merged_at": "2026-09-04T02:03:14Z",
+            "updated_at": "2026-09-04T02:03:36Z"
+          }
+        },
+        {
+          "name": "claude/r7-6-report-machinery",
+          "pr": {
+            "number": 130,
+            "title": "R7.6 machinery: the three report builders, and the discipline that makes \"no loss\" checkable",
+            "state": "closed",
+            "merged_at": "2026-09-04T01:38:06Z",
+            "updated_at": "2026-09-04T01:38:31Z"
+          }
+        },
+        {
+          "name": "claude/r7-7-idempotence-machinery",
+          "pr": {
+            "number": 134,
+            "title": "R7.7 machinery: the double build, and the negative fixture that proves the comparison can fail",
+            "state": "closed",
+            "merged_at": "2026-09-04T02:13:54Z",
+            "updated_at": "2026-09-04T02:14:17Z"
+          }
+        },
+        {
           "name": "claude/register-entry-16-lemma-scatter",
           "pr": {
             "number": 104,
@@ -410,14 +480,7 @@
           }
         },
         {
-          "name": "claude/seplasia-methodological-critique-ctqa9p",
-          "pr": {
-            "number": 46,
-            "title": "Add SEPLASIA methodological critique to research folder",
-            "state": "closed",
-            "merged_at": "2026-08-16T15:04:21Z",
-            "updated_at": "2026-08-16T15:04:22Z"
-          }
+          "name": "claude/seplasia-methodological-critique-ctqa9p"
         },
         {
           "name": "claude/users-data-model-vision-uu9qvy"
@@ -443,24 +506,325 @@
           }
         },
         {
-          "name": "codex/ingredient-provenance-map",
+          "name": "claude/wp-d1-term-refs"
+        },
+        {
+          "name": "claude/wp-d1-term-refs-s1",
           "pr": {
-            "number": 20,
-            "title": "research(natgeo): add House of Mendes dossier and provenance map",
+            "number": 112,
+            "title": "WP D1: the two missing successor terms, and a term join that resolves — un-parked under the content scope",
             "state": "closed",
-            "merged_at": "2026-08-15T06:10:52Z",
-            "updated_at": "2026-08-15T06:11:14Z"
+            "merged_at": "2026-09-03T15:45:56Z",
+            "updated_at": "2026-09-03T15:45:56Z"
           }
         },
         {
-          "name": "codex/ptolemaic-queen-fragments",
+          "name": "claude/wp-d2-ordinals",
           "pr": {
-            "number": 21,
-            "title": "research: add Ptolemaic queens scent fragment repository",
+            "number": 108,
+            "title": "WP D2: the ordinal parser reads the split-suffix escape; hop 1 publishes its rows",
             "state": "closed",
-            "merged_at": "2026-08-15T05:42:26Z",
-            "updated_at": "2026-08-15T05:42:26Z"
+            "merged_at": "2026-09-03T09:43:12Z",
+            "updated_at": "2026-09-03T09:43:12Z"
           }
+        },
+        {
+          "name": "claude/wp-d3-application-s1",
+          "pr": {
+            "number": 114,
+            "title": "WP D3 (application): every cluster membership carries a preparation reference, applied through a declared delta layer",
+            "state": "closed",
+            "merged_at": "2026-09-03T16:11:50Z",
+            "updated_at": "2026-09-03T16:11:50Z"
+          }
+        },
+        {
+          "name": "claude/wp-d3-cluster-refs"
+        },
+        {
+          "name": "claude/wp-d3-cluster-refs-main",
+          "pr": {
+            "number": 110,
+            "title": "WP D3: every cluster membership resolved to exactly one record — the resolution crosswalk and its gate",
+            "state": "closed",
+            "merged_at": "2026-09-03T11:15:06Z",
+            "updated_at": "2026-09-03T11:15:06Z"
+          }
+        },
+        {
+          "name": "claude/wp-d4-guards",
+          "pr": {
+            "number": 109,
+            "title": "WP D4: two phase-0 guardrails — form-identity ledger baseline and the acute-fold join guard",
+            "state": "closed",
+            "merged_at": "2026-09-03T09:53:49Z",
+            "updated_at": "2026-09-03T09:53:49Z"
+          }
+        },
+        {
+          "name": "claude/wp-d5-entry-12-retirement"
+        },
+        {
+          "name": "claude/wp-d5-entry-12-retirement-s1",
+          "pr": {
+            "number": 113,
+            "title": "WP D5: register entry 12's retirement, executed as ruled — un-parked under the content scope",
+            "state": "closed",
+            "merged_at": "2026-09-03T15:57:31Z",
+            "updated_at": "2026-09-03T15:57:32Z"
+          }
+        },
+        {
+          "name": "claude/wp-docket-audit-rulings",
+          "pr": {
+            "number": 144,
+            "title": "Audit B ruled: the edition-reconciliation package authorised (PLD-NEXT-13 through -17) and three folds clarified — docket v1.22, register v1.17",
+            "state": "closed",
+            "merged_at": "2026-09-04T07:42:05Z",
+            "updated_at": "2026-09-04T07:42:49Z"
+          }
+        },
+        {
+          "name": "claude/wp-docket-links",
+          "pr": {
+            "number": 129,
+            "title": "Questions 15, 16 and 17 recorded: the edition layer reconciled (PLD-NEXT-10, -11, -12) — docket v1.21, register v1.16",
+            "state": "closed",
+            "merged_at": "2026-09-04T01:19:40Z",
+            "updated_at": "2026-09-04T01:20:23Z"
+          }
+        },
+        {
+          "name": "claude/wp-docket-q14",
+          "pr": {
+            "number": 123,
+            "title": "Question 10 ruled and question 14 recorded: the edition's ingredient link (R7-D2) and the rule-set approval bound to content — docket v1.20, register v1.15",
+            "state": "closed",
+            "merged_at": "2026-09-04T00:14:06Z",
+            "updated_at": "2026-09-04T00:14:40Z"
+          }
+        },
+        {
+          "name": "claude/wp-docket-second-round",
+          "pr": {
+            "number": 119,
+            "title": "Second round, 2026-09-03: thirteen questions and the Project Lead's answers — docket v1.19, register v1.14, the three PLD-10 packets",
+            "state": "closed",
+            "merged_at": "2026-09-03T23:48:33Z",
+            "updated_at": "2026-09-03T23:49:32Z"
+          }
+        },
+        {
+          "name": "claude/wp-e1-fold-mechanism",
+          "pr": {
+            "number": 115,
+            "title": "WP E1: the lemma-consolidation mechanism, and the four FE-Q10 folds (PLD-NEXT-04)",
+            "state": "closed",
+            "merged_at": "2026-09-03T19:34:05Z",
+            "updated_at": "2026-09-03T19:34:06Z"
+          }
+        },
+        {
+          "name": "claude/wp-e2-declared-genitive-folds",
+          "pr": {
+            "number": 116,
+            "title": "WP E2: the 46 declared-genitive folds, with the A3-10 re-points the crosswalk validator required",
+            "state": "closed",
+            "merged_at": "2026-09-03T19:46:29Z",
+            "updated_at": "2026-09-03T19:46:29Z"
+          }
+        },
+        {
+          "name": "claude/wp-e3-empty-nominative-folds",
+          "pr": {
+            "number": 117,
+            "title": "WP E3: the 19 folds into empty-nominative scaffolding",
+            "state": "closed",
+            "merged_at": "2026-09-03T20:49:49Z",
+            "updated_at": "2026-09-03T20:49:49Z"
+          }
+        },
+        {
+          "name": "claude/wp-e3b-housekeeping",
+          "pr": {
+            "number": 118,
+            "title": "WP E3b: a landed evidence row corrected forward, and the /tmp leak that failed a gate for the wrong reason",
+            "state": "closed",
+            "merged_at": "2026-09-03T23:35:31Z",
+            "updated_at": "2026-09-03T23:36:22Z"
+          }
+        },
+        {
+          "name": "claude/wp-e3c-vendored-census-extract",
+          "pr": {
+            "number": 120,
+            "title": "WP E3c: the census's own input, vendored and pinned, so the accounting is derived",
+            "state": "closed",
+            "merged_at": "2026-09-03T23:48:30Z",
+            "updated_at": "2026-09-03T23:49:25Z"
+          }
+        },
+        {
+          "name": "claude/wp-e4-undeclared-inflection-folds",
+          "pr": {
+            "number": 122,
+            "title": "WP E4: the 17 folds of identities the lexicon has no slot for, and what a slot would have to explain",
+            "state": "closed",
+            "merged_at": "2026-09-04T00:26:01Z",
+            "updated_at": "2026-09-04T00:27:00Z"
+          }
+        },
+        {
+          "name": "claude/wp-e5-sigma-capital-translit-folds",
+          "pr": {
+            "number": 126,
+            "title": "WP E5: the lunate, capitalised and transliteration-identical pairs, argued",
+            "state": "closed",
+            "merged_at": null,
+            "updated_at": "2026-09-04T01:29:32Z"
+          }
+        },
+        {
+          "name": "claude/wp-e5-sigma-capital-translit-folds-ready",
+          "pr": {
+            "number": 128,
+            "title": "WP E5: the lunate, capitalised and transliteration-identical pairs, argued",
+            "state": "closed",
+            "merged_at": "2026-09-04T01:28:19Z",
+            "updated_at": "2026-09-04T01:29:19Z"
+          }
+        },
+        {
+          "name": "claude/wp-e6-reheadwords",
+          "pr": {
+            "number": 131,
+            "title": "WP E6: the re-headword mechanism, and three rows the evidence does not support",
+            "state": "closed",
+            "merged_at": "2026-09-04T01:51:20Z",
+            "updated_at": "2026-09-04T01:52:12Z"
+          }
+        },
+        {
+          "name": "claude/wp-e7-one-identity-validator",
+          "pr": {
+            "number": 137,
+            "title": "WP E7: the per-case rulings executed, and PLD-NEXT-04's own gate",
+            "state": "closed",
+            "merged_at": "2026-09-04T03:29:06Z",
+            "updated_at": "2026-09-04T03:30:05Z"
+          }
+        },
+        {
+          "name": "claude/wp-e7b-reference-sites",
+          "pr": {
+            "number": 139,
+            "title": "WP E7b: the reference-site list stops being a claim and becomes a measurement",
+            "state": "closed",
+            "merged_at": "2026-09-04T03:46:47Z",
+            "updated_at": "2026-09-04T03:47:34Z"
+          }
+        },
+        {
+          "name": "claude/wp-e8-ruled-folds"
+        },
+        {
+          "name": "claude/wp-epoch-2-vendor",
+          "pr": {
+            "number": 141,
+            "title": "The epoch-2 cut: the reading team's next package, vendored and signed under ruling 1",
+            "state": "closed",
+            "merged_at": "2026-09-04T06:03:07Z",
+            "updated_at": "2026-09-04T06:04:06Z"
+          }
+        },
+        {
+          "name": "claude/wp-l1-binding-corrections",
+          "pr": {
+            "number": 133,
+            "title": "WP L1: the 110 recipe lines bound to the term their transmitted phrase names (PLD-NEXT-10)",
+            "state": "closed",
+            "merged_at": null,
+            "updated_at": "2026-09-04T07:07:08Z"
+          }
+        },
+        {
+          "name": "claude/wp-l1-binding-corrections-ready",
+          "pr": {
+            "number": 142,
+            "title": "WP L1: the 110 recipe lines bound to the term their transmitted phrase names, integrated on the epoch-2 cut (PLD-NEXT-10)",
+            "state": "closed",
+            "merged_at": "2026-09-04T07:05:51Z",
+            "updated_at": "2026-09-04T07:06:52Z"
+          }
+        },
+        {
+          "name": "claude/wp-l2-derived-has-broader",
+          "pr": {
+            "number": 135,
+            "title": "WP L2: the derived kind-of links, published as generated claims (PLD-NEXT-11)",
+            "state": "closed",
+            "merged_at": null,
+            "updated_at": "2026-09-04T07:40:24Z"
+          }
+        },
+        {
+          "name": "claude/wp-l2-derived-has-broader-ready",
+          "pr": {
+            "number": 143,
+            "title": "WP L2: the derived kind-of links, published as generated claims, integrated as the fourth delta layer (PLD-NEXT-11)",
+            "state": "closed",
+            "merged_at": "2026-09-04T07:39:08Z",
+            "updated_at": "2026-09-04T07:40:09Z"
+          }
+        },
+        {
+          "name": "claude/wp-l3-adjective-phrase-equivalence",
+          "pr": {
+            "number": 136,
+            "title": "WP L3: the functional-equivalence registry, created, and its first ruled rule (PLD-NEXT-12)",
+            "state": "closed",
+            "merged_at": "2026-09-04T02:42:19Z",
+            "updated_at": "2026-09-04T02:43:19Z"
+          }
+        },
+        {
+          "name": "claude/wp-l3b-fe-test-scope",
+          "pr": {
+            "number": 138,
+            "title": "WP L3b: a Gate Q test that gated the wrong thing",
+            "state": "closed",
+            "merged_at": "2026-09-04T03:13:17Z",
+            "updated_at": "2026-09-04T03:13:52Z"
+          }
+        },
+        {
+          "name": "claude/wp-p3-opaque-keys",
+          "pr": {
+            "number": 140,
+            "title": "Phase 3: keys become opaque mnemonics, and the record layer catches up (PLD-NEXT-06)",
+            "state": "closed",
+            "merged_at": "2026-09-04T04:34:54Z",
+            "updated_at": "2026-09-04T04:35:49Z"
+          }
+        },
+        {
+          "name": "claude/wp-p4-item-names"
+        },
+        {
+          "name": "claude/wp-s1-pld05-content-scope",
+          "pr": {
+            "number": 111,
+            "title": "WP S1: PLD-05 scoped to content — the snapshot's occurrence-content fingerprint replaces the byte digest as the signature's scope",
+            "state": "closed",
+            "merged_at": "2026-09-03T12:32:03Z",
+            "updated_at": "2026-09-03T12:32:04Z"
+          }
+        },
+        {
+          "name": "codex/ingredient-provenance-map"
+        },
+        {
+          "name": "codex/ptolemaic-queen-fragments"
         },
         {
           "name": "codex/ptolemaic-transmission-corrections",
@@ -519,34 +883,13 @@
           "name": "data/r2-0-census-alpha-map"
         },
         {
-          "name": "docs/adr-0019-merge-verification",
-          "pr": {
-            "number": 35,
-            "title": "ADR-0019: compensating merge verification (Proposed); exec checklist v1.2",
-            "state": "closed",
-            "merged_at": "2026-08-15T16:44:05Z",
-            "updated_at": "2026-08-15T16:44:19Z"
-          }
+          "name": "docs/adr-0019-merge-verification"
         },
         {
-          "name": "docs/agent-bridge-async-qa",
-          "pr": {
-            "number": 9,
-            "title": "docs(AGENTS v1.4): async agent Q&A via agent-bridge/QUESTIONS.md while Sean is away",
-            "state": "closed",
-            "merged_at": "2026-08-09T21:48:23Z",
-            "updated_at": "2026-08-09T21:52:22Z"
-          }
+          "name": "docs/agent-bridge-async-qa"
         },
         {
-          "name": "docs/plan-derived-numbers-sweep",
-          "pr": {
-            "number": 43,
-            "title": "Sweep the superseded Athenaeus figures to the derived numbers (plan v1.6, flag 1 ruling)",
-            "state": "closed",
-            "merged_at": "2026-08-15T22:48:41Z",
-            "updated_at": "2026-08-15T22:48:41Z"
-          }
+          "name": "docs/plan-derived-numbers-sweep"
         },
         {
           "name": "docs/pld-next-02-dts-citation-registry",
@@ -569,74 +912,25 @@
           }
         },
         {
-          "name": "docs/post-r3-housekeeping",
-          "pr": {
-            "number": 45,
-            "title": "docs: post-R3 housekeeping — vision pin to immutable archive; docket v1.5",
-            "state": "closed",
-            "merged_at": "2026-08-15T23:19:36Z",
-            "updated_at": "2026-08-15T23:19:36Z"
-          }
+          "name": "docs/post-r3-housekeeping"
         },
         {
-          "name": "docs/r2-4-closure",
-          "pr": {
-            "number": 24,
-            "title": "docs(checklist): v3.0 — close R2.4 with WP3/WP4 evidence",
-            "state": "closed",
-            "merged_at": "2026-08-15T08:54:18Z",
-            "updated_at": "2026-08-15T08:55:14Z"
-          }
+          "name": "docs/r2-4-closure"
         },
         {
-          "name": "docs/r2-4-scoping",
-          "pr": {
-            "number": 16,
-            "title": "docs(r2.4): scoping memo — autonomous vs Sean-gated work",
-            "state": "closed",
-            "merged_at": "2026-08-10T15:57:24Z",
-            "updated_at": "2026-08-10T15:57:24Z"
-          }
+          "name": "docs/r2-4-scoping"
         },
         {
-          "name": "docs/r2-acceptance",
-          "pr": {
-            "number": 26,
-            "title": "spec(R2): complete-R2 acceptance of v5.0.0-alpha.1 — pre-authorized CURRENT.md cutover",
-            "state": "closed",
-            "merged_at": "2026-08-15T09:38:46Z",
-            "updated_at": "2026-08-15T09:39:08Z"
-          }
+          "name": "docs/r2-acceptance"
         },
         {
-          "name": "docs/r3-9-upstream-crosswalk",
-          "pr": {
-            "number": 40,
-            "title": "R3.9: freeze the upstream term crosswalk target",
-            "state": "closed",
-            "merged_at": "2026-08-15T21:01:16Z",
-            "updated_at": "2026-08-15T21:01:45Z"
-          }
+          "name": "docs/r3-9-upstream-crosswalk"
         },
         {
-          "name": "docs/r3-execution-checklist",
-          "pr": {
-            "number": 31,
-            "title": "docs: R3 execution checklist for a lower-capability executor",
-            "state": "closed",
-            "merged_at": "2026-08-15T14:18:10Z",
-            "updated_at": "2026-08-15T14:18:24Z"
-          }
+          "name": "docs/r3-execution-checklist"
         },
         {
-          "name": "docs/r3-r9-decision-docket",
-          "pr": {
-            "number": 10,
-            "title": "docs(plan): consolidate R3-R9 decision docket",
-            "state": "closed",
-            "merged_at": "2026-08-09T21:15:11Z",
-            "updated_at": "2026-08-09T21:15:46Z"
-          }
+          "name": "docs/r3-r9-decision-docket"
         },
         {
           "name": "docs/r4-branch-inventory",
@@ -679,74 +973,25 @@
           }
         },
         {
-          "name": "docs/refactor-status-sync-20260810",
-          "pr": {
-            "number": 14,
-            "title": "docs(refactor): sync milestone statuses to merged PRs",
-            "state": "closed",
-            "merged_at": "2026-08-10T14:42:13Z",
-            "updated_at": "2026-08-10T14:42:13Z"
-          }
+          "name": "docs/refactor-status-sync-20260810"
         },
         {
-          "name": "entity-linking/doc-versioning-v1.1-v2.2",
-          "pr": {
-            "number": 19,
-            "title": "entity-linking: version PILOT-PLAN v2.2 + WHITEPAPER v1.1 with archives",
-            "state": "closed",
-            "merged_at": "2026-08-15T06:18:24Z",
-            "updated_at": "2026-08-15T06:18:24Z"
-          }
+          "name": "entity-linking/doc-versioning-v1.1-v2.2"
         },
         {
-          "name": "fix/r2-2-authority-pin-refresh",
-          "pr": {
-            "number": 15,
-            "title": "fix(r2.2): refresh REFACTOR_PLAN authority pin after #14",
-            "state": "closed",
-            "merged_at": "2026-08-10T15:05:58Z",
-            "updated_at": "2026-08-10T15:05:58Z"
-          }
+          "name": "fix/r2-2-authority-pin-refresh"
         },
         {
-          "name": "fixtures/r2-4-wp1",
-          "pr": {
-            "number": 17,
-            "title": "fixtures(r2.4): work package 1",
-            "state": "closed",
-            "merged_at": "2026-08-10T17:29:05Z",
-            "updated_at": "2026-08-10T17:29:05Z"
-          }
+          "name": "fixtures/r2-4-wp1"
         },
         {
-          "name": "fixtures/r2-4-wp2",
-          "pr": {
-            "number": 18,
-            "title": "fixtures(r2.4): work package 2",
-            "state": "closed",
-            "merged_at": "2026-08-10T18:20:41Z",
-            "updated_at": "2026-08-10T18:20:41Z"
-          }
+          "name": "fixtures/r2-4-wp2"
         },
         {
-          "name": "fixtures/r2-4-wp3",
-          "pr": {
-            "number": 23,
-            "title": "R2.4 WP3: rights/publication audit and fail-closed projection policy",
-            "state": "closed",
-            "merged_at": "2026-08-15T07:10:31Z",
-            "updated_at": "2026-08-15T07:11:42Z"
-          }
+          "name": "fixtures/r2-4-wp3"
         },
         {
-          "name": "governance/unpin-living-plan-authority",
-          "pr": {
-            "number": 42,
-            "title": "Move the r2Architecture pin onto an immutable artifact (flag 2 ruling)",
-            "state": "closed",
-            "merged_at": "2026-08-15T22:41:20Z",
-            "updated_at": "2026-08-15T22:41:21Z"
-          }
+          "name": "governance/unpin-living-plan-authority"
         },
         {
           "name": "import-laboratory-prototype",
@@ -759,124 +1004,40 @@
           }
         },
         {
-          "name": "lexical/r3-4-canonical-stores",
-          "pr": {
-            "number": 36,
-            "title": "R3.4: canonical lexical ledger, terms, and forms",
-            "state": "closed",
-            "merged_at": "2026-08-15T18:57:52Z",
-            "updated_at": "2026-08-15T18:58:28Z"
-          }
+          "name": "lexical/r3-4-canonical-stores"
         },
         {
-          "name": "lexical/r3-5-registry-parity",
-          "pr": {
-            "number": 37,
-            "title": "R3.5: regenerated registry parity",
-            "state": "closed",
-            "merged_at": "2026-08-15T20:17:26Z",
-            "updated_at": "2026-08-15T20:17:56Z"
-          }
+          "name": "lexical/r3-5-registry-parity"
         },
         {
-          "name": "lexical/r3-6-crosswalk",
-          "pr": {
-            "number": 39,
-            "title": "R3.6: correction crosswalk contract and reference closure",
-            "state": "closed",
-            "merged_at": "2026-08-15T20:41:23Z",
-            "updated_at": "2026-08-15T20:42:01Z"
-          }
+          "name": "lexical/r3-6-crosswalk"
         },
         {
-          "name": "lexical/r3-7-active-ledger",
-          "pr": {
-            "number": 34,
-            "title": "R3.7: non-lexical active ledger from the R2 census",
-            "state": "closed",
-            "merged_at": "2026-08-15T16:31:27Z",
-            "updated_at": "2026-08-15T16:31:59Z"
-          }
+          "name": "lexical/r3-7-active-ledger"
         },
         {
-          "name": "lexical/r3-8-registries-manifest",
-          "pr": {
-            "number": 44,
-            "title": "R3.8 — give corpus/registries/ its own manifest layer (the last R3 step)",
-            "state": "closed",
-            "merged_at": "2026-08-15T22:57:02Z",
-            "updated_at": "2026-08-15T22:58:14Z"
-          }
+          "name": "lexical/r3-8-registries-manifest"
         },
         {
-          "name": "lexical/r3-10-boundary-freeze",
-          "pr": {
-            "number": 41,
-            "title": "R3.10 — Athenaeus boundary freeze and plan amendment to the derived numbers",
-            "state": "closed",
-            "merged_at": "2026-08-15T21:41:30Z",
-            "updated_at": "2026-08-15T21:42:21Z"
-          }
+          "name": "lexical/r3-10-boundary-freeze"
         },
         {
-          "name": "lexical/r3-accent-storage",
-          "pr": {
-            "number": 30,
-            "title": "R3.1: nardinon headword and Greek storage-encoding rulings",
-            "state": "closed",
-            "merged_at": "2026-08-15T13:50:16Z",
-            "updated_at": "2026-08-15T13:50:16Z"
-          }
+          "name": "lexical/r3-accent-storage"
         },
         {
-          "name": "lexical/r3-identity-convergence",
-          "pr": {
-            "number": 27,
-            "title": "R3.1: rulings-corrected reconciliation, Athenaeus dossiers, and identity-link table",
-            "state": "closed",
-            "merged_at": "2026-08-15T10:48:37Z",
-            "updated_at": "2026-08-15T10:48:53Z"
-          }
+          "name": "lexical/r3-identity-convergence"
         },
         {
-          "name": "lexical/r3-kyp01-reversal",
-          "pr": {
-            "number": 38,
-            "title": "R3: KYP-01 reversed — kyprinon perfume as a distinct term",
-            "state": "closed",
-            "merged_at": "2026-08-15T20:02:07Z",
-            "updated_at": "2026-08-15T20:02:37Z"
-          }
+          "name": "lexical/r3-kyp01-reversal"
         },
         {
-          "name": "lexical/r3-kyprinon-ruling",
-          "pr": {
-            "number": 33,
-            "title": "R3: KYP-01 provisional kyprinon binding with context",
-            "state": "closed",
-            "merged_at": "2026-08-15T14:43:02Z",
-            "updated_at": "2026-08-15T14:43:17Z"
-          }
+          "name": "lexical/r3-kyprinon-ruling"
         },
         {
-          "name": "lexical/r3-review-1",
-          "pr": {
-            "number": 29,
-            "title": "R3.1: Sean's identity-link verdicts and the PLD-02/03 rulings",
-            "state": "closed",
-            "merged_at": "2026-08-15T13:24:05Z",
-            "updated_at": "2026-08-15T13:24:21Z"
-          }
+          "name": "lexical/r3-review-1"
         },
         {
-          "name": "lexical/r3-review-tooling",
-          "pr": {
-            "number": 28,
-            "title": "tooling(r3): review-verdicts applier with term-level schema",
-            "state": "closed",
-            "merged_at": "2026-08-15T13:13:05Z",
-            "updated_at": "2026-08-15T13:13:05Z"
-          }
+          "name": "lexical/r3-review-tooling"
         },
         {
           "name": "main"
@@ -912,14 +1073,7 @@
           }
         },
         {
-          "name": "product/r2-5-dist-interface",
-          "pr": {
-            "number": 25,
-            "title": "R2.5: compiled dist/corpus interface and product-surface fixtures",
-            "state": "closed",
-            "merged_at": "2026-08-15T09:05:58Z",
-            "updated_at": "2026-08-15T09:06:15Z"
-          }
+          "name": "product/r2-5-dist-interface"
         },
         {
           "name": "refactor/r0-authority"
@@ -955,34 +1109,13 @@
           }
         },
         {
-          "name": "schema/r2-1-alpha-types",
-          "pr": {
-            "number": 11,
-            "title": "schema(R2.1): add self-contained v5 alpha contract",
-            "state": "closed",
-            "merged_at": "2026-08-10T00:56:53Z",
-            "updated_at": "2026-08-10T00:57:58Z"
-          }
+          "name": "schema/r2-1-alpha-types"
         },
         {
-          "name": "schema/r2-2-controlled-enums",
-          "pr": {
-            "number": 12,
-            "title": "R2.2: controlled enums (frozen head 3ccaed11)",
-            "state": "closed",
-            "merged_at": "2026-08-10T08:27:15Z",
-            "updated_at": "2026-08-10T08:27:16Z"
-          }
+          "name": "schema/r2-2-controlled-enums"
         },
         {
-          "name": "schema/r2-3-ownership-contract",
-          "pr": {
-            "number": 13,
-            "title": "R2.3: authored/generated ownership contract (frozen head f18f30aa)",
-            "state": "closed",
-            "merged_at": "2026-08-10T13:32:15Z",
-            "updated_at": "2026-08-10T13:32:15Z"
-          }
+          "name": "schema/r2-3-ownership-contract"
         },
         {
           "name": "wip/windows-checkout-20260809"
@@ -1414,6 +1547,7 @@
         "archive/MAP.v2.5.md",
         "archive/MAP.v2.6.md",
         "archive/MAP.v2.7.md",
+        "archive/MAP.v2.8.md",
         "archive/MEDIA-OMITTED.md",
         "archive/MOVED.v1.0.md",
         "archive/README.md",
@@ -1538,6 +1672,7 @@
         "cookbook/plan/R2_4_SCOPING_MEMO.md",
         "cookbook/plan/R3_EXECUTION_CHECKLIST.md",
         "cookbook/plan/R4_EXECUTION_CHECKLIST.md",
+        "cookbook/plan/R7_COMPILER_PLAN.md",
         "cookbook/plan/REFACTOR_PLAN.md",
         "cookbook/plan/REORG_PLAN.md",
         "cookbook/plan/WORKPLAN.md",
@@ -1590,8 +1725,32 @@
         "cookbook/plan/archive/CHECKLIST.v3.39.md",
         "cookbook/plan/archive/CHECKLIST.v3.4.md",
         "cookbook/plan/archive/CHECKLIST.v3.40.md",
+        "cookbook/plan/archive/CHECKLIST.v3.41.md",
+        "cookbook/plan/archive/CHECKLIST.v3.42.md",
+        "cookbook/plan/archive/CHECKLIST.v3.43.md",
+        "cookbook/plan/archive/CHECKLIST.v3.44.md",
+        "cookbook/plan/archive/CHECKLIST.v3.45.md",
+        "cookbook/plan/archive/CHECKLIST.v3.46.md",
+        "cookbook/plan/archive/CHECKLIST.v3.47.md",
+        "cookbook/plan/archive/CHECKLIST.v3.48.md",
+        "cookbook/plan/archive/CHECKLIST.v3.49.md",
         "cookbook/plan/archive/CHECKLIST.v3.5.md",
+        "cookbook/plan/archive/CHECKLIST.v3.50.md",
+        "cookbook/plan/archive/CHECKLIST.v3.51.md",
+        "cookbook/plan/archive/CHECKLIST.v3.52.md",
+        "cookbook/plan/archive/CHECKLIST.v3.53.md",
+        "cookbook/plan/archive/CHECKLIST.v3.54.md",
+        "cookbook/plan/archive/CHECKLIST.v3.55.md",
+        "cookbook/plan/archive/CHECKLIST.v3.56.md",
+        "cookbook/plan/archive/CHECKLIST.v3.57.md",
+        "cookbook/plan/archive/CHECKLIST.v3.58.md",
+        "cookbook/plan/archive/CHECKLIST.v3.59.md",
         "cookbook/plan/archive/CHECKLIST.v3.6.md",
+        "cookbook/plan/archive/CHECKLIST.v3.60.md",
+        "cookbook/plan/archive/CHECKLIST.v3.61.md",
+        "cookbook/plan/archive/CHECKLIST.v3.62.md",
+        "cookbook/plan/archive/CHECKLIST.v3.63.md",
+        "cookbook/plan/archive/CHECKLIST.v3.64.md",
         "cookbook/plan/archive/CHECKLIST.v3.7.md",
         "cookbook/plan/archive/CHECKLIST.v3.8.md",
         "cookbook/plan/archive/CHECKLIST.v3.9.md",
@@ -1601,6 +1760,10 @@
         "cookbook/plan/archive/POST_REFACTOR_REGISTER.v1.10.md",
         "cookbook/plan/archive/POST_REFACTOR_REGISTER.v1.11.md",
         "cookbook/plan/archive/POST_REFACTOR_REGISTER.v1.12.md",
+        "cookbook/plan/archive/POST_REFACTOR_REGISTER.v1.13.md",
+        "cookbook/plan/archive/POST_REFACTOR_REGISTER.v1.14.md",
+        "cookbook/plan/archive/POST_REFACTOR_REGISTER.v1.15.md",
+        "cookbook/plan/archive/POST_REFACTOR_REGISTER.v1.16.md",
         "cookbook/plan/archive/POST_REFACTOR_REGISTER.v1.2.md",
         "cookbook/plan/archive/POST_REFACTOR_REGISTER.v1.3.md",
         "cookbook/plan/archive/POST_REFACTOR_REGISTER.v1.4.md",
@@ -1618,7 +1781,12 @@
         "cookbook/plan/archive/PROJECT_LEAD_DECISION_DOCKET.v1.14.md",
         "cookbook/plan/archive/PROJECT_LEAD_DECISION_DOCKET.v1.15.md",
         "cookbook/plan/archive/PROJECT_LEAD_DECISION_DOCKET.v1.16.md",
+        "cookbook/plan/archive/PROJECT_LEAD_DECISION_DOCKET.v1.17.md",
+        "cookbook/plan/archive/PROJECT_LEAD_DECISION_DOCKET.v1.18.md",
+        "cookbook/plan/archive/PROJECT_LEAD_DECISION_DOCKET.v1.19.md",
         "cookbook/plan/archive/PROJECT_LEAD_DECISION_DOCKET.v1.2.md",
+        "cookbook/plan/archive/PROJECT_LEAD_DECISION_DOCKET.v1.20.md",
+        "cookbook/plan/archive/PROJECT_LEAD_DECISION_DOCKET.v1.21.md",
         "cookbook/plan/archive/PROJECT_LEAD_DECISION_DOCKET.v1.3.md",
         "cookbook/plan/archive/PROJECT_LEAD_DECISION_DOCKET.v1.4.md",
         "cookbook/plan/archive/PROJECT_LEAD_DECISION_DOCKET.v1.5.md",
@@ -1659,6 +1827,9 @@
         "cookbook/plan/archive/REORG_PLAN.v1.2.md",
         "cookbook/plan/archive/WORKPLAN.v1.1.md",
         "cookbook/plan/archive/WS-E-PROVENANCE-PLAN.v1.0.md",
+        "cookbook/plan/evidence/audit-b/audit-b-report.md",
+        "cookbook/plan/evidence/pld-10/PLD-10_PACKETS_R7-D1_D2_D3.md",
+        "cookbook/plan/evidence/r7/R7_MACHINERY_FINDINGS.md",
         "cookbook/plan/evidence/surface-string-audit/audit-a1-registries.md",
         "cookbook/plan/evidence/surface-string-audit/audit-a2-corpus.md",
         "cookbook/plan/evidence/surface-string-audit/audit-a3-keys.md",
@@ -1986,6 +2157,8 @@
         "migration/r2_4/archive/README.v1.1.md",
         "migration/r2_5/README.md",
         "migration/r3/UPSTREAM_TERM_CROSSWALK_TARGET.md",
+        "migration/r5/phase-3-opaque-keys/PHASE_3_EVIDENCE.md",
+        "migration/r7/README.md",
         "musk_and_amber_preparations.md",
         "research/PROMPT_adulteration_dossier.md",
         "research/TRIAGE_PROTOCOL.md",
@@ -2168,7 +2341,7 @@
       "private": true,
       "archived": false,
       "default_branch": "main",
-      "pushed_at": "2026-09-03T07:47:56Z",
+      "pushed_at": "2026-09-04T02:53:15Z",
       "open_prs": 0,
       "branches": [
         {
@@ -2177,7 +2350,7 @@
           "tip_author": "Claude",
           "tip_message": "Merge origin/main (d0b12cb, the #11 squash) into the rulings branch",
           "ahead": 5,
-          "behind": 2,
+          "behind": 7,
           "pr": {
             "number": 12,
             "title": "Bare-word rulings: 36 decisions recorded against the review packet (stacked on #11)",
@@ -2192,7 +2365,7 @@
           "tip_author": "Claude",
           "tip_message": "Archive the v0.22 the contract actually names: this branch's, not main's",
           "ahead": 3,
-          "behind": 3,
+          "behind": 8,
           "pr": {
             "number": 11,
             "title": "Dioscorides bare-word review packet: 34 cases and the unanalysed census",
@@ -2207,7 +2380,7 @@
           "tip_author": "Claude",
           "tip_message": "Merge origin/main (453d9de, the #11/#12 squashes) into the census branch",
           "ahead": 6,
-          "behind": 1,
+          "behind": 6,
           "pr": {
             "number": 13,
             "title": "Lemma-sibling census: the R3-era inflection scatter measured across all 262 families (stacked on #12)",
@@ -2222,7 +2395,7 @@
           "tip_author": "Claude",
           "tip_message": "R5.1 package artefacts: 219 emitted, 20 accounted out, at 494cf84",
           "ahead": 2,
-          "behind": 4,
+          "behind": 9,
           "pr": {
             "number": 10,
             "title": "R5.1: the full lexical-handoff package — 219 emitted, 20 accounted out",
@@ -2232,12 +2405,95 @@
           }
         },
         {
+          "name": "claude/wp-epoch-2-lexicon-fix",
+          "tip_date": "2026-09-03T23:43:44Z",
+          "tip_author": "Claude",
+          "tip_message": "Epoch 2, parked: apply the ruled cinnamon/cardamom correction and re-pin",
+          "ahead": 3,
+          "behind": 1
+        },
+        {
+          "name": "claude/wp-epoch-2-package",
+          "tip_date": "2026-09-04T02:47:15Z",
+          "tip_author": "Claude",
+          "tip_message": "Epoch 2, item 4: the no-new-sibling baseline re-pinned downward, 102 -> 8",
+          "ahead": 8,
+          "behind": 1,
+          "pr": {
+            "number": 18,
+            "title": "WP epoch 2: the lexical package epoch — declared inflection slots, the content-scoped ruleset digest, the Stage 26 lexicon correction, the ruled degemination relation, and the baseline re-pinned 102 → 8",
+            "state": "closed",
+            "merged_at": "2026-09-04T02:53:15Z",
+            "updated_at": "2026-09-04T02:53:59Z"
+          }
+        },
+        {
+          "name": "claude/wp-u1-identification-sync",
+          "tip_date": "2026-09-03T08:18:26Z",
+          "tip_author": "Alchemies of Scent Project",
+          "tip_message": "Identification sync: the lexicon/corpus comparison a key mismatch was hiding (A4-9)",
+          "ahead": 1,
+          "behind": 5,
+          "pr": {
+            "number": 14,
+            "title": "WP U1: lexicon–corpus identification sync gate; the cinnamon/cardamom ruling applied in the derived layer",
+            "state": "closed",
+            "merged_at": "2026-09-03T08:41:14Z",
+            "updated_at": "2026-09-03T08:41:14Z"
+          }
+        },
+        {
+          "name": "claude/wp-u2-no-new-sibling",
+          "tip_date": "2026-09-03T08:41:33Z",
+          "tip_author": "Alchemies of Scent Project",
+          "tip_message": "Merge origin/main (171d0c1, the U1 squash) into the U2 branch",
+          "ahead": 3,
+          "behind": 4,
+          "pr": {
+            "number": 15,
+            "title": "WP U2: no-new-sibling baseline — the 102 sibling identities pinned, containment gated",
+            "state": "closed",
+            "merged_at": "2026-09-03T08:45:42Z",
+            "updated_at": "2026-09-03T08:45:42Z"
+          }
+        },
+        {
+          "name": "claude/wp-u3-rename-hop",
+          "tip_date": "2026-09-03T08:45:57Z",
+          "tip_author": "Alchemies of Scent Project",
+          "tip_message": "Merge origin/main (0e35045, the U2 squash) into the U3 branch",
+          "ahead": 4,
+          "behind": 3,
+          "pr": {
+            "number": 16,
+            "title": "WP U3: the record-rename hop published as rows — 12 keys resolve, 3 accepted analyses recovered",
+            "state": "closed",
+            "merged_at": "2026-09-03T08:51:06Z",
+            "updated_at": "2026-09-03T08:51:07Z"
+          }
+        },
+        {
+          "name": "claude/wp-u5-lexicon-label-extract",
+          "tip_date": "2026-09-03T20:54:44Z",
+          "tip_author": "Alchemies of Scent Project",
+          "tip_message": "WP U5: the per-occurrence producer label published, so census-uncounted stops being a judgement call",
+          "ahead": 1,
+          "behind": 2,
+          "pr": {
+            "number": 17,
+            "title": "WP U5: the lexicon-label extract — one governed row per lexicon occurrence, so downstream census accounting is machine-checkable",
+            "state": "closed",
+            "merged_at": "2026-09-03T21:03:28Z",
+            "updated_at": "2026-09-03T21:03:28Z"
+          }
+        },
+        {
           "name": "feat/ws-e-actionable-settled",
           "tip_date": "2026-08-29T14:34:22Z",
           "tip_author": "Claude",
           "tip_message": "Schema 1.3: settled applications leave the actionable view",
           "ahead": 1,
-          "behind": 6,
+          "behind": 11,
           "pr": {
             "number": 8,
             "title": "Schema 1.3: settled applications leave the actionable view",
@@ -2252,7 +2508,7 @@
           "tip_author": "alchemiesofscent",
           "tip_message": "Refresh R5.1 pilot for acute-fold snapshot",
           "ahead": 0,
-          "behind": 9,
+          "behind": 14,
           "pr": {
             "number": 5,
             "title": "Refresh R5.1 handoff pilot for acute-fold snapshot",
@@ -2267,7 +2523,7 @@
           "tip_author": "Claude",
           "tip_message": "Record three φύλλον segmentation rulings as rejected_contradicted",
           "ahead": 1,
-          "behind": 8,
+          "behind": 13,
           "pr": {
             "number": 6,
             "title": "Record three φύλλον segmentation rulings as rejected_contradicted",
@@ -2282,7 +2538,7 @@
           "tip_author": "Claude",
           "tip_message": "Governed producer-term registry: one term, one fingerprint, ruled binding",
           "ahead": 1,
-          "behind": 5,
+          "behind": 10,
           "pr": {
             "number": 9,
             "title": "Governed producer-term registry: one term, one fingerprint, ruled binding",
@@ -2297,7 +2553,7 @@
           "tip_author": "Claude",
           "tip_message": "Complete the withheld-relation review: 17 approvals close all 24 cases",
           "ahead": 3,
-          "behind": 7,
+          "behind": 12,
           "pr": {
             "number": 7,
             "title": "Close the withheld-relation review: 21 approvals complete all 24 rulings",
@@ -2308,9 +2564,9 @@
         },
         {
           "name": "main",
-          "tip_date": "2026-09-03T07:47:56Z",
+          "tip_date": "2026-09-04T02:53:15Z",
           "tip_author": "Alchemies of Scent Project",
-          "tip_message": "Lemma-sibling census: the R3-era inflection scatter measured across all 262 families (#13)"
+          "tip_message": "WP epoch 2: the lexical package epoch — declared inflection slots, the content-scoped ruleset digest, the Stage 26 lexicon correction, the ruled degemination relation, and the baseline re-pinned 102 →"
         }
       ],
       "branch_detail_skipped": false,
@@ -2461,6 +2717,11 @@
         "docs/2-changelog/archive/changelog_table.v0.22.md",
         "docs/2-changelog/archive/changelog_table.v0.23.md",
         "docs/2-changelog/archive/changelog_table.v0.24.md",
+        "docs/2-changelog/archive/changelog_table.v0.25.md",
+        "docs/2-changelog/archive/changelog_table.v0.26.md",
+        "docs/2-changelog/archive/changelog_table.v0.27.md",
+        "docs/2-changelog/archive/changelog_table.v0.28.md",
+        "docs/2-changelog/archive/changelog_table.v0.29.md",
         "docs/2-changelog/archive/changelog_table.v0.3.md",
         "docs/2-changelog/archive/changelog_table.v0.4.md",
         "docs/2-changelog/archive/changelog_table.v0.5.md",
@@ -2580,6 +2841,11 @@
         "docs/archive/ARCHI.v0.21.md",
         "docs/archive/ARCHI.v0.22.md",
         "docs/archive/ARCHI.v0.23.md",
+        "docs/archive/ARCHI.v0.24.md",
+        "docs/archive/ARCHI.v0.25.md",
+        "docs/archive/ARCHI.v0.26.md",
+        "docs/archive/ARCHI.v0.27.md",
+        "docs/archive/ARCHI.v0.28.md",
         "docs/archive/ARCHI.v0.3.md",
         "docs/archive/ARCHI.v0.4.md",
         "docs/archive/ARCHI.v0.5.md",
@@ -2588,6 +2854,8 @@
         "docs/archive/ARCHI.v0.8.md",
         "docs/archive/ARCHI.v0.9.md",
         "docs/archive/README.v0.1.0.md",
+        "docs/archive/README.v0.10.0.md",
+        "docs/archive/README.v0.11.0.md",
         "docs/archive/README.v0.2.0.md",
         "docs/archive/README.v0.3.0-ci-foundation.md",
         "docs/archive/README.v0.3.0-lexical-draft.md",
@@ -2602,6 +2870,7 @@
         "docs/archive/WSE-PROGRAMME-RECONCILIATION.v1.0.md",
         "emit/README.md",
         "emit/package/PACKAGE-REPORT.md",
+        "emit/package/archive/PACKAGE-REPORT.v1.0.md",
         "emit/pilot/PILOT-REPORT.md",
         "emit/pilot/archive/PILOT-REPORT.v1.0.md",
         "methodology_summaries/amigues_2006.md",
@@ -2689,14 +2958,14 @@
       "private": false,
       "archived": false,
       "default_branch": "main",
-      "pushed_at": "2026-09-02T07:56:39Z",
+      "pushed_at": "2026-09-03T08:05:10Z",
       "open_prs": 0,
       "branches": [
         {
           "name": "main",
-          "tip_date": "2026-09-02T07:56:38Z",
+          "tip_date": "2026-09-03T08:05:09Z",
           "tip_author": "portfolio-bot",
-          "tip_message": "portfolio: nightly collection 2026-09-02"
+          "tip_message": "portfolio: nightly collection 2026-09-03"
         }
       ],
       "branch_detail_skipped": false,
