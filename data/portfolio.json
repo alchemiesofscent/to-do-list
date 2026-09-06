@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-05T07:39:43+00:00",
+  "generated_at": "2026-09-06T07:53:54+00:00",
   "account": "alchemiesofscent",
   "schema": 2,
   "repos": [
@@ -8,7 +8,7 @@
       "private": true,
       "archived": false,
       "default_branch": "main",
-      "pushed_at": "2026-09-05T00:16:13Z",
+      "pushed_at": "2026-09-06T07:52:23Z",
       "open_prs": 4,
       "branches": [
         {
@@ -24,14 +24,7 @@
           "name": "claude/aos-v5-vision-eval-mbq1vq"
         },
         {
-          "name": "claude/ci-cost-controls",
-          "pr": {
-            "number": 92,
-            "title": "CI: cancel superseded pull-request runs and cache the npm download",
-            "state": "closed",
-            "merged_at": "2026-08-28T17:08:17Z",
-            "updated_at": "2026-08-28T17:08:18Z"
-          }
+          "name": "claude/ci-cost-controls"
         },
         {
           "name": "claude/ci-gate-q-offline-install",
@@ -55,6 +48,16 @@
         },
         {
           "name": "claude/docs-checklist-sync-r4prep"
+        },
+        {
+          "name": "claude/edition-reconciliation-plan-tracked",
+          "pr": {
+            "number": 162,
+            "title": "Track the edition-reconciliation package plan and its evidence (docs-only)",
+            "state": "closed",
+            "merged_at": "2026-09-05T10:30:57Z",
+            "updated_at": "2026-09-05T10:31:37Z"
+          }
         },
         {
           "name": "claude/fe-ruling-round",
@@ -87,6 +90,16 @@
           }
         },
         {
+          "name": "claude/handover-docs",
+          "pr": {
+            "number": 168,
+            "title": "Handover docs: the session's working conventions, findable by a fresh instance (COORDINATION.md v1.0, CLAUDE.md v1.5, docs-only)",
+            "state": "closed",
+            "merged_at": "2026-09-05T12:03:59Z",
+            "updated_at": "2026-09-05T12:05:03Z"
+          }
+        },
+        {
           "name": "claude/n11-unit-identity-design",
           "pr": {
             "number": 155,
@@ -94,6 +107,16 @@
             "state": "closed",
             "merged_at": "2026-09-05T00:16:13Z",
             "updated_at": "2026-09-05T00:16:50Z"
+          }
+        },
+        {
+          "name": "claude/neutralise-project-lead-pronouns",
+          "pr": {
+            "number": 170,
+            "title": "Neutralise four gendered pronouns for the Project Lead in the N0/N11 documents (docs-only, 5 lines)",
+            "state": "closed",
+            "merged_at": "2026-09-05T14:54:51Z",
+            "updated_at": "2026-09-05T14:54:51Z"
           }
         },
         {
@@ -121,9 +144,9 @@
           "pr": {
             "number": 159,
             "title": "PC-E2b: the 42 tool refs as a split table for the reading team (docs-only) — stacked on #155",
-            "state": "open",
-            "merged_at": null,
-            "updated_at": "2026-09-05T00:10:42Z"
+            "state": "closed",
+            "merged_at": "2026-09-05T09:04:14Z",
+            "updated_at": "2026-09-05T09:08:47Z"
           }
         },
         {
@@ -140,6 +163,16 @@
           }
         },
         {
+          "name": "claude/plan-v1-2-quantity-classes",
+          "pr": {
+            "number": 167,
+            "title": "Plan v1.2: the four classes of a \"disagreement\", and three carried figures corrected (docs-only)",
+            "state": "closed",
+            "merged_at": "2026-09-05T11:53:47Z",
+            "updated_at": "2026-09-05T11:54:48Z"
+          }
+        },
+        {
           "name": "claude/pld-05-sign-off",
           "pr": {
             "number": 106,
@@ -150,187 +183,61 @@
           }
         },
         {
-          "name": "claude/r4-2-base-commentary-l9xqw9",
-          "pr": {
-            "number": 85,
-            "title": "Make the duplicated R3.10 scan definition a checked invariant",
-            "state": "closed",
-            "merged_at": "2026-08-22T17:38:09Z",
-            "updated_at": "2026-08-22T17:38:09Z"
-          }
+          "name": "claude/r4-2-base-commentary-l9xqw9"
         },
         {
-          "name": "claude/r4-3-rich-layer",
-          "pr": {
-            "number": 67,
-            "title": "R4 Step 7: R4.3 the rich-layer bijection over the 2,040 in-scope objects",
-            "state": "closed",
-            "merged_at": "2026-08-19T20:01:16Z",
-            "updated_at": "2026-08-19T20:02:03Z"
-          }
+          "name": "claude/r4-3-rich-layer"
         },
         {
-          "name": "claude/r4-4-curator-conflicts",
-          "pr": {
-            "number": 70,
-            "title": "R4 Step 8: R4.4 curator conflict sidecars and the conflict sweep",
-            "state": "closed",
-            "merged_at": "2026-08-19T23:04:14Z",
-            "updated_at": "2026-08-19T23:04:51Z"
-          }
+          "name": "claude/r4-4-curator-conflicts"
         },
         {
-          "name": "claude/r4-5-build-provenance-report",
-          "pr": {
-            "number": 78,
-            "title": "R4.5 — field-level build provenance report (Step 12)",
-            "state": "closed",
-            "merged_at": "2026-08-20T15:16:22Z",
-            "updated_at": "2026-08-20T15:16:22Z"
-          }
+          "name": "claude/r4-5-build-provenance-report"
         },
         {
-          "name": "claude/r4-6-canonical-files",
-          "pr": {
-            "number": 77,
-            "title": "R4.6/R4.7 — write the canonical corpus files and the candidate manifest layer (Step 11)",
-            "state": "closed",
-            "merged_at": "2026-08-20T13:25:02Z",
-            "updated_at": "2026-08-20T13:25:02Z"
-          }
+          "name": "claude/r4-6-canonical-files"
         },
         {
-          "name": "claude/r4-8-occurrence-snapshot",
-          "pr": {
-            "number": 79,
-            "title": "R4.8 — deterministic current source-occurrence snapshot (Step 13)",
-            "state": "closed",
-            "merged_at": "2026-08-20T16:38:09Z",
-            "updated_at": "2026-08-20T16:38:10Z"
-          }
+          "name": "claude/r4-8-occurrence-snapshot"
         },
         {
-          "name": "claude/r4-8-storage-canonical-grounding",
-          "pr": {
-            "number": 93,
-            "title": "R4.8: ground on the acute fold as well as on stored bytes",
-            "state": "closed",
-            "merged_at": "2026-08-28T17:36:26Z",
-            "updated_at": "2026-08-28T17:36:26Z"
-          }
+          "name": "claude/r4-8-storage-canonical-grounding"
         },
         {
-          "name": "claude/r4-9-normalized-source-layer",
-          "pr": {
-            "number": 74,
-            "title": "R4.9 — the normalized-source layer, carried with per-atom provenance (Step 10)",
-            "state": "closed",
-            "merged_at": "2026-08-20T10:45:55Z",
-            "updated_at": "2026-08-20T10:45:56Z"
-          }
+          "name": "claude/r4-9-normalized-source-layer"
         },
         {
-          "name": "claude/r4-9-union-ruling",
-          "pr": {
-            "number": 75,
-            "title": "docs: carry the whole normalized-source layer with per-atom provenance (R4.9 scope replaced)",
-            "state": "closed",
-            "merged_at": "2026-08-20T08:48:05Z",
-            "updated_at": "2026-08-20T08:48:05Z"
-          }
+          "name": "claude/r4-9-union-ruling"
         },
         {
-          "name": "claude/r4-binding-rationale-erratum",
-          "pr": {
-            "number": 66,
-            "title": "docs: correct the R4.3 record-binding rationale — R4 checklist v1.4, plan v1.10, CHECKLIST v3.23",
-            "state": "closed",
-            "merged_at": "2026-08-19T17:46:02Z",
-            "updated_at": "2026-08-19T17:46:41Z"
-          }
+          "name": "claude/r4-binding-rationale-erratum"
         },
         {
-          "name": "claude/r4-errata-apply",
-          "pr": {
-            "number": 71,
-            "title": "R4 Step 9: apply both errata into the canonical successors",
-            "state": "closed",
-            "merged_at": "2026-08-20T00:48:20Z",
-            "updated_at": "2026-08-20T00:48:20Z"
-          }
+          "name": "claude/r4-errata-apply"
         },
         {
           "name": "claude/r4-execution-checklist-f8w7gl"
         },
         {
-          "name": "claude/r4-exit-gate",
-          "pr": {
-            "number": 80,
-            "title": "R4 exit gate assembly — evidence for P1–P10, four items open, cutover reserved (Step 14)",
-            "state": "closed",
-            "merged_at": "2026-08-20T18:04:48Z",
-            "updated_at": "2026-08-20T18:04:49Z"
-          }
+          "name": "claude/r4-exit-gate"
         },
         {
-          "name": "claude/r4-normalized-source-ruling",
-          "pr": {
-            "number": 73,
-            "title": "docs: rule the normalized-source layer in scope for R4 — adds plan row R4.9 and Step 10",
-            "state": "closed",
-            "merged_at": "2026-08-20T03:50:38Z",
-            "updated_at": "2026-08-20T03:51:09Z"
-          }
+          "name": "claude/r4-normalized-source-ruling"
         },
         {
-          "name": "claude/r4-phase-a-cutover",
-          "pr": {
-            "number": 81,
-            "title": "Phase-A cutover: corpus/ becomes canonical, legacy becomes quarantined evidence",
-            "state": "closed",
-            "merged_at": "2026-08-20T22:25:10Z",
-            "updated_at": "2026-08-20T22:25:11Z"
-          }
+          "name": "claude/r4-phase-a-cutover"
         },
         {
-          "name": "claude/r4-register-and-step-reorder",
-          "pr": {
-            "number": 76,
-            "title": "docs: post-refactor register, and put the canonical files before the report that describes them",
-            "state": "closed",
-            "merged_at": "2026-08-20T11:15:44Z",
-            "updated_at": "2026-08-20T11:15:44Z"
-          }
+          "name": "claude/r4-register-and-step-reorder"
         },
         {
-          "name": "claude/r4-step7-checklist-sync",
-          "pr": {
-            "number": 68,
-            "title": "docs: record R4 Step 7 and the Project Lead's second 2026-08-19 rulings (CHECKLIST v3.24, docket v1.10, R4 checklist v1.5)",
-            "state": "closed",
-            "merged_at": "2026-08-19T20:58:28Z",
-            "updated_at": "2026-08-19T20:59:04Z"
-          }
+          "name": "claude/r4-step7-checklist-sync"
         },
         {
-          "name": "claude/r4-step9-docs-and-rulings",
-          "pr": {
-            "number": 72,
-            "title": "docs: record R4 Steps 8–9 and answer PLD-NEXT-03 in full (CHECKLIST v3.25, docket v1.11)",
-            "state": "closed",
-            "merged_at": "2026-08-20T01:14:12Z",
-            "updated_at": "2026-08-20T01:14:13Z"
-          }
+          "name": "claude/r4-step9-docs-and-rulings"
         },
         {
-          "name": "claude/r5-0-handoff-schema",
-          "pr": {
-            "number": 82,
-            "title": "R5.0 — freeze aos-lexical-handoff/0.1.0 as a separate public boundary",
-            "state": "closed",
-            "merged_at": "2026-08-20T23:45:34Z",
-            "updated_at": "2026-08-20T23:45:34Z"
-          }
+          "name": "claude/r5-0-handoff-schema"
         },
         {
           "name": "claude/r5-2-accept-package",
@@ -376,14 +283,7 @@
           }
         },
         {
-          "name": "claude/r5-nfcspan",
-          "pr": {
-            "number": 91,
-            "title": "R4.8 advisory NFC span, and the rulings the R5.1 first-contact pilot produced",
-            "state": "closed",
-            "merged_at": "2026-08-28T17:09:13Z",
-            "updated_at": "2026-08-28T17:09:14Z"
-          }
+          "name": "claude/r5-nfcspan"
         },
         {
           "name": "claude/r5-nfcspan-and-rulings"
@@ -399,14 +299,7 @@
           }
         },
         {
-          "name": "claude/r6-1-citation-registry",
-          "pr": {
-            "number": 83,
-            "title": "R6 — citation and CTS adapter: registry, composer, availability states, manifest layer",
-            "state": "closed",
-            "merged_at": "2026-08-21T02:16:06Z",
-            "updated_at": "2026-08-21T02:16:06Z"
-          }
+          "name": "claude/r6-1-citation-registry"
         },
         {
           "name": "claude/r7-1-compiler-inputs",
@@ -479,14 +372,7 @@
           }
         },
         {
-          "name": "claude/repair-research-drift",
-          "pr": {
-            "number": 90,
-            "title": "Repair Gate Q on main: regenerate the R4 evidence documents stale since #88",
-            "state": "closed",
-            "merged_at": "2026-08-28T15:49:12Z",
-            "updated_at": "2026-08-28T15:49:12Z"
-          }
+          "name": "claude/repair-research-drift"
         },
         {
           "name": "claude/repo-refactor-status-yplmv2"
@@ -498,13 +384,16 @@
           "name": "claude/users-data-model-vision-uu9qvy"
         },
         {
-          "name": "claude/varietal-qualifier-finding",
+          "name": "claude/varietal-qualifier-finding"
+        },
+        {
+          "name": "claude/wp-adr-0021-census-epochs",
           "pr": {
-            "number": 94,
-            "title": "Record that a plant part reaches the corpus without the plant it is part of",
+            "number": 190,
+            "title": "ADR-0021 (Accepted): a ruled transformation supersedes a frozen pin set",
             "state": "closed",
-            "merged_at": "2026-08-28T21:35:38Z",
-            "updated_at": "2026-08-28T21:35:38Z"
+            "merged_at": "2026-09-06T05:29:38Z",
+            "updated_at": "2026-09-06T05:29:38Z"
           }
         },
         {
@@ -521,10 +410,10 @@
           "name": "claude/wp-checklist-renumber-guard",
           "pr": {
             "number": 158,
-            "title": "Checklist renumber guard: the version chain asserted in Gate Q, and the one duplicate on main merged with no loss",
-            "state": "open",
-            "merged_at": null,
-            "updated_at": "2026-09-05T00:17:13Z"
+            "title": "Checklist renumber guard: the version chain and conflict markers asserted in Gate Q, and main's one duplicate merged with no loss",
+            "state": "closed",
+            "merged_at": "2026-09-05T10:19:29Z",
+            "updated_at": "2026-09-05T10:20:46Z"
           }
         },
         {
@@ -538,7 +427,44 @@
           }
         },
         {
-          "name": "claude/wp-closure-report"
+          "name": "claude/wp-checklist-waiting-list-0906",
+          "pr": {
+            "number": 183,
+            "title": "Refresh the checklist's waiting list; remove two model mentions from the register",
+            "state": "closed",
+            "merged_at": "2026-09-06T01:28:03Z",
+            "updated_at": "2026-09-06T01:28:03Z"
+          }
+        },
+        {
+          "name": "claude/wp-closure-report",
+          "pr": {
+            "number": 171,
+            "title": "Closure: the surface-string remediation package's final before/after report, the register and docket rows, and the plan's R3 rows reconciled",
+            "state": "closed",
+            "merged_at": "2026-09-05T14:45:58Z",
+            "updated_at": "2026-09-05T14:45:58Z"
+          }
+        },
+        {
+          "name": "claude/wp-consolidation-order",
+          "pr": {
+            "number": 194,
+            "title": "The consolidation's regeneration order named seven delta layers short",
+            "state": "open",
+            "merged_at": null,
+            "updated_at": "2026-09-06T07:23:34Z"
+          }
+        },
+        {
+          "name": "claude/wp-coordination-lessons-0906",
+          "pr": {
+            "number": 184,
+            "title": "COORDINATION.md v1.5: three landing-session verification practices",
+            "state": "closed",
+            "merged_at": "2026-09-06T01:34:09Z",
+            "updated_at": "2026-09-06T01:34:09Z"
+          }
         },
         {
           "name": "claude/wp-d1-term-refs"
@@ -657,6 +583,16 @@
             "state": "closed",
             "merged_at": "2026-09-04T00:14:06Z",
             "updated_at": "2026-09-04T00:14:40Z"
+          }
+        },
+        {
+          "name": "claude/wp-docket-row-11",
+          "pr": {
+            "number": 186,
+            "title": "Docket row 11: note the 2026-09-04 ruling beside its stale \"open\" marker",
+            "state": "closed",
+            "merged_at": "2026-09-06T02:13:47Z",
+            "updated_at": "2026-09-06T02:13:47Z"
           }
         },
         {
@@ -780,7 +716,63 @@
           }
         },
         {
-          "name": "claude/wp-e8-ruled-folds"
+          "name": "claude/wp-e8-ruled-folds",
+          "pr": {
+            "number": 164,
+            "title": "Batch E8 of PLD-NEXT-04: the four ruled folds and the one nominative correction",
+            "state": "closed",
+            "merged_at": "2026-09-05T09:19:14Z",
+            "updated_at": "2026-09-05T09:20:29Z"
+          }
+        },
+        {
+          "name": "claude/wp-e9-application",
+          "pr": {
+            "number": 169,
+            "title": "PLD-NEXT-04 batch E9 applied: 44 inflected identities retire onto their headword, no transmitted byte moves",
+            "state": "closed",
+            "merged_at": "2026-09-05T14:00:54Z",
+            "updated_at": "2026-09-05T14:01:47Z"
+          }
+        },
+        {
+          "name": "claude/wp-e9-authoring",
+          "pr": {
+            "number": 163,
+            "title": "WP-E9 authoring: the fold and re-headword ruling over the N0 worklist, derived from data",
+            "state": "closed",
+            "merged_at": "2026-09-05T11:31:25Z",
+            "updated_at": "2026-09-05T11:35:00Z"
+          }
+        },
+        {
+          "name": "claude/wp-e9-lemmatizer-pass",
+          "pr": {
+            "number": 182,
+            "title": "E9: the lemmatizer pass over the 44 no-lemma rows, and pholeaton as foliatum",
+            "state": "closed",
+            "merged_at": "2026-09-06T01:22:22Z",
+            "updated_at": "2026-09-06T01:22:22Z"
+          }
+        },
+        {
+          "name": "claude/wp-e9-ruled-folds"
+        },
+        {
+          "name": "claude/wp-e10-recut"
+        },
+        {
+          "name": "claude/wp-e10-recut-prerebase-5f7a8d3"
+        },
+        {
+          "name": "claude/wp-e10-ruled-packet",
+          "pr": {
+            "number": 188,
+            "title": "PLD-NEXT-04 batch E10: the Project Lead's per-case rulings of 2026-09-06",
+            "state": "open",
+            "merged_at": null,
+            "updated_at": "2026-09-06T06:43:35Z"
+          }
         },
         {
           "name": "claude/wp-epoch-2-vendor",
@@ -790,6 +782,16 @@
             "state": "closed",
             "merged_at": "2026-09-04T06:03:07Z",
             "updated_at": "2026-09-04T06:04:06Z"
+          }
+        },
+        {
+          "name": "claude/wp-epoch-machinery",
+          "pr": {
+            "number": 193,
+            "title": "Open the first census epoch: the tool takes a version, the guard reads every pin",
+            "state": "open",
+            "merged_at": null,
+            "updated_at": "2026-09-06T07:52:24Z"
           }
         },
         {
@@ -863,6 +865,36 @@
           }
         },
         {
+          "name": "claude/wp-local-gate",
+          "pr": {
+            "number": 173,
+            "title": "The merge gate runs locally while hosted Actions minutes are unavailable (ADR-0020)",
+            "state": "closed",
+            "merged_at": "2026-09-05T18:32:11Z",
+            "updated_at": "2026-09-05T18:32:11Z"
+          }
+        },
+        {
+          "name": "claude/wp-local-gate-builder-base",
+          "pr": {
+            "number": 174,
+            "title": "Local gate: the builder's base is the branch's merge base, the landing session's is main",
+            "state": "closed",
+            "merged_at": "2026-09-05T19:26:43Z",
+            "updated_at": "2026-09-05T19:26:44Z"
+          }
+        },
+        {
+          "name": "claude/wp-local-gate-record-form",
+          "pr": {
+            "number": 175,
+            "title": "ADR-0020 v1.1: the gate record's fixed point (head-dependent figures in the PR comment and squash message, the rest in the CHECKLIST)",
+            "state": "closed",
+            "merged_at": "2026-09-05T20:50:04Z",
+            "updated_at": "2026-09-05T20:50:04Z"
+          }
+        },
+        {
           "name": "claude/wp-n0-lsj-headword-resolver",
           "pr": {
             "number": 147,
@@ -880,6 +912,46 @@
             "state": "closed",
             "merged_at": "2026-09-04T23:32:47Z",
             "updated_at": "2026-09-04T23:33:31Z"
+          }
+        },
+        {
+          "name": "claude/wp-n11-edition-measures-quantities",
+          "pr": {
+            "number": 165,
+            "title": "N11: the unit identity table PLD-NEXT-18 approved, and a figure corrected before it was used",
+            "state": "closed",
+            "merged_at": "2026-09-05T10:01:29Z",
+            "updated_at": "2026-09-05T10:06:22Z"
+          }
+        },
+        {
+          "name": "claude/wp-n11b-s5n-edition-measures",
+          "pr": {
+            "number": 166,
+            "title": "PC-E4: the four dispositions of PLD-NEXT-16, measured — and the D6 register (docs-only, stacked on #165)",
+            "state": "closed",
+            "merged_at": "2026-09-05T11:43:44Z",
+            "updated_at": "2026-09-05T11:46:43Z"
+          }
+        },
+        {
+          "name": "claude/wp-n11d-s5n-on-prestate",
+          "pr": {
+            "number": 177,
+            "title": "S5n through the pre-state rule: write the 53 rows PLD-NEXT-16 reaches, register the 302 it does not",
+            "state": "closed",
+            "merged_at": "2026-09-06T00:26:42Z",
+            "updated_at": "2026-09-06T00:26:42Z"
+          }
+        },
+        {
+          "name": "claude/wp-n13-alpha2-deltas-note",
+          "pr": {
+            "number": 180,
+            "title": "Alpha.2 model deltas design note: three additions ruled on 2026-09-06 — quantity notes, phrases as child pages, Latin names with counterparts (docs-only)",
+            "state": "closed",
+            "merged_at": "2026-09-06T01:11:07Z",
+            "updated_at": "2026-09-06T01:11:07Z"
           }
         },
         {
@@ -913,6 +985,36 @@
           }
         },
         {
+          "name": "claude/wp-plan-v1-3-applied-figures",
+          "pr": {
+            "number": 178,
+            "title": "Plan v1.3 and PC-E4 v1.2: 105 applied over 96 addresses becomes 53 over 45, and why",
+            "state": "closed",
+            "merged_at": "2026-09-06T00:44:56Z",
+            "updated_at": "2026-09-06T00:44:56Z"
+          }
+        },
+        {
+          "name": "claude/wp-pld-08-answers-docket",
+          "pr": {
+            "number": 191,
+            "title": "Docket v1.31: record the Project Lead's answers to PLD-NEXT-27's five open cases",
+            "state": "closed",
+            "merged_at": "2026-09-06T03:15:46Z",
+            "updated_at": "2026-09-06T03:15:46Z"
+          }
+        },
+        {
+          "name": "claude/wp-pld-08-hetzner-ruling",
+          "pr": {
+            "number": 187,
+            "title": "Docket v1.30: record PLD-08's testing host moving to a Hetzner Cloud VPS (PLD-NEXT-27)",
+            "state": "closed",
+            "merged_at": "2026-09-06T03:05:51Z",
+            "updated_at": "2026-09-06T03:05:51Z"
+          }
+        },
+        {
           "name": "claude/wp-pld-08-packet",
           "pr": {
             "number": 157,
@@ -923,13 +1025,73 @@
           }
         },
         {
+          "name": "claude/wp-pld-08-packet-approved",
+          "pr": {
+            "number": 192,
+            "title": "PLD-08 packet v1.2: the Project Lead's answers to section 5.2's five cases",
+            "state": "closed",
+            "merged_at": "2026-09-06T03:21:45Z",
+            "updated_at": "2026-09-06T03:21:45Z"
+          }
+        },
+        {
+          "name": "claude/wp-pld-08-packet-hetzner",
+          "pr": {
+            "number": 189,
+            "title": "PLD-08 packet v1.1: revise the deployment contract for a Hetzner Cloud VPS",
+            "state": "closed",
+            "merged_at": "2026-09-06T03:10:08Z",
+            "updated_at": "2026-09-06T03:10:08Z"
+          }
+        },
+        {
+          "name": "claude/wp-pld-09-greek-check",
+          "pr": {
+            "number": 161,
+            "title": "PLD-09 Greek check: the packet's --check runs in Gate Q, with a battery that proves it can refuse",
+            "state": "closed",
+            "merged_at": "2026-09-05T11:06:07Z",
+            "updated_at": "2026-09-05T11:11:32Z"
+          }
+        },
+        {
           "name": "claude/wp-pld-09-packet",
           "pr": {
             "number": 156,
             "title": "PLD-09 packet: the public wording, as a decision packet the Project Lead can answer from a phone",
-            "state": "open",
-            "merged_at": null,
-            "updated_at": "2026-09-04T23:55:14Z"
+            "state": "closed",
+            "merged_at": "2026-09-05T10:48:47Z",
+            "updated_at": "2026-09-05T10:53:29Z"
+          }
+        },
+        {
+          "name": "claude/wp-pronoun-pass-0906",
+          "pr": {
+            "number": 185,
+            "title": "Neutralise the gendered pronouns used for the Project Lead (docket + register)",
+            "state": "closed",
+            "merged_at": "2026-09-06T02:00:36Z",
+            "updated_at": "2026-09-06T02:00:37Z"
+          }
+        },
+        {
+          "name": "claude/wp-rulings-0906-fifth",
+          "pr": {
+            "number": 181,
+            "title": "The fifth message: PLD-NEXT-26 (the corpus's storage form), kaltamos, salt, E9 batch 3",
+            "state": "closed",
+            "merged_at": "2026-09-06T01:02:03Z",
+            "updated_at": "2026-09-06T01:02:03Z"
+          }
+        },
+        {
+          "name": "claude/wp-rulings-0906",
+          "pr": {
+            "number": 179,
+            "title": "PLD-NEXT-21 through -25 and the entry-19 crux ruling, recorded verbatim",
+            "state": "closed",
+            "merged_at": "2026-09-06T00:54:54Z",
+            "updated_at": "2026-09-06T00:54:55Z"
           }
         },
         {
@@ -943,60 +1105,35 @@
           }
         },
         {
+          "name": "claude/wp-stage-prestate-derivation",
+          "pr": {
+            "number": 172,
+            "title": "A delta stage's pre-state is the builder's output at the preceding stage, not the final corpus",
+            "state": "closed",
+            "merged_at": "2026-09-05T20:19:08Z",
+            "updated_at": "2026-09-05T20:19:08Z"
+          }
+        },
+        {
           "name": "codex/ingredient-provenance-map"
         },
         {
           "name": "codex/ptolemaic-queen-fragments"
         },
         {
-          "name": "codex/ptolemaic-transmission-corrections",
-          "pr": {
-            "number": 32,
-            "title": "Record Ptolemaic queen scent and transmission fragments",
-            "state": "closed",
-            "merged_at": "2026-08-24T13:01:02Z",
-            "updated_at": "2026-08-24T13:01:02Z"
-          }
+          "name": "codex/ptolemaic-transmission-corrections"
         },
         {
-          "name": "codex/v5-alpha2-comparative-ingestion-pilots",
-          "pr": {
-            "number": 61,
-            "title": "Research: add comparative Alpha.2 ingestion design pilots",
-            "state": "closed",
-            "merged_at": "2026-08-22T02:50:17Z",
-            "updated_at": "2026-08-22T02:50:17Z"
-          }
+          "name": "codex/v5-alpha2-comparative-ingestion-pilots"
         },
         {
-          "name": "codex/v5-alpha2-pilot-viewer",
-          "pr": {
-            "number": 86,
-            "title": "Research: Alpha.2 design-candidate viewer (loopback read-only preview of the four pilot cases)",
-            "state": "closed",
-            "merged_at": "2026-08-23T14:19:38Z",
-            "updated_at": "2026-08-23T14:19:38Z"
-          }
+          "name": "codex/v5-alpha2-pilot-viewer"
         },
         {
-          "name": "codex/v5-alpha2-tei-ingestion-vision",
-          "pr": {
-            "number": 69,
-            "title": "docs: define proposed Alpha.2 ingestion and entity-model workflow",
-            "state": "closed",
-            "merged_at": "2026-08-22T01:50:37Z",
-            "updated_at": "2026-08-22T01:50:37Z"
-          }
+          "name": "codex/v5-alpha2-tei-ingestion-vision"
         },
         {
-          "name": "codex/v5-lexical-fair-vision",
-          "pr": {
-            "number": 54,
-            "title": "Refine post-Alpha lexical, names, and FAIR vision",
-            "state": "closed",
-            "merged_at": null,
-            "updated_at": "2026-08-22T17:12:09Z"
-          }
+          "name": "codex/v5-lexical-fair-vision"
         },
         {
           "name": "data/r1-baseline-manifest"
@@ -1074,14 +1211,7 @@
           "name": "governance/unpin-living-plan-authority"
         },
         {
-          "name": "import-laboratory-prototype",
-          "pr": {
-            "number": 2,
-            "title": "Add laboratory site scaffold and research updates",
-            "state": "closed",
-            "merged_at": null,
-            "updated_at": "2026-08-24T13:05:39Z"
-          }
+          "name": "import-laboratory-prototype"
         },
         {
           "name": "lexical/r3-4-canonical-stores"
@@ -1139,43 +1269,32 @@
           "pr": {
             "number": 160,
             "title": "R7.3 prerequisite: the boundary sweep reads the public projection, and the cutover record stops reading the working tree",
-            "state": "open",
-            "merged_at": null,
-            "updated_at": "2026-09-05T00:10:29Z"
+            "state": "closed",
+            "merged_at": "2026-09-05T09:42:58Z",
+            "updated_at": "2026-09-05T09:44:16Z"
           }
         },
         {
           "name": "refactor/r0-authority"
         },
         {
-          "name": "research/house-of-mendes-and-proposals",
+          "name": "research/archaeology-of-production",
           "pr": {
-            "number": 87,
-            "title": "research(house-of-mendes): add the 15 source images behind the dossier pages",
-            "state": "closed",
-            "merged_at": "2026-08-23T14:19:42Z",
-            "updated_at": "2026-08-23T14:19:42Z"
+            "number": 176,
+            "title": "research: open archaeology-of-production dossier (Brun & Monteix 2009)",
+            "state": "open",
+            "merged_at": null,
+            "updated_at": "2026-09-06T02:59:13Z"
           }
         },
         {
-          "name": "research/pr2-salvage",
-          "pr": {
-            "number": 88,
-            "title": "research: salvage the research half of PR #2",
-            "state": "closed",
-            "merged_at": "2026-08-24T13:04:44Z",
-            "updated_at": "2026-08-24T13:04:44Z"
-          }
+          "name": "research/house-of-mendes-and-proposals"
         },
         {
-          "name": "revert/pr32-r3-freeze",
-          "pr": {
-            "number": 89,
-            "title": "Revert #32: it modified files inside the frozen R3.10 evidence set",
-            "state": "closed",
-            "merged_at": "2026-08-24T13:39:10Z",
-            "updated_at": "2026-08-24T13:39:10Z"
-          }
+          "name": "research/pr2-salvage"
+        },
+        {
+          "name": "revert/pr32-r3-freeze"
         },
         {
           "name": "schema/r2-1-alpha-types"
@@ -1217,11 +1336,16 @@
         "AoS_spec/adr/0017-site-dist-only.md",
         "AoS_spec/adr/0018-procedural-main-governance.md",
         "AoS_spec/adr/0019-compensating-merge-verification.md",
+        "AoS_spec/adr/0020-local-gate-execution.md",
+        "AoS_spec/adr/0021-census-epochs.md",
         "AoS_spec/adr/README.md",
         "AoS_spec/adr/archive/0009-cts-urn-alignment.v1.0.md",
         "AoS_spec/adr/archive/0010-monorepo-layout.v1.0.md",
         "AoS_spec/adr/archive/0011-evidence-model-v4.1-deltas.v1.0.md",
+        "AoS_spec/adr/archive/0020-local-gate-execution.v1.0.md",
         "AoS_spec/adr/archive/README.v1.0.md",
+        "AoS_spec/adr/archive/README.v1.1.md",
+        "AoS_spec/adr/archive/README.v1.2.md",
         "AoS_spec/adr/reviews/0011-external-review-gpt56sol.md",
         "AoS_spec/adr/reviews/0011-forensic-audits-emit-corpus.md",
         "AoS_spec/archive/AoS_v4.0.2_check_report.v0.9.md",
@@ -1601,6 +1725,8 @@
         "archive/CLAUDE.v1.1.md",
         "archive/CLAUDE.v1.2.md",
         "archive/CLAUDE.v1.3.md",
+        "archive/CLAUDE.v1.4.md",
+        "archive/CLAUDE.v1.5.md",
         "archive/CTS_WITNESS_REGISTRY.v1.0.md",
         "archive/CTS_WITNESS_REGISTRY.v1.1.md",
         "archive/F_0.11.0-round-5.v1.0.md",
@@ -1617,6 +1743,7 @@
         "archive/MAP.v2.6.md",
         "archive/MAP.v2.7.md",
         "archive/MAP.v2.8.md",
+        "archive/MAP.v2.9.md",
         "archive/MEDIA-OMITTED.md",
         "archive/MOVED.v1.0.md",
         "archive/README.md",
@@ -1734,7 +1861,9 @@
         "cookbook/docs/adr/README.md",
         "cookbook/plan/BUILDER-REGEN-SPEC.md",
         "cookbook/plan/CHECKLIST.md",
+        "cookbook/plan/COORDINATION.md",
         "cookbook/plan/DTS_CITATION_REGISTRY_DESIGN.md",
+        "cookbook/plan/EDITION_RECONCILIATION_PLAN.md",
         "cookbook/plan/POST_REFACTOR_REGISTER.md",
         "cookbook/plan/PROJECT_LEAD_DECISION_DOCKET.md",
         "cookbook/plan/R2.0_CENSUS_TO_ALPHA_WORK_ORDER.md",
@@ -1761,6 +1890,15 @@
         "cookbook/plan/archive/CHECKLIST.v3.0.md",
         "cookbook/plan/archive/CHECKLIST.v3.1.md",
         "cookbook/plan/archive/CHECKLIST.v3.10.md",
+        "cookbook/plan/archive/CHECKLIST.v3.100.md",
+        "cookbook/plan/archive/CHECKLIST.v3.101.md",
+        "cookbook/plan/archive/CHECKLIST.v3.102.md",
+        "cookbook/plan/archive/CHECKLIST.v3.103.md",
+        "cookbook/plan/archive/CHECKLIST.v3.104.md",
+        "cookbook/plan/archive/CHECKLIST.v3.105.md",
+        "cookbook/plan/archive/CHECKLIST.v3.106.md",
+        "cookbook/plan/archive/CHECKLIST.v3.107.md",
+        "cookbook/plan/archive/CHECKLIST.v3.108.md",
         "cookbook/plan/archive/CHECKLIST.v3.11.md",
         "cookbook/plan/archive/CHECKLIST.v3.12.md",
         "cookbook/plan/archive/CHECKLIST.v3.13.md",
@@ -1832,8 +1970,43 @@
         "cookbook/plan/archive/CHECKLIST.v3.73.md",
         "cookbook/plan/archive/CHECKLIST.v3.74.md",
         "cookbook/plan/archive/CHECKLIST.v3.75.md",
+        "cookbook/plan/archive/CHECKLIST.v3.76.md",
+        "cookbook/plan/archive/CHECKLIST.v3.77.md",
+        "cookbook/plan/archive/CHECKLIST.v3.78.md",
+        "cookbook/plan/archive/CHECKLIST.v3.79.md",
         "cookbook/plan/archive/CHECKLIST.v3.8.md",
+        "cookbook/plan/archive/CHECKLIST.v3.80.md",
+        "cookbook/plan/archive/CHECKLIST.v3.81.md",
+        "cookbook/plan/archive/CHECKLIST.v3.82.md",
+        "cookbook/plan/archive/CHECKLIST.v3.83.md",
+        "cookbook/plan/archive/CHECKLIST.v3.84.md",
+        "cookbook/plan/archive/CHECKLIST.v3.85.md",
+        "cookbook/plan/archive/CHECKLIST.v3.86.md",
+        "cookbook/plan/archive/CHECKLIST.v3.87.md",
+        "cookbook/plan/archive/CHECKLIST.v3.88.md",
+        "cookbook/plan/archive/CHECKLIST.v3.89.md",
         "cookbook/plan/archive/CHECKLIST.v3.9.md",
+        "cookbook/plan/archive/CHECKLIST.v3.90.md",
+        "cookbook/plan/archive/CHECKLIST.v3.91.md",
+        "cookbook/plan/archive/CHECKLIST.v3.92.md",
+        "cookbook/plan/archive/CHECKLIST.v3.93.md",
+        "cookbook/plan/archive/CHECKLIST.v3.94.md",
+        "cookbook/plan/archive/CHECKLIST.v3.95.md",
+        "cookbook/plan/archive/CHECKLIST.v3.96.md",
+        "cookbook/plan/archive/CHECKLIST.v3.97.md",
+        "cookbook/plan/archive/CHECKLIST.v3.98.md",
+        "cookbook/plan/archive/CHECKLIST.v3.99.md",
+        "cookbook/plan/archive/COORDINATION.v1.0.md",
+        "cookbook/plan/archive/COORDINATION.v1.1.md",
+        "cookbook/plan/archive/COORDINATION.v1.2.md",
+        "cookbook/plan/archive/COORDINATION.v1.3.md",
+        "cookbook/plan/archive/COORDINATION.v1.4.md",
+        "cookbook/plan/archive/EDITION_RECONCILIATION_PLAN.v1.0.md",
+        "cookbook/plan/archive/EDITION_RECONCILIATION_PLAN.v1.1.md",
+        "cookbook/plan/archive/EDITION_RECONCILIATION_PLAN.v1.2.md",
+        "cookbook/plan/archive/N11_UNIT_IDENTITY_DESIGN.v1.0.md",
+        "cookbook/plan/archive/PC-E4_EDITION_PRECEDENCE_LIMITS.v1.0.md",
+        "cookbook/plan/archive/PC-E4_EDITION_PRECEDENCE_LIMITS.v1.1.md",
         "cookbook/plan/archive/POST_ALPHA_NAMES_MENTIONS_REQUIREMENTS.v1.0.md",
         "cookbook/plan/archive/POST_REFACTOR_REGISTER.v1.0.md",
         "cookbook/plan/archive/POST_REFACTOR_REGISTER.v1.1.md",
@@ -1846,7 +2019,12 @@
         "cookbook/plan/archive/POST_REFACTOR_REGISTER.v1.16.md",
         "cookbook/plan/archive/POST_REFACTOR_REGISTER.v1.17.md",
         "cookbook/plan/archive/POST_REFACTOR_REGISTER.v1.18.md",
+        "cookbook/plan/archive/POST_REFACTOR_REGISTER.v1.19.md",
         "cookbook/plan/archive/POST_REFACTOR_REGISTER.v1.2.md",
+        "cookbook/plan/archive/POST_REFACTOR_REGISTER.v1.20.md",
+        "cookbook/plan/archive/POST_REFACTOR_REGISTER.v1.21.md",
+        "cookbook/plan/archive/POST_REFACTOR_REGISTER.v1.22.md",
+        "cookbook/plan/archive/POST_REFACTOR_REGISTER.v1.23.md",
         "cookbook/plan/archive/POST_REFACTOR_REGISTER.v1.3.md",
         "cookbook/plan/archive/POST_REFACTOR_REGISTER.v1.4.md",
         "cookbook/plan/archive/POST_REFACTOR_REGISTER.v1.5.md",
@@ -1871,7 +2049,14 @@
         "cookbook/plan/archive/PROJECT_LEAD_DECISION_DOCKET.v1.21.md",
         "cookbook/plan/archive/PROJECT_LEAD_DECISION_DOCKET.v1.22.md",
         "cookbook/plan/archive/PROJECT_LEAD_DECISION_DOCKET.v1.23.md",
+        "cookbook/plan/archive/PROJECT_LEAD_DECISION_DOCKET.v1.24.md",
+        "cookbook/plan/archive/PROJECT_LEAD_DECISION_DOCKET.v1.25.md",
+        "cookbook/plan/archive/PROJECT_LEAD_DECISION_DOCKET.v1.26.md",
+        "cookbook/plan/archive/PROJECT_LEAD_DECISION_DOCKET.v1.27.md",
+        "cookbook/plan/archive/PROJECT_LEAD_DECISION_DOCKET.v1.28.md",
+        "cookbook/plan/archive/PROJECT_LEAD_DECISION_DOCKET.v1.29.md",
         "cookbook/plan/archive/PROJECT_LEAD_DECISION_DOCKET.v1.3.md",
+        "cookbook/plan/archive/PROJECT_LEAD_DECISION_DOCKET.v1.30.md",
         "cookbook/plan/archive/PROJECT_LEAD_DECISION_DOCKET.v1.4.md",
         "cookbook/plan/archive/PROJECT_LEAD_DECISION_DOCKET.v1.5.md",
         "cookbook/plan/archive/PROJECT_LEAD_DECISION_DOCKET.v1.6.md",
@@ -1900,6 +2085,7 @@
         "cookbook/plan/archive/REFACTOR_PLAN.v1.16.md",
         "cookbook/plan/archive/REFACTOR_PLAN.v1.17.md",
         "cookbook/plan/archive/REFACTOR_PLAN.v1.18.md",
+        "cookbook/plan/archive/REFACTOR_PLAN.v1.19.md",
         "cookbook/plan/archive/REFACTOR_PLAN.v1.2.md",
         "cookbook/plan/archive/REFACTOR_PLAN.v1.3.md",
         "cookbook/plan/archive/REFACTOR_PLAN.v1.4.md",
@@ -1912,16 +2098,26 @@
         "cookbook/plan/archive/WORKPLAN.v1.1.md",
         "cookbook/plan/archive/WS-E-PROVENANCE-PLAN.v1.0.md",
         "cookbook/plan/evidence/audit-b/audit-b-report.md",
+        "cookbook/plan/evidence/edition-reconciliation/ALPHA2_MODEL_DELTAS_DESIGN.md",
+        "cookbook/plan/evidence/edition-reconciliation/E9_LEMMATIZER_PASS.md",
         "cookbook/plan/evidence/edition-reconciliation/N11_UNIT_IDENTITY_DESIGN.md",
         "cookbook/plan/evidence/edition-reconciliation/PC-E1_ENDING_NEAR_MISSES.md",
         "cookbook/plan/evidence/edition-reconciliation/PC-E2a_ITEM_AUDIT.md",
+        "cookbook/plan/evidence/edition-reconciliation/PC-E2b_TOOL_SPLIT.md",
+        "cookbook/plan/evidence/edition-reconciliation/n11/PC-E4_EDITION_PRECEDENCE_LIMITS.md",
         "cookbook/plan/evidence/pld-08/PLD-08_PACKET_DEPLOYMENT_CONTRACT.md",
+        "cookbook/plan/evidence/pld-08/archive/PLD-08_PACKET_DEPLOYMENT_CONTRACT.v1.0.md",
+        "cookbook/plan/evidence/pld-08/archive/PLD-08_PACKET_DEPLOYMENT_CONTRACT.v1.1.md",
+        "cookbook/plan/evidence/pld-09/PLD-09_PACKET_PUBLIC_WORDING.md",
         "cookbook/plan/evidence/pld-10/PLD-10_PACKETS_R7-D1_D2_D3.md",
         "cookbook/plan/evidence/r7/R7_MACHINERY_FINDINGS.md",
+        "cookbook/plan/evidence/r7/archive/R7_MACHINERY_FINDINGS.v1.0.md",
+        "cookbook/plan/evidence/surface-string-audit/SURFACE_STRING_CLOSURE_REPORT.md",
         "cookbook/plan/evidence/surface-string-audit/audit-a1-registries.md",
         "cookbook/plan/evidence/surface-string-audit/audit-a2-corpus.md",
         "cookbook/plan/evidence/surface-string-audit/audit-a3-keys.md",
         "cookbook/plan/evidence/surface-string-audit/audit-a4-upstream.md",
+        "cookbook/plan/evidence/surface-string-audit/closure/closure-tables.md",
         "cookbook/plan/prompts/README.md",
         "cookbook/plan/prompts/WS-G-KICKOFF-PROMPT.md",
         "cookbook/plan/prompts/WS-N-BATCH1-PROMPT.md",
@@ -2246,6 +2442,8 @@
         "migration/r2_4/archive/README.v1.1.md",
         "migration/r2_5/README.md",
         "migration/r3/UPSTREAM_TERM_CROSSWALK_TARGET.md",
+        "migration/r5/lemma-consolidation/E8_EVIDENCE.md",
+        "migration/r5/lemma-consolidation/E9_PLAN.md",
         "migration/r5/lsj/N0_EVIDENCE.md",
         "migration/r5/lsj/archive/N0_EVIDENCE.v1.0.md",
         "migration/r5/phase-3-opaque-keys/PHASE_3_EVIDENCE.md",
@@ -2253,6 +2451,8 @@
         "migration/r5/phase-5-naming/PHASE_5_EVIDENCE.md",
         "migration/r7/README.md",
         "migration/r7/archive/README.v1.0.md",
+        "migration/r7/archive/README.v1.1.md",
+        "migration/tools/README.md",
         "musk_and_amber_preparations.md",
         "research/PROMPT_adulteration_dossier.md",
         "research/TRIAGE_PROTOCOL.md",
@@ -2435,7 +2635,7 @@
       "private": true,
       "archived": false,
       "default_branch": "main",
-      "pushed_at": "2026-09-04T20:08:41Z",
+      "pushed_at": "2026-09-06T03:03:01Z",
       "open_prs": 4,
       "branches": [
         {
@@ -2444,7 +2644,7 @@
           "tip_author": "alchemiesofscent",
           "tip_message": "On docs/wellmann-qc-token-diagnosis: archive-berendes-d50-promotion-20260716",
           "ahead": 2,
-          "behind": 18
+          "behind": 108
         },
         {
           "name": "archive/local-only-artifacts-20260716",
@@ -2452,7 +2652,7 @@
           "tip_author": "alchemiesofscent",
           "tip_message": "Archive Wellmann praefatio translation draft",
           "ahead": 1,
-          "behind": 9
+          "behind": 99
         },
         {
           "name": "archive/viewer-progress-dashboard-20260716",
@@ -2460,23 +2660,23 @@
           "tip_author": "alchemiesofscent",
           "tip_message": "On docs/wellmann-qc-token-diagnosis: archive-viewer-progress-dashboard-20260716",
           "ahead": 3,
-          "behind": 18
+          "behind": 108
         },
         {
           "name": "archive/wellmann-apparatus-base-20260819",
           "tip_date": "2026-08-21T19:32:02Z",
           "tip_author": "alchemiesofscent",
           "tip_message": "Apply Wellmann apparatus batch 019",
-          "ahead": 25,
-          "behind": 1
+          "ahead": 0,
+          "behind": 66
         },
         {
           "name": "archive/wellmann-human-review-20260825",
           "tip_date": "2026-08-25T18:55:59Z",
           "tip_author": "alchemiesofscent",
           "tip_message": "Record final Wellmann completeness gate audit",
-          "ahead": 39,
-          "behind": 1
+          "ahead": 0,
+          "behind": 52
         },
         {
           "name": "archive/wellmann-parity-20260818",
@@ -2484,7 +2684,7 @@
           "tip_author": "alchemiesofscent",
           "tip_message": "Fix tracked-input core gate boundary",
           "ahead": 470,
-          "behind": 2
+          "behind": 92
         },
         {
           "name": "berendes-publication-repair",
@@ -2492,7 +2692,7 @@
           "tip_author": "alchemiesofscent",
           "tip_message": "feat(berendes): assemble pending publication candidate",
           "ahead": 7,
-          "behind": 35,
+          "behind": 125,
           "pr": {
             "number": 1,
             "title": "Review Berendes publication candidate",
@@ -2507,7 +2707,7 @@
           "tip_author": "Sean Coughlin",
           "tip_message": "feat(sprengel): align Latin and Greek chapter markers",
           "ahead": 2,
-          "behind": 1
+          "behind": 91
         },
         {
           "name": "feature/berendes-footnote-closeout-20260803",
@@ -2515,7 +2715,7 @@
           "tip_author": "Sean Coughlin",
           "tip_message": "Rebuild alignment ledgers + viewer index from the canonical diplomatic edition (951 Berendes units, was 0)",
           "ahead": 7,
-          "behind": 591
+          "behind": 681
         },
         {
           "name": "feature/berendes-lineation-pilot-20260722",
@@ -2523,7 +2723,7 @@
           "tip_author": "alchemiesofscent",
           "tip_message": "docs(berendes): preserve lineation pilot evidence",
           "ahead": 10,
-          "behind": 35,
+          "behind": 125,
           "pr": {
             "number": 10,
             "title": "Audit Berendes lineation without applying incomplete pages",
@@ -2538,7 +2738,7 @@
           "tip_author": "alchemiesofscent",
           "tip_message": "Clarify reading v2 footnote block order",
           "ahead": 3,
-          "behind": 2,
+          "behind": 92,
           "pr": {
             "number": 12,
             "title": "Berendes reading v2: page-anchored hold infrastructure",
@@ -2553,29 +2753,29 @@
           "tip_author": "alchemiesofscent",
           "tip_message": "Document Berendes transcription rescue handoff",
           "ahead": 4,
-          "behind": 2
+          "behind": 92
         },
         {
           "name": "fix/wellmann-apparatus-finalization-work-20260827",
           "tip_date": "2026-08-28T00:32:02Z",
           "tip_author": "alchemiesofscent",
           "tip_message": "Register complete Wellmann canonical edition",
-          "ahead": 47,
-          "behind": 1
+          "ahead": 0,
+          "behind": 44
         },
         {
           "name": "fix/wellmann-orthography-20260828",
           "tip_date": "2026-08-30T04:33:48Z",
           "tip_author": "alchemiesofscent",
           "tip_message": "Add no-loss adjudication data batch",
-          "ahead": 70,
-          "behind": 1
+          "ahead": 0,
+          "behind": 21
         },
         {
           "name": "main",
-          "tip_date": "2026-09-04T20:08:37Z",
+          "tip_date": "2026-09-06T03:02:58Z",
           "tip_author": "Alchemies of Scent Project",
-          "tip_message": "Complete Sprengel editions and aligned readers (#15)"
+          "tip_message": "Record corpus closeout and remaining work (#18)"
         },
         {
           "name": "wellmann-endgame-20260805",
@@ -2583,7 +2783,7 @@
           "tip_author": "alchemiesofscent",
           "tip_message": "Repair Wellmann canonical diplomatic gate",
           "ahead": 465,
-          "behind": 2
+          "behind": 92
         },
         {
           "name": "wellmann-qc-20260721",
@@ -2591,7 +2791,7 @@
           "tip_author": "alchemiesofscent",
           "tip_message": "Promote Book III p95 cross-line marginal addition",
           "ahead": 194,
-          "behind": 6,
+          "behind": 96,
           "pr": {
             "number": 13,
             "title": "Wellmann QC: exact-handler promotions and recovery audit",
@@ -3993,7 +4193,22 @@
         "Wellmann_Dioscorides/tei/qc/book5/book5_qc_report.md",
         "Wellmann_Dioscorides/tei/qc/bulk_clearance_audit_001/README.md",
         "Wellmann_Dioscorides/tei/qc/bulk_clearance_audit_001/audit_summary.md",
+        "Wellmann_Dioscorides/tei/qc/endgame/CODEX_HANDOFF_20260830.md",
+        "Wellmann_Dioscorides/tei/qc/endgame/apparatus_completeness_repair/FINAL_COMPLETENESS_REPORT.md",
+        "Wellmann_Dioscorides/tei/qc/endgame/apparatus_completeness_repair/HUMAN_REVIEW.md",
+        "Wellmann_Dioscorides/tei/qc/endgame/apparatus_completeness_repair/TRANSCRIPTION_BATCH_LOG.md",
+        "Wellmann_Dioscorides/tei/qc/endgame/apparatus_completeness_repair/TRANSCRIPTION_BATCH_WORKFLOW.md",
+        "Wellmann_Dioscorides/tei/qc/endgame/apparatus_completeness_repair/checkpoints/README.md",
+        "Wellmann_Dioscorides/tei/qc/endgame/coverage_rederivation/CLOSEOUT_WORKFLOW.md",
+        "Wellmann_Dioscorides/tei/qc/endgame/coverage_rederivation/NO_LOSS_READJUDICATION.md",
+        "Wellmann_Dioscorides/tei/qc/endgame/coverage_rederivation/REDERIVATION.md",
+        "Wellmann_Dioscorides/tei/qc/endgame/coverage_rederivation/RESIDUE_ADJUDICATION.md",
         "Wellmann_Dioscorides/tei/qc/endgame/cp7/diplomatic_gate_report.md",
+        "Wellmann_Dioscorides/tei/qc/endgame/orthography_repair/CHANGELOG.md",
+        "Wellmann_Dioscorides/tei/qc/endgame/orthography_repair/R8_SCAN_VERIFICATION.md",
+        "Wellmann_Dioscorides/tei/qc/endgame/orthography_repair/RESTORATION_PLAN.md",
+        "Wellmann_Dioscorides/tei/qc/endgame/orthography_repair/application/APPLICATION_REPORT.md",
+        "Wellmann_Dioscorides/tei/qc/endgame/orthography_repair/orthography_report.md",
         "Wellmann_Dioscorides/tei/qc/endgame/parity_repair/candidate_diplomatic_gate_report.md",
         "Wellmann_Dioscorides/tei/qc/endgame/parity_repair/diplomatic_gate_report.md",
         "Wellmann_Dioscorides/tei/qc/endgame/parity_repair/exact_candidate_gate.md",
@@ -5794,6 +6009,7 @@
         "alignment/README.md",
         "alignment/review/README.md",
         "docs/ALIGNED_DIOSCORIDES_CHECKLIST.md",
+        "docs/CLOSEOUT_STATUS_20260906.md",
         "docs/CORPUS_SPEC.md",
         "docs/CORPUS_TODO.md",
         "docs/DECISIONS.md",
@@ -5837,6 +6053,7 @@
         "editions/beck/revision_log.md",
         "editions/berendes/PLAN.md",
         "editions/berendes/processing/reports/misfiled_chapters.md",
+        "editions/berendes/qc/berendes_source_verification_plan_20260906.md",
         "editions/berendes/qc/lineation_spotcheck_20260704.md",
         "editions/berendes/qc/markup_contract_20260706.md",
         "editions/berendes/qc/note_anchors_20260712.md",
@@ -5862,8 +6079,11 @@
         "editions/sprengel/qc/spotcheck_comm_anchoring_20260705.md",
         "editions/sprengel/qc/spotcheck_hyphen_join_20260705.md",
         "editions/sprengel/qc/spotcheck_lb_break_20260705.md",
+        "editions/sprengel/qc/sprengel1830_linebreak_repair_20260905.md",
         "editions/sprengel/qc/sprengel1830_viewer_ready_20260904.md",
         "editions/sprengel/sprengel_epidoc_prompt.md",
+        "editions/sprengel/translation/1830-eng/MACHINE_QA.md",
+        "editions/sprengel/translation/1830-eng/README.md",
         "first1kgreek_apparatus_reliability.md",
         "hold_taxonomy_review_sheet.md",
         "new-viewer/README.md",
@@ -5880,7 +6100,7 @@
         "viewer/data/README.md"
       ],
       "md_files_truncated": false,
-      "readme": "Lesson: This repository is a gated scholarly-production workspace; trust the contract, the live dashboard, and the state committed on your assigned branch—not an unexamined working tree.\n\n> **Doc:** Repository Front Door · **Version:** 2.2 · **Updated:** 2026-07-16 · **Status:** active\n> **Context:** Private-collaboration orientation for the Dioscorides TEI/EpiDoc corpus. Agent rules live in `AGENTS.md` / `CLAUDE.md`; current work and blockers live in `docs/CORPUS_TODO.md`; the normative encoding contract lives in `docs/CORPUS_SPEC.md`.\n\n# tei-maker\n\n`tei-maker` builds, validates, and publishes lean TEI/EpiDoc editions of Dioscorides:\nGreek source texts, Latin and modern translations, commentaries, diplomatic page layers,\nand a provisional chapter-key-paired static reader. Deterministic transforms do the repeatable work;\nimage-backed ledgers and explicit human `DECISION:` checkpoints contain editorial judgment.\n\n## Start here\n\n1. Read [`AGENTS.md`](AGENTS.md) (or [`CLAUDE.md`](CLAUDE.md)) for safety and session routing.\n2. Read [`docs/CORPUS_SPEC.md`](docs/CORPUS_SPEC.md) for the normative data and file contract.\n3. Read [`docs/CORPUS_TODO.md`](docs/CORPUS_TODO.md) for the dated live state, active lanes,\n   blockers, and acceptance criteria.\n4. Restore the private facsimile workspace via [`docs/WORKSPACE_ASSETS.md`](docs/WORKSPACE_ASSETS.md)\n   when doing image-backed work on another machine.\n5. Read [`CONTRIBUTING.md`](CONTRIBUTING.md) before claiming a branch or worktree.\n6. Read the relevant `editions/<name>/PLAN.md` before edition-specific work.\n\nDo not infer project state from `main`, a branch name, or a dirty checkout. This repository\nuses parallel worktrees and human-gated candidates; the live dashboard records which state\nis committed, staged, candidate-only, or awaiting a decision.\n\n## Where the corpus stands\n\nAs of 2026-07-16, the shared markup contract is ratified and the canonical Sprengel 1829,\nSprengel 1830, Beck 2020, and Berendes 1902 reading TEIs have completed their lean rebuilds.\nThe important integration boundaries are:\n\n- **Wellmann 1906:** apparatus QC is active under its own orchestrator. Its TEI tree, scripts,\n  regression test, tracker, QC reports, dashboard assets, and viewer outputs are no-touch for\n  every other lane; the registry still exposes a pilot stub. The exact boundary is in `AGENTS.md`.\n- **Beck 2020:** the D50 footnote-anchor restoration is committed (`d78dc0dd`). A separate\n  publication-QC worktree exists, but no Beck publication repair has been promoted.\n- **Berendes 1902:** D50 accepted the anchor candidate, but its promotion is not committed.\n  The older candidate-to-canonical move was verified, archived locally, and removed from the\n  shared index during collaboration setup; its committed candidate inputs remain recoverable.\n  A newer, broader publication candidate is preserved on `berendes-publication-repair` at\n  `4dccb384` and remains `DECISION: pending`. A fresh clone therefore receives the pre-anchor\n  Berendes canonical until that candidate is explicitly accepted and promoted.\n- **Reader and alignment outputs:** usable as review surfaces but not current publication\n  evidence. Regeneration waits on the authoritative Berendes state and a single integration\n  owner; the alignment scaffold still duplicates the edition registry.\n\nThe exact branch/worktree inventory and ordered next actions are intentionally kept only in\n[`docs/CORPUS_TODO.md`](docs/CORPUS_TODO.md).\n\n## Repository map\n\n| Path | Purpose |\n|---|---|\n| `docs/CORPUS_SPEC.md` | Normative TEI/EpiDoc contract and gate ladder |\n| `docs/CORPUS_TODO.md` | Dated live dashboard and lane ownership |\n| `docs/DECISIONS.md` | Append-only rationale for corpus-level rulings |\n| `alignment/editions.csv` | Canonical corpus registry and gate scope |\n| `editions/<name>/` | Sources, processing evidence, diplomatic layer, TEI, QC, and edition plan |\n| `schema/` | Operative Schematron, validator, and accepted baseline |\n| `scripts/` | Share\n…[truncated at 4000 chars]",
+      "readme": "Lesson: This repository is a gated scholarly-production workspace; trust the contract, the live dashboard, and the state committed on your assigned branch—not an unexamined working tree.\n\n> **Doc:** Repository Front Door · **Version:** 2.3 · **Updated:** 2026-09-06 · **Status:** active\n> **Context:** Private-collaboration orientation for the Dioscorides TEI/EpiDoc corpus. The accepted September closeout snapshot is `docs/CLOSEOUT_STATUS_20260906.md`; live work remains in `docs/CORPUS_TODO.md`.\n\n# tei-maker\n\n`tei-maker` builds, validates, and publishes lean TEI/EpiDoc editions of Dioscorides:\nGreek source texts, Latin and modern translations, commentaries, diplomatic page layers,\nand a provisional chapter-key-paired static reader. Deterministic transforms do the repeatable work;\nimage-backed ledgers and explicit human `DECISION:` checkpoints contain editorial judgment.\n\n## Start here\n\n1. Read [`AGENTS.md`](AGENTS.md) (or [`CLAUDE.md`](CLAUDE.md)) for safety and session routing.\n2. Read [`docs/CLOSEOUT_STATUS_20260906.md`](docs/CLOSEOUT_STATUS_20260906.md) for the\n   accepted Wellmann/Sprengel closeout and the exact remaining scope.\n3. Read [`docs/CORPUS_SPEC.md`](docs/CORPUS_SPEC.md) for the normative data and file contract.\n4. Read [`docs/CORPUS_TODO.md`](docs/CORPUS_TODO.md) for the dated live state, active lanes,\n   blockers, and acceptance criteria.\n5. Restore the private facsimile workspace via [`docs/WORKSPACE_ASSETS.md`](docs/WORKSPACE_ASSETS.md)\n   when doing image-backed work on another machine.\n6. Read [`CONTRIBUTING.md`](CONTRIBUTING.md) before claiming a branch or worktree.\n7. Read the relevant `editions/<name>/PLAN.md` before edition-specific work.\n\nDo not infer project state from `main`, a branch name, or a dirty checkout. This repository\nuses parallel worktrees and human-gated candidates; the live dashboard records which state\nis committed, staged, candidate-only, or awaiting a decision.\n\n## Where the corpus stands\n\nAs of 2026-09-06, the Wellmann editorial/data/reader campaign and the Sprengel 1829/1830\nrepository-and-private-viewer campaigns are closed. Sprengel 1830 now includes the complete,\nexplicitly labelled machine-assisted English draft; human philological review and public release\nremain separate.\n\nBerendes source verification is the next major production blocker. Use the August image-first\nwork as the baseline, reconcile the independent July candidate, disposition all 594 scans, and\nfreeze the German source before beginning English translation. The shared alignment remains\nprovisional: its 835 scaffold rows still need review, and registry cleanup should precede\nregeneration. Beck retains ten disclosed note-link residues.\n\nWellmann remains protected no-touch territory because its canonical and evidence are complete,\nnot because QC is still running. Its status is a print-authoritative critical-edition closeout,\nnot an exhaustive diplomatic-OCR certification. See the dated\n[`closeout snapshot`](docs/CLOSEOUT_STATUS_20260906.md) for the evidence matrix and\n[`docs/CORPUS_TODO.md`](docs/CORPUS_TODO.md) for subsequent live changes.\n\n## Repository map\n\n| Path | Purpose |\n|---|---|\n| `docs/CLOSEOUT_STATUS_20260906.md` | Accepted Wellmann/Sprengel closeout and remaining-work matrix |\n| `docs/CORPUS_SPEC.md` | Normative TEI/EpiDoc contract and gate ladder |\n| `docs/CORPUS_TODO.md` | Dated live dashboard and lane ownership |\n| `docs/DECISIONS.md` | Append-only rationale for corpus-level rulings |\n| `alignment/editions.csv` | Canonical corpus registry and gate scope |\n| `editions/<name>/` | Sources, processing evidence, diplomatic layer, TEI, QC, and edition plan |\n| `schema/` | Operative Schematron, validator, and accepted baseline |\n| `scripts/` | Shared libraries, edition transforms, checks, and reader builders |\n| `new-viewer/` | Current chapter-key-paired static reader; reviewed alignment remains ledger-owned |\n| `viewer/` | Older review/publication surfaces; consult its own docs before rebuilding |\n| `Wellmann\n…[truncated at 4000 chars]",
       "status_md": null
     },
     {
@@ -5888,14 +6108,14 @@
       "private": false,
       "archived": false,
       "default_branch": "main",
-      "pushed_at": "2026-09-04T08:00:24Z",
+      "pushed_at": "2026-09-05T07:41:47Z",
       "open_prs": 0,
       "branches": [
         {
           "name": "main",
-          "tip_date": "2026-09-04T08:00:23Z",
+          "tip_date": "2026-09-05T07:41:46Z",
           "tip_author": "portfolio-bot",
-          "tip_message": "portfolio: nightly collection 2026-09-04"
+          "tip_message": "portfolio: nightly collection 2026-09-05"
         }
       ],
       "branch_detail_skipped": false,
