@@ -1,301 +1,15 @@
 {
-  "generated_at": "2026-09-10T08:07:17+00:00",
+  "generated_at": "2026-09-11T08:02:25+00:00",
   "account": "alchemiesofscent",
   "schema": 2,
   "repos": [
-    {
-      "name": "cmg-viewer",
-      "private": false,
-      "archived": false,
-      "default_branch": "main",
-      "pushed_at": "2026-09-10T05:18:08Z",
-      "open_prs": 0,
-      "branches": [
-        {
-          "name": "codex/contents-tree",
-          "tip_date": "2026-09-08T18:21:19Z",
-          "tip_author": "Alchemies of Scent Project",
-          "tip_message": "Unify reader contents into a navigable corpus hierarchy",
-          "ahead": 1,
-          "behind": 13,
-          "pr": {
-            "number": 6,
-            "title": "Unify Contents into corpus → series → volume navigation",
-            "state": "closed",
-            "merged_at": "2026-09-08T18:22:02Z",
-            "updated_at": "2026-09-08T18:22:02Z"
-          }
-        },
-        {
-          "name": "codex/corpus-contents",
-          "tip_date": "2026-09-08T17:44:03Z",
-          "tip_author": "Alchemies of Scent Project",
-          "tip_message": "Add corpus volume navigation to reader Contents drawer",
-          "ahead": 1,
-          "behind": 14,
-          "pr": {
-            "number": 5,
-            "title": "Browse the whole corpus from the reader Contents drawer",
-            "state": "closed",
-            "merged_at": "2026-09-08T17:44:55Z",
-            "updated_at": "2026-09-08T17:44:55Z"
-          }
-        },
-        {
-          "name": "codex/header-actions",
-          "tip_date": "2026-09-08T18:48:27Z",
-          "tip_author": "Alchemies of Scent Project",
-          "tip_message": "Replace ambiguous header copy control with visible sharing panel",
-          "ahead": 1,
-          "behind": 11,
-          "pr": {
-            "number": 8,
-            "title": "Make the top-right sharing control visibly respond",
-            "state": "closed",
-            "merged_at": "2026-09-08T18:49:07Z",
-            "updated_at": "2026-09-08T18:49:07Z"
-          }
-        },
-        {
-          "name": "codex/interface-clarity",
-          "tip_date": "2026-09-08T22:17:36Z",
-          "tip_author": "Alchemies of Scent Project",
-          "tip_message": "Improve interface typography and replace toolbar glyphs with SVG icons",
-          "ahead": 1,
-          "behind": 8,
-          "pr": {
-            "number": 11,
-            "title": "Make interface text and Info/toolbar icons clearer",
-            "state": "closed",
-            "merged_at": "2026-09-08T22:18:21Z",
-            "updated_at": "2026-09-08T22:18:21Z"
-          }
-        },
-        {
-          "name": "codex/ios-header-inset",
-          "tip_date": "2026-09-07T11:48:55Z",
-          "tip_author": "Alchemies of Scent Project",
-          "tip_message": "Keep reader header within the iOS safe viewport",
-          "ahead": 1,
-          "behind": 15,
-          "pr": {
-            "number": 4,
-            "title": "Keep the reader header below iOS status icons",
-            "state": "closed",
-            "merged_at": "2026-09-07T11:49:41Z",
-            "updated_at": "2026-09-07T11:49:42Z"
-          }
-        },
-        {
-          "name": "codex/keyboard-toolbar",
-          "tip_date": "2026-09-08T19:14:42Z",
-          "tip_author": "Alchemies of Scent Project",
-          "tip_message": "Keep page navigation visible above the iOS keyboard",
-          "ahead": 1,
-          "behind": 9,
-          "pr": {
-            "number": 10,
-            "title": "Keep the page field above the iOS keyboard",
-            "state": "closed",
-            "merged_at": "2026-09-08T19:15:38Z",
-            "updated_at": "2026-09-08T19:15:38Z"
-          }
-        },
-        {
-          "name": "codex/mobile-reader",
-          "tip_date": "2026-09-06T19:40:26Z",
-          "tip_author": "Alchemies of Scent Project",
-          "tip_message": "Improve mobile reader navigation and landscape layout",
-          "ahead": 1,
-          "behind": 18,
-          "pr": {
-            "number": 1,
-            "title": "Improve mobile reading and landscape navigation",
-            "state": "closed",
-            "merged_at": "2026-09-06T19:41:48Z",
-            "updated_at": "2026-09-06T19:41:48Z"
-          }
-        },
-        {
-          "name": "codex/page-entry-focus",
-          "tip_date": "2026-09-10T03:33:11Z",
-          "tip_author": "Alchemies of Scent Project",
-          "tip_message": "Keep page-entry focus ring inside its toolbar segment",
-          "ahead": 1,
-          "behind": 5,
-          "pr": {
-            "number": 13,
-            "title": "Prevent Go button from covering the page-entry focus ring",
-            "state": "closed",
-            "merged_at": "2026-09-10T03:36:09Z",
-            "updated_at": "2026-09-10T03:36:09Z"
-          }
-        },
-        {
-          "name": "codex/reader-continuity",
-          "tip_date": "2026-09-10T04:04:41Z",
-          "tip_author": "Alchemies of Scent Project",
-          "tip_message": "Add reading continuity, page references and local loading diagnostics",
-          "ahead": 1,
-          "behind": 4,
-          "pr": {
-            "number": 14,
-            "title": "Resume volumes, clarify page references and measure reader loading",
-            "state": "closed",
-            "merged_at": "2026-09-10T04:08:21Z",
-            "updated_at": "2026-09-10T04:08:21Z"
-          }
-        },
-        {
-          "name": "codex/reader-data",
-          "tip_date": "2026-09-10T04:54:42Z",
-          "tip_author": "Alchemies of Scent Project",
-          "tip_message": "Separate reader data model and harden metadata fallback handling",
-          "ahead": 1,
-          "behind": 3,
-          "pr": {
-            "number": 15,
-            "title": "Separate reader data handling and verify loading recovery",
-            "state": "closed",
-            "merged_at": "2026-09-10T04:58:18Z",
-            "updated_at": "2026-09-10T04:58:18Z"
-          }
-        },
-        {
-          "name": "codex/reader-loading",
-          "tip_date": "2026-09-07T11:39:38Z",
-          "tip_author": "Alchemies of Scent Project",
-          "tip_message": "Prioritize reading images and add progressive page previews",
-          "ahead": 1,
-          "behind": 16,
-          "pr": {
-            "number": 3,
-            "title": "Improve page-loading priority and progressive previews",
-            "state": "closed",
-            "merged_at": "2026-09-07T11:40:15Z",
-            "updated_at": "2026-09-07T11:40:15Z"
-          }
-        },
-        {
-          "name": "codex/reader-navigation-fixes",
-          "tip_date": "2026-09-07T11:03:00Z",
-          "tip_author": "Alchemies of Scent Project",
-          "tip_message": "Fix scroll default, duplicate spread loads and mobile toolbar double taps",
-          "ahead": 1,
-          "behind": 17,
-          "pr": {
-            "number": 2,
-            "title": "Default to scroll and fix repeated navigation",
-            "state": "closed",
-            "merged_at": "2026-09-07T11:03:52Z",
-            "updated_at": "2026-09-07T11:03:52Z"
-          }
-        },
-        {
-          "name": "codex/reliable-reader",
-          "tip_date": "2026-09-10T03:10:20Z",
-          "tip_author": "Alchemies of Scent Project",
-          "tip_message": "Exercise thumbnail toggles through the closing Tools disclosure",
-          "ahead": 4,
-          "behind": 7,
-          "pr": {
-            "number": 12,
-            "title": "Make reader releases repeatable and cover core flows in real browsers",
-            "state": "closed",
-            "merged_at": "2026-09-10T03:13:13Z",
-            "updated_at": "2026-09-10T03:13:13Z"
-          }
-        },
-        {
-          "name": "codex/scroll-target-guard",
-          "tip_date": "2026-09-10T05:14:31Z",
-          "tip_author": "Alchemies of Scent Project",
-          "tip_message": "Hold navigation target until the reader scroll reaches the requested page",
-          "ahead": 1,
-          "behind": 1,
-          "pr": {
-            "number": 17,
-            "title": "Protect page jumps from pending scroll events",
-            "state": "closed",
-            "merged_at": "2026-09-10T05:18:08Z",
-            "updated_at": "2026-09-10T05:18:09Z"
-          }
-        },
-        {
-          "name": "codex/share-current-page",
-          "tip_date": "2026-09-10T05:07:21Z",
-          "tip_author": "Alchemies of Scent Project",
-          "tip_message": "Prevent stale scroll callbacks from interrupting rapid page jumps",
-          "ahead": 2,
-          "behind": 2,
-          "pr": {
-            "number": 16,
-            "title": "Keep shared links and citations aligned with the current page",
-            "state": "closed",
-            "merged_at": "2026-09-10T05:10:32Z",
-            "updated_at": "2026-09-10T05:10:32Z"
-          }
-        },
-        {
-          "name": "codex/toolbar-repair",
-          "tip_date": "2026-09-08T18:53:24Z",
-          "tip_author": "Alchemies of Scent Project",
-          "tip_message": "Compact page controls and repair blocked Tools deployment",
-          "ahead": 1,
-          "behind": 10,
-          "pr": {
-            "number": 9,
-            "title": "Compact page navigation and unblock Tools deployment",
-            "state": "closed",
-            "merged_at": "2026-09-08T18:54:14Z",
-            "updated_at": "2026-09-08T18:54:15Z"
-          }
-        },
-        {
-          "name": "codex/tools-menu",
-          "tip_date": "2026-09-08T18:28:42Z",
-          "tip_author": "Alchemies of Scent Project",
-          "tip_message": "Make the Tools menu available in desktop and mobile layouts",
-          "ahead": 1,
-          "behind": 12,
-          "pr": {
-            "number": 7,
-            "title": "Use one working Tools menu on desktop and mobile",
-            "state": "closed",
-            "merged_at": "2026-09-08T18:29:27Z",
-            "updated_at": "2026-09-08T18:29:28Z"
-          }
-        },
-        {
-          "name": "main",
-          "tip_date": "2026-09-10T05:18:08Z",
-          "tip_author": "Alchemies of Scent Project",
-          "tip_message": "Hold navigation target until the reader scroll reaches the requested page (#17)"
-        }
-      ],
-      "branch_detail_skipped": false,
-      "md_files": [
-        "README.md",
-        "THIRD_PARTY_NOTICES.md",
-        "docs/architecture.md",
-        "docs/catalogue-scope.md",
-        "docs/deployment.md",
-        "docs/interface.md",
-        "docs/language-defaults.md",
-        "docs/performance.md",
-        "docs/releasing.md"
-      ],
-      "md_files_truncated": false,
-      "readme": "# CMG Viewer\n\nA static, catalogue-wide viewer for the digital editions published by the\nCorpus Medicorum Graecorum / Latinorum at BBAW. The site is designed for\ndeployment at <https://alchemiesofscent.github.io/cmg-viewer/>.\n\nThe application keeps its searchable catalogue, IIIF Presentation manifests,\nand viewer routes on GitHub Pages. Page images remain on BBAW's HTTPS IIIF\nImage API, so the repository does not duplicate the scan collection.\n\nThe catalogue search lives in the site header. Results are grouped by their\ntop-level Roman series division while retaining the complete bibliographic\nshelfmark on each work, and the author menu connects reviewed CMG divisions\nwith the broader indexed-author list.\n\nThe reader opens in continuous scroll view on desktop and mobile; explicit\n`view=spread` links still open facing pages. It provides logical contents,\nstable page-image URLs, a lazy-loaded\ncontinuous page stream, facing-page layouts, full-resolution zoom, and a\nkeyboard-accessible thumbnail rail that loads only nearby previews. A single\ntoolbar owns navigation and viewer actions; on phones it becomes a compact\nbottom bar with Contents, page navigation, and a labelled Tools disclosure.\nThe same touch layout stays active in landscape, with safe-area spacing and\nlarger catalogue controls. Submitting a page jump returns focus to the reader\nand dismisses the phone keyboard. Source page labels are\npreferred over physical scan numbers in the visible interface, with page\nposition used when no distinct label exists.\n\nScroll view prioritizes the requested image before its immediate neighbours,\nshows an available thumbnail while the reading image loads and decodes, and\nkeeps nearby decoded images for return navigation. Full-resolution zoom is\nunchanged. See [the performance notes](docs/performance.md) for measurements\nand the limits of the loading checks.\n\nThe reviewed live census currently contains 218 work-level entries mapped to\n143 physical viewers and 37,756 available scans. Of those viewers, 117 use\nMETS and 26 use a validated legacy-HTML/Digilib fallback.\n\n## Local development\n\nRequirements: Python 3.11+, Node.js 20+, and pnpm 11.\n\n```powershell\ncorepack enable\npnpm install --frozen-lockfile\npnpm test\npnpm sync\npnpm build\npnpm validate\npnpm serve\n```\n\nThen open <http://localhost:8000/cmg-viewer/>. `pn` in a viewer URL always\nmeans the legacy CMG physical scan order, not an array index or printed page\nlabel. For a quick four-volume fixture build, use `pnpm sync:samples` instead\nof `pnpm sync`.\n\nCatalogue fields are evidence-based. Explicit author/editor/translation clauses\nand reviewed source-language defaults are indexed with field-level provenance;\nroleless METS names remain generic contributors, and missing metadata is not\nguessed. The upstream METS currently supplies no MODS language terms, so the\nlanguage facet uses the reviewed source, collection, volume, and work rules\ndocumented in [language defaults](docs/language-defaults.md).\n\n## Project layout\n\n- `config/` — allowlisted upstream catalogue sources and curated overrides.\n- `scripts/` — synchronization, normalization, validation, and static build.\n- `src/` — dependency-light catalogue and viewer interface.\n- `scripts/tests/` — generator, ingestion, and URL-contract tests.\n- `data/last-successful-sync.json` — compact marker updated after each scheduled sync.\n- `dist/` — generated GitHub Pages artifact (ignored by Git).\n\nThe older single-volume prototype in `bbaw-cmg-tify-mobile-prototype/` is kept\nlocally for comparison but intentionally ignored because it contains roughly\n80 MB of substitute scans.\n\n## Deployment\n\nPush `main` to the `alchemiesofscent/cmg-viewer` repository and enable GitHub\nPages with **GitHub Actions** as the source. The deployment workflow builds and\nvalidates a static artifact with the `/cmg-viewer/` base path. A monthly\nscheduled run refreshes upstream catalogue metadata and deploys only after all\nfail-closed checks pass.\n\nSee [the architecture decision\n…[truncated at 4000 chars]",
-      "status_md": null
-    },
     {
       "name": "perfume-tables",
       "private": true,
       "archived": false,
       "default_branch": "main",
-      "pushed_at": "2026-09-09T20:43:12Z",
-      "open_prs": 8,
+      "pushed_at": "2026-09-11T01:03:11Z",
+      "open_prs": 11,
       "branches": [
         {
           "name": "agent/create-pre-refactor-snapshot"
@@ -691,14 +405,7 @@
           "name": "claude/wp-d2-ordinals"
         },
         {
-          "name": "claude/wp-d3-application-s1",
-          "pr": {
-            "number": 114,
-            "title": "WP D3 (application): every cluster membership carries a preparation reference, applied through a declared delta layer",
-            "state": "closed",
-            "merged_at": "2026-09-03T16:11:50Z",
-            "updated_at": "2026-09-03T16:11:50Z"
-          }
+          "name": "claude/wp-d3-application-s1"
         },
         {
           "name": "claude/wp-d3-cluster-refs"
@@ -713,14 +420,7 @@
           "name": "claude/wp-d5-entry-12-retirement"
         },
         {
-          "name": "claude/wp-d5-entry-12-retirement-s1",
-          "pr": {
-            "number": 113,
-            "title": "WP D5: register entry 12's retirement, executed as ruled — un-parked under the content scope",
-            "state": "closed",
-            "merged_at": "2026-09-03T15:57:31Z",
-            "updated_at": "2026-09-03T15:57:32Z"
-          }
+          "name": "claude/wp-d5-entry-12-retirement-s1"
         },
         {
           "name": "claude/wp-docket-audit-rulings",
@@ -793,24 +493,10 @@
           }
         },
         {
-          "name": "claude/wp-e1-fold-mechanism",
-          "pr": {
-            "number": 115,
-            "title": "WP E1: the lemma-consolidation mechanism, and the four FE-Q10 folds (PLD-NEXT-04)",
-            "state": "closed",
-            "merged_at": "2026-09-03T19:34:05Z",
-            "updated_at": "2026-09-03T19:34:06Z"
-          }
+          "name": "claude/wp-e1-fold-mechanism"
         },
         {
-          "name": "claude/wp-e2-declared-genitive-folds",
-          "pr": {
-            "number": 116,
-            "title": "WP E2: the 46 declared-genitive folds, with the A3-10 re-points the crosswalk validator required",
-            "state": "closed",
-            "merged_at": "2026-09-03T19:46:29Z",
-            "updated_at": "2026-09-03T19:46:29Z"
-          }
+          "name": "claude/wp-e2-declared-genitive-folds"
         },
         {
           "name": "claude/wp-e3-empty-nominative-folds",
@@ -1404,7 +1090,7 @@
             "title": "D/E: normalize editions, staging and corpus storage",
             "state": "open",
             "merged_at": null,
-            "updated_at": "2026-09-09T20:43:53Z"
+            "updated_at": "2026-09-10T21:26:48Z"
           }
         },
         {
@@ -1448,6 +1134,16 @@
           }
         },
         {
+          "name": "codex/epigraphical-open-items",
+          "pr": {
+            "number": 213,
+            "title": "Complete epigraphical set review and Koan oil regulation",
+            "state": "open",
+            "merged_at": null,
+            "updated_at": "2026-09-10T11:58:31Z"
+          }
+        },
+        {
           "name": "codex/gate-missing-tests",
           "pr": {
             "number": 204,
@@ -1465,6 +1161,36 @@
         },
         {
           "name": "codex/ptolemaic-transmission-corrections"
+        },
+        {
+          "name": "codex/r57-binding-reconciliation-20260911",
+          "pr": {
+            "number": 215,
+            "title": "R5.7: reconcile 27 E binding gaps and propose pre-R8 checkpoint",
+            "state": "open",
+            "merged_at": null,
+            "updated_at": "2026-09-11T00:45:47Z"
+          }
+        },
+        {
+          "name": "codex/r57-pre-r8-work-package-20260911",
+          "pr": {
+            "number": 216,
+            "title": "R5.7: schedule lexical reconciliation checkpoint before R8",
+            "state": "open",
+            "merged_at": null,
+            "updated_at": "2026-09-11T01:04:59Z"
+          }
+        },
+        {
+          "name": "codex/standing-engineering-authorization-20260910",
+          "pr": {
+            "number": 214,
+            "title": "docs: authorize gated refactor engineering delivery",
+            "state": "closed",
+            "merged_at": "2026-09-10T16:27:03Z",
+            "updated_at": "2026-09-10T16:29:41Z"
+          }
         },
         {
           "name": "codex/v5-alpha2-comparative-ingestion-pilots"
@@ -2054,12 +1780,14 @@
         "archive/AGENTS.v1.1.md",
         "archive/AGENTS.v1.2.md",
         "archive/AGENTS.v1.3.md",
+        "archive/AGENTS.v1.4.md",
         "archive/CLAUDE.v1.0.md",
         "archive/CLAUDE.v1.1.md",
         "archive/CLAUDE.v1.2.md",
         "archive/CLAUDE.v1.3.md",
         "archive/CLAUDE.v1.4.md",
         "archive/CLAUDE.v1.5.md",
+        "archive/CLAUDE.v1.6.md",
         "archive/CTS_WITNESS_REGISTRY.v1.0.md",
         "archive/CTS_WITNESS_REGISTRY.v1.1.md",
         "archive/F_0.11.0-round-5.v1.0.md",
@@ -3049,7 +2777,7 @@
       "private": true,
       "archived": false,
       "default_branch": "main",
-      "pushed_at": "2026-09-09T20:22:24Z",
+      "pushed_at": "2026-09-11T00:58:54Z",
       "open_prs": 2,
       "branches": [
         {
@@ -3058,7 +2786,7 @@
           "tip_author": "Claude",
           "tip_message": "Merge origin/main (d0b12cb, the #11 squash) into the rulings branch",
           "ahead": 5,
-          "behind": 9,
+          "behind": 11,
           "pr": {
             "number": 12,
             "title": "Bare-word rulings: 36 decisions recorded against the review packet (stacked on #11)",
@@ -3073,7 +2801,7 @@
           "tip_author": "Claude",
           "tip_message": "Archive the v0.22 the contract actually names: this branch's, not main's",
           "ahead": 3,
-          "behind": 10,
+          "behind": 12,
           "pr": {
             "number": 11,
             "title": "Dioscorides bare-word review packet: 34 cases and the unanalysed census",
@@ -3088,7 +2816,7 @@
           "tip_author": "Claude",
           "tip_message": "Merge origin/main (453d9de, the #11/#12 squashes) into the census branch",
           "ahead": 6,
-          "behind": 8,
+          "behind": 10,
           "pr": {
             "number": 13,
             "title": "Lemma-sibling census: the R3-era inflection scatter measured across all 262 families (stacked on #12)",
@@ -3103,7 +2831,7 @@
           "tip_author": "Claude",
           "tip_message": "R5.1 package artefacts: 219 emitted, 20 accounted out, at 494cf84",
           "ahead": 2,
-          "behind": 11,
+          "behind": 13,
           "pr": {
             "number": 10,
             "title": "R5.1: the full lexical-handoff package — 219 emitted, 20 accounted out",
@@ -3118,7 +2846,7 @@
           "tip_author": "Claude",
           "tip_message": "Epoch 2, parked: apply the ruled cinnamon/cardamom correction and re-pin",
           "ahead": 3,
-          "behind": 3
+          "behind": 5
         },
         {
           "name": "claude/wp-epoch-2-package",
@@ -3126,7 +2854,7 @@
           "tip_author": "Claude",
           "tip_message": "Epoch 2, item 4: the no-new-sibling baseline re-pinned downward, 102 -> 8",
           "ahead": 8,
-          "behind": 3,
+          "behind": 5,
           "pr": {
             "number": 18,
             "title": "WP epoch 2: the lexical package epoch — declared inflection slots, the content-scoped ruleset digest, the Stage 26 lexicon correction, the ruled degemination relation, and the baseline re-pinned 102 → 8",
@@ -3141,7 +2869,7 @@
           "tip_author": "Alchemies of Scent Project",
           "tip_message": "Identification sync: the lexicon/corpus comparison a key mismatch was hiding (A4-9)",
           "ahead": 1,
-          "behind": 7,
+          "behind": 9,
           "pr": {
             "number": 14,
             "title": "WP U1: lexicon–corpus identification sync gate; the cinnamon/cardamom ruling applied in the derived layer",
@@ -3156,7 +2884,7 @@
           "tip_author": "Alchemies of Scent Project",
           "tip_message": "Merge origin/main (171d0c1, the U1 squash) into the U2 branch",
           "ahead": 3,
-          "behind": 6,
+          "behind": 8,
           "pr": {
             "number": 15,
             "title": "WP U2: no-new-sibling baseline — the 102 sibling identities pinned, containment gated",
@@ -3171,7 +2899,7 @@
           "tip_author": "Alchemies of Scent Project",
           "tip_message": "Merge origin/main (0e35045, the U2 squash) into the U3 branch",
           "ahead": 4,
-          "behind": 5,
+          "behind": 7,
           "pr": {
             "number": 16,
             "title": "WP U3: the record-rename hop published as rows — 12 keys resolve, 3 accepted analyses recovered",
@@ -3186,7 +2914,7 @@
           "tip_author": "Alchemies of Scent Project",
           "tip_message": "WP U5: the per-occurrence producer label published, so census-uncounted stops being a judgement call",
           "ahead": 1,
-          "behind": 4,
+          "behind": 6,
           "pr": {
             "number": 17,
             "title": "WP U5: the lexicon-label extract — one governed row per lexicon occurrence, so downstream census accounting is machine-checkable",
@@ -3201,7 +2929,7 @@
           "tip_author": "alchemiesofscent",
           "tip_message": "docs: prepare reviewed C handoff release candidate",
           "ahead": 5,
-          "behind": 2,
+          "behind": 4,
           "pr": {
             "number": 20,
             "title": "Reproduce an unsigned lexical package for the C emendation",
@@ -3216,7 +2944,7 @@
           "tip_author": "alchemiesofscent",
           "tip_message": "Fix documentation archive validation after squash merges",
           "ahead": 1,
-          "behind": 1,
+          "behind": 3,
           "pr": {
             "number": 21,
             "title": "Fix documentation archive validation after squash merges",
@@ -3231,7 +2959,7 @@
           "tip_author": "alchemiesofscent",
           "tip_message": "Derive current sibling baseline from verified census source evidence",
           "ahead": 9,
-          "behind": 2,
+          "behind": 4,
           "pr": {
             "number": 19,
             "title": "Prepare E corpus storage handoff candidate",
@@ -3242,17 +2970,47 @@
         },
         {
           "name": "codex/e-handoff-recut-20260909",
-          "tip_date": "2026-09-09T20:22:21Z",
+          "tip_date": "2026-09-10T16:08:39Z",
           "tip_author": "alchemiesofscent",
-          "tip_message": "Generate and verify fresh E storage package and sidecars",
-          "ahead": 2,
-          "behind": 0,
+          "tip_message": "docs: prepare reviewed E storage handoff release 0.14.0",
+          "ahead": 3,
+          "behind": 2,
           "pr": {
             "number": 22,
             "title": "E: derive fresh corpus storage handoff and sidecars",
+            "state": "closed",
+            "merged_at": "2026-09-10T16:18:09Z",
+            "updated_at": "2026-09-10T16:29:46Z"
+          }
+        },
+        {
+          "name": "codex/r57-l1-20260911",
+          "tip_date": "2026-09-11T00:58:52Z",
+          "tip_author": "alchemiesofscent",
+          "tip_message": "Verify existing relation preservation and reproduce candidate delta",
+          "ahead": 2,
+          "behind": 0,
+          "pr": {
+            "number": 24,
+            "title": "Derive four R5.7 relation candidates from existing approvals",
             "state": "open",
             "merged_at": null,
-            "updated_at": "2026-09-09T20:28:10Z"
+            "updated_at": "2026-09-11T01:04:11Z"
+          }
+        },
+        {
+          "name": "codex/standing-engineering-authorization-20260910",
+          "tip_date": "2026-09-10T16:25:18Z",
+          "tip_author": "alchemiesofscent",
+          "tip_message": "docs: apply standing authorization to refactor engineering releases",
+          "ahead": 1,
+          "behind": 1,
+          "pr": {
+            "number": 23,
+            "title": "docs: apply standing engineering delivery authorization",
+            "state": "closed",
+            "merged_at": "2026-09-10T16:28:51Z",
+            "updated_at": "2026-09-10T16:29:44Z"
           }
         },
         {
@@ -3261,7 +3019,7 @@
           "tip_author": "Claude",
           "tip_message": "Schema 1.3: settled applications leave the actionable view",
           "ahead": 1,
-          "behind": 13,
+          "behind": 15,
           "pr": {
             "number": 8,
             "title": "Schema 1.3: settled applications leave the actionable view",
@@ -3276,7 +3034,7 @@
           "tip_author": "alchemiesofscent",
           "tip_message": "Refresh R5.1 pilot for acute-fold snapshot",
           "ahead": 0,
-          "behind": 16,
+          "behind": 18,
           "pr": {
             "number": 5,
             "title": "Refresh R5.1 handoff pilot for acute-fold snapshot",
@@ -3291,7 +3049,7 @@
           "tip_author": "Claude",
           "tip_message": "Record three φύλλον segmentation rulings as rejected_contradicted",
           "ahead": 1,
-          "behind": 15,
+          "behind": 17,
           "pr": {
             "number": 6,
             "title": "Record three φύλλον segmentation rulings as rejected_contradicted",
@@ -3306,7 +3064,7 @@
           "tip_author": "Claude",
           "tip_message": "Governed producer-term registry: one term, one fingerprint, ruled binding",
           "ahead": 1,
-          "behind": 12,
+          "behind": 14,
           "pr": {
             "number": 9,
             "title": "Governed producer-term registry: one term, one fingerprint, ruled binding",
@@ -3321,7 +3079,7 @@
           "tip_author": "Claude",
           "tip_message": "Complete the withheld-relation review: 17 approvals close all 24 cases",
           "ahead": 3,
-          "behind": 14,
+          "behind": 16,
           "pr": {
             "number": 7,
             "title": "Close the withheld-relation review: 21 approvals complete all 24 rulings",
@@ -3332,9 +3090,9 @@
         },
         {
           "name": "main",
-          "tip_date": "2026-09-08T17:58:54Z",
+          "tip_date": "2026-09-10T16:28:51Z",
           "tip_author": "Alchemies of Scent Project",
-          "tip_message": "Fix documentation archive validation after squash merges"
+          "tip_message": "docs: apply standing engineering delivery authorization (#23)"
         }
       ],
       "branch_detail_skipped": false,
@@ -3343,6 +3101,7 @@
         ".claude/skills/TRIP-2-implement/SKILL.md",
         ".claude/skills/TRIP-3-release/SKILL.md",
         ".claude/skills/TRIP-3-release/archive/SKILL.v1.0.md",
+        ".claude/skills/TRIP-3-release/archive/SKILL.v1.1.md",
         ".claude/skills/TRIP-compact/SKILL.md",
         ".claude/skills/TRIP-hotfix/SKILL.md",
         ".claude/skills/TRIP-init/SKILL.md",
@@ -3398,7 +3157,9 @@
         "archive/AGENTS.v1.0.md",
         "archive/AGENTS.v1.1.md",
         "archive/AGENTS.v1.2.md",
+        "archive/AGENTS.v1.3.md",
         "archive/CLAUDE.v1.1.md",
+        "archive/CLAUDE.v1.2.md",
         "archive/HARMONIZATION_PLAN.v1.0.md",
         "archive/HARMONIZATION_PLAN.v1.1.md",
         "archive/HIR_COOKBOOK_COMPATIBILITY.v1.0.md",
@@ -3407,6 +3168,7 @@
         "archive/QC_REVIEW_APPROACH.v1.0.md",
         "archive/QC_REVIEW_APPROACH.v1.1.md",
         "archive/README.pre-c-emendation-release.md",
+        "archive/README.pre-e-storage-release.md",
         "audit/PROJECT-COMPLETION-AUDIT.md",
         "audit/README.md",
         "audit/ingredient_scope/lexical_occurrences/MODEL-NOTE.md",
@@ -3423,6 +3185,7 @@
         "correspondences/kuhn_galen/KUHN_CONCORDANCE_PROMPT.md",
         "correspondences/kuhn_galen/README.md",
         "data-staging/cookbook-v403-approved/README.md",
+        "docs/1-plans/E_STORAGE_RECUT.md",
         "docs/1-plans/F_0.1.0_trip-harness-bootstrap.plan.md",
         "docs/1-plans/F_0.10.0_record-identity.plan.md",
         "docs/1-plans/F_0.11.0_claim-provenance-carry.plan.md",
@@ -3438,6 +3201,8 @@
         "docs/1-plans/F_lexical-construction-rules.plan.md",
         "docs/1-plans/F_lexical-occurrence-audit.plan.md",
         "docs/1-plans/MOVE-PORTABILITY.plan.md",
+        "docs/1-plans/archive/E_STORAGE_RECUT.v1.0.md",
+        "docs/1-plans/archive/E_STORAGE_RECUT.v1.1.md",
         "docs/1-plans/archive/F_0.1.0_trip-harness-bootstrap.plan.v1.0.md",
         "docs/1-plans/archive/F_0.11.0_claim-provenance-carry.plan.v1.3.md",
         "docs/1-plans/archive/F_0.11.0_claim-provenance-carry.plan.v1.4.md",
@@ -3495,6 +3260,10 @@
         "docs/2-changelog/archive/changelog_table.v0.30.md",
         "docs/2-changelog/archive/changelog_table.v0.31.md",
         "docs/2-changelog/archive/changelog_table.v0.32.md",
+        "docs/2-changelog/archive/changelog_table.v0.33.md",
+        "docs/2-changelog/archive/changelog_table.v0.34.md",
+        "docs/2-changelog/archive/changelog_table.v0.35.md",
+        "docs/2-changelog/archive/changelog_table.v0.36.md",
         "docs/2-changelog/archive/changelog_table.v0.4.md",
         "docs/2-changelog/archive/changelog_table.v0.5.md",
         "docs/2-changelog/archive/changelog_table.v0.6.md",
@@ -3516,6 +3285,7 @@
         "docs/2-changelog/w3_v0.11.0.md",
         "docs/2-changelog/w3_v0.9.0.md",
         "docs/2-changelog/w9_v0.13.0.md",
+        "docs/2-changelog/w9_v0.14.0.md",
         "docs/3-code-review/CR_w1_v0.1.0.md",
         "docs/3-code-review/CR_w1_v0.2.0.md",
         "docs/3-code-review/CR_w1_v0.3.0.md",
@@ -3527,6 +3297,7 @@
         "docs/3-code-review/CR_w3_v0.11.0.md",
         "docs/3-code-review/CR_w3_v0.9.0.md",
         "docs/3-code-review/CR_w9_v0.13.0.md",
+        "docs/3-code-review/CR_w9_v0.14.0.md",
         "docs/3-code-review/F_0.11.0-sol-rounds/handoff-validate_candidates.md",
         "docs/3-code-review/F_0.11.0-sol-rounds/review-key-contract-evidence.md",
         "docs/3-code-review/F_0.11.0-sol-rounds/round-1.md",
@@ -3549,6 +3320,7 @@
         "docs/4-unit-tests/archive/COVERAGE-DEBT.v0.1.md",
         "docs/4-unit-tests/archive/COVERAGE-DEBT.v0.2.md",
         "docs/4-unit-tests/archive/TESTING.v0.1.md",
+        "docs/4-unit-tests/archive/TESTING.v0.2.md",
         "docs/5-audits/2026-07-14-ws-e-closeout/AUDIT.md",
         "docs/5-audits/2026-07-14-ws-e-closeout/PLAN.md",
         "docs/5-audits/2026-07-14-ws-e-closeout/README.md",
@@ -3627,6 +3399,7 @@
         "docs/archive/ARCHI.v0.28.md",
         "docs/archive/ARCHI.v0.29.md",
         "docs/archive/ARCHI.v0.3.md",
+        "docs/archive/ARCHI.v0.30.md",
         "docs/archive/ARCHI.v0.4.md",
         "docs/archive/ARCHI.v0.5.md",
         "docs/archive/ARCHI.v0.6.md",
@@ -3650,6 +3423,7 @@
         "docs/archive/WSE-PROGRAMME-RECONCILIATION.v1.0.md",
         "emit/README.md",
         "emit/package-c-emendation/PACKAGE-REPORT.md",
+        "emit/package-corpus-storage/PACKAGE-REPORT.md",
         "emit/package/PACKAGE-REPORT.md",
         "emit/package/archive/PACKAGE-REPORT.v1.0.md",
         "emit/pilot/PILOT-REPORT.md",
@@ -3731,7 +3505,286 @@
         "texts/manniche2006/AGENTS.md"
       ],
       "md_files_truncated": false,
-      "readme": "# Classical Plant Identification Database\n\n## Development workflow\n\nChanges to the pipeline run through the TRIP cross-model loop in `.claude/skills/`\n(fable plans, Sol reviews, Luna implements — release ledger in\n`docs/2-changelog/changelog_table.md`, current tagged release v0.12.0). Architecture source of truth:\n`docs/ARCHI.md`; agent rules: `AGENTS.md`.\n\nRun the complete non-mutating repository gate with `python3 -B scripts/run_ci_gate.py`.\n\nThe separately reviewed C emendation handoff is prepared as release candidate\n0.13.0; its [release record](docs/2-changelog/w9_v0.13.0.md) distinguishes the\napproved implementation head from later documentation and pending release.\nThe candidate keeps downstream publication withheld and retains the historical\npackage. Reproduction requires the pinned downstream C Git commit; see the\n[C handoff instructions](docs/6-memo/C_EMENDATION_HANDOFF.md).\n\n**Runtime floor: Python >= 3.11.** The pipeline uses `datetime.UTC` in 253 scripts, which\nraises `AttributeError` on 3.10 (`datetime.timezone.utc` is the pre-3.11 spelling). The\nfloor was undeclared until the F_0.11.0 round-5 review found it via\n`scripts/tests/test_trackb_logeion_phase2.py`; it is declared rather than worked around,\nsince rewriting 253 call sites to serve an unsupported interpreter is the wrong trade.\n\n## What this is\n\nA pipeline for extracting structured plant-identification data from\nclassical and botanical reference texts and building a unified database\nthat links ancient plant names to modern botanical taxonomy.\n\nThe core question: when an ancient Greek or Roman author mentions a plant\nby name — σχοῖνος, absinthium, sšnj — what plant are they actually\ntalking about? Generations of scholars have worked on this, but their\nanswers are scattered across monographs in French, German, English, and\nGreek, published between 1833 and 2020, each with its own conventions,\nabbreviations, and levels of certainty.\n\nThis project extracts those identifications into a single structured\ndataset where every claim is traceable: who made the identification, in\nwhich text, with what evidence, and with what degree of confidence.\n\n## What we're building\n\nA database of **identification claims** — structured records asserting\nthat a given classical plant name corresponds to a given modern species.\nEach claim preserves:\n\n- **The classical name** (Greek, Latin, or Egyptian) exactly as the\n  ancient source uses it, with full diacritics.\n- **The modern botanical identification** (binomial with taxonomic\n  authority).\n- **The source of the claim** — which modern scholar made the\n  identification, in which publication, on which page.\n- **The degree of certainty** — whether the scholar treats the\n  identification as settled, tentative, or contested.\n- **The ancient evidence** — which classical authors and passages attest\n  the plant name (Dioscorides II, 135; Pliny NH XXI, 92; Theophrastus\n  HP IX, 7, 3).\n- **Vernacular names** — the common names in French, German, English, or\n  Arabic that each modern scholar associates with the plant.\n\nNote on current handoff scope: some source entries, especially André dictionary\nentries, include useful source-language vernacular glosses that were not always\ncaptured in the v4.0.3 review artifacts. Examples include André's French\ncommon-name glosses for `(h)abrotonum` and `abellana`. Do not reopen the current\nterm/taxon/claim review gates just to ingest those omissions. Treat them as a\npost-gate enrichment pass for source-language common names or gloss assertions,\nunless the missing vernacular directly affects an identification decision now\nunder review.\n\nThe resulting dataset supports queries like: \"What species has\nἀψίνθιον been identified as, by whom, and do they agree?\" or \"Which\nidentifications does André give that Beck's Dioscorides index\ncontradicts?\" or \"Which plants in Dioscorides Book IV have no modern\nidentification from any source?\"\n\n## Source texts\n\nEach text is a modern scholarly work that systematically ide\n…[truncated at 4000 chars]",
+      "readme": "# Classical Plant Identification Database\n\n## Development workflow\n\nChanges to the pipeline run through the TRIP cross-model loop in `.claude/skills/`\n(fable plans, Sol reviews, Luna implements — release ledger in\n`docs/2-changelog/changelog_table.md`, current tagged release v0.13.0). Architecture source of truth:\n`docs/ARCHI.md`; agent rules: `AGENTS.md`.\n\nRun the complete non-mutating repository gate with `python3 -B scripts/run_ci_gate.py`.\n\nThe C emendation handoff is released as v0.13.0 at\n`1f438aa2d411baf7f9cd41d0f1785a2c6f975a18`. The new E storage handoff is prepared\nas candidate 0.14.0; its [release record](docs/2-changelog/w9_v0.14.0.md) records\nindependent engineering approval and the remaining final-head release steps.\nDownstream publication remains withheld pending fresh authority for the C/D/E epoch.\nReproduction uses exact downstream Git inputs; see the\n[E recut instructions](docs/1-plans/E_STORAGE_RECUT.md).\n\n**Runtime floor: Python >= 3.11.** The pipeline uses `datetime.UTC` in 253 scripts, which\nraises `AttributeError` on 3.10 (`datetime.timezone.utc` is the pre-3.11 spelling). The\nfloor was undeclared until the F_0.11.0 round-5 review found it via\n`scripts/tests/test_trackb_logeion_phase2.py`; it is declared rather than worked around,\nsince rewriting 253 call sites to serve an unsupported interpreter is the wrong trade.\n\n## What this is\n\nA pipeline for extracting structured plant-identification data from\nclassical and botanical reference texts and building a unified database\nthat links ancient plant names to modern botanical taxonomy.\n\nThe core question: when an ancient Greek or Roman author mentions a plant\nby name — σχοῖνος, absinthium, sšnj — what plant are they actually\ntalking about? Generations of scholars have worked on this, but their\nanswers are scattered across monographs in French, German, English, and\nGreek, published between 1833 and 2020, each with its own conventions,\nabbreviations, and levels of certainty.\n\nThis project extracts those identifications into a single structured\ndataset where every claim is traceable: who made the identification, in\nwhich text, with what evidence, and with what degree of confidence.\n\n## What we're building\n\nA database of **identification claims** — structured records asserting\nthat a given classical plant name corresponds to a given modern species.\nEach claim preserves:\n\n- **The classical name** (Greek, Latin, or Egyptian) exactly as the\n  ancient source uses it, with full diacritics.\n- **The modern botanical identification** (binomial with taxonomic\n  authority).\n- **The source of the claim** — which modern scholar made the\n  identification, in which publication, on which page.\n- **The degree of certainty** — whether the scholar treats the\n  identification as settled, tentative, or contested.\n- **The ancient evidence** — which classical authors and passages attest\n  the plant name (Dioscorides II, 135; Pliny NH XXI, 92; Theophrastus\n  HP IX, 7, 3).\n- **Vernacular names** — the common names in French, German, English, or\n  Arabic that each modern scholar associates with the plant.\n\nNote on current handoff scope: some source entries, especially André dictionary\nentries, include useful source-language vernacular glosses that were not always\ncaptured in the v4.0.3 review artifacts. Examples include André's French\ncommon-name glosses for `(h)abrotonum` and `abellana`. Do not reopen the current\nterm/taxon/claim review gates just to ingest those omissions. Treat them as a\npost-gate enrichment pass for source-language common names or gloss assertions,\nunless the missing vernacular directly affects an identification decision now\nunder review.\n\nThe resulting dataset supports queries like: \"What species has\nἀψίνθιον been identified as, by whom, and do they agree?\" or \"Which\nidentifications does André give that Beck's Dioscorides index\ncontradicts?\" or \"Which plants in Dioscorides Book IV have no modern\nidentification from any source?\"\n\n## Source texts\n\nEach text is a moder\n…[truncated at 4000 chars]",
+      "status_md": null
+    },
+    {
+      "name": "cmg-viewer",
+      "private": false,
+      "archived": false,
+      "default_branch": "main",
+      "pushed_at": "2026-09-10T12:42:14Z",
+      "open_prs": 0,
+      "branches": [
+        {
+          "name": "codex/about-credits",
+          "pr": {
+            "number": 25,
+            "title": "Add About page, credits, footer and open licences",
+            "state": "closed",
+            "merged_at": "2026-09-10T12:42:14Z",
+            "updated_at": "2026-09-10T12:42:14Z"
+          }
+        },
+        {
+          "name": "codex/compact-sort-toggle",
+          "pr": {
+            "number": 20,
+            "title": "Use a compact sort-direction toggle beside Sort",
+            "state": "closed",
+            "merged_at": "2026-09-10T08:36:16Z",
+            "updated_at": "2026-09-10T08:36:16Z"
+          }
+        },
+        {
+          "name": "codex/complete-reader-plan",
+          "pr": {
+            "number": 18,
+            "title": "Complete reader discovery, history and navigation improvements",
+            "state": "closed",
+            "merged_at": "2026-09-10T08:18:50Z",
+            "updated_at": "2026-09-10T08:18:50Z"
+          }
+        },
+        {
+          "name": "codex/contents-tree",
+          "pr": {
+            "number": 6,
+            "title": "Unify Contents into corpus → series → volume navigation",
+            "state": "closed",
+            "merged_at": "2026-09-08T18:22:02Z",
+            "updated_at": "2026-09-08T18:22:02Z"
+          }
+        },
+        {
+          "name": "codex/corpus-contents",
+          "pr": {
+            "number": 5,
+            "title": "Browse the whole corpus from the reader Contents drawer",
+            "state": "closed",
+            "merged_at": "2026-09-08T17:44:55Z",
+            "updated_at": "2026-09-08T17:44:55Z"
+          }
+        },
+        {
+          "name": "codex/curated-authors",
+          "pr": {
+            "number": 21,
+            "title": "Correct Diels dates and authors, bracketed Galen, and Kollesch",
+            "state": "closed",
+            "merged_at": "2026-09-10T09:01:12Z",
+            "updated_at": "2026-09-10T09:01:12Z"
+          }
+        },
+        {
+          "name": "codex/drawer-layout",
+          "pr": {
+            "number": 19,
+            "title": "Prevent corpus search and history rows from overlapping",
+            "state": "closed",
+            "merged_at": "2026-09-10T08:27:27Z",
+            "updated_at": "2026-09-10T08:27:27Z"
+          }
+        },
+        {
+          "name": "codex/finish-reader-improvements",
+          "pr": {
+            "number": 22,
+            "title": "Finish reader improvement checklist and repeatable performance measurements",
+            "state": "closed",
+            "merged_at": "2026-09-10T09:25:58Z",
+            "updated_at": "2026-09-10T09:25:58Z"
+          }
+        },
+        {
+          "name": "codex/header-actions",
+          "pr": {
+            "number": 8,
+            "title": "Make the top-right sharing control visibly respond",
+            "state": "closed",
+            "merged_at": "2026-09-08T18:49:07Z",
+            "updated_at": "2026-09-08T18:49:07Z"
+          }
+        },
+        {
+          "name": "codex/interface-clarity",
+          "pr": {
+            "number": 11,
+            "title": "Make interface text and Info/toolbar icons clearer",
+            "state": "closed",
+            "merged_at": "2026-09-08T22:18:21Z",
+            "updated_at": "2026-09-08T22:18:21Z"
+          }
+        },
+        {
+          "name": "codex/ios-header-inset",
+          "pr": {
+            "number": 4,
+            "title": "Keep the reader header below iOS status icons",
+            "state": "closed",
+            "merged_at": "2026-09-07T11:49:41Z",
+            "updated_at": "2026-09-07T11:49:42Z"
+          }
+        },
+        {
+          "name": "codex/keyboard-toolbar",
+          "pr": {
+            "number": 10,
+            "title": "Keep the page field above the iOS keyboard",
+            "state": "closed",
+            "merged_at": "2026-09-08T19:15:38Z",
+            "updated_at": "2026-09-08T19:15:38Z"
+          }
+        },
+        {
+          "name": "codex/mobile-reader",
+          "pr": {
+            "number": 1,
+            "title": "Improve mobile reading and landscape navigation",
+            "state": "closed",
+            "merged_at": "2026-09-06T19:41:48Z",
+            "updated_at": "2026-09-06T19:41:48Z"
+          }
+        },
+        {
+          "name": "codex/page-entry-focus",
+          "pr": {
+            "number": 13,
+            "title": "Prevent Go button from covering the page-entry focus ring",
+            "state": "closed",
+            "merged_at": "2026-09-10T03:36:09Z",
+            "updated_at": "2026-09-10T03:36:09Z"
+          }
+        },
+        {
+          "name": "codex/pdf-page-range-export",
+          "pr": {
+            "number": 23,
+            "title": "Add current-page and page-range PDF exports",
+            "state": "closed",
+            "merged_at": "2026-09-10T11:28:42Z",
+            "updated_at": "2026-09-10T11:28:43Z"
+          }
+        },
+        {
+          "name": "codex/reader-continuity",
+          "pr": {
+            "number": 14,
+            "title": "Resume volumes, clarify page references and measure reader loading",
+            "state": "closed",
+            "merged_at": "2026-09-10T04:08:21Z",
+            "updated_at": "2026-09-10T04:08:21Z"
+          }
+        },
+        {
+          "name": "codex/reader-data",
+          "pr": {
+            "number": 15,
+            "title": "Separate reader data handling and verify loading recovery",
+            "state": "closed",
+            "merged_at": "2026-09-10T04:58:18Z",
+            "updated_at": "2026-09-10T04:58:18Z"
+          }
+        },
+        {
+          "name": "codex/reader-loading",
+          "pr": {
+            "number": 3,
+            "title": "Improve page-loading priority and progressive previews",
+            "state": "closed",
+            "merged_at": "2026-09-07T11:40:15Z",
+            "updated_at": "2026-09-07T11:40:15Z"
+          }
+        },
+        {
+          "name": "codex/reader-navigation-fixes",
+          "pr": {
+            "number": 2,
+            "title": "Default to scroll and fix repeated navigation",
+            "state": "closed",
+            "merged_at": "2026-09-07T11:03:52Z",
+            "updated_at": "2026-09-07T11:03:52Z"
+          }
+        },
+        {
+          "name": "codex/reliable-reader",
+          "pr": {
+            "number": 12,
+            "title": "Make reader releases repeatable and cover core flows in real browsers",
+            "state": "closed",
+            "merged_at": "2026-09-10T03:13:13Z",
+            "updated_at": "2026-09-10T03:13:13Z"
+          }
+        },
+        {
+          "name": "codex/scroll-target-guard",
+          "pr": {
+            "number": 17,
+            "title": "Protect page jumps from pending scroll events",
+            "state": "closed",
+            "merged_at": "2026-09-10T05:18:08Z",
+            "updated_at": "2026-09-10T05:18:09Z"
+          }
+        },
+        {
+          "name": "codex/share-current-page",
+          "pr": {
+            "number": 16,
+            "title": "Keep shared links and citations aligned with the current page",
+            "state": "closed",
+            "merged_at": "2026-09-10T05:10:32Z",
+            "updated_at": "2026-09-10T05:10:32Z"
+          }
+        },
+        {
+          "name": "codex/shift-wheel-zoom",
+          "pr": {
+            "number": 24,
+            "title": "Add Shift-wheel zoom to desktop scroll mode",
+            "state": "closed",
+            "merged_at": "2026-09-10T11:53:54Z",
+            "updated_at": "2026-09-10T11:53:55Z"
+          }
+        },
+        {
+          "name": "codex/toolbar-repair",
+          "pr": {
+            "number": 9,
+            "title": "Compact page navigation and unblock Tools deployment",
+            "state": "closed",
+            "merged_at": "2026-09-08T18:54:14Z",
+            "updated_at": "2026-09-08T18:54:15Z"
+          }
+        },
+        {
+          "name": "codex/tools-menu",
+          "pr": {
+            "number": 7,
+            "title": "Use one working Tools menu on desktop and mobile",
+            "state": "closed",
+            "merged_at": "2026-09-08T18:29:27Z",
+            "updated_at": "2026-09-08T18:29:28Z"
+          }
+        },
+        {
+          "name": "main"
+        }
+      ],
+      "branch_detail_skipped": true,
+      "md_files": [
+        "README.md",
+        "THIRD_PARTY_NOTICES.md",
+        "docs/architecture.md",
+        "docs/catalogue-scope.md",
+        "docs/deployment.md",
+        "docs/implementation-status.md",
+        "docs/interface.md",
+        "docs/language-defaults.md",
+        "docs/performance.md",
+        "docs/releasing.md"
+      ],
+      "md_files_truncated": false,
+      "readme": "# CMG Viewer\n\nA static, catalogue-wide viewer for the digital editions published by the\nCorpus Medicorum Graecorum / Latinorum at BBAW. The site is designed for\ndeployment at <https://alchemiesofscent.github.io/cmg-viewer/>.\n\nThe application keeps its searchable catalogue, IIIF Presentation manifests,\nand viewer routes on GitHub Pages. Page images remain on BBAW's HTTPS IIIF\nImage API, so the repository does not duplicate the scan collection.\n\nThe catalogue search lives in the site header. Results are grouped by their\ntop-level Roman series division while retaining the complete bibliographic\nshelfmark on each work, and the author menu connects reviewed CMG divisions\nwith the broader indexed-author list.\n\nThe reader opens in continuous scroll view on desktop and mobile; explicit\n`view=spread` links still open facing pages. It provides logical contents,\nstable page-image URLs, a lazy-loaded\ncontinuous page stream, facing-page layouts, full-resolution zoom, and a\nkeyboard-accessible thumbnail rail that loads only nearby previews. A single\ntoolbar owns navigation and viewer actions; on phones it becomes a compact\nbottom bar with Contents, page navigation, and a labelled Tools disclosure.\nThe same touch layout stays active in landscape, with safe-area spacing and\nlarger catalogue controls. Submitting a page jump returns focus to the reader\nand dismisses the phone keyboard. Source page labels are\npreferred over physical scan numbers in the visible interface, with page\nposition used when no distinct label exists.\n\nScroll view prioritizes the requested image before its immediate neighbours,\nshows an available thumbnail while the reading image loads and decodes, and\nkeeps nearby decoded images for return navigation. Full-resolution zoom is\nunchanged. See [the performance notes](docs/performance.md) for measurements\nand the limits of the loading checks.\n\nThe reviewed live census currently contains 218 work-level entries mapped to\n143 physical viewers and 37,756 available scans. Of those viewers, 117 use\nMETS and 26 use a validated legacy-HTML/Digilib fallback.\n\n## Local development\n\nRequirements: Python 3.11+, Node.js 20+, and pnpm 11.\n\n```powershell\ncorepack enable\npnpm install --frozen-lockfile\npnpm test\npnpm sync\npnpm build\npnpm validate\npnpm serve\n```\n\nThen open <http://localhost:8000/cmg-viewer/>. `pn` in a viewer URL always\nmeans the legacy CMG physical scan order, not an array index or printed page\nlabel. For a quick four-volume fixture build, use `pnpm sync:samples` instead\nof `pnpm sync`.\n\nCatalogue fields are evidence-based. Explicit author/editor/translation clauses\nand reviewed source-language defaults are indexed with field-level provenance;\nroleless METS names remain generic contributors, and missing metadata is not\nguessed. The upstream METS currently supplies no MODS language terms, so the\nlanguage facet uses the reviewed source, collection, volume, and work rules\ndocumented in [language defaults](docs/language-defaults.md).\n\n## Project layout\n\n- `config/` — allowlisted upstream catalogue sources and curated overrides.\n- `scripts/` — synchronization, normalization, validation, and static build.\n- `src/` — dependency-light catalogue and viewer interface.\n- `scripts/tests/` — generator, ingestion, and URL-contract tests.\n- `data/last-successful-sync.json` — compact marker updated after each scheduled sync.\n- `dist/` — generated GitHub Pages artifact (ignored by Git).\n\nThe older single-volume prototype in `bbaw-cmg-tify-mobile-prototype/` is kept\nlocally for comparison but intentionally ignored because it contains roughly\n80 MB of substitute scans.\n\n## Deployment\n\nPush `main` to the `alchemiesofscent/cmg-viewer` repository and enable GitHub\nPages with **GitHub Actions** as the source. The deployment workflow builds and\nvalidates a static artifact with the `/cmg-viewer/` base path. A monthly\nscheduled run refreshes upstream catalogue metadata and deploys only after all\nfail-closed checks pass.\n\nSee [the architecture decision\n…[truncated at 4000 chars]",
       "status_md": null
     },
     {
@@ -3739,14 +3792,14 @@
       "private": false,
       "archived": false,
       "default_branch": "main",
-      "pushed_at": "2026-09-09T08:09:52Z",
+      "pushed_at": "2026-09-10T08:10:42Z",
       "open_prs": 0,
       "branches": [
         {
           "name": "main",
-          "tip_date": "2026-09-09T08:09:51Z",
+          "tip_date": "2026-09-10T08:10:41Z",
           "tip_author": "portfolio-bot",
-          "tip_message": "portfolio: nightly collection 2026-09-09"
+          "tip_message": "portfolio: nightly collection 2026-09-10"
         }
       ],
       "branch_detail_skipped": false,
