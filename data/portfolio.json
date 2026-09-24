@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-23T08:33:52+00:00",
+  "generated_at": "2026-09-24T08:26:23+00:00",
   "account": "alchemiesofscent",
   "schema": 2,
   "repos": [
@@ -8,8 +8,8 @@
       "private": true,
       "archived": false,
       "default_branch": "main",
-      "pushed_at": "2026-09-23T05:19:27Z",
-      "open_prs": 11,
+      "pushed_at": "2026-09-24T08:21:33Z",
+      "open_prs": 9,
       "branches": [
         {
           "name": "agent/create-pre-refactor-snapshot"
@@ -237,14 +237,7 @@
           }
         },
         {
-          "name": "claude/r7-6-report-machinery",
-          "pr": {
-            "number": 130,
-            "title": "R7.6 machinery: the three report builders, and the discipline that makes \"no loss\" checkable",
-            "state": "closed",
-            "merged_at": "2026-09-04T01:38:06Z",
-            "updated_at": "2026-09-04T01:38:31Z"
-          }
+          "name": "claude/r7-6-report-machinery"
         },
         {
           "name": "claude/r7-7-idempotence-machinery",
@@ -271,11 +264,11 @@
         {
           "name": "claude/trusting-goldberg-46p624",
           "pr": {
-            "number": 226,
-            "title": "Research notes: οἶνος (1.1) and ὕδωρ — fragrant wine a specification, rain-water a kind; keys for the commentaries",
-            "state": "open",
-            "merged_at": null,
-            "updated_at": "2026-09-23T05:20:03Z"
+            "number": 229,
+            "title": "Research notes: οἶνος and ὕδωρ — qualities, kinds, and the five rulings",
+            "state": "closed",
+            "merged_at": "2026-09-24T04:41:49Z",
+            "updated_at": "2026-09-24T04:41:49Z"
           }
         },
         {
@@ -425,14 +418,7 @@
           }
         },
         {
-          "name": "claude/wp-docket-links",
-          "pr": {
-            "number": 129,
-            "title": "Questions 15, 16 and 17 recorded: the edition layer reconciled (PLD-NEXT-10, -11, -12) — docket v1.21, register v1.16",
-            "state": "closed",
-            "merged_at": "2026-09-04T01:19:40Z",
-            "updated_at": "2026-09-04T01:20:23Z"
-          }
+          "name": "claude/wp-docket-links"
         },
         {
           "name": "claude/wp-docket-q11",
@@ -479,34 +465,13 @@
           "name": "claude/wp-e4-undeclared-inflection-folds"
         },
         {
-          "name": "claude/wp-e5-sigma-capital-translit-folds",
-          "pr": {
-            "number": 126,
-            "title": "WP E5: the lunate, capitalised and transliteration-identical pairs, argued",
-            "state": "closed",
-            "merged_at": null,
-            "updated_at": "2026-09-04T01:29:32Z"
-          }
+          "name": "claude/wp-e5-sigma-capital-translit-folds"
         },
         {
-          "name": "claude/wp-e5-sigma-capital-translit-folds-ready",
-          "pr": {
-            "number": 128,
-            "title": "WP E5: the lunate, capitalised and transliteration-identical pairs, argued",
-            "state": "closed",
-            "merged_at": "2026-09-04T01:28:19Z",
-            "updated_at": "2026-09-04T01:29:19Z"
-          }
+          "name": "claude/wp-e5-sigma-capital-translit-folds-ready"
         },
         {
-          "name": "claude/wp-e6-reheadwords",
-          "pr": {
-            "number": 131,
-            "title": "WP E6: the re-headword mechanism, and three rows the evidence does not support",
-            "state": "closed",
-            "merged_at": "2026-09-04T01:51:20Z",
-            "updated_at": "2026-09-04T01:52:12Z"
-          }
+          "name": "claude/wp-e6-reheadwords"
         },
         {
           "name": "claude/wp-e7-one-identity-validator",
@@ -994,7 +959,14 @@
           }
         },
         {
-          "name": "claude/zen-ride-53l5mm"
+          "name": "claude/zen-ride-53l5mm",
+          "pr": {
+            "number": 228,
+            "title": "Research: plague-and-aromatics sweep and dossier v0.1",
+            "state": "closed",
+            "merged_at": "2026-09-24T04:42:22Z",
+            "updated_at": "2026-09-24T04:42:22Z"
+          }
         },
         {
           "name": "codex/aetius-crux-canonical",
@@ -1104,9 +1076,9 @@
           "pr": {
             "number": 224,
             "title": "Research: kyphi source catalogue, working transcriptions and index",
-            "state": "open",
-            "merged_at": null,
-            "updated_at": "2026-09-17T03:54:49Z"
+            "state": "closed",
+            "merged_at": "2026-09-24T04:40:39Z",
+            "updated_at": "2026-09-24T04:40:39Z"
           }
         },
         {
@@ -1114,9 +1086,9 @@
           "pr": {
             "number": 225,
             "title": "Save ancient perfume photoshoot research",
-            "state": "open",
-            "merged_at": null,
-            "updated_at": "2026-09-17T22:45:05Z"
+            "state": "closed",
+            "merged_at": "2026-09-24T04:27:19Z",
+            "updated_at": "2026-09-24T04:27:19Z"
           }
         },
         {
@@ -1361,6 +1333,26 @@
         },
         {
           "name": "research/house-of-mendes-and-proposals"
+        },
+        {
+          "name": "research/natgeo-dossier",
+          "pr": {
+            "number": 227,
+            "title": "Research: Nat Geo historical-moments dossier, smellscape and Ephesus sweeps",
+            "state": "closed",
+            "merged_at": "2026-09-24T04:41:25Z",
+            "updated_at": "2026-09-24T04:41:25Z"
+          }
+        },
+        {
+          "name": "research/natgeo-dossier-v15",
+          "pr": {
+            "number": 230,
+            "title": "Research: Nat Geo dossier v1.8 (reply as sent) and perfumers dossier v2.13",
+            "state": "open",
+            "merged_at": null,
+            "updated_at": "2026-09-24T08:21:36Z"
+          }
         },
         {
           "name": "research/phyrao-note",
@@ -1893,6 +1885,10 @@
         "archive/midas-playground/medimanus_rev_eng.md",
         "archive/midas-playground/susinum_identity_claims.md",
         "archive/midas-playground/tei-recipe-viewer-app/README.md",
+        "archive/natgeo-historical-moments.v1.0.md",
+        "archive/natgeo-historical-moments.v1.1.md",
+        "archive/natgeo-historical-moments.v1.2.md",
+        "archive/natgeo-historical-moments.v1.3.md",
         "archive/perfumers_dossier.v1.0.md",
         "archive/perfumers_dossier.v2.0.md",
         "archive/perfumers_dossier.v2.1.md",
@@ -2741,6 +2737,11 @@
         "research/allyson-natgeo-ingredient-dossier.v1.4.md",
         "research/allyson-natgeo-ingredient-dossier.v1.5.md",
         "research/allyson-natgeo-ingredient-dossier.v1.6.md",
+        "research/ancient-perfume-photoshoot/ancient-perfume-photoshoot-brief.md",
+        "research/ancient-perfume-photoshoot/archive/ancient-perfume-photoshoot-brief.v1.0.md",
+        "research/ancient-perfume-photoshoot/archive/ancient-perfume-photoshoot-brief.v1.1.md",
+        "research/ancient-perfume-photoshoot/archive/ancient-perfume-photoshoot-brief.v1.2.md",
+        "research/ancient-perfume-photoshoot/audit-notes.md",
         "research/apollonius_mys_crito_stratum.md",
         "research/apollonius_mys_reconstruction.md",
         "research/apollonius_mys_style_and_recipes.md",
@@ -2786,8 +2787,11 @@
         "research/archaeology-of-production/sources/galen-simpl-2-17-18-olive-oil.md",
         "research/archaeology-of-production/sources/monteix-2010-bibliographie-extract.md",
         "research/archaeology-of-production/sources/verification-report-2026-09-06.md",
+        "research/archive/ingredient_hydor.v1.0.md",
+        "research/archive/ingredient_oinos.v1.0.md",
         "research/athenaeus_apollonius_peri_myron_15.38.md",
         "research/author_perfume_overview.md",
+        "research/balanos_balaninon_research_summary.md",
         "research/book_proposal.md",
         "research/cardamom_galen_compound_drugs.md",
         "research/cardamom_use_report.md",
@@ -2798,6 +2802,11 @@
         "research/data/corpus-scan/pliny-inventory-B.md",
         "research/data/corpus-scan/pliny-inventory-C.md",
         "research/data/corpus-scan/ptolemy-valens-inventory.md",
+        "research/data/plague-sweep/A-greek-medical-local.md",
+        "research/data/plague-sweep/B-greek-medical-downloaded.md",
+        "research/data/plague-sweep/BRIEF.md",
+        "research/data/plague-sweep/C-greek-literary.md",
+        "research/data/plague-sweep/D-latin.md",
         "research/de_antidotis_aromatic_profiles.md",
         "research/de_antidotis_hedychroum.md",
         "research/de_antidotis_ingredient_summaries.md",
@@ -2814,9 +2823,21 @@
         "research/galen_perfume_crossref.md",
         "research/haars-vegetabilia-comparison.md",
         "research/house-of-mendes-images/README.md",
+        "research/ingredient_hydor.md",
+        "research/ingredient_oinos.md",
         "research/ingredient_smyrna.md",
         "research/ingredient_smyrna_v1.md",
         "research/ingredients.md",
+        "research/inscriptions/IG-VII2-3-2003.md",
+        "research/inscriptions/IG-X-2-2-323.md",
+        "research/inscriptions/IG-XII-4-1-348.md",
+        "research/inscriptions/IG-XII-4-4-3494.md",
+        "research/inscriptions/IG-XV-2-108.md",
+        "research/inscriptions/README.md",
+        "research/inscriptions/index.md",
+        "research/inscriptions/sweep/README.md",
+        "research/inscriptions/sweep/context.md",
+        "research/inscriptions/sweep/triage.md",
         "research/kalamos_aromatikos_processes.md",
         "research/kapniston/aet-mss-ed.md",
         "research/kapniston/aetius_kapniston_analysis.md",
@@ -2833,6 +2854,37 @@
         "research/kapniston/nicolas_thomas_claude_analysis.md",
         "research/kapniston/opercula_chemistry_papers_summary.md",
         "research/kapniston/slide_deck_prompt.md",
+        "research/kyphi/working/aetius-13-116.md",
+        "research/kyphi/working/aetius-13-117.md",
+        "research/kyphi/working/aetius-13-99.md",
+        "research/kyphi/working/alexander-therapeutica-2-411.md",
+        "research/kyphi/working/archigenes-calabro-70-first.md",
+        "research/kyphi/working/archigenes-calabro-70-second.md",
+        "research/kyphi/working/archigenes-on-worms-kyphi.md",
+        "research/kyphi/working/archive/catalog-guide.v1.0.md",
+        "research/kyphi/working/archive/index.v1.0.md",
+        "research/kyphi/working/archive/index.v1.1.md",
+        "research/kyphi/working/archive/index.v1.2.md",
+        "research/kyphi/working/archive/index.v1.3.md",
+        "research/kyphi/working/catalog-guide.md",
+        "research/kyphi/working/chronology.md",
+        "research/kyphi/working/galen-damocrates-rufus-kyphi.md",
+        "research/kyphi/working/galen-locos-13-198.md",
+        "research/kyphi/working/galen-locos-13-202.md",
+        "research/kyphi/working/index.md",
+        "research/kyphi/working/oribasius-synopsis-3-220.md",
+        "research/kyphi/working/oribasius-synopsis-3-68.md",
+        "research/kyphi/working/paul-3-45-6-kyphi-use.md",
+        "research/kyphi/working/paul-3-46-4-kyphoeides-use.md",
+        "research/kyphi/working/paul-7-11-40.md",
+        "research/kyphi/working/paul-7-11-41.md",
+        "research/kyphi/working/paul-7-22-4.md",
+        "research/kyphi/working/paul-7-22-5.md",
+        "research/kyphi/working/paul-7-22-kyphi-uses.md",
+        "research/kyphi/working/plutarch-iside-383e-384c.md",
+        "research/kyphi/working/source-context.md",
+        "research/kyphi/working/sources/de_antidotis_kyphi.md",
+        "research/kyphi/working/unassigned-notes.md",
         "research/misc_aromata_summary.md",
         "research/model-pilots/README.md",
         "research/model-pilots/v5.0.0-alpha.2-design-candidate/README.md",
@@ -2846,6 +2898,7 @@
         "research/model-pilots/v5.0.0-alpha.2-design-candidate/viewer/README.md",
         "research/myrrh_wine_soaking_apparatus.md",
         "research/myrrh_wine_summary.md",
+        "research/natgeo-historical-moments.md",
         "research/notes-to-revise.md",
         "research/on_perfumes_summary.md",
         "research/papyri-sweep/README.md",
@@ -2896,6 +2949,7 @@
         "research/per_genera_procedures_equipment.md",
         "research/perfumers_dossier.md",
         "research/phyrao_mix_knead.md",
+        "research/plague_aromatics_dossier.md",
         "research/poxy_stypseis_80.5242.md",
         "research/prices/archive/perfume_costs_in_wages.v1.0.md",
         "research/prices/archive/perfume_costs_in_wages.v1.1.md",
@@ -2905,6 +2959,17 @@
         "research/ptolemaic-queens-fragments/README.md",
         "research/ptolemaic-queens-fragments/fragments.md",
         "research/ptolemaic-queens-fragments/search-log.md",
+        "research/quality-verdicts/ERC_NOTES.md",
+        "research/quality-verdicts/PLAN.md",
+        "research/quality-verdicts/README.md",
+        "research/quality-verdicts/REASON_PASS.md",
+        "research/quality-verdicts/TRIAGE_VERDICTS.md",
+        "research/quality-verdicts/dossier_nard.md",
+        "research/quality-verdicts/dossier_purple.md",
+        "research/quality-verdicts/dossier_smaragdus.md",
+        "research/quality-verdicts/inventory.md",
+        "research/quality-verdicts/pilot_report.md",
+        "research/quality-verdicts/summary.md",
         "research/recipe-manuscripts/BnF-lat-12995_perfume-oils.md",
         "research/recipe-manuscripts/Clm-337_dioscorides-longobardus.md",
         "research/sec_locos_procedures_equipment.md",
@@ -2919,6 +2984,7 @@
         "research/theo_hp9_summary.md",
         "research/thicken-gloss-origin.md",
         "research/tlg-sweep/README.md",
+        "research/tlg-sweep/TRIAGE_SMELLSCAPE.md",
         "research/translated_recipes.md",
         "research/uses-db/README.md",
         "skills/README.md",
@@ -2949,19 +3015,309 @@
       "status_md": null
     },
     {
+      "name": "map",
+      "private": false,
+      "archived": false,
+      "default_branch": "main",
+      "pushed_at": "2026-09-24T04:13:14Z",
+      "open_prs": 0,
+      "branches": [
+        {
+          "name": "agent/add-credited-ingredient-images-v15",
+          "tip_date": "2026-08-12T16:34:03Z",
+          "tip_author": "Alchemies of Scent Project",
+          "tip_message": "Publish illustrated Mendes dossier: mendes/map/content-1.html",
+          "ahead": 8,
+          "behind": 106,
+          "pr": {
+            "number": 7,
+            "title": "Add credited ingredient images to the Mendes dossier",
+            "state": "closed",
+            "merged_at": "2026-08-12T16:36:53Z",
+            "updated_at": "2026-08-12T16:41:57Z"
+          }
+        },
+        {
+          "name": "agent/compact-map-details",
+          "tip_date": "2026-08-13T15:40:39Z",
+          "tip_author": "Sean Coughlin",
+          "tip_message": "Preserve focus across map detail changes",
+          "ahead": 2,
+          "behind": 101,
+          "pr": {
+            "number": 12,
+            "title": "Compact the map details navigator",
+            "state": "closed",
+            "merged_at": "2026-08-13T16:11:44Z",
+            "updated_at": "2026-08-13T16:14:24Z"
+          }
+        },
+        {
+          "name": "agent/correct-terebinth-v14",
+          "tip_date": "2026-08-12T15:18:10Z",
+          "tip_author": "Alchemies of Scent Project",
+          "tip_message": "Refresh House of Mendes static assets",
+          "ahead": 6,
+          "behind": 107,
+          "pr": {
+            "number": 6,
+            "title": "Correct terebinth as a cooked perfumery product",
+            "state": "closed",
+            "merged_at": "2026-08-12T15:19:07Z",
+            "updated_at": "2026-08-12T15:19:07Z"
+          }
+        },
+        {
+          "name": "agent/fix-house-of-mendes-assets",
+          "tip_date": "2026-08-11T10:19:09Z",
+          "tip_author": "Alchemies of Scent Project",
+          "tip_message": "Load complete Mendes page from static assets",
+          "ahead": 9,
+          "behind": 111,
+          "pr": {
+            "number": 2,
+            "title": "Complete House of Mendes Pages deployment",
+            "state": "closed",
+            "merged_at": "2026-08-11T10:19:38Z",
+            "updated_at": "2026-08-11T10:19:38Z"
+          }
+        },
+        {
+          "name": "agent/fix-mendes-loaders",
+          "tip_date": "2026-08-12T15:01:23Z",
+          "tip_author": "Alchemies of Scent Project",
+          "tip_message": "Fix map asset loader arrays",
+          "ahead": 2,
+          "behind": 109,
+          "pr": {
+            "number": 4,
+            "title": "Fix House of Mendes page loaders",
+            "state": "closed",
+            "merged_at": "2026-08-12T15:01:43Z",
+            "updated_at": "2026-08-12T15:01:43Z"
+          }
+        },
+        {
+          "name": "agent/fix-mobile-images-and-replace-five",
+          "tip_date": "2026-08-12T17:36:31Z",
+          "tip_author": "Alchemies of Scent Project",
+          "tip_message": "Reserve mobile image space during lazy loading",
+          "ahead": 9,
+          "behind": 105,
+          "pr": {
+            "number": 8,
+            "title": "Fix mobile image sizing and replace five Mendes images",
+            "state": "closed",
+            "merged_at": "2026-08-12T17:37:57Z",
+            "updated_at": "2026-08-12T17:40:55Z"
+          }
+        },
+        {
+          "name": "agent/kind-ingredient-location-nav",
+          "tip_date": "2026-08-13T05:43:25Z",
+          "tip_author": "Sean Coughlin",
+          "tip_message": "Separate ingredient and location navigation",
+          "ahead": 1,
+          "behind": 103,
+          "pr": {
+            "number": 10,
+            "title": "Separate ingredient and location map navigation",
+            "state": "closed",
+            "merged_at": "2026-08-13T05:48:02Z",
+            "updated_at": "2026-08-13T05:48:03Z"
+          }
+        },
+        {
+          "name": "agent/map-init-hotfix",
+          "tip_date": "2026-08-13T06:10:49Z",
+          "tip_author": "Sean Coughlin",
+          "tip_message": "Fix map navigation initialization",
+          "ahead": 1,
+          "behind": 102,
+          "pr": {
+            "number": 11,
+            "title": "Fix map navigation initialization",
+            "state": "closed",
+            "merged_at": "2026-08-13T15:21:34Z",
+            "updated_at": "2026-08-13T15:24:46Z"
+          }
+        },
+        {
+          "name": "agent/publish-house-of-mendes",
+          "tip_date": "2026-08-11T10:03:57Z",
+          "tip_author": "Alchemies of Scent Project",
+          "tip_message": "Publish House of Mendes dossier",
+          "ahead": 1,
+          "behind": 112,
+          "pr": {
+            "number": 1,
+            "title": "Publish House of Mendes dossier",
+            "state": "closed",
+            "merged_at": "2026-08-11T10:04:36Z",
+            "updated_at": "2026-08-11T10:04:37Z"
+          }
+        },
+        {
+          "name": "agent/split-house-of-mendes-map",
+          "tip_date": "2026-08-12T14:55:25Z",
+          "tip_author": "Alchemies of Scent Project",
+          "tip_message": "Split Mendes map: add app-3.js",
+          "ahead": 11,
+          "behind": 110,
+          "pr": {
+            "number": 3,
+            "title": "Move the Mendes map to its own page",
+            "state": "closed",
+            "merged_at": "2026-08-12T14:55:50Z",
+            "updated_at": "2026-08-12T14:55:51Z"
+          }
+        },
+        {
+          "name": "agent/swipe-ingredient-map",
+          "tip_date": "2026-08-13T04:56:04Z",
+          "tip_author": "Sean Coughlin",
+          "tip_message": "Add swipeable ingredient map navigation",
+          "ahead": 1,
+          "behind": 104,
+          "pr": {
+            "number": 9,
+            "title": "Add swipeable ingredient map navigation",
+            "state": "closed",
+            "merged_at": "2026-08-13T05:09:03Z",
+            "updated_at": "2026-08-13T05:12:25Z"
+          }
+        },
+        {
+          "name": "agent/version-mendes-assets",
+          "tip_date": "2026-08-12T15:07:43Z",
+          "tip_author": "Alchemies of Scent Project",
+          "tip_message": "Version Mendes asset loading: mendes/map/content-1.html",
+          "ahead": 4,
+          "behind": 108,
+          "pr": {
+            "number": 5,
+            "title": "Version House of Mendes page assets",
+            "state": "closed",
+            "merged_at": "2026-08-12T15:08:02Z",
+            "updated_at": "2026-08-12T15:08:02Z"
+          }
+        },
+        {
+          "name": "claude/map-mendes-claims-formatting-7c8lsd",
+          "tip_date": "2026-08-15T23:44:18Z",
+          "tip_author": "Claude",
+          "tip_message": "Drop the unverified flags from the Herodian entry",
+          "ahead": 0,
+          "behind": 18,
+          "pr": {
+            "number": 39,
+            "title": "mendes: the two Louvre lily-perfume reliefs in the susinum section",
+            "state": "closed",
+            "merged_at": "2026-08-15T23:46:37Z",
+            "updated_at": "2026-08-15T23:46:37Z"
+          }
+        },
+        {
+          "name": "claude/map-navigator-cleanup-l3sub3",
+          "tip_date": "2026-08-18T12:42:47Z",
+          "tip_author": "Claude",
+          "tip_message": "map: ingredient arrows on the dossier's edge rail",
+          "ahead": 0,
+          "behind": 2
+        },
+        {
+          "name": "claude/mendes-map-revision",
+          "tip_date": "2026-08-14T15:49:17Z",
+          "tip_author": "Claude",
+          "tip_message": "mendes/map: give the phone one search bar and one job per surface",
+          "ahead": 0,
+          "behind": 83,
+          "pr": {
+            "number": 16,
+            "title": "One search bar, one job per surface on the phone",
+            "state": "closed",
+            "merged_at": "2026-08-14T16:06:18Z",
+            "updated_at": "2026-08-14T16:06:19Z"
+          }
+        },
+        {
+          "name": "claude/mendes-map-revision-7mlcw0",
+          "tip_date": "2026-08-15T07:09:58Z",
+          "tip_author": "Claude",
+          "tip_message": "mendes/map: drop the zoom cluster below the rail's reach",
+          "ahead": 0,
+          "behind": 50,
+          "pr": {
+            "number": 29,
+            "title": "mendes/map: drop the zoom cluster below the rail's reach",
+            "state": "closed",
+            "merged_at": "2026-08-15T07:12:32Z",
+            "updated_at": "2026-08-15T07:12:33Z"
+          }
+        },
+        {
+          "name": "main",
+          "tip_date": "2026-09-24T04:13:12Z",
+          "tip_author": "Claude",
+          "tip_message": "map: human-readable README per perfume GIS folder"
+        }
+      ],
+      "branch_detail_skipped": false,
+      "md_files": [
+        "ATTRIBUTION.md",
+        "CONTRIBUTING.md",
+        "README.md",
+        "data/external/google_mymaps/README.md",
+        "data/generated/periplus/chunks/0011_0020/ingestion_report_0011_0020.md",
+        "data/generated/periplus/chunks/0021_0030/ingestion_report_0021_0030.md",
+        "data/generated/periplus/chunks/0031_0040/ingestion_report_0031_0040.md",
+        "data/generated/periplus/chunks/0041_0050/ingestion_report_0041_0050.md",
+        "data/generated/periplus/chunks/0051_0060/ingestion_report_0051_0060.md",
+        "data/generated/periplus/chunks/0061_0066/ingestion_report_0061_0066.md",
+        "data/generated/periplus/ingestion_report_0001_0032.md",
+        "data/generated/periplus/ingestion_report_0001_0066.md",
+        "data/pleiades/README.md",
+        "data/review/README.md",
+        "data/review/route_markers.md",
+        "docs/01-json-schema.md",
+        "docs/02-repo-plan-task-list.md",
+        "docs/03-frontend-wireframe-spec.md",
+        "docs/04-claims-reader-plan.md",
+        "docs/galen_ambiguous_places.md",
+        "docs/galen_journey_passages_full_greek.md",
+        "docs/galen_route_candidates.md",
+        "docs/galen_route_decisions.md",
+        "docs/galen_routes_philological_breakdown_plan.md",
+        "docs/galen_unmatched_capitals.md",
+        "docs/materia_tei_ingredient_journeys.md",
+        "docs/simple_provenance_model.md",
+        "docs/simples_provenance_pipeline_todo.md",
+        "features/scrollytelling-viewer/ENGINE_DECISION.md",
+        "features/scrollytelling-viewer/README.md",
+        "mendes/images/louvre/README.md",
+        "mendes/map/gis/README.md",
+        "mendes/map/gis/mendesian/README.md",
+        "mendes/map/gis/nardinon/README.md",
+        "mendes/map/gis/susinum/README.md"
+      ],
+      "md_files_truncated": false,
+      "readme": "# Periplus Tour MVP\n\nPeriplus Tour MVP is a static research atlas for reading ancient geographic and medical texts as structured journeys. It combines source passages, translations, local review ledgers, Pleiades place identifiers, and generated map-ready JSON so that a reader can move between text, place evidence, and route geography without needing a database server.\n\nThe current app has two main research surfaces:\n\n- A Periplus route viewer for the anonymous *Periplus Maris Erythraei*, covering the full 66-section journey model currently generated from `texts.csv`, `translations.csv`, review ledgers, and route sidecars.\n- A Galen/simple-medicine provenance pipeline that identifies source passages where a simple medicine is tied to a place, adjudicates candidate links, and emits map-ready provenance points.\n\nThe project is still an MVP, but the important pieces are reproducible: generated data is built from scripts, uncertain geography is preserved as metadata, and accepted place links carry their review source.\n\n## What The Atlas Does\n\nThe viewer in `app/` presents a full-screen Leaflet map with a reading panel and a site strip. It lets a reader step through the route, inspect places mentioned in the passage, and distinguish mapped locations from unresolved or contextual geography.\n\nFor the Periplus route, the generated data model separates:\n\n- source sections and translations,\n- local place-authority records,\n- reviewed route focus records,\n- route legs,\n- off-route or contextual sites,\n- optional Google My Maps and webmap-derived review inputs.\n\nFor the simple-medicine provenance work, the pipeline asks a narrower question: when a medical entry names a place, is that place actually evidence for where a substance grows, is produced, is sourced, is acquired, or is merely contextual? The current cleaned run keeps only five accepted Dioscorides provenance links after suppressing false positives such as entry headwords that happen to match Pleiades place names.\n\n## Why This Exists\n\nAncient route and materia-medica texts often mix several kinds of geography:\n\n- direct route sequence,\n- market or harbor geography,\n- ethnographic or regional context,\n- ingredient provenance,\n- named varieties such as regional plants,\n- later editorial or translation labels.\n\nMapping all of those as if they were the same thing produces misleading maps. This repo keeps those layers separate. The route viewer can show the journey, while provenance sidecars can say why a material is linked to Arabia, Galatia, Iudaea, or another region and whether that link came from deterministic matching, human review, or LLM consensus review.\n\n## Repository Layout\n\n- `app/` - canonical static Atlas viewer.\n- `features/scrollytelling-viewer/` - older scroll-driven prototype kept for reference.\n- `data/generated/periplus/` - generated Periplus sections, places, route views, and route model.\n- `data/generated/galen/` - generated Galen route and materia data used by the viewer.\n- `data/generated/simples/` - generated simple-medicine provenance artifacts.\n- `data/review/` - human-readable review ledgers and CSV review surfaces.\n- `data/pleiades/` - cached Pleiades place snapshots and local Pleiades documentation.\n- `schemas/` - JSON Schemas for generated data contracts.\n- `scripts/` - deterministic builders, importers, validators, and exporters.\n- `docs/` - design notes, pipeline checklists, and data-model documentation.\n\n## Data Pipeline\n\nThe Periplus route pipeline is:\n\n```bash\npython3 scripts/ingest_tour_chunk.py --start 1 --count 66\npython3 scripts/apply_place_review_decisions.py --max-section 66\npython3 scripts/build_route_views.py\npython3 scripts/check_generated_tour.py\n```\n\nThat rebuilds `data/generated/periplus/` from the CSV source text, translations, reviewed place decisions, and route-view sidecars.\n\nThe simple provenance pipeline is:\n\n```bash\npython3 scripts/simples/build_pilot_manifest.py\npython3 scripts/simples/check_pilot_manifest.py\npython3 scripts/simpl\n…[truncated at 4000 chars]",
+      "status_md": null
+    },
+    {
       "name": "aos-perfume-corpus",
       "private": true,
       "archived": false,
       "default_branch": "main",
-      "pushed_at": "2026-09-23T05:19:24Z",
+      "pushed_at": "2026-09-24T02:23:14Z",
       "open_prs": 0,
       "branches": [
         {
           "name": "claude/trusting-goldberg-46p624",
-          "tip_date": "2026-09-23T05:19:23Z",
+          "tip_date": "2026-09-24T02:23:12Z",
           "tip_author": "Claude",
-          "tip_message": "Identity provenance and kind basis on every term; the check makes the policy true",
-          "ahead": 4,
+          "tip_message": "Vocabulary: put, soak, strain off, press out settled; ἐμβάλλειν still open",
+          "ahead": 11,
           "behind": 5
         },
         {
@@ -3179,6 +3535,53 @@
       "md_files_truncated": false,
       "readme": "# AoS Perfume Corpus\n\n**Product version:** 0.1 alpha\n\n**Document revision:** 1.7\n\n**Date:** 2026-09-17\n\n**Status:** Active\n\n**Supersedes:** Document revision 1.5 at Git commit `a30de84`\n\nA corpus and lexicon of ancient perfume recipes that records, for each\ningredient, what the ancient text calls it, how translators rendered it and\nwhat scholars have identified it as, attributed and cited. The corpus asserts\nno identification; it records links and displays them, and its own editorial\nchoices are recorded as its own.\n\nThe product is at the pilot stage. Two recipes are built end to end from the\npinned source text: ῥόδινον (Dioscorides 1.43), the pilot, and σούσινον\n(1.52), in draft with the simple lily-oil of its last sentence as a report\nrecord of its own. Each recipe page has its segments, a method of one step\nper verb in collapsible groups with inputs, outputs and tools, the readings\nwhere this edition departs from Wellmann, the scholars' comments and the\nproject's commentary. Around them: twenty term pages, three of them kinds\n(ἔλαιον βαλάνινον, οἶνος εὐώδης, ὕδωρ ὄμβριον) with their broader term; five\nunit pages; a page for every operation verb (53) and every vessel or\ninstrument (8), listing every use; the series page for the perfumes; source\npages for the transcriptions quoted; and a running vocabulary of the English\nused. This is an early alpha, not a stable 1.0 release. Document revision numbers track edits to documents, not product\nmaturity; this README owns the product-version designation.\n\n## In plain words\n\nThe goal is a reference work for ancient perfume recipes that never asks the\nreader to take our word for anything. Every Greek word of a recipe is shown\nwhere the edition prints it, and every statement about a word is attributed:\nwhat Dioscorides calls the ingredient, what Sprengel or Berendes or Beck made\nof it, what botanists have identified it as, and what we ourselves decided,\neach with a citation that opens the page it comes from. Where scholars\ndisagree, the page shows the disagreement rather than resolving it.\n\nThe approach is to build one recipe completely before generalizing. The\nsource text is pinned to an exact commit and checksum of the edition and\nnever edited here. The recipe is divided into segments we define over the\neditor's sections; each step of the method is one verb of the Greek, cited by\nits CTS URN; each ingredient is the phrase that names it, with every word\nlinked to its term. The scholars' comments are quoted exactly and verified at\nbuild time inside the unit of their edition they come from; the commentary\nis Sean's, written under a stated editorial rule: a manuscript variant is\nexplained by what the text would say on it, and every choice, ours or a past\neditor's, is given with its reason, because the reasons are what a reader can\njudge; who ruled what and when is metadata, kept in the decisions files and\noff the page. Identification claims come\nfrom the extraction pipeline as packages, grouped by taxon and scoped by the\npassage the scholar cites. The build refuses to produce a page if any\nquotation, anchor, reference or translation is missing. The result is a\nstatic site with a mobile-first reader, checked by scripts for links,\nidentifiers, layout and interaction before each commit. Scholarly decisions\nare made by Sean and recorded with their date; an agent prepares the\nevidence and the proposal.\n\n## Start here\n\n- [PLAN.md](PLAN.md): the aim, the ontology, the model, the sources, the build\n  order, the rules of work and the state.\n- [spec/SPEC.md](spec/SPEC.md): the data model formalized, file by file and\n  field by field, mapped to the accepted AoS specification (alpha.1) with the\n  corpus's additions listed; the schemas in `spec/schema/` are its machine\n  form and the build gate validates every record against them.\n- [PRODUCT_CONTRACT.md](PRODUCT_CONTRACT.md): the pilot reader experience and\n  the ten acceptance questions.\n- [AGENTS.md](AGENTS.md): working instructions for this reposi\n…[truncated at 4000 chars]",
       "status_md": null
+    },
+    {
+      "name": "to-do-list",
+      "private": false,
+      "archived": false,
+      "default_branch": "main",
+      "pushed_at": "2026-09-23T08:35:40Z",
+      "open_prs": 0,
+      "branches": [
+        {
+          "name": "main",
+          "tip_date": "2026-09-23T08:35:39Z",
+          "tip_author": "portfolio-bot",
+          "tip_message": "portfolio: nightly collection 2026-09-23"
+        }
+      ],
+      "branch_detail_skipped": false,
+      "md_files": [
+        ".github/pull_request_template.md",
+        "CONTRIBUTING.md",
+        "PLAN.md",
+        "README.md",
+        "REPO_STANDARD.md",
+        "SECURITY.md",
+        "STATUS.md",
+        "WBS_TODO_SUPABASE_INTEGRATION.md",
+        "data/projects.md",
+        "docs/FINDINGS-metopion-20260805.md",
+        "docs/FINDINGS-theophrastos-20260805.md",
+        "docs/QA_CHECKLIST.md",
+        "docs/pmo.md",
+        "docs/pmo/CHANGELOG.md",
+        "docs/pmo/DECISIONS.md",
+        "docs/pmo/ENGINEERING_LOG.md",
+        "docs/pmo/KNOWN_ISSUES.md",
+        "pmo/decision_log.md",
+        "pmo/delegation_outbox.md",
+        "pmo/inbox.md",
+        "projects/br-ager-scent-ancient-magic/00_brief.md",
+        "projects/br-ager-scent-ancient-magic/01_plan.md",
+        "projects/br-ager-scent-ancient-magic/02_status.md",
+        "projects/br-ager-scent-ancient-magic/03_actions.md",
+        "projects/br-ager-scent-ancient-magic/04_assets.md"
+      ],
+      "md_files_truncated": false,
+      "readme": "# Scholar's Opus\n\nLightweight, local-first academic research and publication tracker (Vite + React). It seeds from a Markdown project list and stores edits locally in the browser (no backend).\n\n## Quickstart\n\n**Requirements:** Node.js 20+\n\n```bash\nnpm ci && npm run dev\n```\n\n## Scripts\n\n- `npm run dev`: run the dev server\n- `npm run build`: build a production bundle into `dist/`\n- `npm run preview`: preview the production build locally\n- `npm run lint`: lint the codebase\n- `npm run typecheck`: TypeScript typecheck\n- `npm test`: run unit tests\n- `npm run validate:data`: validate `data/projects.md` parses cleanly\n\n## Configuration\n\nNo required environment variables.\n\n## Architecture\n\n- `src/main.tsx`: app entrypoint\n- `src/App.tsx`: UI + filtering (Writing/Experiments/DH/Grants/Admin tabs)\n- `src/projectsParser.ts`: parses `data/projects.md` into tasks at build time\n- `src/db.ts`: localStorage persistence + migrations\n- `src/components/*`: UI components\n- `src/sync.ts`: optional Supabase sync (guarded, record-level)\n\n## Optional Supabase cloud sync (Auth)\n\nCloud sync is optional. If `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY` are present, the app can sync via Supabase **Auth + RLS**.\n\n- Enable: open **Cloud** (or go to `/auth`) and sign in (PKCE; callback at `${BASE_URL}auth/callback`).\n- Security model: tables are protected by RLS (`owner_id = auth.uid()`); the client does not rely on `user_id` filtering for access control.\n- Deletes: use tombstones (`deleted_at`) to prevent cross-device resurrection; hard delete/purge is deferred.\n- Dashboard settings: add exact redirect URLs for dev + GitHub Pages base path (see `.github/workflows/pages.yml` for the deployed base path, and `vite.config.ts` for `base`).\n\nLegacy migration note: if you have old rows in `public.tasks` that only have a legacy `user_id` namespace, you must manually “claim” them by setting `owner_id` via SQL (see `supabase/migrations/*_auth_owner_rls_tombstones.sql`).\n\n## Data\n\n- Seed list: `data/projects.md` (each entry is a checklist item with an indented metadata block)\n- Saved state: browser `localStorage` (`scholar_opus_db`)\n\nThe Markdown seed is treated as read-only at runtime; changes made in the UI are not written back to `data/projects.md`.\n\nExample entry:\n\n```md\n- [ ] Project title\n  - domain: Writing\n  - type: Article\n  - status: Draft\n  - priority: Medium\n  - description: Short notes…\n```\n\n## Deployment (GitHub Pages)\n\nThis repo deploys to `https://alchemiesofscent.github.io/to-do-list/` via `.github/workflows/pages.yml`.\n\nNote: the GitHub Pages build is configured for the `/to-do-list/` base path. If you fork or rename the repo, set `VITE_BASE_PATH` for production builds or update the Vite `base` setting in `vite.config.ts`.\n",
+      "status_md": "# STATUS\n\n**Updated:** 2026-08-06 (by: claude-cowork)\n**Canonical branch:** main\n\n> **⚠ TOP ITEM (2026-08-06): a finished corpus is one disk failure from gone.**\n> The Galen *De alimentorum facultatibus* lane on theophrastos — 2,463 files,\n> 147 approved chapters — is **untracked: no commit, no branch, no backup**\n> (rescue bundles predate it). Flagged by the oribasius /goals job itself at\n> 06:56. Sean is away until ~2026-08-09. If ANY access to theophrastos exists\n> first, run:\n> `cd ~/github/oribasius-app && git checkout -b rescue/alimfac-20260806 && git add -f translation_project/galen-alimentary-faculties/ && git commit -m \"rescue: alim.fac. lane\" && git push -u origin rescue/alimfac-20260806`\n> Book XIV wave artifacts are untracked too (same repo, same exposure).\n\n---\n\n## Part 1 — The story so far (for Sean)\n\n### Previously on alchemiesofscent…\n\nSean, a scholar of ancient perfume, has years of research projects scattered\nacross twenty-five online archives and two computers — a laptop and a desktop.\nOver time, he and his AI assistants made copies of copies, left work half-filed,\nand in places kept the only version of something on a single machine, where a\nspilled coffee could end it. So he started a cleanup with one rule: everything\nimportant must live in the shared online archive, where every machine can see\nit, and this folder is the cleanup's logbook.\n\nStep one: list what the online archive holds. Done. Of twenty-five projects,\nonly about five showed recent life; the rest were husks, half-finished starts,\nor duplicates. The same project often existed under two or three names — a\ncookbook of ancient recipes in three variants, a data model in two — because\nwhen a project stalled, the habit was to start a fresh copy rather than repair\nthe old one. And the two busiest projects (a tool for editing ancient texts,\nand a database of the physician Oribasius) each had a large body of new work\nsitting in side-drafts that were never folded back into the official version.\nThe cause, in one sentence: many working sessions — human and AI alike — ended\nwithout anyone filing what had been done, and each rescue attempt made another\ncopy instead of cleaning up the last one.\n\nStep two: search each computer and compare. The laptop has now been searched,\nand it was hiding things. The biggest surprise: inside the Oribasius project\nsits a detailed plan, written by an AI assistant in July and never shared\nonline, to freeze that project and start a successor called \"hylike\" — the\nexact opposite of the current cleanup plan, which says to fold two other\nprojects *into* it. Sean has deferred that decision. The laptop also holds\nhundreds of unfiled edits to the text-editing tool (which is supposed to be\nfrozen), a ten-thousand-file salvage copy of it with no backup anywhere,\nseveral smaller projects with no online backup at all, and a to-do app whose\nlatest state was never written down anywhere — it exists only inside a web\nbrowser, last touched in January.\n\nThen, that same evening, Sean sat down at the desktop and ran the search\nhimself. It did hold a third version of events. The Oribasius project turned\nout to exist in three states that no longer agree: the shared archive's\nversion, the laptop's secret successor plan, and the desktop's own pile —\nnearly a thousand unfiled edits plus rescue work (a translation of Paul of\nAegina's Book 7, recovered Galen data) that was never sent anywhere. Worse:\nthe supposedly frozen text-editing tool had been changed *that very day* by\nsomething still running on the desktop — nobody yet knows what. And a small\nproject surfaced that exists on no archive at all, only on that one machine.\n\nBoth machines have now been heard; the searching phase is over. The mystery\nof the frozen tool solved itself: the editor was Sean — before leaving town,\nhe deliberately restarted three automated jobs on the desktop (the Oribasius\ntranslations, the Dioscorides edition, and the cookbook's extraction\npipeline) so they'd finish while \n…[truncated at 4000 chars]"
     },
     {
       "name": "extraction-pipeline",
@@ -3734,53 +4137,6 @@
       "md_files_truncated": false,
       "readme": "# Classical Plant Identification Database\n\n**Version:** 1.0 · **Date:** 2026-09-15 · **Status:** active\n**Supersedes:** `archive/README.pre-vision-20260915.md` (previously unversioned)\n\n**Unversioned predecessor SHA-256:** 503fef2953e8178b2441a628e5368c796656d198b6e0ceeda374e425d8fe6478\n\n## Vision\n\nThe extraction pipeline turns scholarly books about ancient plants and ingredients into\na searchable collection of **who identified an ancient name as what, where they said it,\nand with what evidence or uncertainty**. It prepares the evidence that the Alchemies of\nScent corpus connects to recipes, ingredients and source passages.\n\nOur aim is to preserve scholarly claims faithfully and make them comparable. A scholar's\nidentification, a later scholar's disagreement, and the project's own editorial judgment\nmust remain distinguishable. Agreement between sources does not automatically settle an\nidentification, and an external database match does not establish what an ancient author\nmeant.\n\n### What the pipeline currently does\n\n**Books → extracted records → organized claims → review → corpus data**\n\n1. Reads selected dictionaries, indexes, commentaries and handbooks from page images,\n   assisted by OCR. Source-specific extraction captures the kinds of entries each book uses.\n2. Records ancient names, proposed modern identifications, citations, uncertainty and\n   notes where captured. The extracted source records are preserved as inputs for later work.\n3. Converts those different records into a common format: ancient terms, modern names,\n   identification claims and their evidence. Original extracted values remain traceable.\n4. Separates printed scientific names into name, author citation and rank. The shared\n   parser currently covers seven source bundles; the Dioscorides pilot and Manniche use\n   older parsing paths. Alternatives and qualifications are retained, although some still\n   live in notes and review queues rather than separate structured claims.\n5. Proposes external links: GBIF for biological names, Logeion for Greek/Latin vocabulary,\n   and the Thesaurus Linguae Aegyptiae for Egyptian vocabulary. Review records retain\n   approvals, rejections, unresolved cases and superseded decisions.\n6. Exports reviewed data files for downstream projects. This repository prepares evidence;\n   the receiving corpus combines it with recipes and presents it to readers.\n\nThe current architecture and operational boundaries are defined in [docs/ARCHI.md](docs/ARCHI.md).\n\n### What sources this represents\n\nThe eight principal extraction sets are André's Latin plant-name dictionary; Haars on\nGalen's simple drugs through Oribasius; Manniche's ancient Egyptian herbal; Beck's\nDioscorides index; Hort's Theophrastus plant key; Germer's Egyptian medicinal plants;\nAmigues's Theophrastus index; and Keyser/Irby-Massie's encyclopedia index and glossary.\nThe [source table below](#source-texts) gives editions, scope and recorded extraction status.\n\nThese are modern scholarly interpretations of ancient evidence. Dioscorides, Theophrastus,\nPliny, Galen and Egyptian texts are among the ancient sources they discuss. Completion of\nan extraction set means the selected extraction workflow has been completed; it does not\nmean that every part of each ancient work or modern volume has been extracted or independently\naudited. GBIF and the lexical databases supply external checks and links, not additional\nscholarly identification claims.\n\n### What the completed system should make possible\n\n- Follow an ancient ingredient name to every captured identification, with scholar and citation.\n- Compare agreement, disagreement, alternatives and uncertainty without collapsing them.\n- Return from a claim to its supporting passage or page.\n- See the printed name beside a separately stored standard name and external identifiers.\n- Distinguish an unresolved identification from missing evidence or unfinished review.\n- Report how faithfully and completely the selected sources have been re\n…[truncated at 4000 chars]",
       "status_md": null
-    },
-    {
-      "name": "to-do-list",
-      "private": false,
-      "archived": false,
-      "default_branch": "main",
-      "pushed_at": "2026-09-22T08:34:07Z",
-      "open_prs": 0,
-      "branches": [
-        {
-          "name": "main",
-          "tip_date": "2026-09-22T08:34:06Z",
-          "tip_author": "portfolio-bot",
-          "tip_message": "portfolio: nightly collection 2026-09-22"
-        }
-      ],
-      "branch_detail_skipped": false,
-      "md_files": [
-        ".github/pull_request_template.md",
-        "CONTRIBUTING.md",
-        "PLAN.md",
-        "README.md",
-        "REPO_STANDARD.md",
-        "SECURITY.md",
-        "STATUS.md",
-        "WBS_TODO_SUPABASE_INTEGRATION.md",
-        "data/projects.md",
-        "docs/FINDINGS-metopion-20260805.md",
-        "docs/FINDINGS-theophrastos-20260805.md",
-        "docs/QA_CHECKLIST.md",
-        "docs/pmo.md",
-        "docs/pmo/CHANGELOG.md",
-        "docs/pmo/DECISIONS.md",
-        "docs/pmo/ENGINEERING_LOG.md",
-        "docs/pmo/KNOWN_ISSUES.md",
-        "pmo/decision_log.md",
-        "pmo/delegation_outbox.md",
-        "pmo/inbox.md",
-        "projects/br-ager-scent-ancient-magic/00_brief.md",
-        "projects/br-ager-scent-ancient-magic/01_plan.md",
-        "projects/br-ager-scent-ancient-magic/02_status.md",
-        "projects/br-ager-scent-ancient-magic/03_actions.md",
-        "projects/br-ager-scent-ancient-magic/04_assets.md"
-      ],
-      "md_files_truncated": false,
-      "readme": "# Scholar's Opus\n\nLightweight, local-first academic research and publication tracker (Vite + React). It seeds from a Markdown project list and stores edits locally in the browser (no backend).\n\n## Quickstart\n\n**Requirements:** Node.js 20+\n\n```bash\nnpm ci && npm run dev\n```\n\n## Scripts\n\n- `npm run dev`: run the dev server\n- `npm run build`: build a production bundle into `dist/`\n- `npm run preview`: preview the production build locally\n- `npm run lint`: lint the codebase\n- `npm run typecheck`: TypeScript typecheck\n- `npm test`: run unit tests\n- `npm run validate:data`: validate `data/projects.md` parses cleanly\n\n## Configuration\n\nNo required environment variables.\n\n## Architecture\n\n- `src/main.tsx`: app entrypoint\n- `src/App.tsx`: UI + filtering (Writing/Experiments/DH/Grants/Admin tabs)\n- `src/projectsParser.ts`: parses `data/projects.md` into tasks at build time\n- `src/db.ts`: localStorage persistence + migrations\n- `src/components/*`: UI components\n- `src/sync.ts`: optional Supabase sync (guarded, record-level)\n\n## Optional Supabase cloud sync (Auth)\n\nCloud sync is optional. If `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY` are present, the app can sync via Supabase **Auth + RLS**.\n\n- Enable: open **Cloud** (or go to `/auth`) and sign in (PKCE; callback at `${BASE_URL}auth/callback`).\n- Security model: tables are protected by RLS (`owner_id = auth.uid()`); the client does not rely on `user_id` filtering for access control.\n- Deletes: use tombstones (`deleted_at`) to prevent cross-device resurrection; hard delete/purge is deferred.\n- Dashboard settings: add exact redirect URLs for dev + GitHub Pages base path (see `.github/workflows/pages.yml` for the deployed base path, and `vite.config.ts` for `base`).\n\nLegacy migration note: if you have old rows in `public.tasks` that only have a legacy `user_id` namespace, you must manually “claim” them by setting `owner_id` via SQL (see `supabase/migrations/*_auth_owner_rls_tombstones.sql`).\n\n## Data\n\n- Seed list: `data/projects.md` (each entry is a checklist item with an indented metadata block)\n- Saved state: browser `localStorage` (`scholar_opus_db`)\n\nThe Markdown seed is treated as read-only at runtime; changes made in the UI are not written back to `data/projects.md`.\n\nExample entry:\n\n```md\n- [ ] Project title\n  - domain: Writing\n  - type: Article\n  - status: Draft\n  - priority: Medium\n  - description: Short notes…\n```\n\n## Deployment (GitHub Pages)\n\nThis repo deploys to `https://alchemiesofscent.github.io/to-do-list/` via `.github/workflows/pages.yml`.\n\nNote: the GitHub Pages build is configured for the `/to-do-list/` base path. If you fork or rename the repo, set `VITE_BASE_PATH` for production builds or update the Vite `base` setting in `vite.config.ts`.\n",
-      "status_md": "# STATUS\n\n**Updated:** 2026-08-06 (by: claude-cowork)\n**Canonical branch:** main\n\n> **⚠ TOP ITEM (2026-08-06): a finished corpus is one disk failure from gone.**\n> The Galen *De alimentorum facultatibus* lane on theophrastos — 2,463 files,\n> 147 approved chapters — is **untracked: no commit, no branch, no backup**\n> (rescue bundles predate it). Flagged by the oribasius /goals job itself at\n> 06:56. Sean is away until ~2026-08-09. If ANY access to theophrastos exists\n> first, run:\n> `cd ~/github/oribasius-app && git checkout -b rescue/alimfac-20260806 && git add -f translation_project/galen-alimentary-faculties/ && git commit -m \"rescue: alim.fac. lane\" && git push -u origin rescue/alimfac-20260806`\n> Book XIV wave artifacts are untracked too (same repo, same exposure).\n\n---\n\n## Part 1 — The story so far (for Sean)\n\n### Previously on alchemiesofscent…\n\nSean, a scholar of ancient perfume, has years of research projects scattered\nacross twenty-five online archives and two computers — a laptop and a desktop.\nOver time, he and his AI assistants made copies of copies, left work half-filed,\nand in places kept the only version of something on a single machine, where a\nspilled coffee could end it. So he started a cleanup with one rule: everything\nimportant must live in the shared online archive, where every machine can see\nit, and this folder is the cleanup's logbook.\n\nStep one: list what the online archive holds. Done. Of twenty-five projects,\nonly about five showed recent life; the rest were husks, half-finished starts,\nor duplicates. The same project often existed under two or three names — a\ncookbook of ancient recipes in three variants, a data model in two — because\nwhen a project stalled, the habit was to start a fresh copy rather than repair\nthe old one. And the two busiest projects (a tool for editing ancient texts,\nand a database of the physician Oribasius) each had a large body of new work\nsitting in side-drafts that were never folded back into the official version.\nThe cause, in one sentence: many working sessions — human and AI alike — ended\nwithout anyone filing what had been done, and each rescue attempt made another\ncopy instead of cleaning up the last one.\n\nStep two: search each computer and compare. The laptop has now been searched,\nand it was hiding things. The biggest surprise: inside the Oribasius project\nsits a detailed plan, written by an AI assistant in July and never shared\nonline, to freeze that project and start a successor called \"hylike\" — the\nexact opposite of the current cleanup plan, which says to fold two other\nprojects *into* it. Sean has deferred that decision. The laptop also holds\nhundreds of unfiled edits to the text-editing tool (which is supposed to be\nfrozen), a ten-thousand-file salvage copy of it with no backup anywhere,\nseveral smaller projects with no online backup at all, and a to-do app whose\nlatest state was never written down anywhere — it exists only inside a web\nbrowser, last touched in January.\n\nThen, that same evening, Sean sat down at the desktop and ran the search\nhimself. It did hold a third version of events. The Oribasius project turned\nout to exist in three states that no longer agree: the shared archive's\nversion, the laptop's secret successor plan, and the desktop's own pile —\nnearly a thousand unfiled edits plus rescue work (a translation of Paul of\nAegina's Book 7, recovered Galen data) that was never sent anywhere. Worse:\nthe supposedly frozen text-editing tool had been changed *that very day* by\nsomething still running on the desktop — nobody yet knows what. And a small\nproject surfaced that exists on no archive at all, only on that one machine.\n\nBoth machines have now been heard; the searching phase is over. The mystery\nof the frozen tool solved itself: the editor was Sean — before leaving town,\nhe deliberately restarted three automated jobs on the desktop (the Oribasius\ntranslations, the Dioscorides edition, and the cookbook's extraction\npipeline) so they'd finish while \n…[truncated at 4000 chars]"
     },
     {
       "name": "edition-workbench",
@@ -9205,292 +9561,6 @@
       ],
       "md_files_truncated": true,
       "readme": "# Oribasius Collectiones Medicae — Scholarly Database\n\nLast updated: 2026-07-21 — Corpus release `2026.07.21.2` carries repaired Oribasius, complete Dioscorides, and the Book XV Clinopodion correction.\n\nA collaborative Flask application for editing, translating, and analyzing\nancient Greek medical texts from Oribasius and Dioscorides.\n\n> **Alignment is deprecated.** Do not run the Greek-English alignment worker\n> or treat queued alignment as required for approval or publication. See\n> [`docs/ALIGNMENT_DEPRECATION.md`](docs/ALIGNMENT_DEPRECATION.md) for the\n> removal decision and scope.\n\nDetailed documentation lives in:\n\n- [App Guide](docs/APP_GUIDE.md)\n- [Translation Workflow](docs/TRANSLATION_WORKFLOW.md)\n- [Alignment Deprecation](docs/ALIGNMENT_DEPRECATION.md)\n- [Lexicon Evaluation](docs/LEXICON_EVALUATION.md)\n- [Corpus Translation Program](docs/CORPUS_TRANSLATION_PROGRAM.md)\n- [Data Versioning](docs/DATA_VERSIONING.md)\n- [Data Changelog](docs/DATA_CHANGELOG.md)\n- [Recovery Snapshots](recovery/README.md)\n\n## Current Data Release\n\nThe tracked corpus release is `2026.07.21.2`: 1,261 Oribasius entries covering\nBooks I-X and XV, with all 1,259 substantive Greek bodies translated, plus 835\nfreshly translated Dioscorides entries covering Books I-V. Its canonical\nmanifest pins the compact database, the two Oribasius recovery manifests, the\nDioscorides recovery manifest, and their checksum inventories by SHA-256.\n\n```bash\npython scripts/check_data_version.py\n```\n\nSee [`data/VERSION.json`](data/VERSION.json) for the machine-readable release\nrecord and [`docs/DATA_CHANGELOG.md`](docs/DATA_CHANGELOG.md) for its history.\nThe same release metadata is available from `GET /api/data-version`.\n\n## Preserved Galen Translation\n\nThe tracked recovery snapshot at\n[`recovery/galen-simple-drugs-books-6-11-2026-07-15/`](recovery/galen-simple-drugs-books-6-11-2026-07-15/)\ncontains all 639 approved translations for the repository's Galen, *On Simple\nDrugs*, Books 6-11 corpus. Each JSON record includes the original Greek and the\napproved English together, so a fresh clone no longer depends on the ignored\ndevelopment database or runtime project artifacts to recover this work.\n\nValidate the snapshot with:\n\n```bash\npython scripts/export_galen_simple_drugs_json.py --validate-only\n```\n\n## Dioscorides Fresh-Translation Workflow\n\nDioscorides' *De materia medica* uses the dedicated\n`fresh_two_pass_v1` workflow. All 835 units receive a new translation from the\nGreek. Beck is stored only in `original_translation_*` for the 832 matched\nunits and may be consulted only in Pass A as a reference witness; it is never\ncopied into `translation_*` or used as an editable base. The three `RV` units\nare translated without a Beck reference.\n\nThis is a Codex PM-controlled workflow, not an in-process model integration.\nRepository commands build and validate bounded JSON packets; a live PM launches\nstateless workers and is the only actor that records stages or approves text:\n\n```text\nroute and inject matched terminology\n  → Pass A fresh Greek translation (Beck reference available when present)\n  → deterministic mechanics, terminology, and Beck-distinctness gates\n  → Pass B independent Greek verification (Beck-blind)\n  → sentence-only patch, at most two retries, when required\n  → mandatory PM review for variants, cruxes, failures, and audit samples\n  → approval, recovery snapshot, and compact publication\n```\n\nThe CLI surface is discoverable with `python -m oribasius.jobs --help`; its\nDioscorides commands are prefixed `translation-fresh-`. Canonical English is\nwritten only by `translation-fresh-approve`, after every applicable gate has\npassed. Approval preserves the Beck witness, refuses to overwrite existing\ncanonical English, and writes a stable source-key recovery artifact containing\nthe Greek, fresh English, quality/distinctness receipts, and model/token\nprovenance.\n\nThe tracked recovery directory contains the complete 835-entry snapshot.\nRegenerate and verify it with:\n\n```ba\n…[truncated at 4000 chars]",
-      "status_md": null
-    },
-    {
-      "name": "map",
-      "private": false,
-      "archived": false,
-      "default_branch": "main",
-      "pushed_at": "2026-08-18T12:50:57Z",
-      "open_prs": 0,
-      "branches": [
-        {
-          "name": "agent/add-credited-ingredient-images-v15",
-          "tip_date": "2026-08-12T16:34:03Z",
-          "tip_author": "Alchemies of Scent Project",
-          "tip_message": "Publish illustrated Mendes dossier: mendes/map/content-1.html",
-          "ahead": 8,
-          "behind": 104,
-          "pr": {
-            "number": 7,
-            "title": "Add credited ingredient images to the Mendes dossier",
-            "state": "closed",
-            "merged_at": "2026-08-12T16:36:53Z",
-            "updated_at": "2026-08-12T16:41:57Z"
-          }
-        },
-        {
-          "name": "agent/compact-map-details",
-          "tip_date": "2026-08-13T15:40:39Z",
-          "tip_author": "Sean Coughlin",
-          "tip_message": "Preserve focus across map detail changes",
-          "ahead": 2,
-          "behind": 99,
-          "pr": {
-            "number": 12,
-            "title": "Compact the map details navigator",
-            "state": "closed",
-            "merged_at": "2026-08-13T16:11:44Z",
-            "updated_at": "2026-08-13T16:14:24Z"
-          }
-        },
-        {
-          "name": "agent/correct-terebinth-v14",
-          "tip_date": "2026-08-12T15:18:10Z",
-          "tip_author": "Alchemies of Scent Project",
-          "tip_message": "Refresh House of Mendes static assets",
-          "ahead": 6,
-          "behind": 105,
-          "pr": {
-            "number": 6,
-            "title": "Correct terebinth as a cooked perfumery product",
-            "state": "closed",
-            "merged_at": "2026-08-12T15:19:07Z",
-            "updated_at": "2026-08-12T15:19:07Z"
-          }
-        },
-        {
-          "name": "agent/fix-house-of-mendes-assets",
-          "tip_date": "2026-08-11T10:19:09Z",
-          "tip_author": "Alchemies of Scent Project",
-          "tip_message": "Load complete Mendes page from static assets",
-          "ahead": 9,
-          "behind": 109,
-          "pr": {
-            "number": 2,
-            "title": "Complete House of Mendes Pages deployment",
-            "state": "closed",
-            "merged_at": "2026-08-11T10:19:38Z",
-            "updated_at": "2026-08-11T10:19:38Z"
-          }
-        },
-        {
-          "name": "agent/fix-mendes-loaders",
-          "tip_date": "2026-08-12T15:01:23Z",
-          "tip_author": "Alchemies of Scent Project",
-          "tip_message": "Fix map asset loader arrays",
-          "ahead": 2,
-          "behind": 107,
-          "pr": {
-            "number": 4,
-            "title": "Fix House of Mendes page loaders",
-            "state": "closed",
-            "merged_at": "2026-08-12T15:01:43Z",
-            "updated_at": "2026-08-12T15:01:43Z"
-          }
-        },
-        {
-          "name": "agent/fix-mobile-images-and-replace-five",
-          "tip_date": "2026-08-12T17:36:31Z",
-          "tip_author": "Alchemies of Scent Project",
-          "tip_message": "Reserve mobile image space during lazy loading",
-          "ahead": 9,
-          "behind": 103,
-          "pr": {
-            "number": 8,
-            "title": "Fix mobile image sizing and replace five Mendes images",
-            "state": "closed",
-            "merged_at": "2026-08-12T17:37:57Z",
-            "updated_at": "2026-08-12T17:40:55Z"
-          }
-        },
-        {
-          "name": "agent/kind-ingredient-location-nav",
-          "tip_date": "2026-08-13T05:43:25Z",
-          "tip_author": "Sean Coughlin",
-          "tip_message": "Separate ingredient and location navigation",
-          "ahead": 1,
-          "behind": 101,
-          "pr": {
-            "number": 10,
-            "title": "Separate ingredient and location map navigation",
-            "state": "closed",
-            "merged_at": "2026-08-13T05:48:02Z",
-            "updated_at": "2026-08-13T05:48:03Z"
-          }
-        },
-        {
-          "name": "agent/map-init-hotfix",
-          "tip_date": "2026-08-13T06:10:49Z",
-          "tip_author": "Sean Coughlin",
-          "tip_message": "Fix map navigation initialization",
-          "ahead": 1,
-          "behind": 100,
-          "pr": {
-            "number": 11,
-            "title": "Fix map navigation initialization",
-            "state": "closed",
-            "merged_at": "2026-08-13T15:21:34Z",
-            "updated_at": "2026-08-13T15:24:46Z"
-          }
-        },
-        {
-          "name": "agent/publish-house-of-mendes",
-          "tip_date": "2026-08-11T10:03:57Z",
-          "tip_author": "Alchemies of Scent Project",
-          "tip_message": "Publish House of Mendes dossier",
-          "ahead": 1,
-          "behind": 110,
-          "pr": {
-            "number": 1,
-            "title": "Publish House of Mendes dossier",
-            "state": "closed",
-            "merged_at": "2026-08-11T10:04:36Z",
-            "updated_at": "2026-08-11T10:04:37Z"
-          }
-        },
-        {
-          "name": "agent/split-house-of-mendes-map",
-          "tip_date": "2026-08-12T14:55:25Z",
-          "tip_author": "Alchemies of Scent Project",
-          "tip_message": "Split Mendes map: add app-3.js",
-          "ahead": 11,
-          "behind": 108,
-          "pr": {
-            "number": 3,
-            "title": "Move the Mendes map to its own page",
-            "state": "closed",
-            "merged_at": "2026-08-12T14:55:50Z",
-            "updated_at": "2026-08-12T14:55:51Z"
-          }
-        },
-        {
-          "name": "agent/swipe-ingredient-map",
-          "tip_date": "2026-08-13T04:56:04Z",
-          "tip_author": "Sean Coughlin",
-          "tip_message": "Add swipeable ingredient map navigation",
-          "ahead": 1,
-          "behind": 102,
-          "pr": {
-            "number": 9,
-            "title": "Add swipeable ingredient map navigation",
-            "state": "closed",
-            "merged_at": "2026-08-13T05:09:03Z",
-            "updated_at": "2026-08-13T05:12:25Z"
-          }
-        },
-        {
-          "name": "agent/version-mendes-assets",
-          "tip_date": "2026-08-12T15:07:43Z",
-          "tip_author": "Alchemies of Scent Project",
-          "tip_message": "Version Mendes asset loading: mendes/map/content-1.html",
-          "ahead": 4,
-          "behind": 106,
-          "pr": {
-            "number": 5,
-            "title": "Version House of Mendes page assets",
-            "state": "closed",
-            "merged_at": "2026-08-12T15:08:02Z",
-            "updated_at": "2026-08-12T15:08:02Z"
-          }
-        },
-        {
-          "name": "claude/map-mendes-claims-formatting-7c8lsd",
-          "tip_date": "2026-08-15T23:44:18Z",
-          "tip_author": "Claude",
-          "tip_message": "Drop the unverified flags from the Herodian entry",
-          "ahead": 0,
-          "behind": 16,
-          "pr": {
-            "number": 39,
-            "title": "mendes: the two Louvre lily-perfume reliefs in the susinum section",
-            "state": "closed",
-            "merged_at": "2026-08-15T23:46:37Z",
-            "updated_at": "2026-08-15T23:46:37Z"
-          }
-        },
-        {
-          "name": "claude/map-navigator-cleanup-l3sub3",
-          "tip_date": "2026-08-18T12:42:47Z",
-          "tip_author": "Claude",
-          "tip_message": "map: ingredient arrows on the dossier's edge rail",
-          "ahead": 0,
-          "behind": 0
-        },
-        {
-          "name": "claude/mendes-map-revision",
-          "tip_date": "2026-08-14T15:49:17Z",
-          "tip_author": "Claude",
-          "tip_message": "mendes/map: give the phone one search bar and one job per surface",
-          "ahead": 0,
-          "behind": 81,
-          "pr": {
-            "number": 16,
-            "title": "One search bar, one job per surface on the phone",
-            "state": "closed",
-            "merged_at": "2026-08-14T16:06:18Z",
-            "updated_at": "2026-08-14T16:06:19Z"
-          }
-        },
-        {
-          "name": "claude/mendes-map-revision-7mlcw0",
-          "tip_date": "2026-08-15T07:09:58Z",
-          "tip_author": "Claude",
-          "tip_message": "mendes/map: drop the zoom cluster below the rail's reach",
-          "ahead": 0,
-          "behind": 48,
-          "pr": {
-            "number": 29,
-            "title": "mendes/map: drop the zoom cluster below the rail's reach",
-            "state": "closed",
-            "merged_at": "2026-08-15T07:12:32Z",
-            "updated_at": "2026-08-15T07:12:33Z"
-          }
-        },
-        {
-          "name": "main",
-          "tip_date": "2026-08-18T12:42:47Z",
-          "tip_author": "Claude",
-          "tip_message": "map: ingredient arrows on the dossier's edge rail"
-        }
-      ],
-      "branch_detail_skipped": false,
-      "md_files": [
-        "ATTRIBUTION.md",
-        "CONTRIBUTING.md",
-        "README.md",
-        "data/external/google_mymaps/README.md",
-        "data/generated/periplus/chunks/0011_0020/ingestion_report_0011_0020.md",
-        "data/generated/periplus/chunks/0021_0030/ingestion_report_0021_0030.md",
-        "data/generated/periplus/chunks/0031_0040/ingestion_report_0031_0040.md",
-        "data/generated/periplus/chunks/0041_0050/ingestion_report_0041_0050.md",
-        "data/generated/periplus/chunks/0051_0060/ingestion_report_0051_0060.md",
-        "data/generated/periplus/chunks/0061_0066/ingestion_report_0061_0066.md",
-        "data/generated/periplus/ingestion_report_0001_0032.md",
-        "data/generated/periplus/ingestion_report_0001_0066.md",
-        "data/pleiades/README.md",
-        "data/review/README.md",
-        "data/review/route_markers.md",
-        "docs/01-json-schema.md",
-        "docs/02-repo-plan-task-list.md",
-        "docs/03-frontend-wireframe-spec.md",
-        "docs/04-claims-reader-plan.md",
-        "docs/galen_ambiguous_places.md",
-        "docs/galen_journey_passages_full_greek.md",
-        "docs/galen_route_candidates.md",
-        "docs/galen_route_decisions.md",
-        "docs/galen_routes_philological_breakdown_plan.md",
-        "docs/galen_unmatched_capitals.md",
-        "docs/materia_tei_ingredient_journeys.md",
-        "docs/simple_provenance_model.md",
-        "docs/simples_provenance_pipeline_todo.md",
-        "features/scrollytelling-viewer/ENGINE_DECISION.md",
-        "features/scrollytelling-viewer/README.md",
-        "mendes/images/louvre/README.md"
-      ],
-      "md_files_truncated": false,
-      "readme": "# Periplus Tour MVP\n\nPeriplus Tour MVP is a static research atlas for reading ancient geographic and medical texts as structured journeys. It combines source passages, translations, local review ledgers, Pleiades place identifiers, and generated map-ready JSON so that a reader can move between text, place evidence, and route geography without needing a database server.\n\nThe current app has two main research surfaces:\n\n- A Periplus route viewer for the anonymous *Periplus Maris Erythraei*, covering the full 66-section journey model currently generated from `texts.csv`, `translations.csv`, review ledgers, and route sidecars.\n- A Galen/simple-medicine provenance pipeline that identifies source passages where a simple medicine is tied to a place, adjudicates candidate links, and emits map-ready provenance points.\n\nThe project is still an MVP, but the important pieces are reproducible: generated data is built from scripts, uncertain geography is preserved as metadata, and accepted place links carry their review source.\n\n## What The Atlas Does\n\nThe viewer in `app/` presents a full-screen Leaflet map with a reading panel and a site strip. It lets a reader step through the route, inspect places mentioned in the passage, and distinguish mapped locations from unresolved or contextual geography.\n\nFor the Periplus route, the generated data model separates:\n\n- source sections and translations,\n- local place-authority records,\n- reviewed route focus records,\n- route legs,\n- off-route or contextual sites,\n- optional Google My Maps and webmap-derived review inputs.\n\nFor the simple-medicine provenance work, the pipeline asks a narrower question: when a medical entry names a place, is that place actually evidence for where a substance grows, is produced, is sourced, is acquired, or is merely contextual? The current cleaned run keeps only five accepted Dioscorides provenance links after suppressing false positives such as entry headwords that happen to match Pleiades place names.\n\n## Why This Exists\n\nAncient route and materia-medica texts often mix several kinds of geography:\n\n- direct route sequence,\n- market or harbor geography,\n- ethnographic or regional context,\n- ingredient provenance,\n- named varieties such as regional plants,\n- later editorial or translation labels.\n\nMapping all of those as if they were the same thing produces misleading maps. This repo keeps those layers separate. The route viewer can show the journey, while provenance sidecars can say why a material is linked to Arabia, Galatia, Iudaea, or another region and whether that link came from deterministic matching, human review, or LLM consensus review.\n\n## Repository Layout\n\n- `app/` - canonical static Atlas viewer.\n- `features/scrollytelling-viewer/` - older scroll-driven prototype kept for reference.\n- `data/generated/periplus/` - generated Periplus sections, places, route views, and route model.\n- `data/generated/galen/` - generated Galen route and materia data used by the viewer.\n- `data/generated/simples/` - generated simple-medicine provenance artifacts.\n- `data/review/` - human-readable review ledgers and CSV review surfaces.\n- `data/pleiades/` - cached Pleiades place snapshots and local Pleiades documentation.\n- `schemas/` - JSON Schemas for generated data contracts.\n- `scripts/` - deterministic builders, importers, validators, and exporters.\n- `docs/` - design notes, pipeline checklists, and data-model documentation.\n\n## Data Pipeline\n\nThe Periplus route pipeline is:\n\n```bash\npython3 scripts/ingest_tour_chunk.py --start 1 --count 66\npython3 scripts/apply_place_review_decisions.py --max-section 66\npython3 scripts/build_route_views.py\npython3 scripts/check_generated_tour.py\n```\n\nThat rebuilds `data/generated/periplus/` from the CSV source text, translations, reviewed place decisions, and route-view sidecars.\n\nThe simple provenance pipeline is:\n\n```bash\npython3 scripts/simples/build_pilot_manifest.py\npython3 scripts/simples/check_pilot_manifest.py\npython3 scripts/simpl\n…[truncated at 4000 chars]",
       "status_md": null
     },
     {
