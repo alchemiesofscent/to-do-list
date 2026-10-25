@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-24T08:06:42+00:00",
+  "generated_at": "2026-10-25T08:23:58+00:00",
   "account": "alchemiesofscent",
   "schema": 2,
   "repos": [
@@ -8,7 +8,7 @@
       "private": true,
       "archived": false,
       "default_branch": "main",
-      "pushed_at": "2026-10-24T08:06:17Z",
+      "pushed_at": "2026-10-25T07:56:42Z",
       "open_prs": 0,
       "branches": [
         {
@@ -17,7 +17,7 @@
           "tip_author": "alchemiesofscent",
           "tip_message": "docs-keeper: drop queue request from the docs branch (filed on main)",
           "ahead": 2,
-          "behind": 2565
+          "behind": 2829
         },
         {
           "name": "docs/2026-10-13-20",
@@ -25,7 +25,15 @@
           "tip_author": "alchemiesofscent",
           "tip_message": "docs-keeper 2026-10-13 20:40: daily pass (D68/D69, updates, Tailscale protocol draft)",
           "ahead": 1,
-          "behind": 2565
+          "behind": 2829
+        },
+        {
+          "name": "docs/2026-10-24-20",
+          "tip_date": "2026-10-24T18:38:15Z",
+          "tip_author": "alchemiesofscent",
+          "tip_message": "docs pass 24 Oct evening: README, extraction-status, handoffs index, DECISIONS-INDEX pointer (D119), UPDATES, LOG",
+          "ahead": 1,
+          "behind": 171
         },
         {
           "name": "docs/2026-10-24",
@@ -33,7 +41,15 @@
           "tip_author": "alchemiesofscent",
           "tip_message": "docs 2026-10-24 catch-up pass: fold 21-24 Oct updates, advisor block, D104 pointers, handoffs index, README/extraction-status/deliverables refresh, owner report",
           "ahead": 1,
-          "behind": 13
+          "behind": 277
+        },
+        {
+          "name": "docs/2026-10-25-sessions-fix",
+          "tip_date": "2026-10-25T01:08:12Z",
+          "tip_author": "alchemiesofscent",
+          "tip_message": "sessions: end review-desk.md with a newline so the advisor heading is its own line; SESSIONS.md rebuilt (fixes 2 failing build_sessions tests on main)",
+          "ahead": 1,
+          "behind": 94
         },
         {
           "name": "hygiene/steward-run1",
@@ -41,13 +57,13 @@
           "tip_author": "alchemiesofscent",
           "tip_message": "Record steward Run 2 safe-space cleanup",
           "ahead": 2,
-          "behind": 3477
+          "behind": 3741
         },
         {
           "name": "main",
-          "tip_date": "2026-10-24T08:06:42Z",
+          "tip_date": "2026-10-25T07:56:41Z",
           "tip_author": "alchemiesofscent",
-          "tip_message": "tools/gate.sh: machine-wide gate lock (flock); LIMITS points to it"
+          "tip_message": "queue: aos-perfume-corpus run results"
         },
         {
           "name": "okf/2026-10-17-20",
@@ -55,7 +71,7 @@
           "tip_author": "alchemiesofscent",
           "tip_message": "okf-keeper 2026-10-17 20: D67 stamp on handoff, Olivieri v5 pending",
           "ahead": 1,
-          "behind": 2131
+          "behind": 2395
         },
         {
           "name": "okf/2026-10-18-00",
@@ -63,7 +79,7 @@
           "tip_author": "alchemiesofscent",
           "tip_message": "okf-keeper 2026-10-18: Olivieri v5/v6, Mattioli v1, D76-D79, session block",
           "ahead": 1,
-          "behind": 1829
+          "behind": 2093
         },
         {
           "name": "okf/2026-10-19-20",
@@ -71,7 +87,7 @@
           "tip_author": "alchemiesofscent",
           "tip_message": "okf-keeper 2026-10-19: D80-D83 indexed, two-systems page",
           "ahead": 1,
-          "behind": 1471
+          "behind": 1735
         },
         {
           "name": "okf/2026-10-23-02",
@@ -79,7 +95,7 @@
           "tip_author": "alchemiesofscent",
           "tip_message": "sessions: okf-keeper resume line before restart",
           "ahead": 1,
-          "behind": 105
+          "behind": 369
         },
         {
           "name": "review-desk/desk-05",
@@ -87,7 +103,7 @@
           "tip_author": "alchemiesofscent",
           "tip_message": "review desk: annotation-review items with mention notes (slot desk-05)",
           "ahead": 4,
-          "behind": 3121
+          "behind": 3385
         },
         {
           "name": "review-desk/desk-06-r2",
@@ -95,7 +111,7 @@
           "tip_author": "alchemiesofscent",
           "tip_message": "review desk: HTML comparison bundles and superseded holds (slot desk-06)",
           "ahead": 2,
-          "behind": 3061
+          "behind": 3325
         },
         {
           "name": "review-desk/desk-06",
@@ -103,7 +119,7 @@
           "tip_author": "alchemiesofscent",
           "tip_message": "review desk: HTML comparison bundles and superseded holds (slot desk-06)",
           "ahead": 5,
-          "behind": 3121
+          "behind": 3385
         },
         {
           "name": "review-desk/desk-07",
@@ -111,7 +127,7 @@
           "tip_author": "alchemiesofscent",
           "tip_message": "review desk: passage-first item page; comparisons as plain columns (slot desk-07)",
           "ahead": 2,
-          "behind": 3050
+          "behind": 3314
         },
         {
           "name": "review-desk/desk-13-r2",
@@ -119,7 +135,7 @@
           "tip_author": "alchemiesofscent",
           "tip_message": "review desk: drop card_notes kind (Sean: taps the words that belong together)",
           "ahead": 3,
-          "behind": 2595
+          "behind": 2859
         },
         {
           "name": "review-desk/desk-13",
@@ -127,7 +143,7 @@
           "tip_author": "alchemiesofscent",
           "tip_message": "review desk: term-card item kind for simples-properties vocabulary decks (slot desk-13)",
           "ahead": 1,
-          "behind": 2599
+          "behind": 2863
         }
       ],
       "branch_detail_skipped": false,
@@ -207,6 +223,9 @@
         "handoffs/commentary-claims-mattioli-unencodable.md",
         "handoffs/commentary-claims-next.md",
         "handoffs/commentary-claims-sprengel1830.md",
+        "handoffs/commentary-claims-w18-d122-concerns.md",
+        "handoffs/commentary-claims-w18-d122-plan.md",
+        "handoffs/commentary-claims-w18-rules.md",
         "handoffs/critical-apparatus-anchoring-proposal-2026-10-10.md",
         "handoffs/cts-citations-plan.md",
         "handoffs/cts-step1-prompt.md",
@@ -256,6 +275,7 @@
         "handoffs/olivieri-manager.md",
         "handoffs/olivieri-publication.md",
         "handoffs/olivieri-rights-d62.md",
+        "handoffs/orchestrator-handoff-2026-10-24.md",
         "handoffs/orchestrator-handover-2026-10-13.md",
         "handoffs/orchestrator-handover-2026-10-19.md",
         "handoffs/paul-vii-apparatus.md",
@@ -282,6 +302,7 @@
         "handoffs/simples-framework-spec.md",
         "handoffs/simples-properties-synonyms-plan.md",
         "handoffs/simples-properties-web-spec-part.md",
+        "handoffs/simples-seed-corpus-handoff.md",
         "handoffs/simples-seeding-plan.md",
         "handoffs/sprengel1830-handoff.md",
         "handoffs/subjects.md",
@@ -297,11 +318,13 @@
         "handoffs/term-descriptions-plan.md",
         "handoffs/text-v1.md",
         "handoffs/translations-tei-parallel-plan.md",
+        "handoffs/w18-d122-pilot/pilot-report.md",
         "handoffs/web-architecture-joint-response.md",
         "handoffs/web-architecture-tla-spec.md",
         "handoffs/website-designer-handover.md",
         "handoffs/website-manager-044-display.md",
         "handoffs/website-manager-cookbook-variants-design.md",
+        "handoffs/website-manager-handoff-2026-10-24.md",
         "handoffs/website-manager-handoff.md",
         "handoffs/website-manager-ident-diff/ident-diff-public.md",
         "handoffs/website-manager-ident-diff/ident-diff-review.md",
@@ -336,6 +359,7 @@
         "hygiene/2026-10-18-owner-reports.md",
         "hygiene/2026-10-19-owner-reports.md",
         "hygiene/2026-10-20-owner-reports.md",
+        "hygiene/2026-10-24-owner-reports.md",
         "hygiene/DECISIONS-INDEX.md",
         "hygiene/LOG.md",
         "hygiene/UPDATES.md",
@@ -397,6 +421,7 @@
         "review/desk/page/HTML.md",
         "review/desk/page/README.md",
         "sessions/_header.md",
+        "sessions/advisor.md",
         "sessions/aetius-cmg.md",
         "sessions/aetius-quellen.md",
         "sessions/aetius-volumes.md",
@@ -457,7 +482,7 @@
         "translations/samples/20261012-wilkins/REPORT.md"
       ],
       "md_files_truncated": false,
-      "readme": "Last updated: 2026-10-20 20:07 CEST · by docs-keeper\n\n# agent-bridge: read this first\n\n**Limits (disk, jobs, usage, permissions): see [LIMITS.md](LIMITS.md), the single source (D75). It overrides any figure in a session's notes, memory or brief.**\n\n## What the project is\nA knowledge graph of ancient perfume, medicine and pharmacy, simples and botany, and the scholarly claims about them\nover the past 2,000 years (Sean Coughlin; D9). This private repo is where the agent sessions that build it coordinate:\ndecisions, who does what, handoffs, the merge queue and the review pages.\n\n## Mode\nD78 (low-chatter, 18 Oct): sessions message the orchestrator only on done, blocked or needs-Sean, one line; no standups or acknowledgements. Slots run from `queue/slots.tsv`. Codex does the heavy work; one secretary pass a day at 20:07 (D69); questions go to the board. D72 low-Claude mode ended Sat 17 Oct 07:00. D84 (site menu) was annulled by Sean on 19 Oct; the site structure waits for his own proposal. D81: `handoffs/website-wbs.md` is the one website tracker.\nD75/D77/D79 (disk, jobs, clean-up): the floor, the one-heavy-job rule (D77 suspended 18 Oct) and the clean-up-after-every-job rule are in LIMITS.md, nothing else.\nFor what each session has shipped and what waits on Sean, see `dashboard/deliverables.html`; for extraction, `handoffs/extraction-status.md`.\n\n## Where the texts stand (D55; details in handoffs/text-v1.md)\nAll core-text v1s are tagged.\n\n\"v1\" = merged, conformance checked, Sean's questions resolved, git tag `text/<edition>/v1`.\n\n| Text | State |\n|---|---|\n| Olivieri, Aetius I–II | v6 tagged (text/olivieri-aetius-i-ii/v6, aetius-cmg 18e54cda; v5 457e31f0); v7 ready on aetius-cmg 560ff196 (Aetius TEI header credit line fixed), tag waits for Sean's go; free (CC BY-SA 4.0, D63). Fontium link targets portable (urn/ref/path). cmg-texts-pm reports 714 of 779 Galen citations linked (the earlier count, 747, included 33 work-only); 31 Galen-link rulings are on the Desk. Paul page-link fix merged (aetius-cmg 7e600dc4; 20 citations unresolved); Aetius I–II English re-exported (edition-workbench de1f5747) and Aetius III–IV added (e30b36b0) |\n| Paul VII (Heiberg) | v1 tagged (6851c8d5); restricted (D42). v2 (1,373 entries + headwords) is merged (edition-workbench 492e33f8, with the r0784 Adams fix, mq-20261020-paul-vii-05) and passed the PM re-check; left: Sean's r0784 tap on the Desk (answered by relay 19 Oct) and his typed go for the PM tag text/paul-heiberg-vii/v2 |\n| Sprengel 1829, Sprengel 1830 vol. 1, Berendes 1902, Gunther 1934, Beck 2020, Adams 1847, Mattioli (Gunther edition) | v1 tagged (Sprengel 1829, Berendes, Beck on a dated EpiDoc exception to 30 Nov, D57) |\n| Wellmann, Dioscorides | v1 tagged (text/wellmann1906/v1, edition-workbench 270d7ba0); live in the public reader 0.11.0-alpha with Mattioli. Fontium check (FONT2) and the HON fix running; Sean answered the 2 HON items. v1.1 is a working tag only (no catalogue change); Wellmann merges are held until v2 (apparatus pilot 3 failed the 95% bar, 51% exact; Sean decides on card wellmann-apparatus-next) |\n\n## Where things are served (private, Sean only; tailnet, never public)\n- Public Dioscorides reader 0.11.0-alpha: Wellmann v1 plus Mattioli (Mattioli Book VI accepted by Sean, D71).\n- Editions reader (Paul VII, Aetius at Olivieri v6, Wellmann v1; private; Wellmann I–V in one reader: reader-09): https://theophrastos.tail831edd.ts.net:8790\n- Public reader (Wellmann I–V, Paul VII, Aetius I–II): built, not published (reader-10; credits \"name — role — affiliation\" in reader-11); needs Sean's typed publish go in the editions-reader session; cards P1–P4 are with the orchestrator\n- Oribasius XV + Haars viewer (private, port 8791): merged; stays private (Haars restricted, D42); tailnet route from the orchestrator\n- Aetius desk (aetius-cmg, `tools/desk/`): local page on 127.0.0.1:8795 only, never on Serve (D42; recorded in handoffs/tailscale-private-apps.md)\n- Term-card app (simples vocabula\n…[truncated at 4000 chars]",
+      "readme": "Last updated: 2026-10-24 20:40 CEST · by docs-keeper (evening pass)\n\n# agent-bridge: read this first\n\n**Limits (disk, jobs, usage, permissions): see [LIMITS.md](LIMITS.md), the single source (D75). It overrides any figure in a session's notes, memory or brief.**\n\n## What the project is\nA knowledge graph of ancient perfume, medicine and pharmacy, simples and botany, and the scholarly claims about them\nover the past 2,000 years (Sean Coughlin; D9). This private repo is where the agent sessions that build it coordinate:\ndecisions, who does what, handoffs, the merge queue and the review pages.\n\n## Mode\nD78 (low-chatter, 18 Oct): sessions message the orchestrator only on done, blocked or needs-Sean, one line; no standups or acknowledgements. Slots run from `queue/slots.tsv`. Codex does the heavy work; one secretary pass a day at 20:07 (D69); questions go to the board. D72 low-Claude mode ended Sat 17 Oct 07:00. D84 (site menu) was annulled by Sean on 19 Oct; the site structure waits for his own proposal. D81: `handoffs/website-wbs.md` is the one website tracker.\nD75/D77/D79 (disk, jobs, clean-up): the floor, the one-heavy-job rule (D77 suspended 18 Oct) and the clean-up-after-every-job rule are in LIMITS.md, nothing else.\nFor what each session has shipped and what waits on Sean, see `dashboard/deliverables.html`; for extraction, `handoffs/extraction-status.md`.\n\n## Where the texts stand (D55; details in handoffs/text-v1.md)\nAll core-text v1s are tagged.\n\n\"v1\" = merged, conformance checked, Sean's questions resolved, git tag `text/<edition>/v1`.\n\n| Text | State |\n|---|---|\n| Olivieri, Aetius I–II | v7 tagged on Sean's typed go, 22 Oct (text/olivieri-aetius-i-ii/v7, aetius-cmg 560ff196, header credit only; v6 18e54cda; v5 457e31f0); free (CC BY-SA 4.0, D63). Fontium link targets portable (urn/ref/path). cmg-texts-pm reports 714 of 779 Galen citations linked (the earlier count, 747, included 33 work-only); 31 Galen-link rulings are on the Desk. Paul page-link fix merged (aetius-cmg 7e600dc4; 20 citations unresolved); Aetius I–II English re-exported (edition-workbench de1f5747) and Aetius III–IV added (e30b36b0) |\n| Paul VII (Heiberg) | v1 tagged (6851c8d5); restricted (D42). v3 tagged (text/paul-heiberg-vii/v3, edition-workbench f9859e41, header only, D110 all rights reserved) on Sean's typed go, 23 Oct; v2 (1,373 entries + headwords, 11 Adams joins) is 60cd4763; the checker test waits for Sean's typed go in paul-app |\n| Sprengel 1829, Sprengel 1830 vol. 1, Berendes 1902, Gunther 1934, Beck 2020, Adams 1847, Mattioli (Gunther edition) | v1 tagged (Sprengel 1829, Berendes, Beck on a dated EpiDoc exception to 30 Nov, D57) |\n| Wellmann, Dioscorides | v1 tagged (text/wellmann1906/v1, edition-workbench 270d7ba0); live in the public reader 0.11.0-alpha with Mattioli. Fontium check (FONT2) and the HON fix running; Sean answered the 2 HON items. v2 is tagged (text/wellmann1906/v2 = b3377917, the same commit as v1.1; whole-number versions) and v3 (17 lost passages restored, 2a5e4f38, 24 Oct) is tagged; the big fix round is v4, in progress; Wellmann merges are held until v4. Since 20 Oct: apparatus words can be cited by word (D103), a full independent check with W3 as checker (row 239) is planned, and 56 TEI errors plus 17 lost line-end words found in v1.1 were queued for the next versions (wellmann-editions, 23 Oct) |\n| Zervos, Aetius XVI | Draft TEI with the preface as front matter (D100, private); 101 of 121 Desk items settled without Sean under D106; v1 tag waits for his Desk answers and chapter-numbering ruling |\n\n## Where things are served (private, Sean only; tailnet, never public)\n- Public Dioscorides reader 0.11.0-alpha: Wellmann v1 plus Mattioli (Mattioli Book VI accepted by Sean, D71). Mattioli 1554 claims: M3 book 1 is running in batches (b1–b3 were returned by the gates on rebase conflicts in HANDOFF.md, b4 filed; commentary-claims is re-filing); Sean's board answer was (a), with the go to be typed in commentary-claims (D118 list);\n…[truncated at 4000 chars]",
       "status_md": null
     },
     {
@@ -465,7 +490,7 @@
       "private": true,
       "archived": false,
       "default_branch": "main",
-      "pushed_at": "2026-10-24T08:02:39Z",
+      "pushed_at": "2026-10-25T07:56:39Z",
       "open_prs": 0,
       "branches": [
         {
@@ -544,9 +569,6 @@
           "name": "commentary-claims/cookbook-promotion-2b"
         },
         {
-          "name": "commentary-claims/cookbook-promotion-2c"
-        },
-        {
           "name": "commentary-claims/cookbook-promotion-2"
         },
         {
@@ -613,10 +635,46 @@
           "name": "commentary-claims/manniche2006"
         },
         {
+          "name": "commentary-claims/mattioli-b2-rest"
+        },
+        {
           "name": "commentary-claims/mattioli-m1"
         },
         {
           "name": "commentary-claims/mattioli-m2"
+        },
+        {
+          "name": "commentary-claims/mattioli-m3-b1"
+        },
+        {
+          "name": "commentary-claims/mattioli-m3-b2-1"
+        },
+        {
+          "name": "commentary-claims/mattioli-m3-b2-3s"
+        },
+        {
+          "name": "commentary-claims/mattioli-m3-b2-4s"
+        },
+        {
+          "name": "commentary-claims/mattioli-m3-b2-5s"
+        },
+        {
+          "name": "commentary-claims/mattioli-m3-b2-6s"
+        },
+        {
+          "name": "commentary-claims/mattioli-m3-b2-7s"
+        },
+        {
+          "name": "commentary-claims/mattioli-m3-b2-8s"
+        },
+        {
+          "name": "commentary-claims/mattioli-m3-b2"
+        },
+        {
+          "name": "commentary-claims/mattioli-m3-b3"
+        },
+        {
+          "name": "commentary-claims/mattioli-m3-b4"
         },
         {
           "name": "commentary-claims/olivieri-v2"
@@ -671,6 +729,12 @@
           "name": "main"
         },
         {
+          "name": "materials/a2-opobalsamum"
+        },
+        {
+          "name": "materials/a2-opobalsamum-02"
+        },
+        {
           "name": "materials/claim-qualifiers"
         },
         {
@@ -693,9 +757,6 @@
         },
         {
           "name": "materials/wellmann-v1.1-repin-2"
-        },
-        {
-          "name": "persons/lykopolis-unmatched"
         },
         {
           "name": "persons-and-places/entities-nfc"
@@ -826,6 +887,9 @@
           "name": "recipes/amygdalinon-2"
         },
         {
+          "name": "recipes/answers-2"
+        },
+        {
           "name": "recipes/iasmelaion"
         },
         {
@@ -839,6 +903,9 @@
         },
         {
           "name": "recipes/omphakinon-terms"
+        },
+        {
+          "name": "recipes/schema-oct24"
         },
         {
           "name": "recipes/sinapinon"
@@ -944,6 +1011,8 @@
         "recipes/dioscorides-1-30-3-agrias-elaias/research.md",
         "recipes/dioscorides-1-30-5-sikyonion/decisions.md",
         "recipes/dioscorides-1-30-5-sikyonion/research.md",
+        "recipes/dioscorides-1-30-aged-oil-imitation/decisions.md",
+        "recipes/dioscorides-1-30-aged-oil-imitation/research.md",
         "recipes/dioscorides-1-30-omphakinon/decisions.md",
         "recipes/dioscorides-1-30-omphakinon/research.md",
         "recipes/dioscorides-1-30-whitened-oil/decisions.md",
@@ -1149,6 +1218,18 @@
         "staging/materials/wellmann-v1.1-report.md",
         "staging/materials/wellmann-v1.1b-report.md",
         "staging/mattioli1554/README.md",
+        "staging/mattioli1554/b1/1/coverage.md",
+        "staging/mattioli1554/b1/2/coverage.md",
+        "staging/mattioli1554/b1/3/coverage.md",
+        "staging/mattioli1554/b1/4/coverage.md",
+        "staging/mattioli1554/b1/5/coverage.md",
+        "staging/mattioli1554/b1/6/HANDOFF-lines.md",
+        "staging/mattioli1554/b1/6/coverage.md",
+        "staging/mattioli1554/b1/attr-HANDOFF-lines.md",
+        "staging/mattioli1554/b2/1/HANDOFF-lines.md",
+        "staging/mattioli1554/b2/1/coverage.md",
+        "staging/mattioli1554/b2/2/HANDOFF-lines.md",
+        "staging/mattioli1554/b2/2/coverage.md",
         "staging/mattioli1554/gold/REPORT.md",
         "staging/mattioli1554/gold/coverage.md",
         "staging/mattioli1554/gold/review-dispositions.md",
@@ -1167,7 +1248,7 @@
       "private": true,
       "archived": false,
       "default_branch": "main",
-      "pushed_at": "2026-10-24T07:48:46Z",
+      "pushed_at": "2026-10-25T07:53:56Z",
       "open_prs": 0,
       "branches": [
         {
@@ -1225,6 +1306,12 @@
           "name": "translations/sprengel-v2-gemini"
         },
         {
+          "name": "translations/wellmann-v3-repins"
+        },
+        {
+          "name": "translations/wellmann-v4-repins"
+        },
+        {
           "name": "wellmann-apparatus-rulebook"
         },
         {
@@ -1255,10 +1342,19 @@
           "name": "wellmann-v1.2-losses"
         },
         {
+          "name": "wellmann-v4-text"
+        },
+        {
+          "name": "wellmann-v4-text-2"
+        },
+        {
           "name": "wellmann-validator-midpage"
         },
         {
           "name": "wellmann-wip"
+        },
+        {
+          "name": "zervos/fast-v1-2"
         },
         {
           "name": "zervos/fast-v1"
@@ -3109,6 +3205,10 @@
         "examples/new-author/README.md",
         "lemmatization/README.md",
         "lemmatization/REVIEW_GUIDELINES.md",
+        "lemmatization/review/code/d104-review-1.md",
+        "lemmatization/review/code/d104-review-2.md",
+        "lemmatization/review/code/d104-review-3.md",
+        "lemmatization/review/code/d104-review-4.md",
         "provenance/legacy/alignment-20260906/README.md",
         "provenance/legacy/alignment-20260906/ledgers-c7a416df/README.md",
         "provenance/legacy/alignment-20260906/ledgers-c7a416df/review/README.md",
@@ -3454,11 +3554,119 @@
       "status_md": null
     },
     {
+      "name": "aos-site",
+      "private": true,
+      "archived": false,
+      "default_branch": "main",
+      "pushed_at": "2026-10-25T04:11:21Z",
+      "open_prs": 0,
+      "branches": [
+        {
+          "name": "main",
+          "tip_date": "2026-10-25T04:11:17Z",
+          "tip_author": "alchemiesofscent",
+          "tip_message": "Merge website/search-focus-cream-2 owned by website-manager (queue mq-20261025-website-manager-51)"
+        },
+        {
+          "name": "website/bundle-5d4445b",
+          "tip_date": "2026-10-12T07:57:10Z",
+          "tip_author": "alchemiesofscent",
+          "tip_message": "Bundle bump: bundle-5d4445b (the olive)",
+          "ahead": 0,
+          "behind": 130
+        },
+        {
+          "name": "website/bundle-8a6859a",
+          "tip_date": "2026-10-16T00:43:28Z",
+          "tip_author": "alchemiesofscent",
+          "tip_message": "Bundle bump: bundle-8a6859a (044 links, materials bundle 2)",
+          "ahead": 1,
+          "behind": 124
+        },
+        {
+          "name": "website/bundle-a84ff88",
+          "tip_date": "2026-10-16T09:14:52Z",
+          "tip_author": "alchemiesofscent",
+          "tip_message": "Bundle bump: bundle-a84ff88 (044 links, materials bundle 2, consulted blocks)",
+          "ahead": 1,
+          "behind": 124
+        },
+        {
+          "name": "website/event-corrections",
+          "tip_date": "2026-10-23T06:07:08Z",
+          "tip_author": "alchemiesofscent",
+          "tip_message": "Fix D104 workshop presenters, backing checks, addresses and presentation filters",
+          "ahead": 2,
+          "behind": 62
+        },
+        {
+          "name": "website/header-hero",
+          "tip_date": "2026-10-19T02:22:00Z",
+          "tip_author": "alchemiesofscent",
+          "tip_message": "Add approved collapsing header A and randomized MP4 hero clips",
+          "ahead": 9,
+          "behind": 110
+        },
+        {
+          "name": "website/menu-d84",
+          "tip_date": "2026-10-19T11:11:21Z",
+          "tip_author": "alchemiesofscent",
+          "tip_message": "Compare regular nav links in shared chrome gates after Home addition",
+          "ahead": 10,
+          "behind": 110
+        },
+        {
+          "name": "website/search-focus-cream",
+          "tip_date": "2026-10-22T20:06:31Z",
+          "tip_author": "alchemiesofscent",
+          "tip_message": "Centre phone menu links safely within the panel",
+          "ahead": 18,
+          "behind": 62
+        },
+        {
+          "name": "website/talks-events",
+          "tip_date": "2026-10-19T11:22:28Z",
+          "tip_author": "alchemiesofscent",
+          "tip_message": "Normalize approved TE3 News record counts in G2",
+          "ahead": 9,
+          "behind": 110
+        },
+        {
+          "name": "website/w17-ingredients",
+          "tip_date": "2026-10-19T02:36:08Z",
+          "tip_author": "alchemiesofscent",
+          "tip_message": "Add inline Cookbook ingredient identification choices",
+          "ahead": 10,
+          "behind": 110
+        }
+      ],
+      "branch_detail_skipped": false,
+      "md_files": [
+        "AGENTS.md",
+        "LICENSE.md",
+        "QUESTIONS.md",
+        "README.md",
+        "build/vendor/README.md",
+        "build/vendor/citeproc/README.md",
+        "content/sources/events/SOURCE.md",
+        "docs/data-guide-pages.md",
+        "docs/known-issues/cookbook-body-a11y.md",
+        "docs/known-issues/cookbook-phase4-css.md",
+        "docs/known-issues/library-body-a11y.md",
+        "docs/media-sources.md",
+        "site/assets/vendor/leaflet/README.md",
+        "site/design/fonts/LICENCES.md"
+      ],
+      "md_files_truncated": false,
+      "readme": "# Alchemies of Scent site\n\nA static display site built from a pinned public corpus bundle. The site owns rendering, templates, assets and view schemas; corpus records remain with their data owners. The Library retains its 2a record bodies; the public Cookbook retains its prototype bodies. Main pages use the new-website export shell with isolated `aos-` classes and CSS in `@layer shell`; the Library, Cookbook and Replications retain their current shells. Main-site content is marked as draft. Czech Home is at `/cz/`; every canonical English page has a matching `/cz/` twin with Czech chrome and `noindex`. Most bodies are placeholders; TE1 person twins contain latest Works/Talks lists and the Czech research/talks lists support author filtering. Language switches always land on the corresponding page.\n\nThe Library release is pinned in `bundle.lock.json`; the independent Cookbook export is pinned in `cookbook.lock.json`. Set `AOS_BUNDLE_TARBALL` to the local archive named by the bundle lock, or use `scripts/fetch_bundle.sh bundle` for a released asset.\n\nRequires Python 3.12+ and Jinja2 (with MarkupSafe). Bundle fetching also requires Bash and sha256sum; remote fetching uses authenticated `gh` access to the pinned repository. Node.js is also required at build time for one offline citeproc-js call rendering all Chicago bibliography entries; the pinned processor/style/locales and licences are in `build/vendor/citeproc/`. No npm install or browser citation dependency is needed.\n\n```sh\nscripts/fetch_bundle.sh --local \"$AOS_BUNDLE_TARBALL\" bundle\npython3 scripts/cookbook_provisional.py --corpus ~/work/aos-perfume-corpus-site --out bundle/cookbook-provisional\npython3 scripts/cookbook_provisional.py --corpus ~/work/aos-perfume-corpus-site --out bundle/cookbook-review --review --reference-out /tmp/aos-cookbook-review-ref\npython3 build/build.py --bundle bundle/bundle-public --cookbook bundle/cookbook-review --out dist --alias-stubs\npython3 build/build.py --bundle bundle/bundle-public --cookbook bundle/cookbook-provisional --out /tmp/aos-g-deploy --fonts fallback\nscripts/serve.sh 8640\n```\n\nVisit http://127.0.0.1:8640. The preview includes 72 Cookbook recipes and review.html, plus alias forwarding pages; deploy-format output uses the 54-recipe public Cookbook and one `_redirects` entry per bundle alias (494 at bundle-d3645fe). The provisional exporter reads the pinned corpus build and runs its checks entirely in `/tmp`; it preserves full render contexts as JSON object graphs, with shared/cyclic objects and safe HTML types restored by the site renderer. No corpus sources are required for rendering once the provisional section exists. Root assets are content-hashed; each face keeps its own asset tree. Fetch refuses an existing `bundle-public` destination. Rendering replaces its output directory; it refuses outputs that overlap the input bundle or contain this repo. It validates the public bundle directory against `schema/bundle-v1.schema.json` using a stdlib validator for the schema's keywords. Record bodies and additional fields remain permissive; incompatible schema majors are refused.\n\n`build/package_review.py` makes a private review copy. Its optional `--basemaps` mode requires Pillow and network access and writes a tile cache. Those are not ordinary build dependencies. Font and data licensing are separate from code; see LICENSE.md. Publishing and deployment are orchestrator-controlled.\n\nThe CZ1–CZ4 checks cover exact twin sets, Czech chrome and placeholder-only bodies, reciprocal language destinations (including HTTP 200), and all twin links. D5 checks the English faces; CZ2 checks the Czech faces. Alias stubs and redirects have no twins.\n\n## Gates\n\nFrom a clean corpus checkout at the Cookbook pin, run:\n\n```sh\nAOS_CORPUS=/path/to/aos-perfume-corpus scripts/gates.sh\n```\n\nThe corpus must be a clean checkout (including untracked files) at the exact commit in `cookbook.lock.json`; otherwise the command refuses with one line. Requires the build d\n…[truncated at 4000 chars]",
+      "status_md": null
+    },
+    {
       "name": "perfume-tables",
       "private": true,
       "archived": false,
       "default_branch": "main",
-      "pushed_at": "2026-10-24T07:20:57Z",
+      "pushed_at": "2026-10-25T02:51:19Z",
       "open_prs": 0,
       "branches": [
         {
@@ -3469,10 +3677,10 @@
         },
         {
           "name": "research/per-fumum",
-          "tip_date": "2026-10-24T07:20:55Z",
+          "tip_date": "2026-10-25T02:51:16Z",
           "tip_author": "alchemiesofscent",
-          "tip_message": "research/per-fumum: job 8 (vernacular Bibles) and job 9 (French/Spanish contexts) specs, awaiting Sean's go",
-          "ahead": 29,
+          "tip_message": "research/per-fumum: job 12 Spanish full texts (25 texts, 38 cards); Covarrubias 1611 checked on scan, timeline §3 ✔",
+          "ahead": 49,
           "behind": 88
         },
         {
@@ -5350,283 +5558,11 @@
       "status_md": null
     },
     {
-      "name": "corpora",
-      "private": true,
-      "archived": false,
-      "default_branch": "main",
-      "pushed_at": "2026-10-24T01:42:12Z",
-      "open_prs": 0,
-      "branches": [
-        {
-          "name": "job/20261008-2330-local-data",
-          "tip_date": "2026-10-08T21:35:38Z",
-          "tip_author": "alchemiesofscent",
-          "tip_message": "Import local drug-property witnesses (trimmed): DB assertion exports, enum schemas, three translation packets, vocab-v3 results from ancient-simples wip/public-read",
-          "ahead": 1,
-          "behind": 37
-        },
-        {
-          "name": "main",
-          "tip_date": "2026-10-24T01:42:08Z",
-          "tip_author": "alchemiesofscent",
-          "tip_message": "Merge simples/d107-seed owned by simples-properties (queue mq-20261024-simples-properties-corpora-01)"
-        }
-      ],
-      "branch_detail_skipped": false,
-      "md_files": [
-        "README.md",
-        "entities/properties/cards/README.md",
-        "entities/properties/codex/adjudicate/questions_for_sean.md",
-        "entities/properties/dunamis-energeia/README.md",
-        "entities/properties/dunamis-energeia/aetius-oribasius.md",
-        "entities/properties/dunamis-energeia/brief.md",
-        "entities/properties/dunamis-energeia/galen-smt-1-2.md",
-        "entities/properties/dunamis-energeia/galen-smt-3-5.md",
-        "entities/properties/parts/REVIEW.md",
-        "entities/properties/parts/j2_prompt.md",
-        "entities/properties/parts/j3_prompt.md",
-        "entities/properties/smell-move.md",
-        "entities/properties/vocab/cards/README.md",
-        "entities/simples/seed/report.md",
-        "lemmata/README.md",
-        "lemmata/worker/README.md"
-      ],
-      "md_files_truncated": false,
-      "readme": "# corpora\n\n**This repository must stay private.** It holds TLG and PHI texts, which are\nlicensed for individual use and may not be redistributed (TLG and PHI terms).\nDo not make it public, fork it publicly, or copy its files into a public repository.\n\nIt exists so that Claude Code cloud sessions, which can read only GitHub\nrepositories, can read the same files as the local checkout at `~/Projects/corpora`.\nOther repositories (e.g. alchemiesofscent/concordance) pin files here by path,\ncommit and sha256.\n\n| folder | what it is | source | licence |\n|---|---|---|---|\n| `tlg/` | Thesaurus Linguae Graecae, one TEI file per work (`tlgAAAAWWW.xml`), plus `authtab.xml` (author and work canon) | TLG E, converted to TEI by Diogenes 4.7.2 | TLG licence: private use only, no redistribution |\n| `phi/` | PHI Latin texts, one TEI file per work (`phiAAAAWWW.xml`), plus `authtab.xml` | PHI 5.3, converted to TEI by Diogenes 4.7.2 | PHI licence: private use only, no redistribution |\n\nThe layout is the local one, unchanged.\n\nNot included (public; clone them from GitHub):\n\n| local folder | repository | licence | local commit (shallow clone) |\n|---|---|---|---|\n| `first1kgreek/` | https://github.com/OpenGreekAndLatin/First1KGreek | CC BY-SA 4.0 | `0d8a06b524b2` (2026-04-28) |\n| `idp/` | https://github.com/papyri/idp.data | CC BY 3.0 | `fc62c5443f9b` (2026-07-25) |\n| `digiliblt/` | https://github.com/lascivaroma/digiliblt | CC BY-NC-SA 4.0 | `ed90f37d3f6c` (2023-06-18) |\n\nThe local `idp/` is the clone the perfume-tables papyri sweeps read (DDbDP\n2026-07-27, DCLP 2026-07-29): cloned 2026-07-27 with `git clone --depth 1`,\n389,521 files, 7.3 GB on disk. To reproduce it, clone the repository and check\nout the commit above. The sweeps' working files are in `~/sweeprun/`.\n\n**On Theophrastos (2026-10-21)** idp.data is a full `git clone --depth 1` at\n`/mnt/d/corpora/idp.data` (D:), commit `190d442353738046a102f1de44030adb874e9a37`\n(2026-10-21), 3.0 GB; `~/Projects/corpora/idp` is a symlink to it. The July\ncommit above is checked out beside it, DDbDP only, at `/mnt/d/corpora/idp-2026-07-25`.\nBoth are logged in perfume-tables `research/SEARCH_LOG.md` (idp-local).\n",
-      "status_md": null
-    },
-    {
-      "name": "aos-site",
-      "private": true,
-      "archived": false,
-      "default_branch": "main",
-      "pushed_at": "2026-10-23T09:34:59Z",
-      "open_prs": 0,
-      "branches": [
-        {
-          "name": "main",
-          "tip_date": "2026-10-23T06:02:57Z",
-          "tip_author": "alchemiesofscent",
-          "tip_message": "Merge website/lemma-display owned by website-manager (queue mq-20261023-website-manager-46)"
-        },
-        {
-          "name": "website/bundle-5d4445b",
-          "tip_date": "2026-10-12T07:57:10Z",
-          "tip_author": "alchemiesofscent",
-          "tip_message": "Bundle bump: bundle-5d4445b (the olive)",
-          "ahead": 0,
-          "behind": 74
-        },
-        {
-          "name": "website/bundle-8a6859a",
-          "tip_date": "2026-10-16T00:43:28Z",
-          "tip_author": "alchemiesofscent",
-          "tip_message": "Bundle bump: bundle-8a6859a (044 links, materials bundle 2)",
-          "ahead": 1,
-          "behind": 68
-        },
-        {
-          "name": "website/bundle-a84ff88",
-          "tip_date": "2026-10-16T09:14:52Z",
-          "tip_author": "alchemiesofscent",
-          "tip_message": "Bundle bump: bundle-a84ff88 (044 links, materials bundle 2, consulted blocks)",
-          "ahead": 1,
-          "behind": 68
-        },
-        {
-          "name": "website/event-corrections",
-          "tip_date": "2026-10-23T06:07:08Z",
-          "tip_author": "alchemiesofscent",
-          "tip_message": "Fix D104 workshop presenters, backing checks, addresses and presentation filters",
-          "ahead": 2,
-          "behind": 6
-        },
-        {
-          "name": "website/header-hero",
-          "tip_date": "2026-10-19T02:22:00Z",
-          "tip_author": "alchemiesofscent",
-          "tip_message": "Add approved collapsing header A and randomized MP4 hero clips",
-          "ahead": 9,
-          "behind": 54
-        },
-        {
-          "name": "website/menu-d84",
-          "tip_date": "2026-10-19T11:11:21Z",
-          "tip_author": "alchemiesofscent",
-          "tip_message": "Compare regular nav links in shared chrome gates after Home addition",
-          "ahead": 10,
-          "behind": 54
-        },
-        {
-          "name": "website/search-focus-cream",
-          "tip_date": "2026-10-22T20:06:31Z",
-          "tip_author": "alchemiesofscent",
-          "tip_message": "Centre phone menu links safely within the panel",
-          "ahead": 18,
-          "behind": 6
-        },
-        {
-          "name": "website/talks-events",
-          "tip_date": "2026-10-19T11:22:28Z",
-          "tip_author": "alchemiesofscent",
-          "tip_message": "Normalize approved TE3 News record counts in G2",
-          "ahead": 9,
-          "behind": 54
-        },
-        {
-          "name": "website/w17-ingredients",
-          "tip_date": "2026-10-19T02:36:08Z",
-          "tip_author": "alchemiesofscent",
-          "tip_message": "Add inline Cookbook ingredient identification choices",
-          "ahead": 10,
-          "behind": 54
-        }
-      ],
-      "branch_detail_skipped": false,
-      "md_files": [
-        "AGENTS.md",
-        "LICENSE.md",
-        "QUESTIONS.md",
-        "README.md",
-        "build/vendor/README.md",
-        "build/vendor/citeproc/README.md",
-        "content/sources/events/SOURCE.md",
-        "docs/data-guide-pages.md",
-        "docs/known-issues/cookbook-body-a11y.md",
-        "docs/known-issues/cookbook-phase4-css.md",
-        "docs/known-issues/library-body-a11y.md",
-        "docs/media-sources.md",
-        "site/assets/vendor/leaflet/README.md",
-        "site/design/fonts/LICENCES.md"
-      ],
-      "md_files_truncated": false,
-      "readme": "# Alchemies of Scent site\n\nA static display site built from a pinned public corpus bundle. The site owns rendering, templates, assets and view schemas; corpus records remain with their data owners. The Library retains its 2a record bodies; the public Cookbook retains its prototype bodies. Main pages use the new-website export shell with isolated `aos-` classes and CSS in `@layer shell`; the Library, Cookbook and Replications retain their current shells. Main-site content is marked as draft. Czech Home is at `/cz/`; every canonical English page has a matching `/cz/` twin with Czech chrome and `noindex`. Most bodies are placeholders; TE1 person twins contain latest Works/Talks lists and the Czech research/talks lists support author filtering. Language switches always land on the corresponding page.\n\nThe Library release is pinned in `bundle.lock.json`; the independent Cookbook export is pinned in `cookbook.lock.json`. Set `AOS_BUNDLE_TARBALL` to the local archive named by the bundle lock, or use `scripts/fetch_bundle.sh bundle` for a released asset.\n\nRequires Python 3.12+ and Jinja2 (with MarkupSafe). Bundle fetching also requires Bash and sha256sum; remote fetching uses authenticated `gh` access to the pinned repository. Node.js is also required at build time for one offline citeproc-js call rendering all Chicago bibliography entries; the pinned processor/style/locales and licences are in `build/vendor/citeproc/`. No npm install or browser citation dependency is needed.\n\n```sh\nscripts/fetch_bundle.sh --local \"$AOS_BUNDLE_TARBALL\" bundle\npython3 scripts/cookbook_provisional.py --corpus ~/work/aos-perfume-corpus-site --out bundle/cookbook-provisional\npython3 scripts/cookbook_provisional.py --corpus ~/work/aos-perfume-corpus-site --out bundle/cookbook-review --review --reference-out /tmp/aos-cookbook-review-ref\npython3 build/build.py --bundle bundle/bundle-public --cookbook bundle/cookbook-review --out dist --alias-stubs\npython3 build/build.py --bundle bundle/bundle-public --cookbook bundle/cookbook-provisional --out /tmp/aos-g-deploy --fonts fallback\nscripts/serve.sh 8640\n```\n\nVisit http://127.0.0.1:8640. The preview includes 72 Cookbook recipes and review.html, plus alias forwarding pages; deploy-format output uses the 54-recipe public Cookbook and one `_redirects` entry per bundle alias (494 at bundle-d3645fe). The provisional exporter reads the pinned corpus build and runs its checks entirely in `/tmp`; it preserves full render contexts as JSON object graphs, with shared/cyclic objects and safe HTML types restored by the site renderer. No corpus sources are required for rendering once the provisional section exists. Root assets are content-hashed; each face keeps its own asset tree. Fetch refuses an existing `bundle-public` destination. Rendering replaces its output directory; it refuses outputs that overlap the input bundle or contain this repo. It validates the public bundle directory against `schema/bundle-v1.schema.json` using a stdlib validator for the schema's keywords. Record bodies and additional fields remain permissive; incompatible schema majors are refused.\n\n`build/package_review.py` makes a private review copy. Its optional `--basemaps` mode requires Pillow and network access and writes a tile cache. Those are not ordinary build dependencies. Font and data licensing are separate from code; see LICENSE.md. Publishing and deployment are orchestrator-controlled.\n\nThe CZ1–CZ4 checks cover exact twin sets, Czech chrome and placeholder-only bodies, reciprocal language destinations (including HTTP 200), and all twin links. D5 checks the English faces; CZ2 checks the Czech faces. Alias stubs and redirects have no twins.\n\n## Gates\n\nFrom a clean corpus checkout at the Cookbook pin, run:\n\n```sh\nAOS_CORPUS=/path/to/aos-perfume-corpus scripts/gates.sh\n```\n\nThe corpus must be a clean checkout (including untracked files) at the exact commit in `cookbook.lock.json`; otherwise the command refuses with one line. Requires the build d\n…[truncated at 4000 chars]",
-      "status_md": null
-    },
-    {
-      "name": "to-do-list",
-      "private": false,
-      "archived": false,
-      "default_branch": "main",
-      "pushed_at": "2026-10-23T08:34:55Z",
-      "open_prs": 0,
-      "branches": [
-        {
-          "name": "main",
-          "tip_date": "2026-10-23T08:34:54Z",
-          "tip_author": "portfolio-bot",
-          "tip_message": "portfolio: nightly collection 2026-10-23"
-        }
-      ],
-      "branch_detail_skipped": false,
-      "md_files": [
-        ".github/pull_request_template.md",
-        "AGENTS.md",
-        "CLAUDE.md",
-        "CONTRIBUTING.md",
-        "PLAN.md",
-        "README.md",
-        "REPO_STANDARD.md",
-        "SECURITY.md",
-        "STATUS.md",
-        "WBS_TODO_SUPABASE_INTEGRATION.md",
-        "data/projects.md",
-        "docs/FINDINGS-metopion-20260805.md",
-        "docs/FINDINGS-theophrastos-20260805.md",
-        "docs/QA_CHECKLIST.md",
-        "docs/pmo.md",
-        "docs/pmo/CHANGELOG.md",
-        "docs/pmo/DECISIONS.md",
-        "docs/pmo/ENGINEERING_LOG.md",
-        "docs/pmo/KNOWN_ISSUES.md",
-        "pmo/decision_log.md",
-        "pmo/delegation_outbox.md",
-        "pmo/inbox.md",
-        "projects/br-ager-scent-ancient-magic/00_brief.md",
-        "projects/br-ager-scent-ancient-magic/01_plan.md",
-        "projects/br-ager-scent-ancient-magic/02_status.md",
-        "projects/br-ager-scent-ancient-magic/03_actions.md",
-        "projects/br-ager-scent-ancient-magic/04_assets.md",
-        "publications/BRIEF.md",
-        "publications/handoff.md"
-      ],
-      "md_files_truncated": false,
-      "readme": "# Scholar's Opus\n\nLightweight, local-first academic research and publication tracker (Vite + React). It seeds from a Markdown project list and stores edits locally in the browser (no backend).\n\n## Quickstart\n\n**Requirements:** Node.js 20+\n\n```bash\nnpm ci && npm run dev\n```\n\n## Scripts\n\n- `npm run dev`: run the dev server\n- `npm run build`: build a production bundle into `dist/`\n- `npm run preview`: preview the production build locally\n- `npm run lint`: lint the codebase\n- `npm run typecheck`: TypeScript typecheck\n- `npm test`: run unit tests\n- `npm run validate:data`: validate `data/projects.md` parses cleanly\n\n## Configuration\n\nNo required environment variables.\n\n## Architecture\n\n- `src/main.tsx`: app entrypoint\n- `src/App.tsx`: UI + filtering (Writing/Experiments/DH/Grants/Admin tabs)\n- `src/projectsParser.ts`: parses `data/projects.md` into tasks at build time\n- `src/db.ts`: localStorage persistence + migrations\n- `src/components/*`: UI components\n- `src/sync.ts`: optional Supabase sync (guarded, record-level)\n\n## Optional Supabase cloud sync (Auth)\n\nCloud sync is optional. If `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY` are present, the app can sync via Supabase **Auth + RLS**.\n\n- Enable: open **Cloud** (or go to `/auth`) and sign in (PKCE; callback at `${BASE_URL}auth/callback`).\n- Security model: tables are protected by RLS (`owner_id = auth.uid()`); the client does not rely on `user_id` filtering for access control.\n- Deletes: use tombstones (`deleted_at`) to prevent cross-device resurrection; hard delete/purge is deferred.\n- Dashboard settings: add exact redirect URLs for dev + GitHub Pages base path (see `.github/workflows/pages.yml` for the deployed base path, and `vite.config.ts` for `base`).\n\nLegacy migration note: if you have old rows in `public.tasks` that only have a legacy `user_id` namespace, you must manually “claim” them by setting `owner_id` via SQL (see `supabase/migrations/*_auth_owner_rls_tombstones.sql`).\n\n## Data\n\n- Seed list: `data/projects.md` (each entry is a checklist item with an indented metadata block)\n- Saved state: browser `localStorage` (`scholar_opus_db`)\n\nThe Markdown seed is treated as read-only at runtime; changes made in the UI are not written back to `data/projects.md`.\n\nExample entry:\n\n```md\n- [ ] Project title\n  - domain: Writing\n  - type: Article\n  - status: Draft\n  - priority: Medium\n  - description: Short notes…\n```\n\n## Deployment (GitHub Pages)\n\nThis repo deploys to `https://alchemiesofscent.github.io/to-do-list/` via `.github/workflows/pages.yml`.\n\nNote: the GitHub Pages build is configured for the `/to-do-list/` base path. If you fork or rename the repo, set `VITE_BASE_PATH` for production builds or update the Vite `base` setting in `vite.config.ts`.\n",
-      "status_md": "# STATUS\n\n**Updated:** 2026-08-06 (by: claude-cowork)\n**Canonical branch:** main\n\n> **⚠ TOP ITEM (2026-08-06): a finished corpus is one disk failure from gone.**\n> The Galen *De alimentorum facultatibus* lane on theophrastos — 2,463 files,\n> 147 approved chapters — is **untracked: no commit, no branch, no backup**\n> (rescue bundles predate it). Flagged by the oribasius /goals job itself at\n> 06:56. Sean is away until ~2026-08-09. If ANY access to theophrastos exists\n> first, run:\n> `cd ~/github/oribasius-app && git checkout -b rescue/alimfac-20260806 && git add -f translation_project/galen-alimentary-faculties/ && git commit -m \"rescue: alim.fac. lane\" && git push -u origin rescue/alimfac-20260806`\n> Book XIV wave artifacts are untracked too (same repo, same exposure).\n\n---\n\n## Part 1 — The story so far (for Sean)\n\n### Previously on alchemiesofscent…\n\nSean, a scholar of ancient perfume, has years of research projects scattered\nacross twenty-five online archives and two computers — a laptop and a desktop.\nOver time, he and his AI assistants made copies of copies, left work half-filed,\nand in places kept the only version of something on a single machine, where a\nspilled coffee could end it. So he started a cleanup with one rule: everything\nimportant must live in the shared online archive, where every machine can see\nit, and this folder is the cleanup's logbook.\n\nStep one: list what the online archive holds. Done. Of twenty-five projects,\nonly about five showed recent life; the rest were husks, half-finished starts,\nor duplicates. The same project often existed under two or three names — a\ncookbook of ancient recipes in three variants, a data model in two — because\nwhen a project stalled, the habit was to start a fresh copy rather than repair\nthe old one. And the two busiest projects (a tool for editing ancient texts,\nand a database of the physician Oribasius) each had a large body of new work\nsitting in side-drafts that were never folded back into the official version.\nThe cause, in one sentence: many working sessions — human and AI alike — ended\nwithout anyone filing what had been done, and each rescue attempt made another\ncopy instead of cleaning up the last one.\n\nStep two: search each computer and compare. The laptop has now been searched,\nand it was hiding things. The biggest surprise: inside the Oribasius project\nsits a detailed plan, written by an AI assistant in July and never shared\nonline, to freeze that project and start a successor called \"hylike\" — the\nexact opposite of the current cleanup plan, which says to fold two other\nprojects *into* it. Sean has deferred that decision. The laptop also holds\nhundreds of unfiled edits to the text-editing tool (which is supposed to be\nfrozen), a ten-thousand-file salvage copy of it with no backup anywhere,\nseveral smaller projects with no online backup at all, and a to-do app whose\nlatest state was never written down anywhere — it exists only inside a web\nbrowser, last touched in January.\n\nThen, that same evening, Sean sat down at the desktop and ran the search\nhimself. It did hold a third version of events. The Oribasius project turned\nout to exist in three states that no longer agree: the shared archive's\nversion, the laptop's secret successor plan, and the desktop's own pile —\nnearly a thousand unfiled edits plus rescue work (a translation of Paul of\nAegina's Book 7, recovered Galen data) that was never sent anywhere. Worse:\nthe supposedly frozen text-editing tool had been changed *that very day* by\nsomething still running on the desktop — nobody yet knows what. And a small\nproject surfaced that exists on no archive at all, only on that one machine.\n\nBoth machines have now been heard; the searching phase is over. The mystery\nof the frozen tool solved itself: the editor was Sean — before leaving town,\nhe deliberately restarted three automated jobs on the desktop (the Oribasius\ntranslations, the Dioscorides edition, and the cookbook's extraction\npipeline) so they'd finish while \n…[truncated at 4000 chars]"
-    },
-    {
-      "name": "concordance",
-      "private": true,
-      "archived": false,
-      "default_branch": "main",
-      "pushed_at": "2026-10-23T06:30:24Z",
-      "open_prs": 0,
-      "branches": [
-        {
-          "name": "main",
-          "tip_date": "2026-10-23T06:30:20Z",
-          "tip_author": "alchemiesofscent",
-          "tip_message": "Merge wip/aetius-paul-desk-1 owned by concordance-writer (queue mq-20261023-concordance-writer-aetius-paul-desk-1)"
-        },
-        {
-          "name": "wip/registrar",
-          "tip_date": "2026-10-09T10:00:57Z",
-          "tip_author": "Claude",
-          "tip_message": "Link identifiers prepared (checklist I.6): tools/link_ids.py, the check, docs/LINK_IDS.md",
-          "ahead": 2,
-          "behind": 70
-        },
-        {
-          "name": "wip/subjects",
-          "tip_date": "2026-10-09T01:57:30Z",
-          "tip_author": "Claude",
-          "tip_message": "Report: time",
-          "ahead": 0,
-          "behind": 74
-        },
-        {
-          "name": "wip/wellmann-repin",
-          "tip_date": "2026-10-11T04:30:33Z",
-          "tip_author": "alchemiesofscent",
-          "tip_message": "remap.py: an end on a section is carried through its chapter, ready for the section round (D39)",
-          "ahead": 11,
-          "behind": 46
-        }
-      ],
-      "branch_detail_skipped": false,
-      "md_files": [
-        "AGENTS.md",
-        "CLAUDE.md",
-        "PLAN.md",
-        "README.md",
-        "docs/BATCH.md",
-        "docs/ENTRY_TEST.md",
-        "docs/ISSUES_2026-10-08.md",
-        "docs/PILOT.md",
-        "docs/READING_2026-10-09.md",
-        "docs/REPIN.md",
-        "docs/REVIEWER.md",
-        "docs/SUBJECTS_2026-10-08.md",
-        "docs/WORKER.md",
-        "review/README.md",
-        "tools/editions/README.md",
-        "tools/editions/prompt.md",
-        "tools/editions/prompt_find.md",
-        "tools/editions/prompt_pair.md",
-        "tools/editions/prompt_sections.md",
-        "tools/editions/prompt_sp.md",
-        "tools/editions/prompt_spans.md"
-      ],
-      "md_files_truncated": false,
-      "readme": "# Concordance\n\nWhich passages of Galen, Oribasius, Aetius, Paul and Dioscorides correspond, and how the editions and translations of Dioscorides map onto Wellmann's: links between CTS URNs, on the pattern of the CITE architecture (URN, relation, URN). No Greek is kept here; the texts are pinned in `manifest.tsv`.\n\n- `PLAN.md`: the plan and the rulings (sheet 011, 2026-10-06).\n- `manifest.tsv`: the texts, pinned by repository, path, commit and sha256.\n- `units/<id>.tsv`: the citable units of each text (URN, label, print locator, hash of the text).\n- `links.tsv`, `groups.tsv`: the concordance.\n- `tools/units.py`, `tools/check.py`.\n\n```\npython3 tools/units.py            # build units/ from the pinned files (needs sources.local.tsv)\npython3 tools/units.py --diff ID  # compare a text's current file with its units (before re-pinning)\npython3 tools/check.py            # every link lands on a unit; manifest hashes match the local files\n```\n",
-      "status_md": null
-    },
-    {
       "name": "aetius-cmg",
       "private": true,
       "archived": false,
       "default_branch": "main",
-      "pushed_at": "2026-10-23T00:38:10Z",
+      "pushed_at": "2026-10-25T01:58:53Z",
       "open_prs": 0,
       "branches": [
         {
@@ -5677,10 +5613,10 @@
         },
         {
           "name": "olivieri/gv-align",
-          "tip_date": "2026-10-23T00:38:08Z",
+          "tip_date": "2026-10-25T01:58:52Z",
           "tip_author": "alchemiesofscent",
-          "tip_message": "gv30: Aetius spans extracted for the 30 Galen Desk items; Galenus Verbatim unreachable (port 443 timeout), alignment not done",
-          "ahead": 1,
+          "tip_message": "gv30: outcome per candidate in four cases (D121); line records no longer call searched ranges 'unavailable'",
+          "ahead": 6,
           "behind": 2
         },
         {
@@ -13516,6 +13452,170 @@
       ],
       "md_files_truncated": false,
       "readme": "# aetius-cmg\n\nEditorial repository for Aetius of Amida, *Libri medicinales* I–II (CMG Supplementa): revised translation (Gowling, Book I; Salazar, Book II) with brief notes, a volume of studies on Aetius as a compiler, introduction, and an EpiDoc TEI of Olivieri's text (CMG VIII 1) with apparatus criticus and fontium, built round by round.\n\n- `docs/HANDOFF.md`: where the work stands and how to pick it up (read first).\n- `docs/WORKPLAN.md`: the checklist of pieces, by stage.\n- `docs/BOOK_PLAN.md`: what the book is and argues.\n- `docs/PIPELINE_SPEC.md`: how the repository produces it.\n- `docs/RETRANSLATION_PLAN.md`: the retranslation and notes with Codex workers on metopion, and the check.\n- `AGENTS.md`, `DECISIONS.md`, `translation/STYLE.md`: the workers' instructions, the editor's rulings, the forms. `packets/`: what each worker is given. Build with `python3 tools/packet.py --range II.84-120`; check drafts with `python3 tools/check_codex.py II-p001`.\n- `rounds/`: current and past working rounds. Start with the latest `rounds/round-NNN/README.md`.\n- `chapters/<book>/<chapter>/`: one folder per chapter, one file per layer.\n- `translation/CHECK.md`: the reading check, done by Opus 5.5. `decisions/`: decision sheets for Sean (`python3 tools/decisions.py show 001`).\n- `record/`: the entry-level record of Galen, Oribasius, Aetius and Paul. Rebuild with `python3 tools/record.py`. `record/alignment/`: Sean's table of sources for II.86–105 as data (`python3 tools/sean_alignment.py --compare`).\n- `lexicon/measures.yaml` and `intro/EQUIVALENTS.md`: weights and measures in English, and the tables of equivalents for the introduction (`python3 tools/equivalents.py`).\n- `lexicon/terms.yaml`: the working lexicon. Edit it, then run `python3 tools/lexicon.py --book II`. The rulings are set out in `lexicon/CORE_RENDERINGS.md`.\n\nRequirements: Python 3.10+, `lxml`, `pyyaml`.\n\n## Changelog\n\n| Version | Date | Change | Reason |\n|---|---|---|---|\n| 0.1 | 2026-10-04 | Created | Repository set-up |\n| 0.2 | 2026-10-04 06:15 | Description follows the book plan; link to `BOOK_PLAN.md` | Patchwork design adopted |\n| 0.3 | 2026-10-04 07:37 | Link to `record/` | Record built |\n| 0.4 | 2026-10-04 07:48 | Link to `RETRANSLATION_PLAN.md` | Plan written |\n| 0.5 | 2026-10-04 08:50 | Links to the workers' instructions, the packets and the rulings | Preparation of the Codex run |\n| 0.6 | 2026-10-04 14:25 | Links to the reading check, the decision sheets, the alignment table and the tables of equivalents | Sean's rulings of 13:24 |\n| 0.7 | 2026-10-05 10:27 | Links to the handoff and the checklist | Sean, 2026-10-05 10:23 |\n",
+      "status_md": null
+    },
+    {
+      "name": "concordance",
+      "private": true,
+      "archived": false,
+      "default_branch": "main",
+      "pushed_at": "2026-10-24T15:33:09Z",
+      "open_prs": 0,
+      "branches": [
+        {
+          "name": "main",
+          "tip_date": "2026-10-24T15:33:05Z",
+          "tip_author": "alchemiesofscent",
+          "tip_message": "Merge wip/repin-version owned by concordance-writer (queue mq-20261024-concordance-writer-repin-version-01)"
+        },
+        {
+          "name": "wip/registrar",
+          "tip_date": "2026-10-09T10:00:57Z",
+          "tip_author": "Claude",
+          "tip_message": "Link identifiers prepared (checklist I.6): tools/link_ids.py, the check, docs/LINK_IDS.md",
+          "ahead": 2,
+          "behind": 73
+        },
+        {
+          "name": "wip/subjects",
+          "tip_date": "2026-10-09T01:57:30Z",
+          "tip_author": "Claude",
+          "tip_message": "Report: time",
+          "ahead": 0,
+          "behind": 77
+        },
+        {
+          "name": "wip/wellmann-repin",
+          "tip_date": "2026-10-11T04:30:33Z",
+          "tip_author": "alchemiesofscent",
+          "tip_message": "remap.py: an end on a section is carried through its chapter, ready for the section round (D39)",
+          "ahead": 11,
+          "behind": 49
+        }
+      ],
+      "branch_detail_skipped": false,
+      "md_files": [
+        "AGENTS.md",
+        "CLAUDE.md",
+        "PLAN.md",
+        "README.md",
+        "docs/BATCH.md",
+        "docs/ENTRY_TEST.md",
+        "docs/ISSUES_2026-10-08.md",
+        "docs/PILOT.md",
+        "docs/READING_2026-10-09.md",
+        "docs/REPIN.md",
+        "docs/REVIEWER.md",
+        "docs/SUBJECTS_2026-10-08.md",
+        "docs/WORKER.md",
+        "review/README.md",
+        "tools/editions/README.md",
+        "tools/editions/prompt.md",
+        "tools/editions/prompt_find.md",
+        "tools/editions/prompt_pair.md",
+        "tools/editions/prompt_sections.md",
+        "tools/editions/prompt_sp.md",
+        "tools/editions/prompt_spans.md"
+      ],
+      "md_files_truncated": false,
+      "readme": "# Concordance\n\nWhich passages of Galen, Oribasius, Aetius, Paul and Dioscorides correspond, and how the editions and translations of Dioscorides map onto Wellmann's: links between CTS URNs, on the pattern of the CITE architecture (URN, relation, URN). No Greek is kept here; the texts are pinned in `manifest.tsv`.\n\n- `PLAN.md`: the plan and the rulings (sheet 011, 2026-10-06).\n- `manifest.tsv`: the texts, pinned by repository, path, commit and sha256.\n- `units/<id>.tsv`: the citable units of each text (URN, label, print locator, hash of the text).\n- `links.tsv`, `groups.tsv`: the concordance.\n- `tools/units.py`, `tools/check.py`.\n\n```\npython3 tools/units.py            # build units/ from the pinned files (needs sources.local.tsv)\npython3 tools/units.py --diff ID  # compare a text's current file with its units (before re-pinning)\npython3 tools/check.py            # every link lands on a unit; manifest hashes match the local files\n```\n",
+      "status_md": null
+    },
+    {
+      "name": "to-do-list",
+      "private": false,
+      "archived": false,
+      "default_branch": "main",
+      "pushed_at": "2026-10-24T08:09:32Z",
+      "open_prs": 0,
+      "branches": [
+        {
+          "name": "main",
+          "tip_date": "2026-10-24T08:09:31Z",
+          "tip_author": "portfolio-bot",
+          "tip_message": "portfolio: nightly collection 2026-10-24"
+        }
+      ],
+      "branch_detail_skipped": false,
+      "md_files": [
+        ".github/pull_request_template.md",
+        "AGENTS.md",
+        "CLAUDE.md",
+        "CONTRIBUTING.md",
+        "PLAN.md",
+        "README.md",
+        "REPO_STANDARD.md",
+        "SECURITY.md",
+        "STATUS.md",
+        "WBS_TODO_SUPABASE_INTEGRATION.md",
+        "data/projects.md",
+        "docs/FINDINGS-metopion-20260805.md",
+        "docs/FINDINGS-theophrastos-20260805.md",
+        "docs/QA_CHECKLIST.md",
+        "docs/pmo.md",
+        "docs/pmo/CHANGELOG.md",
+        "docs/pmo/DECISIONS.md",
+        "docs/pmo/ENGINEERING_LOG.md",
+        "docs/pmo/KNOWN_ISSUES.md",
+        "pmo/decision_log.md",
+        "pmo/delegation_outbox.md",
+        "pmo/inbox.md",
+        "projects/br-ager-scent-ancient-magic/00_brief.md",
+        "projects/br-ager-scent-ancient-magic/01_plan.md",
+        "projects/br-ager-scent-ancient-magic/02_status.md",
+        "projects/br-ager-scent-ancient-magic/03_actions.md",
+        "projects/br-ager-scent-ancient-magic/04_assets.md",
+        "publications/BRIEF.md",
+        "publications/handoff.md"
+      ],
+      "md_files_truncated": false,
+      "readme": "# Scholar's Opus\n\nLightweight, local-first academic research and publication tracker (Vite + React). It seeds from a Markdown project list and stores edits locally in the browser (no backend).\n\n## Quickstart\n\n**Requirements:** Node.js 20+\n\n```bash\nnpm ci && npm run dev\n```\n\n## Scripts\n\n- `npm run dev`: run the dev server\n- `npm run build`: build a production bundle into `dist/`\n- `npm run preview`: preview the production build locally\n- `npm run lint`: lint the codebase\n- `npm run typecheck`: TypeScript typecheck\n- `npm test`: run unit tests\n- `npm run validate:data`: validate `data/projects.md` parses cleanly\n\n## Configuration\n\nNo required environment variables.\n\n## Architecture\n\n- `src/main.tsx`: app entrypoint\n- `src/App.tsx`: UI + filtering (Writing/Experiments/DH/Grants/Admin tabs)\n- `src/projectsParser.ts`: parses `data/projects.md` into tasks at build time\n- `src/db.ts`: localStorage persistence + migrations\n- `src/components/*`: UI components\n- `src/sync.ts`: optional Supabase sync (guarded, record-level)\n\n## Optional Supabase cloud sync (Auth)\n\nCloud sync is optional. If `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY` are present, the app can sync via Supabase **Auth + RLS**.\n\n- Enable: open **Cloud** (or go to `/auth`) and sign in (PKCE; callback at `${BASE_URL}auth/callback`).\n- Security model: tables are protected by RLS (`owner_id = auth.uid()`); the client does not rely on `user_id` filtering for access control.\n- Deletes: use tombstones (`deleted_at`) to prevent cross-device resurrection; hard delete/purge is deferred.\n- Dashboard settings: add exact redirect URLs for dev + GitHub Pages base path (see `.github/workflows/pages.yml` for the deployed base path, and `vite.config.ts` for `base`).\n\nLegacy migration note: if you have old rows in `public.tasks` that only have a legacy `user_id` namespace, you must manually “claim” them by setting `owner_id` via SQL (see `supabase/migrations/*_auth_owner_rls_tombstones.sql`).\n\n## Data\n\n- Seed list: `data/projects.md` (each entry is a checklist item with an indented metadata block)\n- Saved state: browser `localStorage` (`scholar_opus_db`)\n\nThe Markdown seed is treated as read-only at runtime; changes made in the UI are not written back to `data/projects.md`.\n\nExample entry:\n\n```md\n- [ ] Project title\n  - domain: Writing\n  - type: Article\n  - status: Draft\n  - priority: Medium\n  - description: Short notes…\n```\n\n## Deployment (GitHub Pages)\n\nThis repo deploys to `https://alchemiesofscent.github.io/to-do-list/` via `.github/workflows/pages.yml`.\n\nNote: the GitHub Pages build is configured for the `/to-do-list/` base path. If you fork or rename the repo, set `VITE_BASE_PATH` for production builds or update the Vite `base` setting in `vite.config.ts`.\n",
+      "status_md": "# STATUS\n\n**Updated:** 2026-08-06 (by: claude-cowork)\n**Canonical branch:** main\n\n> **⚠ TOP ITEM (2026-08-06): a finished corpus is one disk failure from gone.**\n> The Galen *De alimentorum facultatibus* lane on theophrastos — 2,463 files,\n> 147 approved chapters — is **untracked: no commit, no branch, no backup**\n> (rescue bundles predate it). Flagged by the oribasius /goals job itself at\n> 06:56. Sean is away until ~2026-08-09. If ANY access to theophrastos exists\n> first, run:\n> `cd ~/github/oribasius-app && git checkout -b rescue/alimfac-20260806 && git add -f translation_project/galen-alimentary-faculties/ && git commit -m \"rescue: alim.fac. lane\" && git push -u origin rescue/alimfac-20260806`\n> Book XIV wave artifacts are untracked too (same repo, same exposure).\n\n---\n\n## Part 1 — The story so far (for Sean)\n\n### Previously on alchemiesofscent…\n\nSean, a scholar of ancient perfume, has years of research projects scattered\nacross twenty-five online archives and two computers — a laptop and a desktop.\nOver time, he and his AI assistants made copies of copies, left work half-filed,\nand in places kept the only version of something on a single machine, where a\nspilled coffee could end it. So he started a cleanup with one rule: everything\nimportant must live in the shared online archive, where every machine can see\nit, and this folder is the cleanup's logbook.\n\nStep one: list what the online archive holds. Done. Of twenty-five projects,\nonly about five showed recent life; the rest were husks, half-finished starts,\nor duplicates. The same project often existed under two or three names — a\ncookbook of ancient recipes in three variants, a data model in two — because\nwhen a project stalled, the habit was to start a fresh copy rather than repair\nthe old one. And the two busiest projects (a tool for editing ancient texts,\nand a database of the physician Oribasius) each had a large body of new work\nsitting in side-drafts that were never folded back into the official version.\nThe cause, in one sentence: many working sessions — human and AI alike — ended\nwithout anyone filing what had been done, and each rescue attempt made another\ncopy instead of cleaning up the last one.\n\nStep two: search each computer and compare. The laptop has now been searched,\nand it was hiding things. The biggest surprise: inside the Oribasius project\nsits a detailed plan, written by an AI assistant in July and never shared\nonline, to freeze that project and start a successor called \"hylike\" — the\nexact opposite of the current cleanup plan, which says to fold two other\nprojects *into* it. Sean has deferred that decision. The laptop also holds\nhundreds of unfiled edits to the text-editing tool (which is supposed to be\nfrozen), a ten-thousand-file salvage copy of it with no backup anywhere,\nseveral smaller projects with no online backup at all, and a to-do app whose\nlatest state was never written down anywhere — it exists only inside a web\nbrowser, last touched in January.\n\nThen, that same evening, Sean sat down at the desktop and ran the search\nhimself. It did hold a third version of events. The Oribasius project turned\nout to exist in three states that no longer agree: the shared archive's\nversion, the laptop's secret successor plan, and the desktop's own pile —\nnearly a thousand unfiled edits plus rescue work (a translation of Paul of\nAegina's Book 7, recovered Galen data) that was never sent anywhere. Worse:\nthe supposedly frozen text-editing tool had been changed *that very day* by\nsomething still running on the desktop — nobody yet knows what. And a small\nproject surfaced that exists on no archive at all, only on that one machine.\n\nBoth machines have now been heard; the searching phase is over. The mystery\nof the frozen tool solved itself: the editor was Sean — before leaving town,\nhe deliberately restarted three automated jobs on the desktop (the Oribasius\ntranslations, the Dioscorides edition, and the cookbook's extraction\npipeline) so they'd finish while \n…[truncated at 4000 chars]"
+    },
+    {
+      "name": "corpora",
+      "private": true,
+      "archived": false,
+      "default_branch": "main",
+      "pushed_at": "2026-10-24T01:42:12Z",
+      "open_prs": 0,
+      "branches": [
+        {
+          "name": "job/20261008-2330-local-data",
+          "tip_date": "2026-10-08T21:35:38Z",
+          "tip_author": "alchemiesofscent",
+          "tip_message": "Import local drug-property witnesses (trimmed): DB assertion exports, enum schemas, three translation packets, vocab-v3 results from ancient-simples wip/public-read",
+          "ahead": 1,
+          "behind": 37
+        },
+        {
+          "name": "main",
+          "tip_date": "2026-10-24T01:42:08Z",
+          "tip_author": "alchemiesofscent",
+          "tip_message": "Merge simples/d107-seed owned by simples-properties (queue mq-20261024-simples-properties-corpora-01)"
+        }
+      ],
+      "branch_detail_skipped": false,
+      "md_files": [
+        "README.md",
+        "entities/properties/cards/README.md",
+        "entities/properties/codex/adjudicate/questions_for_sean.md",
+        "entities/properties/dunamis-energeia/README.md",
+        "entities/properties/dunamis-energeia/aetius-oribasius.md",
+        "entities/properties/dunamis-energeia/brief.md",
+        "entities/properties/dunamis-energeia/galen-smt-1-2.md",
+        "entities/properties/dunamis-energeia/galen-smt-3-5.md",
+        "entities/properties/parts/REVIEW.md",
+        "entities/properties/parts/j2_prompt.md",
+        "entities/properties/parts/j3_prompt.md",
+        "entities/properties/smell-move.md",
+        "entities/properties/vocab/cards/README.md",
+        "entities/simples/seed/report.md",
+        "lemmata/README.md",
+        "lemmata/worker/README.md"
+      ],
+      "md_files_truncated": false,
+      "readme": "# corpora\n\n**This repository must stay private.** It holds TLG and PHI texts, which are\nlicensed for individual use and may not be redistributed (TLG and PHI terms).\nDo not make it public, fork it publicly, or copy its files into a public repository.\n\nIt exists so that Claude Code cloud sessions, which can read only GitHub\nrepositories, can read the same files as the local checkout at `~/Projects/corpora`.\nOther repositories (e.g. alchemiesofscent/concordance) pin files here by path,\ncommit and sha256.\n\n| folder | what it is | source | licence |\n|---|---|---|---|\n| `tlg/` | Thesaurus Linguae Graecae, one TEI file per work (`tlgAAAAWWW.xml`), plus `authtab.xml` (author and work canon) | TLG E, converted to TEI by Diogenes 4.7.2 | TLG licence: private use only, no redistribution |\n| `phi/` | PHI Latin texts, one TEI file per work (`phiAAAAWWW.xml`), plus `authtab.xml` | PHI 5.3, converted to TEI by Diogenes 4.7.2 | PHI licence: private use only, no redistribution |\n\nThe layout is the local one, unchanged.\n\nNot included (public; clone them from GitHub):\n\n| local folder | repository | licence | local commit (shallow clone) |\n|---|---|---|---|\n| `first1kgreek/` | https://github.com/OpenGreekAndLatin/First1KGreek | CC BY-SA 4.0 | `0d8a06b524b2` (2026-04-28) |\n| `idp/` | https://github.com/papyri/idp.data | CC BY 3.0 | `fc62c5443f9b` (2026-07-25) |\n| `digiliblt/` | https://github.com/lascivaroma/digiliblt | CC BY-NC-SA 4.0 | `ed90f37d3f6c` (2023-06-18) |\n\nThe local `idp/` is the clone the perfume-tables papyri sweeps read (DDbDP\n2026-07-27, DCLP 2026-07-29): cloned 2026-07-27 with `git clone --depth 1`,\n389,521 files, 7.3 GB on disk. To reproduce it, clone the repository and check\nout the commit above. The sweeps' working files are in `~/sweeprun/`.\n\n**On Theophrastos (2026-10-21)** idp.data is a full `git clone --depth 1` at\n`/mnt/d/corpora/idp.data` (D:), commit `190d442353738046a102f1de44030adb874e9a37`\n(2026-10-21), 3.0 GB; `~/Projects/corpora/idp` is a symlink to it. The July\ncommit above is checked out beside it, DDbDP only, at `/mnt/d/corpora/idp-2026-07-25`.\nBoth are logged in perfume-tables `research/SEARCH_LOG.md` (idp-local).\n",
       "status_md": null
     },
     {
