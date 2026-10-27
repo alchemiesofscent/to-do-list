@@ -4,19 +4,24 @@ The working queue. Full catalogue: Publication plan 2026–2028
 (https://claude.ai/artifact/Npg15qJubxsqQKXiDj1fFm).
 
 ## Now
-**PPAW proposal — Sean's part to Laurence.** Laurence Totelin completes the
-proposal; submission to Palgrave Macmillan by **31 Oct 2026**. Sean promised his
-part ASAP. First step: establish exactly what Laurence asked for, then draft it.
+**PPAW proposal: submit to Palgrave Macmillan by Sat 31 Oct 2026.** Laurence
+Totelin completes and submits. Proposal v7 (sections 1–3) went to Heike and
+Laurence on 21 Oct; Rana and Barbara confirmed; Miguel invited to write the
+preface, no reply yet. Sections 4–6 of the Palgrave form (market, competition,
+keywords, length, prior publication) are not in any file Sean holds; whether
+Laurence wants anything more from Sean is unconfirmed.
+Drafts ready (27 Oct): email to Laurence (cc Heike) asking for her list and
+offering 4(c), 6(b) and bios; nudge to Miguel.
 
-**Next action for Sean:** —
+**Next action for Sean:** send the two drafted emails (Laurence, Miguel), 10 min.
 
 ## Queue
 Order follows deadlines and promises. One item at a time.
 
 | # | Item | Venue | Deadline | Status | Blocked on |
 |---|---|---|---|---|---|
-| 1 | PPAW proposal: Sean's part to Laurence | Palgrave Macmillan (with Totelin, Wilde) | 31 Oct 2026 (Laurence needs it before) | In progress | What exactly Laurence needs |
-| 2 | Michael of Ephesus edited volume (with Trompeter): own chapter on sexual difference + editing; send to Michele, then submit | Brill, Philosophia Antiqua | Eight years overdue; target was week of 22 Oct | Own chapter not yet in | — |
+| 1 | PPAW proposal: Sean's part to Laurence | Palgrave Macmillan (with Totelin, Wilde) | 31 Oct 2026 | v7 with Heike and Laurence since 21 Oct | Laurence's list of anything still needed; Miguel (preface) |
+| 2 | Michael of Ephesus edited volume (with Trompeter): own chapter on sexual difference + editing; send to Michele, then submit | Brill, Philosophia Antiqua | Eight years overdue; target was week of 22 Oct | Own chapter and half of introduction done (21 Oct); biographical section to review | Review of biographical section (was due 24–25 Oct) |
 | 3 | Chapter on Aetius of Amida | Handbook (title?) | "Due imminently" | To finish | Agree its line with the Aetius volume and paper 13 |
 | 4 | Paper 1 (PGM VII 170–172, κρόκος = saffron) | Short piece (see plan) | — | v2 ready | Submit |
 | 5 | Paper 3: Greco-Egyptian perfumery and alchemy | Ambix | — | Not finished | One-sentence claim distinct from paper 2; title |
@@ -35,9 +40,12 @@ New work lands here, not in the queue, until Sean moves it up.
 - Papers 10–13, 15–17 — see plan
 - Books: perfumery-and-alchemy monograph, trade book, Athenaeus edition,
   In GA translation (overdue; DFG idea), Aetius I–II
+- PM app: one place showing all projects' status (asked 27 Oct; after PPAW goes out)
+- Not a publication, but competing for the same days: ISF–GAČR proposal "Water, Wine and Oil" (active 24–27 Oct)
 - Later: Galen solecism paper (Boerno); Galen-as-commentator sourcebook (Singer)
 
 ## Changelog
 | Version | Date and time | Change | Reason |
 |---|---|---|---|
 | 1.0 | 2026-10-21 17:45 CEST | Created from the Publication plan (rev 48, 15 Oct); queue of 8, parking lot | Sean asked for a living queue for publications sessions |
+| 1.1 | 2026-10-27 18:20 CET | Now brought up to date from the plan doc (v7 sent 21 Oct; Miguel pending); queue rows 1–2 status; PM app and ISF–GAČR proposal noted in parking lot | Handoff had fallen behind the Publication plan (rev 53) |
