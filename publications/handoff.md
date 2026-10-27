@@ -10,17 +10,21 @@ Laurence on 21 Oct; Rana and Barbara confirmed; Miguel invited to write the
 preface, no reply yet. Sections 4–6 of the Palgrave form (market, competition,
 keywords, length, prior publication) are not in any file Sean holds; whether
 Laurence wants anything more from Sean is unconfirmed.
-Drafts ready (27 Oct): email to Laurence (cc Heike) asking for her list and
-offering 4(c), 6(b) and bios; nudge to Miguel.
+Emails to Laurence and Miguel already sent ~20 Oct (Sean, 27 Oct). Miguel
+has not replied. Proposal v6 still lists Miguel as a Section II chapter
+("[tbd]") while the plan says he was invited for the preface: fix before
+submission. Default if no reply by Thu 29 Oct: drop him from the proposal and
+mention a practitioner preface as invited, unnamed.
 
-**Next action for Sean:** send the two drafted emails (Laurence, Miguel), 10 min.
+**Next action for Sean:** send Miguel the last-call note and Laurence/Heike the
+fallback note, 10 min.
 
 ## Queue
 Order follows deadlines and promises. One item at a time.
 
 | # | Item | Venue | Deadline | Status | Blocked on |
 |---|---|---|---|---|---|
-| 1 | PPAW proposal: Sean's part to Laurence | Palgrave Macmillan (with Totelin, Wilde) | 31 Oct 2026 | v7 with Heike and Laurence since 21 Oct | Laurence's list of anything still needed; Miguel (preface) |
+| 1 | PPAW proposal: Sean's part to Laurence | Palgrave Macmillan (with Totelin, Wilde) | 31 Oct 2026 | v7 with Heike and Laurence since 21 Oct | Miguel silent since ~20 Oct; fallback Thu 29 Oct |
 | 2 | Michael of Ephesus edited volume (with Trompeter): own chapter on sexual difference + editing; send to Michele, then submit | Brill, Philosophia Antiqua | Eight years overdue; target was week of 22 Oct | Own chapter and half of introduction done (21 Oct); biographical section to review | Review of biographical section (was due 24–25 Oct) |
 | 3 | Chapter on Aetius of Amida | Handbook (title?) | "Due imminently" | To finish | Agree its line with the Aetius volume and paper 13 |
 | 4 | Paper 1 (PGM VII 170–172, κρόκος = saffron) | Short piece (see plan) | — | v2 ready | Submit |
@@ -49,3 +53,4 @@ New work lands here, not in the queue, until Sean moves it up.
 |---|---|---|---|
 | 1.0 | 2026-10-21 17:45 CEST | Created from the Publication plan (rev 48, 15 Oct); queue of 8, parking lot | Sean asked for a living queue for publications sessions |
 | 1.1 | 2026-10-27 18:20 CET | Now brought up to date from the plan doc (v7 sent 21 Oct; Miguel pending); queue rows 1–2 status; PM app and ISF–GAČR proposal noted in parking lot | Handoff had fallen behind the Publication plan (rev 53) |
+| 1.2 | 2026-10-27 18:15 CET | Emails already sent a week ago; Miguel silent; fallback (drop him Thu 29 Oct) and v6 chapter/preface mismatch recorded | Sean's correction |
