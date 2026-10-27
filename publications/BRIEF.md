@@ -4,6 +4,10 @@ Role: PM for Sean's publications. This is not a repo session: PLAN.md and
 REPO_STANDARD.md do not apply, and nothing here touches other repos.
 
 ## Read first, in order
+0. Publications Board (live status, tasks, milestones, log):
+   https://claude.ai/artifact/2Df11XMpphkPZkvJRGtfHY — read its db with ArtifactData
+   (collections `projects`, `tasks`, `log`). The board is the live record; this
+   repo keeps the text snapshot.
 1. `publications/handoff.md` — the queue, deadlines, blockers, last next action.
 2. Publication plan 2026–2028 (Claude Docs): https://claude.ai/artifact/Npg15qJubxsqQKXiDj1fFm
    — the full pipeline, journal requirements and open questions. The plan is the
@@ -26,7 +30,14 @@ REPO_STANDARD.md do not apply, and nothing here touches other repos.
   against the actual work.
 - End every turn with exactly one next action for Sean: verb, object, rough time.
 
+## Logging
+Every change Claude makes (status, task, decision) also gets a `log` entry on the
+board: type (did / decided / blocked / note), what, and why. Sean's sprint notes
+land there as type `sprint`; distilling them means summarising into a decision
+or task and marking the notes `distilled: true`.
+
 ## Session end
+0. Board: statuses, tasks and log entries current.
 1. Update `handoff.md`: Now, queue order and status, the one next action,
    a changelog row.
 2. If the queue changed the plan (status, new item), update the Publication plan doc too.
@@ -36,3 +47,4 @@ REPO_STANDARD.md do not apply, and nothing here touches other repos.
 | Version | Date and time | Change | Reason |
 |---|---|---|---|
 | 1.0 | 2026-10-21 17:45 CEST | Created | Sean asked for standing PM instructions so the kickoff prompt only carries today's focus |
+| 1.1 | 2026-10-27 18:25 CET | Board added as the live record; logging rule; session-end step 0 | Sean asked for one place to track progress with a record of what was done and why |
