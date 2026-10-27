@@ -23,8 +23,8 @@ Order follows deadlines and promises. One item at a time.
 
 | # | Item | Venue | Deadline | Status | Blocked on |
 |---|---|---|---|---|---|
-| 2 | PPAW proposal: Sean's part to Laurence | Palgrave Macmillan (with Totelin, Wilde) | 31 Oct 2026 | v7 with Heike and Laurence since 21 Oct | Miguel silent since ~20 Oct; fallback Thu 29 Oct |
 | 1 | Michael of Ephesus edited volume (with Trompeter): own chapter on sexual difference + editing; send to Michele, then submit | Brill, Philosophia Antiqua | Thu 29 Oct 2026 (eight years overdue) | Own chapter and half of introduction done (21 Oct); biographical section to review | Review of biographical section (was due 24–25 Oct) |
+| 2 | PPAW proposal: Sean's part to Laurence | Palgrave Macmillan (with Totelin, Wilde) | 31 Oct 2026 | v7 with Heike and Laurence since 21 Oct | Miguel silent since ~20 Oct; fallback Thu 29 Oct |
 | 3 | Chapter on Aetius of Amida | Handbook (title?) | "Due imminently" | To finish | Agree its line with the Aetius volume and paper 13 |
 | 4 | Paper 1 (PGM VII 170–172, κρόκος = saffron) | Short piece (see plan) | — | v2 ready | Submit |
 | 5 | Paper 3: Greco-Egyptian perfumery and alchemy | Ambix | — | Not finished | One-sentence claim distinct from paper 2; title |
