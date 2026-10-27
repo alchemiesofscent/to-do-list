@@ -38,7 +38,7 @@ Ruling (Sean, 27 Oct): Michael first, then PPAW, then Aetius.
 New work lands here, not in the queue, until Sean moves it up.
 - Paper 6 (Susinum, "A Thousand Lilies") — decide venue
 - Paper 7 (Stacte and Lucas) — JEA freeze; choose journal
-- Papers 8–9 (Tell Timai; fractionation) — PNAS sequencing
+- Papers 8–9 (Tell Timai; fractionation) — evaluated 27 Oct: three incompatible drafts; recommended JAS:Reports/Archaeometry for the layout-and-residues version, PNAS kept for a heat-vs-time paper; plan and draft email to Jay in `Tell Timai/20261027-tell-timai-evaluation-and-plan.md` (Drive). Starts after PPAW (1 Nov)
 - Papers 10–13, 15–17 — see plan
 - Books: perfumery-and-alchemy monograph, trade book, Athenaeus edition,
   In GA translation (overdue; DFG idea), Aetius I–II
@@ -52,3 +52,4 @@ New work lands here, not in the queue, until Sean moves it up.
 | 1.1 | 2026-10-27 18:20 CET | Now brought up to date from the plan doc (v7 sent 21 Oct; Miguel pending); queue rows 1–2 status; PM app and ISF–GAČR proposal noted in parking lot | Handoff had fallen behind the Publication plan (rev 53) |
 | 1.2 | 2026-10-27 18:15 CET | Emails already sent a week ago; Miguel silent; fallback (drop him Thu 29 Oct) and v6 chapter/preface mismatch recorded | Sean's correction |
 | 1.3 | 2026-10-27 18:25 CET | Michael volume to the top (due 29 Oct), PPAW second; board link; PM app removed from parking lot (built) | Sean's ruling; board built |
+| 1.4 | 2026-10-27 19:15 CET | Tell Timai evaluated; parking-lot line points to the dossier and recommended venue | Sean asked for an evaluation and plan; stays in the parking lot behind Michael and PPAW |
