@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-29T09:56:39+00:00",
+  "generated_at": "2026-10-30T09:59:22+00:00",
   "account": "alchemiesofscent",
   "schema": 2,
   "repos": [
@@ -8,7 +8,7 @@
       "private": true,
       "archived": false,
       "default_branch": "main",
-      "pushed_at": "2026-10-29T08:09:53Z",
+      "pushed_at": "2026-10-29T19:17:25Z",
       "open_prs": 0,
       "branches": [
         {
@@ -17,7 +17,7 @@
           "tip_author": "alchemiesofscent",
           "tip_message": "D156/D158: concordance pins are the TLG control copies (concordance correction)",
           "ahead": 10,
-          "behind": 197
+          "behind": 257
         },
         {
           "name": "docs/2026-10-13-20b",
@@ -25,7 +25,7 @@
           "tip_author": "alchemiesofscent",
           "tip_message": "docs-keeper: drop queue request from the docs branch (filed on main)",
           "ahead": 2,
-          "behind": 3794
+          "behind": 3854
         },
         {
           "name": "docs/2026-10-13-20",
@@ -33,7 +33,7 @@
           "tip_author": "alchemiesofscent",
           "tip_message": "docs-keeper 2026-10-13 20:40: daily pass (D68/D69, updates, Tailscale protocol draft)",
           "ahead": 1,
-          "behind": 3794
+          "behind": 3854
         },
         {
           "name": "docs/2026-10-24-20",
@@ -41,7 +41,7 @@
           "tip_author": "alchemiesofscent",
           "tip_message": "docs pass 24 Oct evening: README, extraction-status, handoffs index, DECISIONS-INDEX pointer (D119), UPDATES, LOG",
           "ahead": 1,
-          "behind": 1136
+          "behind": 1196
         },
         {
           "name": "docs/2026-10-24",
@@ -49,7 +49,7 @@
           "tip_author": "alchemiesofscent",
           "tip_message": "docs 2026-10-24 catch-up pass: fold 21-24 Oct updates, advisor block, D104 pointers, handoffs index, README/extraction-status/deliverables refresh, owner report",
           "ahead": 1,
-          "behind": 1242
+          "behind": 1302
         },
         {
           "name": "docs/2026-10-25-sessions-fix",
@@ -57,7 +57,7 @@
           "tip_author": "alchemiesofscent",
           "tip_message": "sessions: end review-desk.md with a newline so the advisor heading is its own line; SESSIONS.md rebuilt (fixes 2 failing build_sessions tests on main)",
           "ahead": 1,
-          "behind": 1059
+          "behind": 1119
         },
         {
           "name": "hygiene/steward-run1",
@@ -65,13 +65,13 @@
           "tip_author": "alchemiesofscent",
           "tip_message": "Record steward Run 2 safe-space cleanup",
           "ahead": 2,
-          "behind": 4706
+          "behind": 4766
         },
         {
           "name": "main",
-          "tip_date": "2026-10-29T08:09:50Z",
+          "tip_date": "2026-10-29T19:17:24Z",
           "tip_author": "alchemiesofscent",
-          "tip_message": "queue: edition-workbench run results"
+          "tip_message": "queue: agent-bridge run results"
         },
         {
           "name": "okf/2026-10-17-20",
@@ -79,7 +79,7 @@
           "tip_author": "alchemiesofscent",
           "tip_message": "okf-keeper 2026-10-17 20: D67 stamp on handoff, Olivieri v5 pending",
           "ahead": 1,
-          "behind": 3360
+          "behind": 3420
         },
         {
           "name": "okf/2026-10-18-00",
@@ -87,7 +87,7 @@
           "tip_author": "alchemiesofscent",
           "tip_message": "okf-keeper 2026-10-18: Olivieri v5/v6, Mattioli v1, D76-D79, session block",
           "ahead": 1,
-          "behind": 3058
+          "behind": 3118
         },
         {
           "name": "okf/2026-10-19-20",
@@ -95,7 +95,7 @@
           "tip_author": "alchemiesofscent",
           "tip_message": "okf-keeper 2026-10-19: D80-D83 indexed, two-systems page",
           "ahead": 1,
-          "behind": 2700
+          "behind": 2760
         },
         {
           "name": "okf/2026-10-23-02",
@@ -103,7 +103,7 @@
           "tip_author": "alchemiesofscent",
           "tip_message": "sessions: okf-keeper resume line before restart",
           "ahead": 1,
-          "behind": 1334
+          "behind": 1394
         },
         {
           "name": "okf/2026-10-28-01",
@@ -111,7 +111,7 @@
           "tip_author": "alchemiesofscent",
           "tip_message": "okf: D157 sweep: fix stale statements in knowledge/ (limits, STANDARD 1.20, boards, tags v8/v4/sprengel v2, D156 licence note)",
           "ahead": 1,
-          "behind": 141
+          "behind": 201
         },
         {
           "name": "review-desk/desk-05",
@@ -119,7 +119,7 @@
           "tip_author": "alchemiesofscent",
           "tip_message": "review desk: annotation-review items with mention notes (slot desk-05)",
           "ahead": 4,
-          "behind": 4350
+          "behind": 4410
         },
         {
           "name": "review-desk/desk-06-r2",
@@ -127,7 +127,7 @@
           "tip_author": "alchemiesofscent",
           "tip_message": "review desk: HTML comparison bundles and superseded holds (slot desk-06)",
           "ahead": 2,
-          "behind": 4290
+          "behind": 4350
         },
         {
           "name": "review-desk/desk-06",
@@ -135,7 +135,7 @@
           "tip_author": "alchemiesofscent",
           "tip_message": "review desk: HTML comparison bundles and superseded holds (slot desk-06)",
           "ahead": 5,
-          "behind": 4350
+          "behind": 4410
         },
         {
           "name": "review-desk/desk-07",
@@ -143,7 +143,7 @@
           "tip_author": "alchemiesofscent",
           "tip_message": "review desk: passage-first item page; comparisons as plain columns (slot desk-07)",
           "ahead": 2,
-          "behind": 4279
+          "behind": 4339
         },
         {
           "name": "review-desk/desk-13-r2",
@@ -151,7 +151,7 @@
           "tip_author": "alchemiesofscent",
           "tip_message": "review desk: drop card_notes kind (Sean: taps the words that belong together)",
           "ahead": 3,
-          "behind": 3824
+          "behind": 3884
         },
         {
           "name": "review-desk/desk-13",
@@ -159,7 +159,7 @@
           "tip_author": "alchemiesofscent",
           "tip_message": "review desk: term-card item kind for simples-properties vocabulary decks (slot desk-13)",
           "ahead": 1,
-          "behind": 3828
+          "behind": 3888
         },
         {
           "name": "review-desk/follow-ups",
@@ -167,7 +167,7 @@
           "tip_author": "alchemiesofscent",
           "tip_message": "review desk: desk-25 review fixes — closed state follows receipt answer_at; corrections keep structured notes",
           "ahead": 3,
-          "behind": 539
+          "behind": 599
         }
       ],
       "branch_detail_skipped": false,
@@ -243,6 +243,29 @@
         "handoffs/cloud-texts-inbox.md",
         "handoffs/cmg-texts-pm-008-02-report.md",
         "handoffs/cmg-texts-pm.md",
+        "handoffs/codex/OUTBOX.md",
+        "handoffs/codex/README.md",
+        "handoffs/codex/advisor.md",
+        "handoffs/codex/aetius-desk.md",
+        "handoffs/codex/cmg-texts-pm.md",
+        "handoffs/codex/commentary-claims.md",
+        "handoffs/codex/concordance-writer.md",
+        "handoffs/codex/docs-keeper.md",
+        "handoffs/codex/lector.md",
+        "handoffs/codex/materials-manager.md",
+        "handoffs/codex/okf-keeper.md",
+        "handoffs/codex/orchestrator.md",
+        "handoffs/codex/paul-app.md",
+        "handoffs/codex/per-fumum.md",
+        "handoffs/codex/persons-and-places.md",
+        "handoffs/codex/pm.md",
+        "handoffs/codex/recipe-lab.md",
+        "handoffs/codex/recipes.md",
+        "handoffs/codex/simples.md",
+        "handoffs/codex/translations.md",
+        "handoffs/codex/website-designer.md",
+        "handoffs/codex/website-manager.md",
+        "handoffs/codex/wellmann-editions.md",
         "handoffs/commentary-claims-021-group-flags.md",
         "handoffs/commentary-claims-berendes-brief.md",
         "handoffs/commentary-claims-decision-2026-10-26.md",
@@ -343,6 +366,7 @@
         "handoffs/recipe-mobile/README.md",
         "handoffs/recipe-pipeline-calibration.md",
         "handoffs/recipe-pipeline.md",
+        "handoffs/recipe-reader-CHANGELOG.md",
         "handoffs/recipe-reader-plan.md",
         "handoffs/recipe-reader-regions-workflow.md",
         "handoffs/recipes-board-cards-2026-10-22.md",
@@ -559,7 +583,7 @@
       "private": true,
       "archived": false,
       "default_branch": "main",
-      "pushed_at": "2026-10-29T08:09:48Z",
+      "pushed_at": "2026-10-29T17:36:25Z",
       "open_prs": 0,
       "branches": [
         {
@@ -2954,6 +2978,1076 @@
       "md_files_truncated": true,
       "readme": "# Edition Workbench\n\nTurn scanned editions and retained transcription evidence into reviewable TEI candidates.\nThe reviewer shows the scan beside editable tagged text. Dioscorides Reader is a separate\n[private project](https://github.com/alchemiesofscent/dioscorides-reader) for reading parallel editions.\n\nThe [perfume recipe pilot](editions/recipes/README.md) now provides scan-backed review and\nunaccepted EpiDoc candidates for selected Aetius I, Aetius XVI, and Paul VII.20 pages.\n\nFor a fresh transcription, use the [Gemini image-only prompt](docs/GEMINI_TRANSCRIPTION_PROMPT.md)\nand [shared tagging key](docs/TAGGED_TRANSCRIPTION_KEY.md), governed by the\n[diplomatic standard](docs/STANDARDS_DIPLOMATIC_TEI.md). Prepare the edition's preface\nimages and scan manifest; retain earlier OCR separately for an independent comparison.\nThe [common page-architecture procedure](docs/METHODS_TRANSCRIPTION_PIPELINE.md)\nsets out source inventory, physical regions, edition structure maps and conversion\nchecks using the existing vocabulary. The prompt defines a common new-capture format; general tagged conversion is pending.\nThe three recipe profiles support saved tagged drafts through a physical TEI builder\nand a hash-bound image-verification workflow; see the [recipe guide](editions/recipes/README.md).\n\nStart a new working session with **AGENTS.md**. The project's one checklist is `HANDOFF.md`\nin alchemiesofscent/aos-perfume-corpus, which lists this repository's items. The scholar\ndecides readings and acceptance.\n\n## Install and check\n\n```bash\npython3.12 -m venv .venv\n.venv/bin/pip install -r requirements.txt\n.venv/bin/pip install --no-deps -e .\n.venv/bin/workbench doctor\n.venv/bin/workbench status\n```\n\nLinux or WSL, Python 3.12 and Git are required. PDF scan rendering also uses `pdftoppm`; ordinary image\nacquisition uses Pillow. All commands accept `--root /path/to/edition-workbench` before the command.\nThe official schema and rule compiler are pinned in `schema/lock.json`; validation runs offline.\n\n## Revise an edition\n\n```bash\n.venv/bin/workbench review sprengel1829 --revision my-review --prepare\n```\n\nOpen the printed localhost address. Saving preserves exactly what you submitted. Approved\npages must be reopened before editing. A new approval requires a verified displayed scan\nand binds to the saved text hash. Reopening a session uses the same command without `--prepare`.\nDrafts and decisions live in `editions/<group>/drafts/`; commit their explicit paths when ready.\n\nTo retrieve a page image, use its recorded acquisition URL and scan identity:\n\n```bash\n.venv/bin/workbench fetch sprengel1829 0033 'https://source.example/scan.jpg'\n```\n\nThis example URL is a placeholder. Use the actual source in the retained acquisition records.\nImages stay in `.cache/images/`; acquisition receipts and transcription evidence are durable.\nWithout an image you can navigate and save text, but cannot newly certify it against the scan.\n\n## Build and validate\n\n```bash\n.venv/bin/workbench build sprengel1829 --output build/sprengel1829\n.venv/bin/workbench build sprengel1829 --revision my-review --output build/my-review\n.venv/bin/workbench validate sprengel1829 --profile legacy\n.venv/bin/workbench validate sprengel1829 --profile epidoc\n.venv/bin/workbench build sprengel1829 --epidoc --output build/sprengel-epidoc\n```\n\nEvery output is an unaccepted candidate. Existing destinations are refused. The three Sprengel\nbuilders reproduce the preserved 1829, 1830 Latin and 1830 English XML exactly. The English\ntext still needs human review. The last command makes a separate official EpiDoc 9.8 candidate,\nwith all text, IDs and page/line/reference events checked for exact preservation. Its explicit\nheading/front/note mapping needs scholarly acceptance before any canonical replacement.\n\nThe six imported registered XMLs pass the historical project rules but fail official EpiDoc 9.8.\nThe workbench reports those independently; migration preserves the original scholarly status.\nOffic\n…[truncated at 4000 chars]",
       "status_md": null
+    },
+    {
+      "name": "concordance",
+      "private": true,
+      "archived": false,
+      "default_branch": "main",
+      "pushed_at": "2026-10-29T15:53:08Z",
+      "open_prs": 0,
+      "branches": [
+        {
+          "name": "main",
+          "tip_date": "2026-10-29T15:53:04Z",
+          "tip_author": "alchemiesofscent",
+          "tip_message": "Merge wip/simples-crosswalk owned by concordance-writer (queue mq-20261029-concordance-writer-simples-crosswalk-01)"
+        },
+        {
+          "name": "wip/registrar",
+          "tip_date": "2026-10-09T10:00:57Z",
+          "tip_author": "Claude",
+          "tip_message": "Link identifiers prepared (checklist I.6): tools/link_ids.py, the check, docs/LINK_IDS.md",
+          "ahead": 2,
+          "behind": 85
+        },
+        {
+          "name": "wip/subjects",
+          "tip_date": "2026-10-09T01:57:30Z",
+          "tip_author": "Claude",
+          "tip_message": "Report: time",
+          "ahead": 0,
+          "behind": 89
+        },
+        {
+          "name": "wip/wellmann-repin",
+          "tip_date": "2026-10-11T04:30:33Z",
+          "tip_author": "alchemiesofscent",
+          "tip_message": "remap.py: an end on a section is carried through its chapter, ready for the section round (D39)",
+          "ahead": 11,
+          "behind": 61
+        }
+      ],
+      "branch_detail_skipped": false,
+      "md_files": [
+        "AGENTS.md",
+        "CLAUDE.md",
+        "PLAN.md",
+        "README.md",
+        "docs/BATCH.md",
+        "docs/ENTRY_TEST.md",
+        "docs/ISSUES_2026-10-08.md",
+        "docs/PILOT.md",
+        "docs/READING_2026-10-09.md",
+        "docs/REPIN.md",
+        "docs/REVIEWER.md",
+        "docs/SUBJECTS_2026-10-08.md",
+        "docs/WORKER.md",
+        "review/README.md",
+        "tools/editions/README.md",
+        "tools/editions/prompt.md",
+        "tools/editions/prompt_find.md",
+        "tools/editions/prompt_pair.md",
+        "tools/editions/prompt_sections.md",
+        "tools/editions/prompt_sp.md",
+        "tools/editions/prompt_spans.md"
+      ],
+      "md_files_truncated": false,
+      "readme": "# Concordance\n\nWhich passages of Galen, Oribasius, Aetius, Paul and Dioscorides correspond, and how the editions and translations of Dioscorides map onto Wellmann's: links between CTS URNs, on the pattern of the CITE architecture (URN, relation, URN). No Greek is kept here; the texts are pinned in `manifest.tsv`.\n\n- `PLAN.md`: the plan and the rulings (sheet 011, 2026-10-06).\n- `manifest.tsv`: the texts, pinned by repository, path, commit and sha256.\n- `units/<id>.tsv`: the citable units of each text (URN, label, print locator, hash of the text).\n- `links.tsv`, `groups.tsv`: the concordance.\n- `tools/units.py`, `tools/check.py`.\n\n```\npython3 tools/units.py            # build units/ from the pinned files (needs sources.local.tsv)\npython3 tools/units.py --diff ID  # compare a text's current file with its units (before re-pinning)\npython3 tools/check.py            # every link lands on a unit; manifest hashes match the local files\n```\n",
+      "status_md": null
+    },
+    {
+      "name": "aos-perfume-corpus",
+      "private": true,
+      "archived": false,
+      "default_branch": "main",
+      "pushed_at": "2026-10-29T15:52:44Z",
+      "open_prs": 0,
+      "branches": [
+        {
+          "name": "backup/sprengel1830-pin3fe6-20261012"
+        },
+        {
+          "name": "claude/aos-perfume-build-efficiency-hxaag1"
+        },
+        {
+          "name": "commentary-claims/amigues2006-02"
+        },
+        {
+          "name": "commentary-claims/amigues2006-fr"
+        },
+        {
+          "name": "commentary-claims/amigues2006-fr-02"
+        },
+        {
+          "name": "commentary-claims/amigues2006-full"
+        },
+        {
+          "name": "commentary-claims/amigues2006"
+        },
+        {
+          "name": "commentary-claims/amigues-reconvert"
+        },
+        {
+          "name": "commentary-claims/amigues-rue"
+        },
+        {
+          "name": "commentary-claims/amigues-terms"
+        },
+        {
+          "name": "commentary-claims/andre2010"
+        },
+        {
+          "name": "commentary-claims/andre-key"
+        },
+        {
+          "name": "commentary-claims/authorities-to-find"
+        },
+        {
+          "name": "commentary-claims/beck2020"
+        },
+        {
+          "name": "commentary-claims/beck-lsj"
+        },
+        {
+          "name": "commentary-claims/beck-terms-pin"
+        },
+        {
+          "name": "commentary-claims/berendes1902-pine4ff"
+        },
+        {
+          "name": "commentary-claims/bundle-baseline"
+        },
+        {
+          "name": "commentary-claims/claims-standard"
+        },
+        {
+          "name": "commentary-claims/claims-standard-v2"
+        },
+        {
+          "name": "commentary-claims/concordance-021"
+        },
+        {
+          "name": "commentary-claims/concordance-037"
+        },
+        {
+          "name": "commentary-claims/cookbook-approved"
+        },
+        {
+          "name": "commentary-claims/cookbook-promotion"
+        },
+        {
+          "name": "commentary-claims/cookbook-promotion-2b"
+        },
+        {
+          "name": "commentary-claims/cookbook-promotion-2"
+        },
+        {
+          "name": "commentary-claims/fee1833-derived"
+        },
+        {
+          "name": "commentary-claims/fee1833-desk"
+        },
+        {
+          "name": "commentary-claims/fee1833-t1"
+        },
+        {
+          "name": "commentary-claims/fee1833-t2"
+        },
+        {
+          "name": "commentary-claims/fee1833-t3"
+        },
+        {
+          "name": "commentary-claims/galen-antid-l1-02"
+        },
+        {
+          "name": "commentary-claims/galen-antid-l1"
+        },
+        {
+          "name": "commentary-claims/gate-free-port"
+        },
+        {
+          "name": "commentary-claims/haars2018"
+        },
+        {
+          "name": "commentary-claims/haars-authorities"
+        },
+        {
+          "name": "commentary-claims/haars-track-down-1"
+        },
+        {
+          "name": "commentary-claims/has-ingredient"
+        },
+        {
+          "name": "commentary-claims/has-ingredient-aetius"
+        },
+        {
+          "name": "commentary-claims/hort1916"
+        },
+        {
+          "name": "commentary-claims/intake-1"
+        },
+        {
+          "name": "commentary-claims/intake-2"
+        },
+        {
+          "name": "commentary-claims/intake-3"
+        },
+        {
+          "name": "commentary-claims/intake-4"
+        },
+        {
+          "name": "commentary-claims/keyser2008-02"
+        },
+        {
+          "name": "commentary-claims/keyser2008"
+        },
+        {
+          "name": "commentary-claims/keyser-quintus"
+        },
+        {
+          "name": "commentary-claims/keyser-repin"
+        },
+        {
+          "name": "commentary-claims/kinamomon-td2"
+        },
+        {
+          "name": "commentary-claims/lsj"
+        },
+        {
+          "name": "commentary-claims/manniche2006"
+        },
+        {
+          "name": "commentary-claims/mattioli-b2-rest"
+        },
+        {
+          "name": "commentary-claims/mattioli-m1"
+        },
+        {
+          "name": "commentary-claims/mattioli-m2"
+        },
+        {
+          "name": "commentary-claims/mattioli-m3-b1"
+        },
+        {
+          "name": "commentary-claims/mattioli-m3-b2-1"
+        },
+        {
+          "name": "commentary-claims/mattioli-m3-b2-3s"
+        },
+        {
+          "name": "commentary-claims/mattioli-m3-b2-4s"
+        },
+        {
+          "name": "commentary-claims/mattioli-m3-b2-5s"
+        },
+        {
+          "name": "commentary-claims/mattioli-m3-b2-6s"
+        },
+        {
+          "name": "commentary-claims/mattioli-m3-b2-7s"
+        },
+        {
+          "name": "commentary-claims/mattioli-m3-b2-8s"
+        },
+        {
+          "name": "commentary-claims/mattioli-m3-b2"
+        },
+        {
+          "name": "commentary-claims/mattioli-m3-b3"
+        },
+        {
+          "name": "commentary-claims/mattioli-m3-b4"
+        },
+        {
+          "name": "commentary-claims/olivieri-v2"
+        },
+        {
+          "name": "commentary-claims/page-links"
+        },
+        {
+          "name": "commentary-claims/private-witnesses"
+        },
+        {
+          "name": "commentary-claims/retire-migrate-check"
+        },
+        {
+          "name": "commentary-claims/sprengel1830-lock"
+        },
+        {
+          "name": "commentary-claims/sprengel1830-repin"
+        },
+        {
+          "name": "commentary-claims/track-down-3"
+        },
+        {
+          "name": "commentary-claims/track-down-4"
+        },
+        {
+          "name": "commentary-claims/w18-all"
+        },
+        {
+          "name": "commentary-claims/w18-answers-2"
+        },
+        {
+          "name": "commentary-claims/w18-dsc"
+        },
+        {
+          "name": "commentary-claims/w18-pilot"
+        },
+        {
+          "name": "commentary-claims/w18r-d106"
+        },
+        {
+          "name": "fix/apparatus-readings",
+          "pr": {
+            "number": 6,
+            "title": "Fix apparatus readings: reading text was dropped, every variant printed as om.",
+            "state": "closed",
+            "merged_at": "2026-09-13T04:39:58Z",
+            "updated_at": "2026-09-13T04:39:58Z"
+          }
+        },
+        {
+          "name": "main"
+        },
+        {
+          "name": "materials/a2-opobalsamum"
+        },
+        {
+          "name": "materials/book1-materials-plan"
+        },
+        {
+          "name": "materials/book1-materials-wave1"
+        },
+        {
+          "name": "materials/claim-qualifiers"
+        },
+        {
+          "name": "materials/claim-qualifiers-02"
+        },
+        {
+          "name": "materials/ingredients-2"
+        },
+        {
+          "name": "materials/kypros-modern"
+        },
+        {
+          "name": "materials/kypros-modern-02"
+        },
+        {
+          "name": "materials/kypros-modern-04"
+        },
+        {
+          "name": "materials/lsj-names"
+        },
+        {
+          "name": "materials/made-at"
+        },
+        {
+          "name": "materials/made-at-02"
+        },
+        {
+          "name": "materials/names-3-7"
+        },
+        {
+          "name": "materials/names-8-11-02"
+        },
+        {
+          "name": "materials/names-8-11"
+        },
+        {
+          "name": "materials/people-places-schema"
+        },
+        {
+          "name": "materials/people-places-schema-02"
+        },
+        {
+          "name": "materials/people-places-schema-03"
+        },
+        {
+          "name": "materials/people-places-schema-04"
+        },
+        {
+          "name": "materials/plant-names"
+        },
+        {
+          "name": "materials/qualifier-grade"
+        },
+        {
+          "name": "materials/resembles-respects"
+        },
+        {
+          "name": "materials/resembles-structured"
+        },
+        {
+          "name": "materials/row237-retired-export"
+        },
+        {
+          "name": "materials/row237-retired-export-02"
+        },
+        {
+          "name": "materials/stable-owl"
+        },
+        {
+          "name": "materials/wellmann-v1.1-repin"
+        },
+        {
+          "name": "materials/wellmann-v1.1-repin-2"
+        },
+        {
+          "name": "persons/mattioli-names-2"
+        },
+        {
+          "name": "persons/sprengel-as-printed"
+        },
+        {
+          "name": "persons/sprengel-as-printed-2"
+        },
+        {
+          "name": "persons-and-places/entities-nfc"
+        },
+        {
+          "name": "persons-and-places/oribasius-archive-authors"
+        },
+        {
+          "name": "persons-and-places/track-down-1"
+        },
+        {
+          "name": "persons-and-places/work-roles"
+        },
+        {
+          "name": "pilot/apparatus-explained",
+          "pr": {
+            "number": 7,
+            "title": "Explain the apparatus for readers: plain sentences, witness legends, sigla and abbreviations",
+            "state": "closed",
+            "merged_at": "2026-09-13T04:58:23Z",
+            "updated_at": "2026-09-13T04:58:23Z"
+          }
+        },
+        {
+          "name": "pilot/lemmatic-commentary",
+          "pr": {
+            "number": 5,
+            "title": "Project's lemmatic commentary citing the scholars; withdraw the wholesale list",
+            "state": "closed",
+            "merged_at": "2026-09-13T03:48:52Z",
+            "updated_at": "2026-09-13T03:48:52Z"
+          }
+        },
+        {
+          "name": "pilot/lexicon-headword",
+          "pr": {
+            "number": 13,
+            "title": "Lexicon rows show the headword and transliteration only",
+            "state": "closed",
+            "merged_at": "2026-09-13T06:43:10Z",
+            "updated_at": "2026-09-13T06:43:11Z"
+          }
+        },
+        {
+          "name": "pilot/phyrao-once",
+          "pr": {
+            "number": 8,
+            "title": "Say the φυράω note once, on the operation's entry, not in the recipe commentary",
+            "state": "closed",
+            "merged_at": "2026-09-13T04:59:54Z",
+            "updated_at": "2026-09-13T04:59:54Z"
+          }
+        },
+        {
+          "name": "pilot/resegment",
+          "pr": {
+            "number": 9,
+            "title": "Resegment rhodinon: heading, quantities and boil are one segment; the straining opens the rose charge",
+            "state": "closed",
+            "merged_at": "2026-09-13T05:09:52Z",
+            "updated_at": "2026-09-13T05:09:52Z"
+          }
+        },
+        {
+          "name": "pilot/rhodinon-skeleton",
+          "pr": {
+            "number": 2,
+            "title": "Units 1–3: rhodinon recipe page, term pages, units, Library; PLAN.md revision 2.1",
+            "state": "closed",
+            "merged_at": "2026-09-12T23:47:54Z",
+            "updated_at": "2026-09-12T23:47:54Z"
+          }
+        },
+        {
+          "name": "pilot/scholars-commentary",
+          "pr": {
+            "number": 4,
+            "title": "Scholars' commentary from Sprengel, Berendes and Beck with facsimile links; φυράσας ruling",
+            "state": "closed",
+            "merged_at": "2026-09-13T03:35:04Z",
+            "updated_at": "2026-09-13T03:35:04Z"
+          }
+        },
+        {
+          "name": "pilot/selection-note",
+          "pr": {
+            "number": 11,
+            "title": "Note the reader-selection refinement; make the margin labels unselectable",
+            "state": "closed",
+            "merged_at": "2026-09-13T05:28:42Z",
+            "updated_at": "2026-09-13T05:28:42Z"
+          }
+        },
+        {
+          "name": "pilot/stages-by-verb",
+          "pr": {
+            "number": 10,
+            "title": "Parse the method by finite verbs, participles as hidden steps",
+            "state": "closed",
+            "merged_at": "2026-09-13T05:27:16Z",
+            "updated_at": "2026-09-13T05:27:16Z"
+          }
+        },
+        {
+          "name": "pilot/steps-every-verb",
+          "pr": {
+            "number": 12,
+            "title": "Break the method down to one step per verb, joined in groups, each cited by CTS URN",
+            "state": "closed",
+            "merged_at": "2026-09-13T05:47:06Z",
+            "updated_at": "2026-09-13T05:47:07Z"
+          }
+        },
+        {
+          "name": "pilot/strip-meta-and-rules",
+          "pr": {
+            "number": 3,
+            "title": "Strip meta text, add per-recipe commentary, PLAN.md 2.2 with rules of work",
+            "state": "closed",
+            "merged_at": "2026-09-13T00:36:49Z",
+            "updated_at": "2026-09-13T00:36:50Z"
+          }
+        },
+        {
+          "name": "recipes/amygdalinon"
+        },
+        {
+          "name": "recipes/amygdalinon-2"
+        },
+        {
+          "name": "recipes/answers-3-r2"
+        },
+        {
+          "name": "recipes/answers-3-terms"
+        },
+        {
+          "name": "recipes/answers-3"
+        },
+        {
+          "name": "recipes/broader-claim-evidence"
+        },
+        {
+          "name": "recipes/elaiomeli-exudate-of"
+        },
+        {
+          "name": "recipes/iasmelaion"
+        },
+        {
+          "name": "recipes/iasmelaion-wip"
+        },
+        {
+          "name": "recipes/iasmelaion-wip-2"
+        },
+        {
+          "name": "recipes/kyphi-juniper-amount"
+        },
+        {
+          "name": "recipes/kyphi-terms"
+        },
+        {
+          "name": "recipes/mattioli1554-latin-terms"
+        },
+        {
+          "name": "recipes/mattioli1554-latin-terms-r2"
+        },
+        {
+          "name": "recipes/omphakinon-terms"
+        },
+        {
+          "name": "recipes/schema-locusref-mention"
+        },
+        {
+          "name": "recipes/schema-locusref-mention-r2"
+        },
+        {
+          "name": "recipes/schema-locusref-mention-r3"
+        },
+        {
+          "name": "recipes/schema-locusref-mention-r4"
+        },
+        {
+          "name": "recipes/schema-oct24"
+        },
+        {
+          "name": "recipes/simples-sprengel1830-terms"
+        },
+        {
+          "name": "recipes/sinapinon"
+        },
+        {
+          "name": "recipes/skill-kyphi"
+        },
+        {
+          "name": "recipes/stear-c"
+        },
+        {
+          "name": "recipes/terms-1-31"
+        },
+        {
+          "name": "recipes/terms-1-32"
+        },
+        {
+          "name": "recipes/terms-1-35"
+        },
+        {
+          "name": "recipes/terms-1-37"
+        },
+        {
+          "name": "recipes/terms-1-39"
+        },
+        {
+          "name": "recipes/terms-1-42"
+        },
+        {
+          "name": "recipes/terms-1-46"
+        },
+        {
+          "name": "recipes/terms-1-48"
+        },
+        {
+          "name": "recipes/terms-1-51"
+        },
+        {
+          "name": "recipes/terms-1-54"
+        },
+        {
+          "name": "recipes/terms-1-56"
+        },
+        {
+          "name": "recipes/terms-1-59"
+        },
+        {
+          "name": "recipes/terms-1-62"
+        },
+        {
+          "name": "recipes/terms-ita-language"
+        },
+        {
+          "name": "recipes/terms-myrra-designates"
+        },
+        {
+          "name": "recipes/terms-myrra-designates-r2"
+        },
+        {
+          "name": "recipes/vocab-myax"
+        },
+        {
+          "name": "recipes/whitened-oil-terms"
+        },
+        {
+          "name": "website/claim-chain"
+        },
+        {
+          "name": "website/kypros-simple-ends"
+        },
+        {
+          "name": "website/pages-taxon-address"
+        },
+        {
+          "name": "website/w26-cookbook-english"
+        }
+      ],
+      "branch_detail_skipped": true,
+      "md_files": [
+        ".claude/skills/recipe-walkthrough/SKILL.md",
+        ".claude/skills/recipe-walkthrough/references/checks.md",
+        ".claude/skills/recipe-walkthrough/references/continue-prompt.md",
+        ".claude/skills/recipe-walkthrough/references/ladder-template.md",
+        ".claude/skills/recipe-walkthrough/references/scheduled-prompt.md",
+        ".claude/skills/recipe-walkthrough/references/simple-agent-prompt.md",
+        ".claude/skills/recipe-walkthrough/references/simple-prompt.md",
+        ".claude/skills/recipe-walkthrough/references/walk-prompt.md",
+        ".claude/skills/recipe-walkthrough/references/worked-example.md",
+        "AGENTS.md",
+        "HANDOFF.md",
+        "LICENSE.md",
+        "README.md",
+        "build/fixtures/recipe_display_w68/README.md",
+        "cookbook/PLAN.md",
+        "cookbook/PRD.md",
+        "cookbook/REVIEW.md",
+        "docs/BUNDLE.md",
+        "docs/CLAIMS_STANDARD.md",
+        "docs/CONTENT_MODEL.md",
+        "docs/DATA_MODEL.md",
+        "docs/DECISIONS.md",
+        "docs/EDITORIAL_RULES.md",
+        "docs/NAMES_AND_THINGS.md",
+        "docs/ONTOLOGY.md",
+        "docs/PAGES.md",
+        "docs/PAPER_NOTES.md",
+        "docs/PEOPLE_PLACES_TIME.md",
+        "docs/PERSONS.md",
+        "docs/PRINCIPLES.md",
+        "docs/REQUIREMENTS.md",
+        "docs/STACK_REVIEW_2026-10.md",
+        "docs/pages/material.md",
+        "docs/pages/object.md",
+        "docs/pages/person.md",
+        "docs/pages/place.md",
+        "docs/pages/tool.md",
+        "recipes/dioscorides-1-25-kyphi/decisions.md",
+        "recipes/dioscorides-1-25-kyphi/research.md",
+        "recipes/dioscorides-1-30-3-agrias-elaias/decisions.md",
+        "recipes/dioscorides-1-30-3-agrias-elaias/research.md",
+        "recipes/dioscorides-1-30-5-sikyonion/decisions.md",
+        "recipes/dioscorides-1-30-5-sikyonion/research.md",
+        "recipes/dioscorides-1-30-aged-oil-imitation/decisions.md",
+        "recipes/dioscorides-1-30-aged-oil-imitation/research.md",
+        "recipes/dioscorides-1-30-omphakinon/decisions.md",
+        "recipes/dioscorides-1-30-omphakinon/research.md",
+        "recipes/dioscorides-1-30-whitened-oil/decisions.md",
+        "recipes/dioscorides-1-30-whitened-oil/research.md",
+        "recipes/dioscorides-1-31-elaiomeli/decisions.md",
+        "recipes/dioscorides-1-31-elaiomeli/research.md",
+        "recipes/dioscorides-1-31-thalloi-oil/decisions.md",
+        "recipes/dioscorides-1-32-2-kikinon-aigyption/decisions.md",
+        "recipes/dioscorides-1-32-2-kikinon-aigyption/research.md",
+        "recipes/dioscorides-1-32-kikinon/decisions.md",
+        "recipes/dioscorides-1-32-kikinon/research.md",
+        "recipes/dioscorides-1-33-amygdalinon/decisions.md",
+        "recipes/dioscorides-1-33-amygdalinon/research.md",
+        "recipes/dioscorides-1-34-balaninon/decisions.md",
+        "recipes/dioscorides-1-34-balaninon/research.md",
+        "recipes/dioscorides-1-34-sesaminon-karyinon/decisions.md",
+        "recipes/dioscorides-1-34-sesaminon-karyinon/research.md",
+        "recipes/dioscorides-1-35-hyoskyaminon/decisions.md",
+        "recipes/dioscorides-1-35-hyoskyaminon/research.md",
+        "recipes/dioscorides-1-36-knekikon/decisions.md",
+        "recipes/dioscorides-1-36-knekikon/research.md",
+        "recipes/dioscorides-1-36-knidion/decisions.md",
+        "recipes/dioscorides-1-36-knidion/research.md",
+        "recipes/dioscorides-1-37-melanthinon/decisions.md",
+        "recipes/dioscorides-1-37-melanthinon/research.md",
+        "recipes/dioscorides-1-37-raphaninon/decisions.md",
+        "recipes/dioscorides-1-37-raphaninon/research.md",
+        "recipes/dioscorides-1-38-sinapinon/decisions.md",
+        "recipes/dioscorides-1-38-sinapinon/research.md",
+        "recipes/dioscorides-1-39-myrsininon/decisions.md",
+        "recipes/dioscorides-1-39-myrsininon/research.md",
+        "recipes/dioscorides-1-40-daphninon/decisions.md",
+        "recipes/dioscorides-1-40-daphninon/research.md",
+        "recipes/dioscorides-1-41-2-terebinthinon/decisions.md",
+        "recipes/dioscorides-1-41-2-terebinthinon/research.md",
+        "recipes/dioscorides-1-41-schininon/decisions.md",
+        "recipes/dioscorides-1-41-schininon/research.md",
+        "recipes/dioscorides-1-42-mastichinon/decisions.md",
+        "recipes/dioscorides-1-42-mastichinon/research.md",
+        "recipes/dioscorides-1-43-rhodinon/decisions.md",
+        "recipes/dioscorides-1-43-rhodinon/ladder.md",
+        "recipes/dioscorides-1-43-rhodinon/research.md",
+        "recipes/dioscorides-1-44-elatinon/decisions.md",
+        "recipes/dioscorides-1-44-elatinon/research.md",
+        "recipes/dioscorides-1-45-2-melinon-allos/decisions.md",
+        "recipes/dioscorides-1-45-2-melinon-allos/research.md",
+        "recipes/dioscorides-1-45-melinon/decisions.md",
+        "recipes/dioscorides-1-45-melinon/research.md",
+        "recipes/dioscorides-1-46-oinanthinon/decisions.md",
+        "recipes/dioscorides-1-46-oinanthinon/research.md",
+        "recipes/dioscorides-1-47-telinon/decisions.md",
+        "recipes/dioscorides-1-47-telinon/research.md",
+        "recipes/dioscorides-1-48-sampsouchinon/decisions.md",
+        "recipes/dioscorides-1-48-sampsouchinon/research.md",
+        "recipes/dioscorides-1-49-okiminon/decisions.md",
+        "recipes/dioscorides-1-49-okiminon/research.md",
+        "recipes/dioscorides-1-50-habrotoninon/decisions.md",
+        "recipes/dioscorides-1-50-habrotoninon/research.md",
+        "recipes/dioscorides-1-51-anethinon/decisions.md",
+        "recipes/dioscorides-1-51-anethinon/research.md",
+        "recipes/dioscorides-1-52-sousinon/decisions.md",
+        "recipes/dioscorides-1-52-sousinon/ladder.md",
+        "recipes/dioscorides-1-52-sousinon/research.md",
+        "recipes/dioscorides-1-53-narkissinon/decisions.md",
+        "recipes/dioscorides-1-54-krokinon/decisions.md",
+        "recipes/dioscorides-1-54-krokinon/research.md",
+        "recipes/dioscorides-1-55-kyprinon/decisions.md",
+        "recipes/dioscorides-1-55-kyprinon/ladder.md",
+        "recipes/dioscorides-1-55-kyprinon/research.md",
+        "recipes/dioscorides-1-56-2-irinon-allos/decisions.md",
+        "recipes/dioscorides-1-56-2-irinon-allos/ladder.md",
+        "recipes/dioscorides-1-56-2-irinon-allos/research.md",
+        "recipes/dioscorides-1-56-irinon/decisions.md",
+        "recipes/dioscorides-1-56-irinon/ladder.md",
+        "recipes/dioscorides-1-56-irinon/research.md",
+        "recipes/dioscorides-1-57-gleukinon/decisions.md",
+        "recipes/dioscorides-1-57-gleukinon/research.md",
+        "recipes/dioscorides-1-58-3-hedychroun/decisions.md",
+        "recipes/dioscorides-1-58-3-hedychroun/research.md",
+        "recipes/dioscorides-1-58-3-megalleion/decisions.md",
+        "recipes/dioscorides-1-58-3-megalleion/research.md",
+        "recipes/dioscorides-1-58-amarakinon/decisions.md",
+        "recipes/dioscorides-1-58-amarakinon/research.md",
+        "recipes/dioscorides-1-59-3-mendesion/decisions.md",
+        "recipes/dioscorides-1-59-3-mendesion/research.md",
+        "recipes/dioscorides-1-59-metopion/decisions.md",
+        "recipes/dioscorides-1-59-metopion/research.md",
+        "recipes/dioscorides-1-60-stakte/decisions.md",
+        "recipes/dioscorides-1-60-stakte/research.md",
+        "recipes/dioscorides-1-61-kinamominon/decisions.md",
+        "recipes/dioscorides-1-61-kinamominon/research.md",
+        "recipes/dioscorides-1-62-nardinon/decisions.md",
+        "recipes/dioscorides-1-62-nardinon/research.md",
+        "recipes/dioscorides-1-63-iasmelaion/decisions.md",
+        "recipes/dioscorides-1-63-malabathrinon/decisions.md",
+        "recipes/dioscorides-1-63-malabathrinon/research.md",
+        "recipes/dioscorides-1-71-5-burned-resin-with-water/decisions.md",
+        "recipes/dioscorides-1-71-5-burned-resin-with-water/research.md",
+        "recipes/dioscorides-1-71-6-burned-resin-without-water/decisions.md",
+        "recipes/dioscorides-1-71-6-burned-resin-without-water/research.md",
+        "recipes/dioscorides-2-72-boutyron-lignys/decisions.md",
+        "recipes/dioscorides-2-72-boutyron-lignys/research.md",
+        "recipes/dioscorides-2-72-boutyron/decisions.md",
+        "recipes/dioscorides-2-72-boutyron/research.md",
+        "recipes/dioscorides-2-74-oisypos-boiled/decisions.md",
+        "recipes/dioscorides-2-74-oisypos-boiled/research.md",
+        "recipes/dioscorides-2-74-oisypos-burned-lignys/decisions.md",
+        "recipes/dioscorides-2-74-oisypos-burned-lignys/research.md",
+        "recipes/dioscorides-2-74-oisypos/decisions.md",
+        "recipes/dioscorides-2-74-oisypos/research.md",
+        "recipes/dioscorides-2-76-aromatic-pretreatment-basic/decisions.md",
+        "recipes/dioscorides-2-76-aromatic-pretreatment-basic/research.md",
+        "recipes/dioscorides-2-76-aromatic-pretreatment-lotus/decisions.md",
+        "recipes/dioscorides-2-76-aromatic-pretreatment-lotus/research.md",
+        "recipes/dioscorides-2-76-aromatized-bird-goose-stear/decisions.md",
+        "recipes/dioscorides-2-76-aromatized-bird-goose-stear/research.md",
+        "recipes/dioscorides-2-76-aromatized-calf-bull-deer-stear/decisions.md",
+        "recipes/dioscorides-2-76-aromatized-calf-bull-deer-stear/research.md",
+        "recipes/dioscorides-2-76-bull-stear/decisions.md",
+        "recipes/dioscorides-2-76-bull-stear/research.md",
+        "recipes/dioscorides-2-76-goat-sheep-deer-stear/decisions.md",
+        "recipes/dioscorides-2-76-goat-sheep-deer-stear/research.md",
+        "recipes/dioscorides-2-76-goose-chicken-stear/decisions.md",
+        "recipes/dioscorides-2-76-goose-chicken-stear/research.md",
+        "recipes/dioscorides-2-76-ox-stear/decisions.md",
+        "recipes/dioscorides-2-76-ox-stear/research.md",
+        "recipes/dioscorides-2-76-pig-bear-stear/decisions.md",
+        "recipes/dioscorides-2-76-pig-bear-stear/research.md",
+        "recipes/dioscorides-2-76-preserved-untreated-stear/decisions.md",
+        "recipes/dioscorides-2-76-preserved-untreated-stear/research.md",
+        "recipes/dioscorides-2-76-rendered-stear-with-salt/decisions.md",
+        "recipes/dioscorides-2-76-rendered-stear-with-salt/research.md",
+        "recipes/dioscorides-2-76-sampsuchized-stear/decisions.md",
+        "recipes/dioscorides-2-76-sampsuchized-stear/research.md",
+        "recipes/dioscorides-2-76-stear-properties-catalogue/decisions.md",
+        "recipes/dioscorides-2-76-stear-properties-catalogue/research.md",
+        "site/assets/vendor/leaflet/README.md",
+        "staging/amigues2006/README.md",
+        "staging/amigues2006/REPORT.md",
+        "staging/andre2010/REPORT.md",
+        "staging/beck2020/REPORT.md",
+        "staging/berendes1902/README.md",
+        "staging/cited-works/README.md",
+        "staging/claims-standard/migration-report.md",
+        "staging/claims-standard/people-needed.md",
+        "staging/claims-standard/q1-note.md",
+        "staging/claims-standard/term-gaps.md",
+        "staging/claims-standard/tests/REPORT.md",
+        "staging/concordance-021/REPORT.md",
+        "staging/concordance-037/REPORT.md",
+        "staging/fee1833/README.md",
+        "staging/fee1833/REPORT.md",
+        "staging/galen-antid/METHODS.md",
+        "staging/galen-antid/README.md",
+        "staging/galen-antid/galen-l1.result.md",
+        "staging/gbif/report.md",
+        "staging/gbif/review.md",
+        "staging/haars2018/README.md",
+        "staging/haars2018/REPORT.md",
+        "staging/hort1916/README.md",
+        "staging/hort1916/REPORT.md",
+        "staging/keyser2008/REPORT.md",
+        "staging/lsj/README.md",
+        "staging/lsj/REPORT.md",
+        "staging/manniche2006/REPORT.md",
+        "staging/materials/amigues2006-names-report.md",
+        "staging/materials/andre2010-names-report.md",
+        "staging/materials/beck2020-names-report.md",
+        "staging/materials/berendes1902-names-report.md",
+        "staging/materials/claims-port-a-report.md",
+        "staging/materials/d107-simple-spec-report.md",
+        "staging/materials/d108-row-a-report.md",
+        "staging/materials/d74-pilot-audit.md",
+        "staging/materials/d74-pilot-report.md",
+        "staging/materials/d74-pilot-sheet.md",
+        "staging/materials/d74-senses-report.md",
+        "staging/materials/d74-senses-review.md",
+        "staging/materials/d95-photo-schema-report.md",
+        "staging/materials/d97-slot-a-report.md",
+        "staging/materials/fee1833-names-report.md",
+        "staging/materials/fold-kinnamomon-report.md",
+        "staging/materials/grade-report.md",
+        "staging/materials/haars2018-names-report.md",
+        "staging/materials/hort1916-names-report.md",
+        "staging/materials/ingredients-1-audit.md",
+        "staging/materials/ingredients-1-report.md",
+        "staging/materials/ingredients-2-audit.md",
+        "staging/materials/ingredients-2-report.md",
+        "staging/materials/ingredients-2.prompt.md",
+        "staging/materials/keyser2008-names-report.md",
+        "staging/materials/lsj-names-report.md",
+        "staging/materials/manniche2006-names-report.md",
+        "staging/materials/mp1-schema-report.md",
+        "staging/materials/mp2-gold-report.md",
+        "staging/materials/mp2-gold-review.md",
+        "staging/materials/mp3-dsc1-report.md",
+        "staging/materials/mp3-dsc1-review.md",
+        "staging/materials/mp4-dsc2-report.md",
+        "staging/materials/mp4-dsc2-review.md",
+        "staging/materials/mp5-dsc3-report.md",
+        "staging/materials/mp5-dsc3-review.md",
+        "staging/materials/mp9-report.md",
+        "staging/materials/names-audit.md",
+        "staging/materials/names-build-report.md",
+        "staging/materials/names-build.prompt.md",
+        "staging/materials/names-fix-report.md",
+        "staging/materials/names-signoff-rulings.md",
+        "staging/materials/olive-build-report.md",
+        "staging/materials/people-places-report.md",
+        "staging/materials/qualifiers-report.md",
+        "staging/materials/resembles-report.md",
+        "staging/materials/row139-report.md",
+        "staging/materials/row237-report.md",
+        "staging/materials/schema-step-report.md",
+        "staging/materials/sprengel1830-names-report.md",
+        "staging/materials/standard-additions-report.md",
+        "staging/materials/terms-port-report.md",
+        "staging/materials/tn1-report.md",
+        "staging/materials/tn2-report.md",
+        "staging/materials/tn3-report.md",
+        "staging/materials/wellmann-v1.1-report.md",
+        "staging/materials/wellmann-v1.1b-report.md",
+        "staging/mattioli1554/README.md",
+        "staging/mattioli1554/b1/1/coverage.md",
+        "staging/mattioli1554/b1/2/coverage.md",
+        "staging/mattioli1554/b1/3/coverage.md",
+        "staging/mattioli1554/b1/4/coverage.md",
+        "staging/mattioli1554/b1/5/coverage.md",
+        "staging/mattioli1554/b1/6/HANDOFF-lines.md",
+        "staging/mattioli1554/b1/6/coverage.md",
+        "staging/mattioli1554/b1/attr-HANDOFF-lines.md",
+        "staging/mattioli1554/b2/1/HANDOFF-lines.md",
+        "staging/mattioli1554/b2/1/coverage.md",
+        "staging/mattioli1554/b2/2/HANDOFF-lines.md",
+        "staging/mattioli1554/b2/2/coverage.md",
+        "staging/mattioli1554/b2/3/HANDOFF-lines.md",
+        "staging/mattioli1554/b2/3/coverage.md",
+        "staging/mattioli1554/b2/4/HANDOFF-lines.md",
+        "staging/mattioli1554/b2/4/coverage.md",
+        "staging/mattioli1554/b2/5/HANDOFF-lines.md",
+        "staging/mattioli1554/b2/5/coverage.md",
+        "staging/mattioli1554/b2/6/HANDOFF-lines.md",
+        "staging/mattioli1554/b2/6/coverage.md",
+        "staging/mattioli1554/b2/7/HANDOFF-lines.md",
+        "staging/mattioli1554/b2/7/coverage.md",
+        "staging/mattioli1554/b2/8/HANDOFF-lines.md",
+        "staging/mattioli1554/b2/8/coverage.md",
+        "staging/mattioli1554/b3/1/HANDOFF-lines.md",
+        "staging/mattioli1554/b3/1/coverage.md",
+        "staging/mattioli1554/b3/2/HANDOFF-lines.md",
+        "staging/mattioli1554/b3/2/coverage.md",
+        "staging/mattioli1554/b3/3/HANDOFF-lines.md",
+        "staging/mattioli1554/b3/3/coverage.md",
+        "staging/mattioli1554/b3/4/HANDOFF-lines.md",
+        "staging/mattioli1554/b3/4/coverage.md",
+        "staging/mattioli1554/b3/5/HANDOFF-lines.md",
+        "staging/mattioli1554/b3/5/coverage.md",
+        "staging/mattioli1554/b3/6/HANDOFF-lines.md",
+        "staging/mattioli1554/b3/6/coverage.md",
+        "staging/mattioli1554/b4/1/HANDOFF-lines.md",
+        "staging/mattioli1554/b4/1/coverage.md",
+        "staging/mattioli1554/b4/2/HANDOFF-lines.md",
+        "staging/mattioli1554/b4/2/coverage.md",
+        "staging/mattioli1554/b4/3/HANDOFF-lines.md",
+        "staging/mattioli1554/b4/3/coverage.md",
+        "staging/mattioli1554/b4/4/HANDOFF-lines.md",
+        "staging/mattioli1554/b4/4/coverage.md",
+        "staging/mattioli1554/b4/5/HANDOFF-lines.md",
+        "staging/mattioli1554/b4/5/coverage.md",
+        "staging/mattioli1554/b4/6/HANDOFF-lines.md",
+        "staging/mattioli1554/b4/6/coverage.md",
+        "staging/mattioli1554/b4/7/HANDOFF-lines.md",
+        "staging/mattioli1554/b4/7/coverage.md",
+        "staging/mattioli1554/b5/1/HANDOFF-lines.md",
+        "staging/mattioli1554/b5/1/coverage.md",
+        "staging/mattioli1554/b5/2/HANDOFF-lines.md",
+        "staging/mattioli1554/b5/2/coverage.md",
+        "staging/mattioli1554/b5/3/HANDOFF-lines.md",
+        "staging/mattioli1554/b5/3/coverage.md",
+        "staging/mattioli1554/b6/1/HANDOFF-lines.md",
+        "staging/mattioli1554/b6/1/coverage.md",
+        "staging/mattioli1554/b6/2/HANDOFF-lines.md",
+        "staging/mattioli1554/b6/2/coverage.md",
+        "staging/mattioli1554/gold/REPORT.md",
+        "staging/mattioli1554/gold/coverage.md",
+        "staging/mattioli1554/gold/review-dispositions.md",
+        "staging/oribasius-app/README.md",
+        "staging/sprengel1830/README.md",
+        "staging/w18-variants/README.md",
+        "staging/w18-variants/w18-pilot.result.md",
+        "tools/steering-desk/README.md"
+      ],
+      "md_files_truncated": false,
+      "readme": "# AoS Perfume Corpus\n\nA corpus and lexicon of ancient perfume recipes that records, for each\ningredient, what the ancient text calls it, how translators rendered it and\nwhat scholars have identified it as, attributed and cited. The corpus states\nno identification as fact; it records links and displays them, and its own\neditorial choices, and its own links of a word to a material, are recorded as\nits own, with their basis.\n\nTwo recipes are built end to end from the pinned source text: ῥόδινον\n(Dioscorides 1.43) and σούσινον (1.52), with the simple lily-oil of 1.52.5 as\na report record of its own. Each recipe page has its segments, a method of one\nstep per verb with inputs, outputs and tools, the readings where this edition\ndeparts from Wellmann, and the project's commentary. Around them: the term\npages, the phrase terms that name kinds among them; material pages for the\nstuff of today (myrrh, stacte); source pages for the binomials the scholars\nprint; an assertion page for every claim; the unit pages; a page for every\noperation verb and every vessel; the series page for the perfumes; text pages\nfor the transcriptions quoted; a running vocabulary of the English used. This\nis an early alpha.\n\n## In plain words\n\nThe goal is a reference work for ancient perfume recipes that never asks the\nreader to take our word for anything. Every Greek word of a recipe is shown\nwhere the edition prints it, and every statement about a word is attributed:\nwhat Dioscorides calls the ingredient, what Sprengel or Berendes or Beck made\nof it, what botanists have identified it as, and what we ourselves decided,\neach with a citation that opens the page it comes from. Where scholars\ndisagree, the page shows the disagreement rather than resolving it.\n\nThe approach is to build one recipe completely before generalizing. The\nsource text is pinned to an exact commit and checksum of the edition and never\nedited here. The recipe is divided into segments we define over the editor's\nsections; each step of the method is one verb of the Greek, cited by its CTS\nURN; each ingredient is the phrase that names it, with every word linked to\nits term. The scholars' comments are quoted exactly and verified at build time\ninside the unit of their edition they come from; the commentary is Sean's,\nwritten under stated editorial rules. The scholars' identifications are kept\nonce, in the extraction pipeline, and shown from its pinned packages, grouped\nby taxon and scoped by the passage the scholar cites. The build refuses to produce a page if any\nquotation, anchor, reference or translation is missing. Scholarly decisions\nare made by Sean and recorded with their date; an agent prepares the evidence\nand the proposal.\n\n## Start here\n\n- [HANDOFF.md](HANDOFF.md): the standing rules in short, what exists, the\n  to-do list, what is open with Sean.\n- [docs/CONTENT_MODEL.md](docs/CONTENT_MODEL.md): what each kind of record\n  collects, where each field comes from and what its page shows; the schemas\n  in `spec/schema/` are its machine form.\n- [docs/DECISIONS.md](docs/DECISIONS.md): Sean's rulings on the model, dated.\n- [docs/EDITORIAL_RULES.md](docs/EDITORIAL_RULES.md): Sean's rules for\n  analysing a recipe and writing about it, with their reasons.\n- [docs/PRINCIPLES.md](docs/PRINCIPLES.md): the charter of the platform:\n  the levels kept distinct, products as views, when a view ships.\n- [docs/DATA_MODEL.md](docs/DATA_MODEL.md): the charter applied to the corpus:\n  identity, anchors, how a link is written.\n- [docs/PERSONS.md](docs/PERSONS.md): how the persons were found, recorded,\n  translated and linked (relations, graded mentions, works), and how to add one.\n- [docs/PEOPLE_PLACES_TIME.md](docs/PEOPLE_PLACES_TIME.md): how persons,\n  documents, places and dates connect, what each link establishes, and what\n  each date dates (D145).\n- [docs/PAGES.md](docs/PAGES.md): the site's parts, the rules every page\n  keeps, the page types and their state; `docs/mockups/` guide the layout.\n- [AGENTS.md]\n…[truncated at 4000 chars]",
+      "status_md": null
+    },
+    {
+      "name": "to-do-list",
+      "private": false,
+      "archived": false,
+      "default_branch": "main",
+      "pushed_at": "2026-10-29T10:00:02Z",
+      "open_prs": 0,
+      "branches": [
+        {
+          "name": "main",
+          "tip_date": "2026-10-29T10:00:01Z",
+          "tip_author": "portfolio-bot",
+          "tip_message": "portfolio: nightly collection 2026-10-29"
+        }
+      ],
+      "branch_detail_skipped": false,
+      "md_files": [
+        ".github/pull_request_template.md",
+        "AGENTS.md",
+        "CLAUDE.md",
+        "CONTRIBUTING.md",
+        "PLAN.md",
+        "README.md",
+        "REPO_STANDARD.md",
+        "SECURITY.md",
+        "STATUS.md",
+        "WBS_TODO_SUPABASE_INTEGRATION.md",
+        "data/projects.md",
+        "docs/FINDINGS-metopion-20260805.md",
+        "docs/FINDINGS-theophrastos-20260805.md",
+        "docs/QA_CHECKLIST.md",
+        "docs/pmo.md",
+        "docs/pmo/CHANGELOG.md",
+        "docs/pmo/DECISIONS.md",
+        "docs/pmo/ENGINEERING_LOG.md",
+        "docs/pmo/KNOWN_ISSUES.md",
+        "pmo/decision_log.md",
+        "pmo/delegation_outbox.md",
+        "pmo/inbox.md",
+        "projects/br-ager-scent-ancient-magic/00_brief.md",
+        "projects/br-ager-scent-ancient-magic/01_plan.md",
+        "projects/br-ager-scent-ancient-magic/02_status.md",
+        "projects/br-ager-scent-ancient-magic/03_actions.md",
+        "projects/br-ager-scent-ancient-magic/04_assets.md",
+        "publications/BRIEF.md",
+        "publications/handoff.md"
+      ],
+      "md_files_truncated": false,
+      "readme": "# Scholar's Opus\n\nLightweight, local-first academic research and publication tracker (Vite + React). It seeds from a Markdown project list and stores edits locally in the browser (no backend).\n\n## Quickstart\n\n**Requirements:** Node.js 20+\n\n```bash\nnpm ci && npm run dev\n```\n\n## Scripts\n\n- `npm run dev`: run the dev server\n- `npm run build`: build a production bundle into `dist/`\n- `npm run preview`: preview the production build locally\n- `npm run lint`: lint the codebase\n- `npm run typecheck`: TypeScript typecheck\n- `npm test`: run unit tests\n- `npm run validate:data`: validate `data/projects.md` parses cleanly\n\n## Configuration\n\nNo required environment variables.\n\n## Architecture\n\n- `src/main.tsx`: app entrypoint\n- `src/App.tsx`: UI + filtering (Writing/Experiments/DH/Grants/Admin tabs)\n- `src/projectsParser.ts`: parses `data/projects.md` into tasks at build time\n- `src/db.ts`: localStorage persistence + migrations\n- `src/components/*`: UI components\n- `src/sync.ts`: optional Supabase sync (guarded, record-level)\n\n## Optional Supabase cloud sync (Auth)\n\nCloud sync is optional. If `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY` are present, the app can sync via Supabase **Auth + RLS**.\n\n- Enable: open **Cloud** (or go to `/auth`) and sign in (PKCE; callback at `${BASE_URL}auth/callback`).\n- Security model: tables are protected by RLS (`owner_id = auth.uid()`); the client does not rely on `user_id` filtering for access control.\n- Deletes: use tombstones (`deleted_at`) to prevent cross-device resurrection; hard delete/purge is deferred.\n- Dashboard settings: add exact redirect URLs for dev + GitHub Pages base path (see `.github/workflows/pages.yml` for the deployed base path, and `vite.config.ts` for `base`).\n\nLegacy migration note: if you have old rows in `public.tasks` that only have a legacy `user_id` namespace, you must manually “claim” them by setting `owner_id` via SQL (see `supabase/migrations/*_auth_owner_rls_tombstones.sql`).\n\n## Data\n\n- Seed list: `data/projects.md` (each entry is a checklist item with an indented metadata block)\n- Saved state: browser `localStorage` (`scholar_opus_db`)\n\nThe Markdown seed is treated as read-only at runtime; changes made in the UI are not written back to `data/projects.md`.\n\nExample entry:\n\n```md\n- [ ] Project title\n  - domain: Writing\n  - type: Article\n  - status: Draft\n  - priority: Medium\n  - description: Short notes…\n```\n\n## Deployment (GitHub Pages)\n\nThis repo deploys to `https://alchemiesofscent.github.io/to-do-list/` via `.github/workflows/pages.yml`.\n\nNote: the GitHub Pages build is configured for the `/to-do-list/` base path. If you fork or rename the repo, set `VITE_BASE_PATH` for production builds or update the Vite `base` setting in `vite.config.ts`.\n",
+      "status_md": "# STATUS\n\n**Updated:** 2026-08-06 (by: claude-cowork)\n**Canonical branch:** main\n\n> **⚠ TOP ITEM (2026-08-06): a finished corpus is one disk failure from gone.**\n> The Galen *De alimentorum facultatibus* lane on theophrastos — 2,463 files,\n> 147 approved chapters — is **untracked: no commit, no branch, no backup**\n> (rescue bundles predate it). Flagged by the oribasius /goals job itself at\n> 06:56. Sean is away until ~2026-08-09. If ANY access to theophrastos exists\n> first, run:\n> `cd ~/github/oribasius-app && git checkout -b rescue/alimfac-20260806 && git add -f translation_project/galen-alimentary-faculties/ && git commit -m \"rescue: alim.fac. lane\" && git push -u origin rescue/alimfac-20260806`\n> Book XIV wave artifacts are untracked too (same repo, same exposure).\n\n---\n\n## Part 1 — The story so far (for Sean)\n\n### Previously on alchemiesofscent…\n\nSean, a scholar of ancient perfume, has years of research projects scattered\nacross twenty-five online archives and two computers — a laptop and a desktop.\nOver time, he and his AI assistants made copies of copies, left work half-filed,\nand in places kept the only version of something on a single machine, where a\nspilled coffee could end it. So he started a cleanup with one rule: everything\nimportant must live in the shared online archive, where every machine can see\nit, and this folder is the cleanup's logbook.\n\nStep one: list what the online archive holds. Done. Of twenty-five projects,\nonly about five showed recent life; the rest were husks, half-finished starts,\nor duplicates. The same project often existed under two or three names — a\ncookbook of ancient recipes in three variants, a data model in two — because\nwhen a project stalled, the habit was to start a fresh copy rather than repair\nthe old one. And the two busiest projects (a tool for editing ancient texts,\nand a database of the physician Oribasius) each had a large body of new work\nsitting in side-drafts that were never folded back into the official version.\nThe cause, in one sentence: many working sessions — human and AI alike — ended\nwithout anyone filing what had been done, and each rescue attempt made another\ncopy instead of cleaning up the last one.\n\nStep two: search each computer and compare. The laptop has now been searched,\nand it was hiding things. The biggest surprise: inside the Oribasius project\nsits a detailed plan, written by an AI assistant in July and never shared\nonline, to freeze that project and start a successor called \"hylike\" — the\nexact opposite of the current cleanup plan, which says to fold two other\nprojects *into* it. Sean has deferred that decision. The laptop also holds\nhundreds of unfiled edits to the text-editing tool (which is supposed to be\nfrozen), a ten-thousand-file salvage copy of it with no backup anywhere,\nseveral smaller projects with no online backup at all, and a to-do app whose\nlatest state was never written down anywhere — it exists only inside a web\nbrowser, last touched in January.\n\nThen, that same evening, Sean sat down at the desktop and ran the search\nhimself. It did hold a third version of events. The Oribasius project turned\nout to exist in three states that no longer agree: the shared archive's\nversion, the laptop's secret successor plan, and the desktop's own pile —\nnearly a thousand unfiled edits plus rescue work (a translation of Paul of\nAegina's Book 7, recovered Galen data) that was never sent anywhere. Worse:\nthe supposedly frozen text-editing tool had been changed *that very day* by\nsomething still running on the desktop — nobody yet knows what. And a small\nproject surfaced that exists on no archive at all, only on that one machine.\n\nBoth machines have now been heard; the searching phase is over. The mystery\nof the frozen tool solved itself: the editor was Sean — before leaving town,\nhe deliberately restarted three automated jobs on the desktop (the Oribasius\ntranslations, the Dioscorides edition, and the cookbook's extraction\npipeline) so they'd finish while \n…[truncated at 4000 chars]"
     },
     {
       "name": "aetius-cmg",
@@ -11141,955 +12235,6 @@
       "status_md": null
     },
     {
-      "name": "aos-perfume-corpus",
-      "private": true,
-      "archived": false,
-      "default_branch": "main",
-      "pushed_at": "2026-10-29T01:30:11Z",
-      "open_prs": 0,
-      "branches": [
-        {
-          "name": "backup/sprengel1830-pin3fe6-20261012"
-        },
-        {
-          "name": "claude/aos-perfume-build-efficiency-hxaag1"
-        },
-        {
-          "name": "commentary-claims/amigues2006-02"
-        },
-        {
-          "name": "commentary-claims/amigues2006-fr"
-        },
-        {
-          "name": "commentary-claims/amigues2006-fr-02"
-        },
-        {
-          "name": "commentary-claims/amigues2006-full"
-        },
-        {
-          "name": "commentary-claims/amigues2006"
-        },
-        {
-          "name": "commentary-claims/amigues-reconvert"
-        },
-        {
-          "name": "commentary-claims/amigues-rue"
-        },
-        {
-          "name": "commentary-claims/amigues-terms"
-        },
-        {
-          "name": "commentary-claims/andre2010"
-        },
-        {
-          "name": "commentary-claims/andre-key"
-        },
-        {
-          "name": "commentary-claims/authorities-to-find"
-        },
-        {
-          "name": "commentary-claims/beck2020"
-        },
-        {
-          "name": "commentary-claims/beck-lsj"
-        },
-        {
-          "name": "commentary-claims/beck-terms-pin"
-        },
-        {
-          "name": "commentary-claims/berendes1902-pine4ff"
-        },
-        {
-          "name": "commentary-claims/bundle-baseline"
-        },
-        {
-          "name": "commentary-claims/claims-standard"
-        },
-        {
-          "name": "commentary-claims/claims-standard-v2"
-        },
-        {
-          "name": "commentary-claims/concordance-021"
-        },
-        {
-          "name": "commentary-claims/concordance-037"
-        },
-        {
-          "name": "commentary-claims/cookbook-approved"
-        },
-        {
-          "name": "commentary-claims/cookbook-promotion"
-        },
-        {
-          "name": "commentary-claims/cookbook-promotion-2b"
-        },
-        {
-          "name": "commentary-claims/cookbook-promotion-2"
-        },
-        {
-          "name": "commentary-claims/fee1833-derived"
-        },
-        {
-          "name": "commentary-claims/fee1833-desk"
-        },
-        {
-          "name": "commentary-claims/fee1833-t1"
-        },
-        {
-          "name": "commentary-claims/fee1833-t2"
-        },
-        {
-          "name": "commentary-claims/fee1833-t3"
-        },
-        {
-          "name": "commentary-claims/galen-antid-l1-02"
-        },
-        {
-          "name": "commentary-claims/galen-antid-l1"
-        },
-        {
-          "name": "commentary-claims/gate-free-port"
-        },
-        {
-          "name": "commentary-claims/haars2018"
-        },
-        {
-          "name": "commentary-claims/haars-authorities"
-        },
-        {
-          "name": "commentary-claims/haars-track-down-1"
-        },
-        {
-          "name": "commentary-claims/has-ingredient"
-        },
-        {
-          "name": "commentary-claims/has-ingredient-aetius"
-        },
-        {
-          "name": "commentary-claims/hort1916"
-        },
-        {
-          "name": "commentary-claims/intake-1"
-        },
-        {
-          "name": "commentary-claims/intake-2"
-        },
-        {
-          "name": "commentary-claims/intake-3"
-        },
-        {
-          "name": "commentary-claims/keyser2008-02"
-        },
-        {
-          "name": "commentary-claims/keyser2008"
-        },
-        {
-          "name": "commentary-claims/keyser-quintus"
-        },
-        {
-          "name": "commentary-claims/keyser-repin"
-        },
-        {
-          "name": "commentary-claims/kinamomon-td2"
-        },
-        {
-          "name": "commentary-claims/lsj"
-        },
-        {
-          "name": "commentary-claims/manniche2006"
-        },
-        {
-          "name": "commentary-claims/mattioli-b2-rest"
-        },
-        {
-          "name": "commentary-claims/mattioli-m1"
-        },
-        {
-          "name": "commentary-claims/mattioli-m2"
-        },
-        {
-          "name": "commentary-claims/mattioli-m3-b1"
-        },
-        {
-          "name": "commentary-claims/mattioli-m3-b2-1"
-        },
-        {
-          "name": "commentary-claims/mattioli-m3-b2-3s"
-        },
-        {
-          "name": "commentary-claims/mattioli-m3-b2-4s"
-        },
-        {
-          "name": "commentary-claims/mattioli-m3-b2-5s"
-        },
-        {
-          "name": "commentary-claims/mattioli-m3-b2-6s"
-        },
-        {
-          "name": "commentary-claims/mattioli-m3-b2-7s"
-        },
-        {
-          "name": "commentary-claims/mattioli-m3-b2-8s"
-        },
-        {
-          "name": "commentary-claims/mattioli-m3-b2"
-        },
-        {
-          "name": "commentary-claims/mattioli-m3-b3"
-        },
-        {
-          "name": "commentary-claims/mattioli-m3-b4"
-        },
-        {
-          "name": "commentary-claims/olivieri-v2"
-        },
-        {
-          "name": "commentary-claims/page-links"
-        },
-        {
-          "name": "commentary-claims/private-witnesses"
-        },
-        {
-          "name": "commentary-claims/retire-migrate-check"
-        },
-        {
-          "name": "commentary-claims/sprengel1830-lock"
-        },
-        {
-          "name": "commentary-claims/sprengel1830-repin"
-        },
-        {
-          "name": "commentary-claims/track-down-3"
-        },
-        {
-          "name": "commentary-claims/track-down-4"
-        },
-        {
-          "name": "commentary-claims/w18-all"
-        },
-        {
-          "name": "commentary-claims/w18-answers-2"
-        },
-        {
-          "name": "commentary-claims/w18-dsc"
-        },
-        {
-          "name": "commentary-claims/w18-pilot"
-        },
-        {
-          "name": "commentary-claims/w18r-d106"
-        },
-        {
-          "name": "fix/apparatus-readings",
-          "pr": {
-            "number": 6,
-            "title": "Fix apparatus readings: reading text was dropped, every variant printed as om.",
-            "state": "closed",
-            "merged_at": "2026-09-13T04:39:58Z",
-            "updated_at": "2026-09-13T04:39:58Z"
-          }
-        },
-        {
-          "name": "main"
-        },
-        {
-          "name": "materials/a2-opobalsamum"
-        },
-        {
-          "name": "materials/book1-materials-plan"
-        },
-        {
-          "name": "materials/book1-materials-wave1"
-        },
-        {
-          "name": "materials/claim-qualifiers"
-        },
-        {
-          "name": "materials/claim-qualifiers-02"
-        },
-        {
-          "name": "materials/ingredients-2"
-        },
-        {
-          "name": "materials/kypros-modern"
-        },
-        {
-          "name": "materials/kypros-modern-02"
-        },
-        {
-          "name": "materials/kypros-modern-04"
-        },
-        {
-          "name": "materials/lsj-names"
-        },
-        {
-          "name": "materials/made-at"
-        },
-        {
-          "name": "materials/made-at-02"
-        },
-        {
-          "name": "materials/names-3-7"
-        },
-        {
-          "name": "materials/names-8-11-02"
-        },
-        {
-          "name": "materials/names-8-11"
-        },
-        {
-          "name": "materials/people-places-schema"
-        },
-        {
-          "name": "materials/people-places-schema-02"
-        },
-        {
-          "name": "materials/people-places-schema-03"
-        },
-        {
-          "name": "materials/people-places-schema-04"
-        },
-        {
-          "name": "materials/plant-names"
-        },
-        {
-          "name": "materials/qualifier-grade"
-        },
-        {
-          "name": "materials/resembles-respects"
-        },
-        {
-          "name": "materials/resembles-structured"
-        },
-        {
-          "name": "materials/row237-retired-export"
-        },
-        {
-          "name": "materials/row237-retired-export-02"
-        },
-        {
-          "name": "materials/stable-owl"
-        },
-        {
-          "name": "materials/wellmann-v1.1-repin"
-        },
-        {
-          "name": "materials/wellmann-v1.1-repin-2"
-        },
-        {
-          "name": "persons/mattioli-names-2"
-        },
-        {
-          "name": "persons/sprengel-as-printed"
-        },
-        {
-          "name": "persons/sprengel-as-printed-2"
-        },
-        {
-          "name": "persons-and-places/entities-nfc"
-        },
-        {
-          "name": "persons-and-places/oribasius-archive-authors"
-        },
-        {
-          "name": "persons-and-places/track-down-1"
-        },
-        {
-          "name": "persons-and-places/work-roles"
-        },
-        {
-          "name": "pilot/apparatus-explained",
-          "pr": {
-            "number": 7,
-            "title": "Explain the apparatus for readers: plain sentences, witness legends, sigla and abbreviations",
-            "state": "closed",
-            "merged_at": "2026-09-13T04:58:23Z",
-            "updated_at": "2026-09-13T04:58:23Z"
-          }
-        },
-        {
-          "name": "pilot/lemmatic-commentary",
-          "pr": {
-            "number": 5,
-            "title": "Project's lemmatic commentary citing the scholars; withdraw the wholesale list",
-            "state": "closed",
-            "merged_at": "2026-09-13T03:48:52Z",
-            "updated_at": "2026-09-13T03:48:52Z"
-          }
-        },
-        {
-          "name": "pilot/lexicon-headword",
-          "pr": {
-            "number": 13,
-            "title": "Lexicon rows show the headword and transliteration only",
-            "state": "closed",
-            "merged_at": "2026-09-13T06:43:10Z",
-            "updated_at": "2026-09-13T06:43:11Z"
-          }
-        },
-        {
-          "name": "pilot/phyrao-once",
-          "pr": {
-            "number": 8,
-            "title": "Say the φυράω note once, on the operation's entry, not in the recipe commentary",
-            "state": "closed",
-            "merged_at": "2026-09-13T04:59:54Z",
-            "updated_at": "2026-09-13T04:59:54Z"
-          }
-        },
-        {
-          "name": "pilot/resegment",
-          "pr": {
-            "number": 9,
-            "title": "Resegment rhodinon: heading, quantities and boil are one segment; the straining opens the rose charge",
-            "state": "closed",
-            "merged_at": "2026-09-13T05:09:52Z",
-            "updated_at": "2026-09-13T05:09:52Z"
-          }
-        },
-        {
-          "name": "pilot/rhodinon-skeleton",
-          "pr": {
-            "number": 2,
-            "title": "Units 1–3: rhodinon recipe page, term pages, units, Library; PLAN.md revision 2.1",
-            "state": "closed",
-            "merged_at": "2026-09-12T23:47:54Z",
-            "updated_at": "2026-09-12T23:47:54Z"
-          }
-        },
-        {
-          "name": "pilot/scholars-commentary",
-          "pr": {
-            "number": 4,
-            "title": "Scholars' commentary from Sprengel, Berendes and Beck with facsimile links; φυράσας ruling",
-            "state": "closed",
-            "merged_at": "2026-09-13T03:35:04Z",
-            "updated_at": "2026-09-13T03:35:04Z"
-          }
-        },
-        {
-          "name": "pilot/selection-note",
-          "pr": {
-            "number": 11,
-            "title": "Note the reader-selection refinement; make the margin labels unselectable",
-            "state": "closed",
-            "merged_at": "2026-09-13T05:28:42Z",
-            "updated_at": "2026-09-13T05:28:42Z"
-          }
-        },
-        {
-          "name": "pilot/stages-by-verb",
-          "pr": {
-            "number": 10,
-            "title": "Parse the method by finite verbs, participles as hidden steps",
-            "state": "closed",
-            "merged_at": "2026-09-13T05:27:16Z",
-            "updated_at": "2026-09-13T05:27:16Z"
-          }
-        },
-        {
-          "name": "pilot/steps-every-verb",
-          "pr": {
-            "number": 12,
-            "title": "Break the method down to one step per verb, joined in groups, each cited by CTS URN",
-            "state": "closed",
-            "merged_at": "2026-09-13T05:47:06Z",
-            "updated_at": "2026-09-13T05:47:07Z"
-          }
-        },
-        {
-          "name": "pilot/strip-meta-and-rules",
-          "pr": {
-            "number": 3,
-            "title": "Strip meta text, add per-recipe commentary, PLAN.md 2.2 with rules of work",
-            "state": "closed",
-            "merged_at": "2026-09-13T00:36:49Z",
-            "updated_at": "2026-09-13T00:36:50Z"
-          }
-        },
-        {
-          "name": "recipes/amygdalinon"
-        },
-        {
-          "name": "recipes/amygdalinon-2"
-        },
-        {
-          "name": "recipes/answers-3-r2"
-        },
-        {
-          "name": "recipes/answers-3-terms"
-        },
-        {
-          "name": "recipes/answers-3"
-        },
-        {
-          "name": "recipes/broader-claim-evidence"
-        },
-        {
-          "name": "recipes/elaiomeli-exudate-of"
-        },
-        {
-          "name": "recipes/iasmelaion"
-        },
-        {
-          "name": "recipes/iasmelaion-wip"
-        },
-        {
-          "name": "recipes/iasmelaion-wip-2"
-        },
-        {
-          "name": "recipes/kyphi-juniper-amount"
-        },
-        {
-          "name": "recipes/kyphi-terms"
-        },
-        {
-          "name": "recipes/mattioli1554-latin-terms"
-        },
-        {
-          "name": "recipes/mattioli1554-latin-terms-r2"
-        },
-        {
-          "name": "recipes/omphakinon-terms"
-        },
-        {
-          "name": "recipes/schema-locusref-mention"
-        },
-        {
-          "name": "recipes/schema-locusref-mention-r2"
-        },
-        {
-          "name": "recipes/schema-locusref-mention-r3"
-        },
-        {
-          "name": "recipes/schema-locusref-mention-r4"
-        },
-        {
-          "name": "recipes/schema-oct24"
-        },
-        {
-          "name": "recipes/simples-sprengel1830-terms"
-        },
-        {
-          "name": "recipes/sinapinon"
-        },
-        {
-          "name": "recipes/skill-kyphi"
-        },
-        {
-          "name": "recipes/stear-c"
-        },
-        {
-          "name": "recipes/terms-1-31"
-        },
-        {
-          "name": "recipes/terms-1-32"
-        },
-        {
-          "name": "recipes/terms-1-35"
-        },
-        {
-          "name": "recipes/terms-1-37"
-        },
-        {
-          "name": "recipes/terms-1-39"
-        },
-        {
-          "name": "recipes/terms-1-42"
-        },
-        {
-          "name": "recipes/terms-1-46"
-        },
-        {
-          "name": "recipes/terms-1-48"
-        },
-        {
-          "name": "recipes/terms-1-51"
-        },
-        {
-          "name": "recipes/terms-1-54"
-        },
-        {
-          "name": "recipes/terms-1-56"
-        },
-        {
-          "name": "recipes/terms-1-59"
-        },
-        {
-          "name": "recipes/terms-1-62"
-        },
-        {
-          "name": "recipes/terms-ita-language"
-        },
-        {
-          "name": "recipes/terms-myrra-designates"
-        },
-        {
-          "name": "recipes/terms-myrra-designates-r2"
-        },
-        {
-          "name": "recipes/vocab-myax"
-        },
-        {
-          "name": "recipes/whitened-oil-terms"
-        },
-        {
-          "name": "website/claim-chain"
-        },
-        {
-          "name": "website/kypros-simple-ends"
-        },
-        {
-          "name": "website/pages-taxon-address"
-        },
-        {
-          "name": "website/w26-cookbook-english"
-        }
-      ],
-      "branch_detail_skipped": true,
-      "md_files": [
-        ".claude/skills/recipe-walkthrough/SKILL.md",
-        ".claude/skills/recipe-walkthrough/references/checks.md",
-        ".claude/skills/recipe-walkthrough/references/continue-prompt.md",
-        ".claude/skills/recipe-walkthrough/references/ladder-template.md",
-        ".claude/skills/recipe-walkthrough/references/scheduled-prompt.md",
-        ".claude/skills/recipe-walkthrough/references/simple-agent-prompt.md",
-        ".claude/skills/recipe-walkthrough/references/simple-prompt.md",
-        ".claude/skills/recipe-walkthrough/references/walk-prompt.md",
-        ".claude/skills/recipe-walkthrough/references/worked-example.md",
-        "AGENTS.md",
-        "HANDOFF.md",
-        "LICENSE.md",
-        "README.md",
-        "build/fixtures/recipe_display_w68/README.md",
-        "cookbook/PLAN.md",
-        "cookbook/PRD.md",
-        "cookbook/REVIEW.md",
-        "docs/BUNDLE.md",
-        "docs/CLAIMS_STANDARD.md",
-        "docs/CONTENT_MODEL.md",
-        "docs/DATA_MODEL.md",
-        "docs/DECISIONS.md",
-        "docs/EDITORIAL_RULES.md",
-        "docs/NAMES_AND_THINGS.md",
-        "docs/ONTOLOGY.md",
-        "docs/PAGES.md",
-        "docs/PAPER_NOTES.md",
-        "docs/PEOPLE_PLACES_TIME.md",
-        "docs/PERSONS.md",
-        "docs/PRINCIPLES.md",
-        "docs/REQUIREMENTS.md",
-        "docs/STACK_REVIEW_2026-10.md",
-        "docs/pages/material.md",
-        "docs/pages/object.md",
-        "docs/pages/person.md",
-        "docs/pages/place.md",
-        "docs/pages/tool.md",
-        "recipes/dioscorides-1-25-kyphi/decisions.md",
-        "recipes/dioscorides-1-25-kyphi/research.md",
-        "recipes/dioscorides-1-30-3-agrias-elaias/decisions.md",
-        "recipes/dioscorides-1-30-3-agrias-elaias/research.md",
-        "recipes/dioscorides-1-30-5-sikyonion/decisions.md",
-        "recipes/dioscorides-1-30-5-sikyonion/research.md",
-        "recipes/dioscorides-1-30-aged-oil-imitation/decisions.md",
-        "recipes/dioscorides-1-30-aged-oil-imitation/research.md",
-        "recipes/dioscorides-1-30-omphakinon/decisions.md",
-        "recipes/dioscorides-1-30-omphakinon/research.md",
-        "recipes/dioscorides-1-30-whitened-oil/decisions.md",
-        "recipes/dioscorides-1-30-whitened-oil/research.md",
-        "recipes/dioscorides-1-31-elaiomeli/decisions.md",
-        "recipes/dioscorides-1-31-elaiomeli/research.md",
-        "recipes/dioscorides-1-31-thalloi-oil/decisions.md",
-        "recipes/dioscorides-1-32-2-kikinon-aigyption/decisions.md",
-        "recipes/dioscorides-1-32-2-kikinon-aigyption/research.md",
-        "recipes/dioscorides-1-32-kikinon/decisions.md",
-        "recipes/dioscorides-1-32-kikinon/research.md",
-        "recipes/dioscorides-1-33-amygdalinon/decisions.md",
-        "recipes/dioscorides-1-33-amygdalinon/research.md",
-        "recipes/dioscorides-1-34-balaninon/decisions.md",
-        "recipes/dioscorides-1-34-balaninon/research.md",
-        "recipes/dioscorides-1-34-sesaminon-karyinon/decisions.md",
-        "recipes/dioscorides-1-34-sesaminon-karyinon/research.md",
-        "recipes/dioscorides-1-35-hyoskyaminon/decisions.md",
-        "recipes/dioscorides-1-35-hyoskyaminon/research.md",
-        "recipes/dioscorides-1-36-knekikon/decisions.md",
-        "recipes/dioscorides-1-36-knekikon/research.md",
-        "recipes/dioscorides-1-36-knidion/decisions.md",
-        "recipes/dioscorides-1-36-knidion/research.md",
-        "recipes/dioscorides-1-37-melanthinon/decisions.md",
-        "recipes/dioscorides-1-37-melanthinon/research.md",
-        "recipes/dioscorides-1-37-raphaninon/decisions.md",
-        "recipes/dioscorides-1-37-raphaninon/research.md",
-        "recipes/dioscorides-1-38-sinapinon/decisions.md",
-        "recipes/dioscorides-1-38-sinapinon/research.md",
-        "recipes/dioscorides-1-39-myrsininon/decisions.md",
-        "recipes/dioscorides-1-39-myrsininon/research.md",
-        "recipes/dioscorides-1-40-daphninon/decisions.md",
-        "recipes/dioscorides-1-40-daphninon/research.md",
-        "recipes/dioscorides-1-41-2-terebinthinon/decisions.md",
-        "recipes/dioscorides-1-41-2-terebinthinon/research.md",
-        "recipes/dioscorides-1-41-schininon/decisions.md",
-        "recipes/dioscorides-1-41-schininon/research.md",
-        "recipes/dioscorides-1-42-mastichinon/decisions.md",
-        "recipes/dioscorides-1-42-mastichinon/research.md",
-        "recipes/dioscorides-1-43-rhodinon/decisions.md",
-        "recipes/dioscorides-1-43-rhodinon/ladder.md",
-        "recipes/dioscorides-1-43-rhodinon/research.md",
-        "recipes/dioscorides-1-44-elatinon/decisions.md",
-        "recipes/dioscorides-1-44-elatinon/research.md",
-        "recipes/dioscorides-1-45-2-melinon-allos/decisions.md",
-        "recipes/dioscorides-1-45-2-melinon-allos/research.md",
-        "recipes/dioscorides-1-45-melinon/decisions.md",
-        "recipes/dioscorides-1-45-melinon/research.md",
-        "recipes/dioscorides-1-46-oinanthinon/decisions.md",
-        "recipes/dioscorides-1-46-oinanthinon/research.md",
-        "recipes/dioscorides-1-47-telinon/decisions.md",
-        "recipes/dioscorides-1-47-telinon/research.md",
-        "recipes/dioscorides-1-48-sampsouchinon/decisions.md",
-        "recipes/dioscorides-1-48-sampsouchinon/research.md",
-        "recipes/dioscorides-1-49-okiminon/decisions.md",
-        "recipes/dioscorides-1-49-okiminon/research.md",
-        "recipes/dioscorides-1-50-habrotoninon/decisions.md",
-        "recipes/dioscorides-1-50-habrotoninon/research.md",
-        "recipes/dioscorides-1-51-anethinon/decisions.md",
-        "recipes/dioscorides-1-51-anethinon/research.md",
-        "recipes/dioscorides-1-52-sousinon/decisions.md",
-        "recipes/dioscorides-1-52-sousinon/ladder.md",
-        "recipes/dioscorides-1-52-sousinon/research.md",
-        "recipes/dioscorides-1-53-narkissinon/decisions.md",
-        "recipes/dioscorides-1-54-krokinon/decisions.md",
-        "recipes/dioscorides-1-54-krokinon/research.md",
-        "recipes/dioscorides-1-55-kyprinon/decisions.md",
-        "recipes/dioscorides-1-55-kyprinon/ladder.md",
-        "recipes/dioscorides-1-55-kyprinon/research.md",
-        "recipes/dioscorides-1-56-2-irinon-allos/decisions.md",
-        "recipes/dioscorides-1-56-2-irinon-allos/ladder.md",
-        "recipes/dioscorides-1-56-2-irinon-allos/research.md",
-        "recipes/dioscorides-1-56-irinon/decisions.md",
-        "recipes/dioscorides-1-56-irinon/ladder.md",
-        "recipes/dioscorides-1-56-irinon/research.md",
-        "recipes/dioscorides-1-57-gleukinon/decisions.md",
-        "recipes/dioscorides-1-57-gleukinon/research.md",
-        "recipes/dioscorides-1-58-3-hedychroun/decisions.md",
-        "recipes/dioscorides-1-58-3-hedychroun/research.md",
-        "recipes/dioscorides-1-58-3-megalleion/decisions.md",
-        "recipes/dioscorides-1-58-3-megalleion/research.md",
-        "recipes/dioscorides-1-58-amarakinon/decisions.md",
-        "recipes/dioscorides-1-58-amarakinon/research.md",
-        "recipes/dioscorides-1-59-3-mendesion/decisions.md",
-        "recipes/dioscorides-1-59-3-mendesion/research.md",
-        "recipes/dioscorides-1-59-metopion/decisions.md",
-        "recipes/dioscorides-1-59-metopion/research.md",
-        "recipes/dioscorides-1-60-stakte/decisions.md",
-        "recipes/dioscorides-1-60-stakte/research.md",
-        "recipes/dioscorides-1-61-kinamominon/decisions.md",
-        "recipes/dioscorides-1-61-kinamominon/research.md",
-        "recipes/dioscorides-1-62-nardinon/decisions.md",
-        "recipes/dioscorides-1-62-nardinon/research.md",
-        "recipes/dioscorides-1-63-iasmelaion/decisions.md",
-        "recipes/dioscorides-1-63-malabathrinon/decisions.md",
-        "recipes/dioscorides-1-63-malabathrinon/research.md",
-        "recipes/dioscorides-1-71-5-burned-resin-with-water/decisions.md",
-        "recipes/dioscorides-1-71-5-burned-resin-with-water/research.md",
-        "recipes/dioscorides-1-71-6-burned-resin-without-water/decisions.md",
-        "recipes/dioscorides-1-71-6-burned-resin-without-water/research.md",
-        "recipes/dioscorides-2-72-boutyron-lignys/decisions.md",
-        "recipes/dioscorides-2-72-boutyron-lignys/research.md",
-        "recipes/dioscorides-2-72-boutyron/decisions.md",
-        "recipes/dioscorides-2-72-boutyron/research.md",
-        "recipes/dioscorides-2-74-oisypos-boiled/decisions.md",
-        "recipes/dioscorides-2-74-oisypos-boiled/research.md",
-        "recipes/dioscorides-2-74-oisypos-burned-lignys/decisions.md",
-        "recipes/dioscorides-2-74-oisypos-burned-lignys/research.md",
-        "recipes/dioscorides-2-74-oisypos/decisions.md",
-        "recipes/dioscorides-2-74-oisypos/research.md",
-        "recipes/dioscorides-2-76-aromatic-pretreatment-basic/decisions.md",
-        "recipes/dioscorides-2-76-aromatic-pretreatment-basic/research.md",
-        "recipes/dioscorides-2-76-aromatic-pretreatment-lotus/decisions.md",
-        "recipes/dioscorides-2-76-aromatic-pretreatment-lotus/research.md",
-        "recipes/dioscorides-2-76-aromatized-bird-goose-stear/decisions.md",
-        "recipes/dioscorides-2-76-aromatized-bird-goose-stear/research.md",
-        "recipes/dioscorides-2-76-aromatized-calf-bull-deer-stear/decisions.md",
-        "recipes/dioscorides-2-76-aromatized-calf-bull-deer-stear/research.md",
-        "recipes/dioscorides-2-76-bull-stear/decisions.md",
-        "recipes/dioscorides-2-76-bull-stear/research.md",
-        "recipes/dioscorides-2-76-goat-sheep-deer-stear/decisions.md",
-        "recipes/dioscorides-2-76-goat-sheep-deer-stear/research.md",
-        "recipes/dioscorides-2-76-goose-chicken-stear/decisions.md",
-        "recipes/dioscorides-2-76-goose-chicken-stear/research.md",
-        "recipes/dioscorides-2-76-ox-stear/decisions.md",
-        "recipes/dioscorides-2-76-ox-stear/research.md",
-        "recipes/dioscorides-2-76-pig-bear-stear/decisions.md",
-        "recipes/dioscorides-2-76-pig-bear-stear/research.md",
-        "recipes/dioscorides-2-76-preserved-untreated-stear/decisions.md",
-        "recipes/dioscorides-2-76-preserved-untreated-stear/research.md",
-        "recipes/dioscorides-2-76-rendered-stear-with-salt/decisions.md",
-        "recipes/dioscorides-2-76-rendered-stear-with-salt/research.md",
-        "recipes/dioscorides-2-76-sampsuchized-stear/decisions.md",
-        "recipes/dioscorides-2-76-sampsuchized-stear/research.md",
-        "recipes/dioscorides-2-76-stear-properties-catalogue/decisions.md",
-        "recipes/dioscorides-2-76-stear-properties-catalogue/research.md",
-        "site/assets/vendor/leaflet/README.md",
-        "staging/amigues2006/README.md",
-        "staging/amigues2006/REPORT.md",
-        "staging/andre2010/REPORT.md",
-        "staging/beck2020/REPORT.md",
-        "staging/berendes1902/README.md",
-        "staging/cited-works/README.md",
-        "staging/claims-standard/migration-report.md",
-        "staging/claims-standard/people-needed.md",
-        "staging/claims-standard/q1-note.md",
-        "staging/claims-standard/term-gaps.md",
-        "staging/claims-standard/tests/REPORT.md",
-        "staging/concordance-021/REPORT.md",
-        "staging/concordance-037/REPORT.md",
-        "staging/fee1833/README.md",
-        "staging/fee1833/REPORT.md",
-        "staging/galen-antid/METHODS.md",
-        "staging/galen-antid/README.md",
-        "staging/galen-antid/galen-l1.result.md",
-        "staging/gbif/report.md",
-        "staging/gbif/review.md",
-        "staging/haars2018/README.md",
-        "staging/haars2018/REPORT.md",
-        "staging/hort1916/README.md",
-        "staging/hort1916/REPORT.md",
-        "staging/keyser2008/REPORT.md",
-        "staging/lsj/README.md",
-        "staging/lsj/REPORT.md",
-        "staging/manniche2006/REPORT.md",
-        "staging/materials/amigues2006-names-report.md",
-        "staging/materials/andre2010-names-report.md",
-        "staging/materials/beck2020-names-report.md",
-        "staging/materials/berendes1902-names-report.md",
-        "staging/materials/claims-port-a-report.md",
-        "staging/materials/d107-simple-spec-report.md",
-        "staging/materials/d108-row-a-report.md",
-        "staging/materials/d74-pilot-audit.md",
-        "staging/materials/d74-pilot-report.md",
-        "staging/materials/d74-pilot-sheet.md",
-        "staging/materials/d74-senses-report.md",
-        "staging/materials/d74-senses-review.md",
-        "staging/materials/d95-photo-schema-report.md",
-        "staging/materials/d97-slot-a-report.md",
-        "staging/materials/fee1833-names-report.md",
-        "staging/materials/fold-kinnamomon-report.md",
-        "staging/materials/grade-report.md",
-        "staging/materials/haars2018-names-report.md",
-        "staging/materials/hort1916-names-report.md",
-        "staging/materials/ingredients-1-audit.md",
-        "staging/materials/ingredients-1-report.md",
-        "staging/materials/ingredients-2-audit.md",
-        "staging/materials/ingredients-2-report.md",
-        "staging/materials/ingredients-2.prompt.md",
-        "staging/materials/keyser2008-names-report.md",
-        "staging/materials/lsj-names-report.md",
-        "staging/materials/manniche2006-names-report.md",
-        "staging/materials/mp1-schema-report.md",
-        "staging/materials/mp2-gold-report.md",
-        "staging/materials/mp2-gold-review.md",
-        "staging/materials/mp3-dsc1-report.md",
-        "staging/materials/mp3-dsc1-review.md",
-        "staging/materials/mp4-dsc2-report.md",
-        "staging/materials/mp4-dsc2-review.md",
-        "staging/materials/mp5-dsc3-report.md",
-        "staging/materials/mp5-dsc3-review.md",
-        "staging/materials/mp9-report.md",
-        "staging/materials/names-audit.md",
-        "staging/materials/names-build-report.md",
-        "staging/materials/names-build.prompt.md",
-        "staging/materials/names-fix-report.md",
-        "staging/materials/names-signoff-rulings.md",
-        "staging/materials/olive-build-report.md",
-        "staging/materials/people-places-report.md",
-        "staging/materials/qualifiers-report.md",
-        "staging/materials/resembles-report.md",
-        "staging/materials/row139-report.md",
-        "staging/materials/row237-report.md",
-        "staging/materials/schema-step-report.md",
-        "staging/materials/sprengel1830-names-report.md",
-        "staging/materials/standard-additions-report.md",
-        "staging/materials/terms-port-report.md",
-        "staging/materials/tn1-report.md",
-        "staging/materials/tn2-report.md",
-        "staging/materials/tn3-report.md",
-        "staging/materials/wellmann-v1.1-report.md",
-        "staging/materials/wellmann-v1.1b-report.md",
-        "staging/mattioli1554/README.md",
-        "staging/mattioli1554/b1/1/coverage.md",
-        "staging/mattioli1554/b1/2/coverage.md",
-        "staging/mattioli1554/b1/3/coverage.md",
-        "staging/mattioli1554/b1/4/coverage.md",
-        "staging/mattioli1554/b1/5/coverage.md",
-        "staging/mattioli1554/b1/6/HANDOFF-lines.md",
-        "staging/mattioli1554/b1/6/coverage.md",
-        "staging/mattioli1554/b1/attr-HANDOFF-lines.md",
-        "staging/mattioli1554/b2/1/HANDOFF-lines.md",
-        "staging/mattioli1554/b2/1/coverage.md",
-        "staging/mattioli1554/b2/2/HANDOFF-lines.md",
-        "staging/mattioli1554/b2/2/coverage.md",
-        "staging/mattioli1554/b2/3/HANDOFF-lines.md",
-        "staging/mattioli1554/b2/3/coverage.md",
-        "staging/mattioli1554/b2/4/HANDOFF-lines.md",
-        "staging/mattioli1554/b2/4/coverage.md",
-        "staging/mattioli1554/b2/5/HANDOFF-lines.md",
-        "staging/mattioli1554/b2/5/coverage.md",
-        "staging/mattioli1554/b2/6/HANDOFF-lines.md",
-        "staging/mattioli1554/b2/6/coverage.md",
-        "staging/mattioli1554/b2/7/HANDOFF-lines.md",
-        "staging/mattioli1554/b2/7/coverage.md",
-        "staging/mattioli1554/b2/8/HANDOFF-lines.md",
-        "staging/mattioli1554/b2/8/coverage.md",
-        "staging/mattioli1554/b3/1/HANDOFF-lines.md",
-        "staging/mattioli1554/b3/1/coverage.md",
-        "staging/mattioli1554/b3/2/HANDOFF-lines.md",
-        "staging/mattioli1554/b3/2/coverage.md",
-        "staging/mattioli1554/b3/3/HANDOFF-lines.md",
-        "staging/mattioli1554/b3/3/coverage.md",
-        "staging/mattioli1554/b3/4/HANDOFF-lines.md",
-        "staging/mattioli1554/b3/4/coverage.md",
-        "staging/mattioli1554/b3/5/HANDOFF-lines.md",
-        "staging/mattioli1554/b3/5/coverage.md",
-        "staging/mattioli1554/b3/6/HANDOFF-lines.md",
-        "staging/mattioli1554/b3/6/coverage.md",
-        "staging/mattioli1554/b4/1/HANDOFF-lines.md",
-        "staging/mattioli1554/b4/1/coverage.md",
-        "staging/mattioli1554/b4/2/HANDOFF-lines.md",
-        "staging/mattioli1554/b4/2/coverage.md",
-        "staging/mattioli1554/b4/3/HANDOFF-lines.md",
-        "staging/mattioli1554/b4/3/coverage.md",
-        "staging/mattioli1554/b4/4/HANDOFF-lines.md",
-        "staging/mattioli1554/b4/4/coverage.md",
-        "staging/mattioli1554/b4/5/HANDOFF-lines.md",
-        "staging/mattioli1554/b4/5/coverage.md",
-        "staging/mattioli1554/b4/6/HANDOFF-lines.md",
-        "staging/mattioli1554/b4/6/coverage.md",
-        "staging/mattioli1554/b4/7/HANDOFF-lines.md",
-        "staging/mattioli1554/b4/7/coverage.md",
-        "staging/mattioli1554/b5/1/HANDOFF-lines.md",
-        "staging/mattioli1554/b5/1/coverage.md",
-        "staging/mattioli1554/b5/2/HANDOFF-lines.md",
-        "staging/mattioli1554/b5/2/coverage.md",
-        "staging/mattioli1554/b5/3/HANDOFF-lines.md",
-        "staging/mattioli1554/b5/3/coverage.md",
-        "staging/mattioli1554/b6/1/HANDOFF-lines.md",
-        "staging/mattioli1554/b6/1/coverage.md",
-        "staging/mattioli1554/b6/2/HANDOFF-lines.md",
-        "staging/mattioli1554/b6/2/coverage.md",
-        "staging/mattioli1554/gold/REPORT.md",
-        "staging/mattioli1554/gold/coverage.md",
-        "staging/mattioli1554/gold/review-dispositions.md",
-        "staging/oribasius-app/README.md",
-        "staging/sprengel1830/README.md",
-        "staging/w18-variants/README.md",
-        "staging/w18-variants/w18-pilot.result.md",
-        "tools/steering-desk/README.md"
-      ],
-      "md_files_truncated": false,
-      "readme": "# AoS Perfume Corpus\n\nA corpus and lexicon of ancient perfume recipes that records, for each\ningredient, what the ancient text calls it, how translators rendered it and\nwhat scholars have identified it as, attributed and cited. The corpus states\nno identification as fact; it records links and displays them, and its own\neditorial choices, and its own links of a word to a material, are recorded as\nits own, with their basis.\n\nTwo recipes are built end to end from the pinned source text: ῥόδινον\n(Dioscorides 1.43) and σούσινον (1.52), with the simple lily-oil of 1.52.5 as\na report record of its own. Each recipe page has its segments, a method of one\nstep per verb with inputs, outputs and tools, the readings where this edition\ndeparts from Wellmann, and the project's commentary. Around them: the term\npages, the phrase terms that name kinds among them; material pages for the\nstuff of today (myrrh, stacte); source pages for the binomials the scholars\nprint; an assertion page for every claim; the unit pages; a page for every\noperation verb and every vessel; the series page for the perfumes; text pages\nfor the transcriptions quoted; a running vocabulary of the English used. This\nis an early alpha.\n\n## In plain words\n\nThe goal is a reference work for ancient perfume recipes that never asks the\nreader to take our word for anything. Every Greek word of a recipe is shown\nwhere the edition prints it, and every statement about a word is attributed:\nwhat Dioscorides calls the ingredient, what Sprengel or Berendes or Beck made\nof it, what botanists have identified it as, and what we ourselves decided,\neach with a citation that opens the page it comes from. Where scholars\ndisagree, the page shows the disagreement rather than resolving it.\n\nThe approach is to build one recipe completely before generalizing. The\nsource text is pinned to an exact commit and checksum of the edition and never\nedited here. The recipe is divided into segments we define over the editor's\nsections; each step of the method is one verb of the Greek, cited by its CTS\nURN; each ingredient is the phrase that names it, with every word linked to\nits term. The scholars' comments are quoted exactly and verified at build time\ninside the unit of their edition they come from; the commentary is Sean's,\nwritten under stated editorial rules. The scholars' identifications are kept\nonce, in the extraction pipeline, and shown from its pinned packages, grouped\nby taxon and scoped by the passage the scholar cites. The build refuses to produce a page if any\nquotation, anchor, reference or translation is missing. Scholarly decisions\nare made by Sean and recorded with their date; an agent prepares the evidence\nand the proposal.\n\n## Start here\n\n- [HANDOFF.md](HANDOFF.md): the standing rules in short, what exists, the\n  to-do list, what is open with Sean.\n- [docs/CONTENT_MODEL.md](docs/CONTENT_MODEL.md): what each kind of record\n  collects, where each field comes from and what its page shows; the schemas\n  in `spec/schema/` are its machine form.\n- [docs/DECISIONS.md](docs/DECISIONS.md): Sean's rulings on the model, dated.\n- [docs/EDITORIAL_RULES.md](docs/EDITORIAL_RULES.md): Sean's rules for\n  analysing a recipe and writing about it, with their reasons.\n- [docs/PRINCIPLES.md](docs/PRINCIPLES.md): the charter of the platform:\n  the levels kept distinct, products as views, when a view ships.\n- [docs/DATA_MODEL.md](docs/DATA_MODEL.md): the charter applied to the corpus:\n  identity, anchors, how a link is written.\n- [docs/PERSONS.md](docs/PERSONS.md): how the persons were found, recorded,\n  translated and linked (relations, graded mentions, works), and how to add one.\n- [docs/PEOPLE_PLACES_TIME.md](docs/PEOPLE_PLACES_TIME.md): how persons,\n  documents, places and dates connect, what each link establishes, and what\n  each date dates (D145).\n- [docs/PAGES.md](docs/PAGES.md): the site's parts, the rules every page\n  keeps, the page types and their state; `docs/mockups/` guide the layout.\n- [AGENTS.md]\n…[truncated at 4000 chars]",
-      "status_md": null
-    },
-    {
       "name": "editions-reader-site",
       "private": false,
       "archived": false,
@@ -12230,124 +12375,6 @@
       ],
       "md_files_truncated": true,
       "readme": "# Oribasius Collectiones Medicae — Scholarly Database\n\nLast updated: 2026-07-21 — Corpus release `2026.07.21.2` carries repaired Oribasius, complete Dioscorides, and the Book XV Clinopodion correction.\n\nA collaborative Flask application for editing, translating, and analyzing\nancient Greek medical texts from Oribasius and Dioscorides.\n\n> **Alignment is deprecated.** Do not run the Greek-English alignment worker\n> or treat queued alignment as required for approval or publication. See\n> [`docs/ALIGNMENT_DEPRECATION.md`](docs/ALIGNMENT_DEPRECATION.md) for the\n> removal decision and scope.\n\nDetailed documentation lives in:\n\n- [App Guide](docs/APP_GUIDE.md)\n- [Translation Workflow](docs/TRANSLATION_WORKFLOW.md)\n- [Alignment Deprecation](docs/ALIGNMENT_DEPRECATION.md)\n- [Lexicon Evaluation](docs/LEXICON_EVALUATION.md)\n- [Corpus Translation Program](docs/CORPUS_TRANSLATION_PROGRAM.md)\n- [Data Versioning](docs/DATA_VERSIONING.md)\n- [Data Changelog](docs/DATA_CHANGELOG.md)\n- [Recovery Snapshots](recovery/README.md)\n\n## Current Data Release\n\nThe tracked corpus release is `2026.07.21.2`: 1,261 Oribasius entries covering\nBooks I-X and XV, with all 1,259 substantive Greek bodies translated, plus 835\nfreshly translated Dioscorides entries covering Books I-V. Its canonical\nmanifest pins the compact database, the two Oribasius recovery manifests, the\nDioscorides recovery manifest, and their checksum inventories by SHA-256.\n\n```bash\npython scripts/check_data_version.py\n```\n\nSee [`data/VERSION.json`](data/VERSION.json) for the machine-readable release\nrecord and [`docs/DATA_CHANGELOG.md`](docs/DATA_CHANGELOG.md) for its history.\nThe same release metadata is available from `GET /api/data-version`.\n\n## Preserved Galen Translation\n\nThe tracked recovery snapshot at\n[`recovery/galen-simple-drugs-books-6-11-2026-07-15/`](recovery/galen-simple-drugs-books-6-11-2026-07-15/)\ncontains all 639 approved translations for the repository's Galen, *On Simple\nDrugs*, Books 6-11 corpus. Each JSON record includes the original Greek and the\napproved English together, so a fresh clone no longer depends on the ignored\ndevelopment database or runtime project artifacts to recover this work.\n\nValidate the snapshot with:\n\n```bash\npython scripts/export_galen_simple_drugs_json.py --validate-only\n```\n\n## Dioscorides Fresh-Translation Workflow\n\nDioscorides' *De materia medica* uses the dedicated\n`fresh_two_pass_v1` workflow. All 835 units receive a new translation from the\nGreek. Beck is stored only in `original_translation_*` for the 832 matched\nunits and may be consulted only in Pass A as a reference witness; it is never\ncopied into `translation_*` or used as an editable base. The three `RV` units\nare translated without a Beck reference.\n\nThis is a Codex PM-controlled workflow, not an in-process model integration.\nRepository commands build and validate bounded JSON packets; a live PM launches\nstateless workers and is the only actor that records stages or approves text:\n\n```text\nroute and inject matched terminology\n  → Pass A fresh Greek translation (Beck reference available when present)\n  → deterministic mechanics, terminology, and Beck-distinctness gates\n  → Pass B independent Greek verification (Beck-blind)\n  → sentence-only patch, at most two retries, when required\n  → mandatory PM review for variants, cruxes, failures, and audit samples\n  → approval, recovery snapshot, and compact publication\n```\n\nThe CLI surface is discoverable with `python -m oribasius.jobs --help`; its\nDioscorides commands are prefixed `translation-fresh-`. Canonical English is\nwritten only by `translation-fresh-approve`, after every applicable gate has\npassed. Approval preserves the Beck witness, refuses to overwrite existing\ncanonical English, and writes a stable source-key recovery artifact containing\nthe Greek, fresh English, quality/distinctness receipts, and model/token\nprovenance.\n\nThe tracked recovery directory contains the complete 835-entry snapshot.\nRegenerate and verify it with:\n\n```ba\n…[truncated at 4000 chars]",
-      "status_md": null
-    },
-    {
-      "name": "to-do-list",
-      "private": false,
-      "archived": false,
-      "default_branch": "main",
-      "pushed_at": "2026-10-28T09:42:20Z",
-      "open_prs": 0,
-      "branches": [
-        {
-          "name": "main",
-          "tip_date": "2026-10-28T09:42:18Z",
-          "tip_author": "portfolio-bot",
-          "tip_message": "portfolio: nightly collection 2026-10-28"
-        }
-      ],
-      "branch_detail_skipped": false,
-      "md_files": [
-        ".github/pull_request_template.md",
-        "AGENTS.md",
-        "CLAUDE.md",
-        "CONTRIBUTING.md",
-        "PLAN.md",
-        "README.md",
-        "REPO_STANDARD.md",
-        "SECURITY.md",
-        "STATUS.md",
-        "WBS_TODO_SUPABASE_INTEGRATION.md",
-        "data/projects.md",
-        "docs/FINDINGS-metopion-20260805.md",
-        "docs/FINDINGS-theophrastos-20260805.md",
-        "docs/QA_CHECKLIST.md",
-        "docs/pmo.md",
-        "docs/pmo/CHANGELOG.md",
-        "docs/pmo/DECISIONS.md",
-        "docs/pmo/ENGINEERING_LOG.md",
-        "docs/pmo/KNOWN_ISSUES.md",
-        "pmo/decision_log.md",
-        "pmo/delegation_outbox.md",
-        "pmo/inbox.md",
-        "projects/br-ager-scent-ancient-magic/00_brief.md",
-        "projects/br-ager-scent-ancient-magic/01_plan.md",
-        "projects/br-ager-scent-ancient-magic/02_status.md",
-        "projects/br-ager-scent-ancient-magic/03_actions.md",
-        "projects/br-ager-scent-ancient-magic/04_assets.md",
-        "publications/BRIEF.md",
-        "publications/handoff.md"
-      ],
-      "md_files_truncated": false,
-      "readme": "# Scholar's Opus\n\nLightweight, local-first academic research and publication tracker (Vite + React). It seeds from a Markdown project list and stores edits locally in the browser (no backend).\n\n## Quickstart\n\n**Requirements:** Node.js 20+\n\n```bash\nnpm ci && npm run dev\n```\n\n## Scripts\n\n- `npm run dev`: run the dev server\n- `npm run build`: build a production bundle into `dist/`\n- `npm run preview`: preview the production build locally\n- `npm run lint`: lint the codebase\n- `npm run typecheck`: TypeScript typecheck\n- `npm test`: run unit tests\n- `npm run validate:data`: validate `data/projects.md` parses cleanly\n\n## Configuration\n\nNo required environment variables.\n\n## Architecture\n\n- `src/main.tsx`: app entrypoint\n- `src/App.tsx`: UI + filtering (Writing/Experiments/DH/Grants/Admin tabs)\n- `src/projectsParser.ts`: parses `data/projects.md` into tasks at build time\n- `src/db.ts`: localStorage persistence + migrations\n- `src/components/*`: UI components\n- `src/sync.ts`: optional Supabase sync (guarded, record-level)\n\n## Optional Supabase cloud sync (Auth)\n\nCloud sync is optional. If `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY` are present, the app can sync via Supabase **Auth + RLS**.\n\n- Enable: open **Cloud** (or go to `/auth`) and sign in (PKCE; callback at `${BASE_URL}auth/callback`).\n- Security model: tables are protected by RLS (`owner_id = auth.uid()`); the client does not rely on `user_id` filtering for access control.\n- Deletes: use tombstones (`deleted_at`) to prevent cross-device resurrection; hard delete/purge is deferred.\n- Dashboard settings: add exact redirect URLs for dev + GitHub Pages base path (see `.github/workflows/pages.yml` for the deployed base path, and `vite.config.ts` for `base`).\n\nLegacy migration note: if you have old rows in `public.tasks` that only have a legacy `user_id` namespace, you must manually “claim” them by setting `owner_id` via SQL (see `supabase/migrations/*_auth_owner_rls_tombstones.sql`).\n\n## Data\n\n- Seed list: `data/projects.md` (each entry is a checklist item with an indented metadata block)\n- Saved state: browser `localStorage` (`scholar_opus_db`)\n\nThe Markdown seed is treated as read-only at runtime; changes made in the UI are not written back to `data/projects.md`.\n\nExample entry:\n\n```md\n- [ ] Project title\n  - domain: Writing\n  - type: Article\n  - status: Draft\n  - priority: Medium\n  - description: Short notes…\n```\n\n## Deployment (GitHub Pages)\n\nThis repo deploys to `https://alchemiesofscent.github.io/to-do-list/` via `.github/workflows/pages.yml`.\n\nNote: the GitHub Pages build is configured for the `/to-do-list/` base path. If you fork or rename the repo, set `VITE_BASE_PATH` for production builds or update the Vite `base` setting in `vite.config.ts`.\n",
-      "status_md": "# STATUS\n\n**Updated:** 2026-08-06 (by: claude-cowork)\n**Canonical branch:** main\n\n> **⚠ TOP ITEM (2026-08-06): a finished corpus is one disk failure from gone.**\n> The Galen *De alimentorum facultatibus* lane on theophrastos — 2,463 files,\n> 147 approved chapters — is **untracked: no commit, no branch, no backup**\n> (rescue bundles predate it). Flagged by the oribasius /goals job itself at\n> 06:56. Sean is away until ~2026-08-09. If ANY access to theophrastos exists\n> first, run:\n> `cd ~/github/oribasius-app && git checkout -b rescue/alimfac-20260806 && git add -f translation_project/galen-alimentary-faculties/ && git commit -m \"rescue: alim.fac. lane\" && git push -u origin rescue/alimfac-20260806`\n> Book XIV wave artifacts are untracked too (same repo, same exposure).\n\n---\n\n## Part 1 — The story so far (for Sean)\n\n### Previously on alchemiesofscent…\n\nSean, a scholar of ancient perfume, has years of research projects scattered\nacross twenty-five online archives and two computers — a laptop and a desktop.\nOver time, he and his AI assistants made copies of copies, left work half-filed,\nand in places kept the only version of something on a single machine, where a\nspilled coffee could end it. So he started a cleanup with one rule: everything\nimportant must live in the shared online archive, where every machine can see\nit, and this folder is the cleanup's logbook.\n\nStep one: list what the online archive holds. Done. Of twenty-five projects,\nonly about five showed recent life; the rest were husks, half-finished starts,\nor duplicates. The same project often existed under two or three names — a\ncookbook of ancient recipes in three variants, a data model in two — because\nwhen a project stalled, the habit was to start a fresh copy rather than repair\nthe old one. And the two busiest projects (a tool for editing ancient texts,\nand a database of the physician Oribasius) each had a large body of new work\nsitting in side-drafts that were never folded back into the official version.\nThe cause, in one sentence: many working sessions — human and AI alike — ended\nwithout anyone filing what had been done, and each rescue attempt made another\ncopy instead of cleaning up the last one.\n\nStep two: search each computer and compare. The laptop has now been searched,\nand it was hiding things. The biggest surprise: inside the Oribasius project\nsits a detailed plan, written by an AI assistant in July and never shared\nonline, to freeze that project and start a successor called \"hylike\" — the\nexact opposite of the current cleanup plan, which says to fold two other\nprojects *into* it. Sean has deferred that decision. The laptop also holds\nhundreds of unfiled edits to the text-editing tool (which is supposed to be\nfrozen), a ten-thousand-file salvage copy of it with no backup anywhere,\nseveral smaller projects with no online backup at all, and a to-do app whose\nlatest state was never written down anywhere — it exists only inside a web\nbrowser, last touched in January.\n\nThen, that same evening, Sean sat down at the desktop and ran the search\nhimself. It did hold a third version of events. The Oribasius project turned\nout to exist in three states that no longer agree: the shared archive's\nversion, the laptop's secret successor plan, and the desktop's own pile —\nnearly a thousand unfiled edits plus rescue work (a translation of Paul of\nAegina's Book 7, recovered Galen data) that was never sent anywhere. Worse:\nthe supposedly frozen text-editing tool had been changed *that very day* by\nsomething still running on the desktop — nobody yet knows what. And a small\nproject surfaced that exists on no archive at all, only on that one machine.\n\nBoth machines have now been heard; the searching phase is over. The mystery\nof the frozen tool solved itself: the editor was Sean — before leaving town,\nhe deliberately restarted three automated jobs on the desktop (the Oribasius\ntranslations, the Dioscorides edition, and the cookbook's extraction\npipeline) so they'd finish while \n…[truncated at 4000 chars]"
-    },
-    {
-      "name": "concordance",
-      "private": true,
-      "archived": false,
-      "default_branch": "main",
-      "pushed_at": "2026-10-28T05:44:41Z",
-      "open_prs": 0,
-      "branches": [
-        {
-          "name": "main",
-          "tip_date": "2026-10-28T05:44:37Z",
-          "tip_author": "alchemiesofscent",
-          "tip_message": "Merge wip/units-reading-lb owned by concordance-writer (queue mq-20261027-concordance-writer-units-reading-lb-02)"
-        },
-        {
-          "name": "wip/registrar",
-          "tip_date": "2026-10-09T10:00:57Z",
-          "tip_author": "Claude",
-          "tip_message": "Link identifiers prepared (checklist I.6): tools/link_ids.py, the check, docs/LINK_IDS.md",
-          "ahead": 2,
-          "behind": 83
-        },
-        {
-          "name": "wip/subjects",
-          "tip_date": "2026-10-09T01:57:30Z",
-          "tip_author": "Claude",
-          "tip_message": "Report: time",
-          "ahead": 0,
-          "behind": 87
-        },
-        {
-          "name": "wip/wellmann-repin",
-          "tip_date": "2026-10-11T04:30:33Z",
-          "tip_author": "alchemiesofscent",
-          "tip_message": "remap.py: an end on a section is carried through its chapter, ready for the section round (D39)",
-          "ahead": 11,
-          "behind": 59
-        }
-      ],
-      "branch_detail_skipped": false,
-      "md_files": [
-        "AGENTS.md",
-        "CLAUDE.md",
-        "PLAN.md",
-        "README.md",
-        "docs/BATCH.md",
-        "docs/ENTRY_TEST.md",
-        "docs/ISSUES_2026-10-08.md",
-        "docs/PILOT.md",
-        "docs/READING_2026-10-09.md",
-        "docs/REPIN.md",
-        "docs/REVIEWER.md",
-        "docs/SUBJECTS_2026-10-08.md",
-        "docs/WORKER.md",
-        "review/README.md",
-        "tools/editions/README.md",
-        "tools/editions/prompt.md",
-        "tools/editions/prompt_find.md",
-        "tools/editions/prompt_pair.md",
-        "tools/editions/prompt_sections.md",
-        "tools/editions/prompt_sp.md",
-        "tools/editions/prompt_spans.md"
-      ],
-      "md_files_truncated": false,
-      "readme": "# Concordance\n\nWhich passages of Galen, Oribasius, Aetius, Paul and Dioscorides correspond, and how the editions and translations of Dioscorides map onto Wellmann's: links between CTS URNs, on the pattern of the CITE architecture (URN, relation, URN). No Greek is kept here; the texts are pinned in `manifest.tsv`.\n\n- `PLAN.md`: the plan and the rulings (sheet 011, 2026-10-06).\n- `manifest.tsv`: the texts, pinned by repository, path, commit and sha256.\n- `units/<id>.tsv`: the citable units of each text (URN, label, print locator, hash of the text).\n- `links.tsv`, `groups.tsv`: the concordance.\n- `tools/units.py`, `tools/check.py`.\n\n```\npython3 tools/units.py            # build units/ from the pinned files (needs sources.local.tsv)\npython3 tools/units.py --diff ID  # compare a text's current file with its units (before re-pinning)\npython3 tools/check.py            # every link lands on a unit; manifest hashes match the local files\n```\n",
       "status_md": null
     },
     {
